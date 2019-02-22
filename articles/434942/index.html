@@ -1,0 +1,86 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134931760-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-134931760-1');
+  </script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>The art of shamanism or custom firmware for Olinuxino. UBOOT Part 2</title>
+  <meta name="description" content="All this was going from under Ubuntu 16.04. 
+
+ The decision to assemble the firmware was born due to the lack of an freely accessible image for this b...">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="../../css/main.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
+</head>
+
+<body>
+  <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+  <nav class="page-headings-container js-page-headings-container"></nav>
+  <div class="tools-bar js-tools-bar">
+    <!-- <a href="https://quick-geek.github.io/search.html" title="Search">🔎</a> -->
+    <a class="js-list-of-headings-button" data-state="closed" href="#" title="Headings">📜</a>
+    <a class="js-go-to-top-button" href="#" title="Go to Top">⬆️</a>
+    <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
+  </div>
+  <section class="page js-page"><h1>The art of shamanism or custom firmware for Olinuxino. UBOOT Part 2</h1><div class="post__text post__text-html js-mediator-article">  All this was going from under Ubuntu 16.04. <br><br>  The decision to assemble the firmware was born due to the lack of an freely accessible image for this board (Olimex A13-Olinuxino).  And the manufacturer offered to buy an SD card with the image and cost about 10 euros at that time, which didn’t suit much, moreover, it was designed for a monitor. <br><br>  The bootloader configuration will be configured to boot from the SD card.  Since there is no NAND memory on the board, and all other boot options are slightly crooked (whoever can collect the uboot for booting from USB media, let him take two steps forward and share).  Algorithm CPU utilization allwinner a13 can be found on the manufacturer's website.  Or here is a datasheet clip. <br><br><img src="https://habrastorage.org/webt/4n/qd/wn/4nqdwnqofayue4o5x7i7it2nwmq.jpeg"><br><a name="habracut"></a><br>  It is clearly seen from the algorithm that the bootloader is first checked on the SD card, then all the others, and only at the end is the bootloader checked to USB.  Therefore, tablets and smartphones can be done with Ubuntu if they slip the SD card with the appropriate way.  And apparently, about such an algorithm will be, if not all, then many manufacturers arm processors. <br><br>  First you need to break the SD card, for this in order not to be mistaken in the process of typing commands, we will reduce the whole process to a script file (I prefer to reduce everything to such files, since I will have to run it more than once). <br><br><pre><code class="bash hljs"><span class="hljs-comment"><span class="hljs-comment">#!/bin/sh DEViCELINK=/dev/sdb fdisk $DEViCELINK &lt;&lt;EOF n # создать новый раздел p # основной раздел 1 # номер раздела 2048 # создать раздел с отступом 2MiB +64M # размер раздела, тут будет лежать kernel файл с переменными и dts файл n p 2 +2G # этот раздел для ubuntu n p 3 +2G # этот в дальнейшем станет для каскадной файловой системы n p 4 # а в этом разделе будет весь остальной размер w EOF mkfs.ext2 /dev/sdb1 &lt;&lt; EOF # раздел с kernel должен быть либо fat16 либо ext2 y EOF mkfs.ext4 /dev/sdb2 &lt;&lt; EOF y EOF mkfs.ext4 /dev/sdb3 &lt;&lt; EOF y EOF mkfs.ext4 /dev/sdb4 &lt;&lt; EOF y EOF</span></span></code> </pre> <br><h4>  Build UBOOT </h4><br>  Let us dwell on the boot loader in more detail, and in its quality choose UBOOT, we extort the version of u-boot-2018.05, the last one at that moment. <br><br>  It is assumed that there is already all the necessary software for the assembly.  And start the build by configuring the bootloader. <br><br>  To start the configuration, go to the folder with UBOOT and run the command from it: <br><br><pre> <code class="plaintext hljs">make O=../olimex-uboot # адрес где будет лежать результат сборки -j4 # количество потоков для сборки ARCH=arm # тип архитектуры для которой собирается CROSS_COMPILE=arm-linux-gnueabihf- # кроскомпилятор нашего процессора xconfig # команда запуска GUI конфигуратора</code> </pre><br>  As a result of execution, we get such a window. <br><br><img src="https://habrastorage.org/webt/pa/w-/9n/paw-9nsvkx9pbxwsiwpcto_mdnu.jpeg"><br><br>  This is the so-called Ix version of the configurator, usually using the console option in it, more information is provided, but this is all the more obvious and it will completely cover our needs. <br><br>  And further, if you have a lot of time or you don’t feel sorry for yourself, you can configure the bootloader from scratch.  However, it is better to upload the ready configuration of this board through the file menu.  In the folder with the bootloader source code at /u-boot-2018.05/configs/, select the file A13-OlinuXino_defconfig and this is our configuration, where everything is already installed.  Then click save and close the window, because there is nothing to change here. <br><br>  It remains to run the build command: <br><br><pre> <code class="plaintext hljs">make O=../olimex-uboot -j4 ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-</code> </pre><br>  In this command, the elements are all the same as in the previous one, only without the xconfig parameter, which means configuration.  That's all, the bootloader is assembled. <br><br>  After the end of the build, in the folder specified in the command, we need to find this file “u-boot-sunxi-with-spl.bin” and this is the correct bootloader. <br><br>  Next to fill the bootloader on the SD card, use the command: <br><br><pre> <code class="plaintext hljs">dd if=../olimex-uboot/u-boot-sunxi-with-spl.bin # откуда брать файл для загрузки of=/dev/sdb # загружаем в самое начало SD карты bs=1024 seek=8 # отступаем 8KiB от начала, отсюда будет записано начало загрузчика</code> </pre><br>  The loader that was just recorded after the download will point to the next section of the SD card / dev / sdb1, and there it will look for a script file with environment variables which contains instructions for further loading. <br><br>  This file should be named boot.scr, a file with this name is looking for uboot after its download.  The file name can of course be changed as well as the boot method if you get into the UBOOT configuration, but we’ll dwell on this option. <br><br>  You should also compile the devicetree files for one thing, they are in the source code with the bootloader at /u-boot-2018.05/arch/arm/dts/ we are interested in the file sun5i-a13-olinuxino.dts.  It is a configuration of registers and processor peripherals.  This is a universal configuration file, so it is quite possible that one uboot boot loader is used for different processors, but different dts files are used.  The same dts files are in the source code of the Linux kernel, they are basically the same, just written a little differently and where to get the assembled tree of devices that you already have to choose.  In general, to build dts files you need to run this command: <br><br><pre> <code class="plaintext hljs">make O=../olimex-uboot -j4 ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- dtbs # опция указывающая что необходимо собрать dts файлы</code> </pre><br>  The compiled file will be located at ../olimex-uboot/arch/arm/dts/. <br>  Consider in more detail the boot.scr file. <br>  First, create a boot.cmd file with the contents: <br><br><pre> <code class="plaintext hljs">load mmc 0 0x43000000 sun5i-a13-olinuxino.dtb load mmc 0 0x42000000 uImage setenv bootargs root=/dev/mmcblk0p2 rootfstype=ext4 rw rootwait console=ttyS0,115200 bootm 0x42000000 – 0x43000000</code> </pre><br>  But in order for uboot to understand the instructions, this file must be in the form of a script and for this you need to run the command: <br><br><pre> <code class="plaintext hljs"> mkimage -C none -A arm -T script -d boot.cmd boot.scr</code> </pre><br>  Where boot.scr is the required file. <br><br>  The first line load mmc 0 0x43000000 sun5i-a13-olinuxino.dtb loads the device tree file at the specified address in RAM.  load mmc 0 indicates that you need to load the file from the first section of the SD card, while the numbering for uboot is zero and not one. <br><br>  The second line load mmc 0 0x42000000 uImage loads the assembled Linux kernel at the specified address. <br><br>  For our version of the variable setenv video-mode, which is usually further used, we do not need as we do not plan to use the monitor. <br><br>  Third line: <br><br><pre> <code class="plaintext hljs">setenv bootargs # объявляет агрументы загрузки root=/dev/mmcblk0p2 # указатель на раздел SD карты где размещен rootfs rootfstype=ext4 # тип файловой системы rootfs rw # перезаписываемая файловая система rootwait console=ttyS0,115200 # порт для консоли uart0</code> </pre> <br>  Well, the last bootm command loads the kernel from the one previously loaded in memory. <br><br>  In the next article will be the last part that should be placed on the first section of the SD card, this is the formation of the Linux kernel. <br><br>  <a href="https://habr.com/post/434894/">The first part of the article</a> <br>  <a href="https://habr.com/post/435586/">The third part of the article</a> </div><p>Source: <a href="https://habr.com/ru/post/434942/">https://habr.com/ru/post/434942/</a></p>
+<section class="navigation-panel">
+<h4>More articles:</h4>
+<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
+</section>
+<script src="../../js/main.js"></script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function (d, w, c) {
+      (w[c] = w[c] || []).push(function() {
+          try {
+              w.yaCounter52496797 = new Ya.Metrika({
+                  id:52496797,
+                  clickmap:true,
+                  trackLinks:true,
+                  accurateTrackBounce:true,
+                  webvisor:true
+              });
+          } catch(e) { }
+      });
+
+      var n = d.getElementsByTagName("script")[0],
+          s = d.createElement("script"),
+          f = function () { n.parentNode.insertBefore(s, n); };
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+      if (w.opera == "[object Opera]") {
+          d.addEventListener("DOMContentLoaded", f, false);
+      } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/52496797" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<!-- Google Analytics -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-134931760-1', 'auto'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+</section>
+</body>
+
+</html>

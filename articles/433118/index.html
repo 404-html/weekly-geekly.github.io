@@ -1,0 +1,86 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134931760-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-134931760-1');
+  </script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Benchmark testing and quick analysis of permutations algorithms</title>
+  <meta name="description" content="I’m hoping to improve intercommunication, which I’m hoping to improve. 
+
+ I urge you to reply this language in English, even you have some difficultie...">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="../../css/main.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
+</head>
+
+<body>
+  <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+  <nav class="page-headings-container js-page-headings-container"></nav>
+  <div class="tools-bar js-tools-bar">
+    <!-- <a href="https://quick-geek.github.io/search.html" title="Search">🔎</a> -->
+    <a class="js-list-of-headings-button" data-state="closed" href="#" title="Headings">📜</a>
+    <a class="js-go-to-top-button" href="#" title="Go to Top">⬆️</a>
+    <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
+  </div>
+  <section class="page js-page"><h1>Benchmark testing and quick analysis of permutations algorithms</h1><div class="post__text post__text-html js-mediator-article">  I’m hoping to improve intercommunication, which I’m hoping to improve. <br><br><img src="https://habrastorage.org/getpro/habr/post_images/953/9c6/fb7/9539c6fb7a0ca8f9bc970eff828e3a5c.jpg" alt="image" width="20%" align="left">  I urge you to reply this language in English, even you have some difficulties with this language.  I am not writing a letter.  However, I am going to talk about some poetical issues. <a name="habracut"></a>  - of course, about combinatorics and especially about generating objects.  I mean permutations.  If you’re always having fun, you’re always having to go on it.  Kicked some habrausers up to write some code (see comments) and me too.  This is where the event leads to. <br><br>  I’m just skilled in the c89: <br><br><ol><li>  Johnson-Trotter algorithm </li><li>  Naryana algorithm </li><li>  Algorithm <a href="https://habr.com/post/248493/">taken from this habrpost</a> , developed by <a href="https://habr.com/users/mrrl/" class="user_link">Mrrl</a> (A. Astrelin) </li></ol><br>  All the algorithms mentioned above are not recursive. <br><br>  <a href="">My version of Johnson-Trotter algorithm</a> is not the best, I think.  Nevertheless, it is up to show you how it produces for <b>n = 10.</b> <br><br>  Time with console output (means printf) <br>  <b>real 1m19.410s</b> <br>  user 0m31.899s <br>  sys 0m36.253s <br><br>  Time without console output <br>  <b>real 0m2.241s</b> <br>  user 0m2.236s <br>  sys 0m0.004s <br><br>  <a href="">My verstion</a> of Mrrl code <br><br>  With console output <br>  <b>real 1m11.565s</b> <br>  user 0m27.429s <br>  sys 0m32.997s <br><br>  Without console output <br>  <b>real 0m0.489s</b> <br>  user 0m0.486s <br>  sys 0m0.002s <br><br>  <a href="">The last Naryana like algorithm</a> gives such result <br><br>  With console output <br>  <b>real 1m10.223s</b> <br>  user 0m8.617s <br>  sys 0m38.165s <br><br>  Without console output <br>  <b>real 0m0.453s</b> <br>  user 0m0.449s <br>  sys 0m0.004s <br><br>  Thanks for reading.  I used this site for <a href="https://spellcheckplus.com/">spell checking.</a>  Of course, you have been asked to ask me where you want the quick analysis ?!  At this moment I can’t give you a simple answer.  Maybe these three code-scripts should not be tuned, if it is possible.  It is a quick and easy way to read pseudocode (reading description mostly).  If I’m not mistaken, I’m publishing a version of the algorithm. </div><p>Source: <a href="https://habr.com/ru/post/433118/">https://habr.com/ru/post/433118/</a></p>
+<section class="navigation-panel">
+<h4>More articles:</h4>
+<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
+</section>
+<script src="../../js/main.js"></script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function (d, w, c) {
+      (w[c] = w[c] || []).push(function() {
+          try {
+              w.yaCounter52496797 = new Ya.Metrika({
+                  id:52496797,
+                  clickmap:true,
+                  trackLinks:true,
+                  accurateTrackBounce:true,
+                  webvisor:true
+              });
+          } catch(e) { }
+      });
+
+      var n = d.getElementsByTagName("script")[0],
+          s = d.createElement("script"),
+          f = function () { n.parentNode.insertBefore(s, n); };
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+      if (w.opera == "[object Opera]") {
+          d.addEventListener("DOMContentLoaded", f, false);
+      } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/52496797" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<!-- Google Analytics -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-134931760-1', 'auto'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+</section>
+</body>
+
+</html>
