@@ -1,0 +1,115 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134931760-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-134931760-1');
+  </script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>The first video codec on machine learning radically surpassed all existing codecs, including H.265 and VP9</title>
+  <meta name="description" content="Examples of reconstruction of a fragment of video compressed by different codecs with approximately the same BPP value (bits per pixel). Comparative t...">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="../../css/main.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
+</head>
+
+<body>
+  <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+  <nav class="page-headings-container js-page-headings-container"></nav>
+  <div class="tools-bar js-tools-bar">
+    <!-- <a href="https://quick-geek.github.io/search.html" title="Search">🔎</a> -->
+    <a class="js-list-of-headings-button" data-state="closed" href="#" title="Headings">📜</a>
+    <a class="js-go-to-top-button" href="#" title="Go to Top">⬆️</a>
+    <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
+  </div>
+  <section class="page js-page"><h1>The first video codec on machine learning radically surpassed all existing codecs, including H.265 and VP9</h1><div class="post__text post__text-html js-mediator-article"><div style="text-align:center;"><img src="https://habrastorage.org/webt/ss/22/b8/ss22b8wzp8kwtuug_hv6v2edaou.png"></div><br>  <i><font color="gray">Examples of reconstruction of a fragment of video compressed by different codecs with approximately the same BPP value (bits per pixel).</font></i>  <i><font color="gray">Comparative test results, see under the cat</font></i> <br><br>  Researchers at WaveOne <a href="https://www.technologyreview.com/s/612462/deep-learning-will-help-keep-video-from-clogging-up-the-internet/">claim</a> that they are close to the video compression revolution.  When processing 1080p high-resolution video, their <a href="https://arxiv.org/abs/1811.06981">new codec on machine learning</a> compresses video by about 20% better than the most modern traditional video codecs, such as H.265 and VP9.  And on the video "standard definition" (SD / VGA, 640 × 480) the difference reaches 60%. <br><a name="habracut"></a><br>  The developers call the current methods of video compression, which are implemented in H.265 and VP9, ​​"ancient" by the standards of modern technologies: "Over the past 20 years, the basics of existing video compression algorithms have not changed significantly," write the authors of the scientific paper in the introduction of their article.  “Although they are very well designed and carefully tuned, they remain tightly programmed and, as such, cannot adapt to the growing demand and a more versatile range of video materials, including sharing in social media, object detection, streaming virtual reality broadcasting and so on.” <br><br>  The use of machine learning should finally bring video compression technology into the 21st century.  The new compression algorithm is far superior to existing video codecs.  “As far as we know, this is the first method of machine learning, which showed such a result,” they say. <br><br>  The basic idea of ​​video compression is to remove the redundant data and replace it with a shorter description that allows you to play the video later.  Most video compression occurs in two stages. <br><br>  The first stage is compression of motion, when the codec searches for moving objects and tries to predict where they will be in the next frame.  Then, instead of recording the pixels associated with this moving object, in each frame, the algorithm encodes only the shape of the object along with the direction of motion.  Indeed, some algorithms look at future frames in order to determine the motion even more accurately, although this obviously will not work for live broadcasts. <br><br>  The second compression step removes other redundancies between one frame and the next.  Thus, instead of recording the color of each pixel in a blue sky, the compression algorithm can determine the area of ​​that color and indicate that it does not change over the next few frames.  Therefore, these pixels remain the same color until they are told to change.  This is called residual compression. <br><br>  The new approach, which was presented by scientists, for the first time uses machine learning to improve both of these compression methods.  So, while compressing traffic, the methods of machine learning teams found new redundancies based on motion, which conventional codecs were never able to detect, much less use.  For example, turning a person’s head from a frontal view to a profile always gives a similar result: “Traditional codecs will not be able to predict a face profile based on the frontal view,” write the authors of the scientific work.  On the contrary, the new codec studies these types of space-time patterns and uses them to predict future frames. <br><br>  Another problem is the allocation of available bandwidth between motion and residual compression.  In some scenes, the compression of movement is more important, while in others the residual compression provides the greatest gain.  The best compromise between them is different from frame to frame. <br><br>  Traditional algorithms process both processes separately.  This means that there is no easy way to take advantage of one or the other and find a compromise. <br><br>  The authors bypass this by compressing both signals simultaneously and, based on the complexity of the frame, determine how to distribute the bandwidth between the two signals in the most efficient way. <br><br>  These and other improvements have allowed researchers to create a compression algorithm that far exceeds traditional codecs (see benchmarks below). <br><br><img src="https://habrastorage.org/webt/kc/up/iz/kcupiztxr64324mlsomexw1anpu.png"><br>  <i><font color="gray">Examples of reconstruction of a fragment compressed with different codecs with approximately the same BPP value show a significant advantage of the WaveOne codec.</font></i> <br><br><img src="https://habrastorage.org/webt/su/at/wb/suatwbtoaczojqtolkuxkhilh3a.jpeg"><br>  <i><font color="gray">H.265 optical stream cards (left) and WaveOne codec (right) on the same bit rate</font></i> <br><br>  However, the new approach is not without some flaws, <a href="https://www.technologyreview.com/s/612462/deep-learning-will-help-keep-video-from-clogging-up-the-internet/">notes the</a> publication <i>MIT Technology Review</i> .  Perhaps the main drawback is the low computational efficiency, that is, the time required for encoding and decoding video.  On the Nvidia Tesla V100 platform and on the VGA-size video, the new decoder operates at an average speed of about 10 frames per second, and the encoder does at all at about 2 frames per second.  Such speeds simply cannot be applied in live video broadcasting, and even when offline coding materials, the new encoder will have a very limited scope of use. <br><br>  Moreover, the decoder speed is not enough even to <i>view the</i> video compressed by this codec on a regular personal computer.  That is, to view these videos, even in the minimum SD quality, at the moment an entire computing cluster with several graphic accelerators is required.  And to view the video in HD quality (1080p) you need a whole computer farm. <br><br>  It remains to hope only for an increase in the power of graphics processors in the future and for the improvement of technology: “The current speed is not sufficient for deployment in real time, but it must be significantly improved in future work,” they write. <br><br><h2>  Benchmarks </h2><br>
+В тестировании принимали участие все ведущие коммерческие кодеки HEVC/H.265, AVC/H.264, VP9 и HEVC HM 16.0 в эталонной реализации. Для первых трёх использовался Ffmpeg, а для последнего — официальная реализация. Все кодеки были максимально настроены, насколько позволили знания исследователей. Например, для удаления B-фреймов использовался H.264/5 с опцией <code>bframes=0</code>, в кодеке аналогичная процедура осуществлялась настройкой <code>-auto-alt-ref 0 -lag-in-frames 0</code> и так далее. Для максимизации производительности на соответствие метрике MS-SSIM, естественно, кодеки запускались с флагом <code>-ssim</code>.<br>
+<br>
+Все кодеки проверяли на стандартной базе видеороликов в форматах SD и HD, которые часто используются для оценки алгоритмов сжатия видео. Для SD-качества использовалась библиотека видео в разрешении VGA от e Consumer Digital Video Library (CDVL). Она содержит 34 видеоролика с общей длиной 15&nbsp;650 кадров. Для HD использовался набор данных Xiph 1080p: 22 видеоролика общей длиной 11&nbsp;680 кадров. Все видеоролики 1080p были обрезаны по центру до высоты 1024 (в данный подход нейросеть исследователей способна обрабатывать только измерения с размерностями, кратными 32 по каждой стороне).<br>
+<br>
+Различные результаты тестирования показаны на диаграммах ниже: <br>
+<br>
+<ul>
+<li>средние значения MS-SSIM для всех видеороликов в наборе для каждого кодека;</li>
+<li>сравнение размеров файла при усреднении значения MS-SSIM для всех кодеков;</li>
+<li>влияние различных компонентов кодека WaveOne на качество сжатия (нижняя диаграмма).</li>
+</ul><br>
+<br>
+<img src="https://habrastorage.org/webt/0k/or/mx/0kormx72wfyb2v-idrll2qklmk8.png"><br>
+<i><font color="gray">Результаты тестирования на наборе видеороликов низкого разрешения (SD)</font></i> <br>
+<br>
+<img src="https://habrastorage.org/webt/gs/bo/ou/gsbooucgppawimeyvjlyhvkcb5q.png"><br>
+<i><font color="gray">Результаты тестирования на наборе видеороликов высокого разрешения (HD)</font></i> <br>
+<br>
+<img src="https://habrastorage.org/webt/rt/9i/yo/rt9iyoo3vibyzwv2jorruylmqtg.png"><br>
+<i><font color="gray">Влияние различных компонентов кодека WaveOne на качество сжатия</font></i> <br>
+<br>
+Не стоит удивляться такому высокому уровню сжатия и кардинальному превосходству над традиционными видеокодеками. Данная работа во многом основана на предыдущих научных статьях, где описываются различные методы сжатия статичных изображений на базе машинного зрения. Все они намного превосходят по уровню и качеству сжатия традиционные алгоритмы. Например, см. работы G. Toderici, S. M. O’Malley, S. J. Hwang, D. Vincent, D. Minnen, S. Baluja, M. Covell, R. Sukthankar. <a href="https://arxiv.org/abs/1511.06085">Variable rate image compression with recurrent neural networks</a>, 2015; G. Toderici, D. Vincent, N. Johnston, S. J. Hwang, D. Minnen, J. Shor, M. Covell. <a href="https://arxiv.org/abs/1608.05148">Full resolution image compression with recurrent neural networks</a>, 2016; J. Balle, V. Laparra, E. P. Simoncelli. <a href="https://arxiv.org/abs/1611.01704">End-to-end optimized image compression</a>, 2016; N. Johnston, D. Vincent, D. Minnen, M. Covell, S. Singh, T. Chinen, S. J. Hwang, J. Shor, G. Toderici. <a href="https://arxiv.org/abs/1703.10114">Improved lossy image compression with priming and spatially adaptive bit rates for recurrent networks</a>, 2017 и другие. В этих работах показано, как обученные нейросети заново изобретают многие техники сжатия изображений, которые были изобретены человеком и раньше вручную прописывались для применения традиционными алгоритмами сжатия.<br>
+<br>
+Прогресс в области ML-сжатия статических изображений неизбежно привёл к появлению первых видеокодеков, основанных на машинном обучении. С увеличением производительности графических ускорителей именно реализация видеокодеков стала первым кандидатом. До настоящего момента существовала только единственная попытка создать видеокодек на машинном обучении. Она описана в работе C.-Y. Wu, N. Singhal, and P. Krahenbuhl. <i>Video compression through image interpolation</i>, которая опубликована в ECCV (2018). Та система сначала кодирует ключевые кадры, а затем использует иерархическую интерполяцию кадров между ними. Она демонстрирует эффективность кодирования примерно как у традиционного кодека AVC/H.264. Как видим, сейчас исследователям удалось значительно превзойти это достижение.<br>
+<br>
+Статья <a href="https://arxiv.org/abs/1811.06981">«Выученное сжатие видео»</a> опубликована 16 ноября 2018&nbsp;года на сайте препринтов arXiv.org (arXiv:1811.06981). Авторы научной работы — Орен Риппель (Oren Rippel), Санджей Наир (Sanjay Nair), Карисса Лью (Carissa Lew), Стив Брэнсон (Steve Branson), Александер Андерсон (Alexander G. Anderson), Любомир Бурдев (Lubomir Bourdev).<br>
+<br>
+<hr><br>
+<font color="gray"><blockquote>Лучший <a href="https://habr.com/post/431354/">комментарий</a> <a href="https://habr.com/users/stas911/" class="user_link">Stas911</a>:<br>
+Altaisky: Статья про видеокодек и ни одного видео. Нечего было показать?<br>
+Stas911: Они ещё декодируют первый кадр. Проявите терпение.</blockquote></font></div><p>Source: <a href="https://habr.com/ru/post/431354/">https://habr.com/ru/post/431354/</a></p>
+<section class="navigation-panel">
+<h4>More articles:</h4>
+<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
+</section>
+<script src="../../js/main.js"></script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function (d, w, c) {
+      (w[c] = w[c] || []).push(function() {
+          try {
+              w.yaCounter52496797 = new Ya.Metrika({
+                  id:52496797,
+                  clickmap:true,
+                  trackLinks:true,
+                  accurateTrackBounce:true,
+                  webvisor:true
+              });
+          } catch(e) { }
+      });
+
+      var n = d.getElementsByTagName("script")[0],
+          s = d.createElement("script"),
+          f = function () { n.parentNode.insertBefore(s, n); };
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+      if (w.opera == "[object Opera]") {
+          d.addEventListener("DOMContentLoaded", f, false);
+      } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/52496797" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<!-- Google Analytics -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-134931760-1', 'auto'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+</section>
+</body>
+
+</html>
