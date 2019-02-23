@@ -1,0 +1,85 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134931760-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-134931760-1');
+  </script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Finishing Up Persons Using Machine Learning</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="description" content="This example shows the use of various machine learning algorithms to complete images. The goal is to predict the lower half of the face, given its upp...">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="../../css/main.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
+</head>
+
+<body>
+  <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+  <nav class="page-headings-container js-page-headings-container"></nav>
+  <div class="tools-bar js-tools-bar">
+    <!-- <a href="https://quick-geek.github.io/search.html" title="Search">🔎</a> -->
+    <a class="js-list-of-headings-button" data-state="closed" href="#" title="Headings">📜</a>
+    <a class="js-go-to-top-button" href="#" title="Go to Top">⬆️</a>
+    <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
+  </div>
+  <section class="page js-page"><h1>Finishing Up Persons Using Machine Learning</h1><div class="post__text post__text-html js-mediator-article">  This example shows the use of various machine learning algorithms to complete images.  The goal is to predict the lower half of the face, given its upper half. <br><br>  The first column of images shows real faces.  The following columns illustrate how trees (extremely randomized trees), the k-nearest neighbor method (k nearest neighbors / K-nn), linear regression (linear regression) and RidgeCV (ridge regression complete) complete the bottom half of these individuals. <br><img src="https://habrastorage.org/webt/7p/kt/sj/7pktsjdl4umxyrfaq-r_a8y15k4.png"><br><a name="habracut"></a><br><br><pre><code class="python hljs"><span class="hljs-comment"><span class="hljs-comment"># Подключаем библиотеки import numpy as np import matplotlib.pyplot as plt from sklearn.datasets import fetch_olivetti_faces from sklearn.utils.validation import check_random_state from sklearn.ensemble import ExtraTreesRegressor from sklearn.neighbors import KNeighborsRegressor from sklearn.linear_model import LinearRegression from sklearn.linear_model import RidgeCV # Загружаем наборы данных data = fetch_olivetti_faces() targets = data.target data = data.images.reshape((len(data.images), -1)) train = data[targets &lt; 30] test = data[targets &gt;= 30] # Test on independent people # Тест на подмножество людей n_faces = 5 rng = check_random_state(4) face_ids = rng.randint(test.shape[0], size=(n_faces, )) test = test[face_ids, :] n_pixels = data.shape[1] # Верхняя половина лиц X_train = train[:, :(n_pixels + 1) // 2] # Нижняя половина лиц y_train = train[:, n_pixels // 2:] X_test = test[:, :(n_pixels + 1) // 2] y_test = test[:, n_pixels // 2:] # Определяем методы ESTIMATORS = { "Extra trees": ExtraTreesRegressor(n_estimators=10, max_features=32, random_state=0), "K-nn": KNeighborsRegressor(), "Linear regression": LinearRegression(), "Ridge": RidgeCV(), } y_test_predict = dict() for name, estimator in ESTIMATORS.items(): estimator.fit(X_train, y_train) y_test_predict[name] = estimator.predict(X_test) # Визуализация image_shape = (64, 64) n_cols = 1 + len(ESTIMATORS) plt.figure(figsize=(2. * n_cols, 2.26 * n_faces)) plt.suptitle("Завершение изображений с помощью различных алгоритмов машинного обучения", size=16) for i in range(n_faces): true_face = np.hstack((X_test[i], y_test[i])) if i: sub = plt.subplot(n_faces, n_cols, i * n_cols + 1) else: sub = plt.subplot(n_faces, n_cols, i * n_cols + 1, title="true faces") sub.axis("off") sub.imshow(true_face.reshape(image_shape), cmap=plt.cm.gray, interpolation="nearest") for j, est in enumerate(sorted(ESTIMATORS)): completed_face = np.hstack((X_test[i], y_test_predict[est][i])) if i: sub = plt.subplot(n_faces, n_cols, i * n_cols + 2 + j) else: sub = plt.subplot(n_faces, n_cols, i * n_cols + 2 + j, title=est) sub.axis("off") sub.imshow(completed_face.reshape(image_shape), cmap=plt.cm.gray, interpolation="nearest") plt.show()</span></span></code> </pre> <br><img src="https://habrastorage.org/webt/1w/h5/jh/1wh5jhuhugx2at-fymeo1ierwom.png"></div><p>Source: <a href="https://habr.com/ru/post/428756/">https://habr.com/ru/post/428756/</a></p>
+<section class="navigation-panel">
+<h4>More articles:</h4>
+<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
+</section>
+<script src="../../js/main.js"></script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function (d, w, c) {
+      (w[c] = w[c] || []).push(function() {
+          try {
+              w.yaCounter52496797 = new Ya.Metrika({
+                  id:52496797,
+                  clickmap:true,
+                  trackLinks:true,
+                  accurateTrackBounce:true,
+                  webvisor:true
+              });
+          } catch(e) { }
+      });
+
+      var n = d.getElementsByTagName("script")[0],
+          s = d.createElement("script"),
+          f = function () { n.parentNode.insertBefore(s, n); };
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+      if (w.opera == "[object Opera]") {
+          d.addEventListener("DOMContentLoaded", f, false);
+      } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/52496797" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<!-- Google Analytics -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-134931760-1', 'auto'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+</section>
+</body>
+
+</html>

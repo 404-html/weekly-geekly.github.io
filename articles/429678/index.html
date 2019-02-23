@@ -1,0 +1,137 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134931760-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-134931760-1');
+  </script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>How we translated 10 million lines of C ++ code to the C ++ 14 standard (and later to C ++ 17)</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="description" content="Some time ago (in the fall of 2016), when developing the next version of the 1C: Enterprise technology platform within the development team, the quest...">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="../../css/main.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
+</head>
+
+<body>
+  <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+  <nav class="page-headings-container js-page-headings-container"></nav>
+  <div class="tools-bar js-tools-bar">
+    <!-- <a href="https://quick-geek.github.io/search.html" title="Search">🔎</a> -->
+    <a class="js-list-of-headings-button" data-state="closed" href="#" title="Headings">📜</a>
+    <a class="js-go-to-top-button" href="#" title="Go to Top">⬆️</a>
+    <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
+  </div>
+  <section class="page js-page"><h1>How we translated 10 million lines of C ++ code to the C ++ 14 standard (and later to C ++ 17)</h1><div class="post__text post__text-html js-mediator-article">  Some time ago (in the fall of 2016), when developing the next version of the 1C: Enterprise technology platform within the development team, the question arose of supporting the new <a href="https://ru.wikipedia.org/wiki/C%252B%252B14">C ++ 14</a> standard in our code.  The transition to the new standard, as we expected, would allow us to write many things more elegantly, easier and more reliably, simplified support and maintenance of the code.  And the translation seems to be nothing extraordinary, if not for the scale of the code base and the specific features of our code. <br><br>  For those who do not know, 1C: Enterprise is an environment for the rapid development of cross-platform business applications and runtime for their execution in different operating systems and DBMSs.  In general terms, the product includes: <br><br><ul><li>  <a href="http://v8.1c.ru/overview/Term_000000885.htm">Cluster of application servers</a> running on Windows and Linux </li><li>  <a href="http://v8.1c.ru/overview/Term_000000124.htm">The client</a> working with the server via http (s) or using its own binary protocol works on Windows, Linux, macOS </li><li>  <a href="https://habr.com/company/1c/blog/315414/">Web client</a> running in Chrome, Internet Explorer, Microsoft Edge, Firefox, Safari (written in JavaScript) browsers </li><li>  Development Environment ( <a href="http://v8.1c.ru/overview/Term_000000008.htm">Configurator</a> ), runs on Windows, Linux, macOS </li><li>  Application Server <a href="http://v8.1c.ru/overview/Term_000000813.htm">Administration Tools</a> , run on Windows, Linux, macOS </li><li>  <a href="https://wonderland.v8.1c.ru/blog/mobilnyy-klient/">Mobile client</a> connecting to the server via http (s), works on mobile devices running Android, iOS, Windows </li><li>  <a href="https://habr.com/company/1c/blog/283198/">Mobile platform</a> - a framework for creating offline mobile applications with the ability to synchronize, working on Android, iOS, Windows </li><li>  Development environment <a href="http://v8.1c.ru/overview/IDE/">1C: Enterprise Development Tools</a> , written in Java </li><li>  <a href="https://habr.com/company/1c/blog/422903/">Interaction System</a> Server </li></ul><br>  We try to maximally write one code for different operating systems — the server's code base is 99% common, and the client approximately 95%.  The 1C: Enterprise technology platform is primarily written in C ++ and the following are approximate characteristics of the code: <br><br><ul><li>  10 million lines of C ++ code </li><li>  14 thousand files </li><li>  60 thousand classes </li><li>  half a million methods. </li></ul><br>  And all this economy should be transferred to C ++ 14.  Today we will tell you about how we did it and what we encountered in the process. <br><br><img src="https://habrastorage.org/getpro/habr/post_images/c44/6e2/0da/c446e20da16d596833a49dafd914f189.jpg" alt="image"><br><a name="habracut"></a><br><h3>  Disclaimer </h3><br>  Everything written below about slow / fast work, (not) high memory consumption by implementations of standard classes in various libraries means one thing: this is true FOR US.  Quite possibly, standard implementations are best suited for your tasks.  We started from our tasks: we took typical data for our customers, drove typical scenarios on them, looked at the speed, the amount of memory consumed, etc., and analyzed whether we and our customers are satisfied with such results or not.  And acted depending on. <br><br><h3>  What we had </h3><br>  Initially, we wrote the code for the 1C: Enterprise 8 platform in Microsoft Visual Studio.  The project began in the early 2000s and we had a version only for Windows.  Naturally, since then the code has been actively developed, many mechanisms have been completely rewritten.  But the code was written according to the 1998 standard, and, for example, our right-angle brackets were separated by spaces in order for the compilation to succeed, like this: <br><pre><code class="cpp hljs"><span class="hljs-built_in"><span class="hljs-built_in">vector</span></span>&lt;<span class="hljs-built_in"><span class="hljs-built_in">vector</span></span>&lt;<span class="hljs-keyword"><span class="hljs-keyword">int</span></span>&gt; &gt; IntV;</code></pre><br>
+В 2006 году, с выходом версии платформы 8.1, мы начали поддерживать Linux и перешли на стороннюю стандартную библиотеку <a href="http://www.stlport.org/">STLPort</a>. Одной из причин перехода была работа с широкими строками. В нашем коде мы повсеместно используем std::wstring, основанный на типе wchar_t. Его размер в Windows 2 байта, а в Linux по умолчанию 4 байта. Это приводило к несовместимости наших бинарных протоколов между клиентом и сервером, а также различных персистентных данных. Опциями gcc можно указать, чтобы размер wchar_t при компиляции был тоже 2 байта, но тогда об использовании стандартной библиотеки от компилятора можно позабыть, т.к. она использует glibc, а та в свою очередь скомпилирована под 4-байтный wchar_t. Другими причинами были более качественная реализация стандартных классов, поддержка хеш-таблиц и даже эмуляция семантики перемещения внутри контейнеров, которой мы активно пользовались. И еще одной причиной, как говорится last but not least, была производительность строк. У нас был свой класс для строк, т.к. у нас в силу специфики нашего софта строковые операции используются очень широко и для нас это критично. <br>
+<br>
+Наша строка основана на идеях оптимизации строк, высказанных ещё в начале 2000-х <a href="https://ru.wikipedia.org/wiki/%25D0%2590%25D0%25BB%25D0%25B5%25D0%25BA%25D1%2581%25D0%25B0%25D0%25BD%25D0%25B4%25D1%2580%25D0%25B5%25D1%2581%25D0%25BA%25D1%2583,_%25D0%2590%25D0%25BD%25D0%25B4%25D1%2580%25D0%25B5%25D0%25B9">Андреем Александреску</a>. Позднее, когда Александреску работал в Facebook, с его подачи в движке Facebook была использована строка, работающая на схожих принципах (см. библиотеку <a href="https://github.com/facebook/folly">folly</a>).<br>
+<br>
+В нашей строке использовались две основные технологии оптимизации:<br>
+<br>
+<ol>
+<li>Для коротких значений используется внутренний буфер в самом объекте строки (не требующий дополнительной аллокации памяти).</li>
+<li>Для всех остальных используется механика <a href="https://ru.wikipedia.org/wiki/%25D0%259A%25D0%25BE%25D0%25BF%25D0%25B8%25D1%2580%25D0%25BE%25D0%25B2%25D0%25B0%25D0%25BD%25D0%25B8%25D0%25B5_%25D0%25BF%25D1%2580%25D0%25B8_%25D0%25B7%25D0%25B0%25D0%25BF%25D0%25B8%25D1%2581%25D0%25B8">Copy On Write</a>. Значение строки хранится в одном месте, при присвоении/модификации используется счетчик ссылок.</li>
+</ol><br>
+Чтобы ускорить компиляцию платформы, мы исключили из своего варианта STLPort реализацию stream (который мы не использовали), это дало нам ускорение компиляции примерно на 20%. Впоследствии нам пришлось ограниченно использовать <a href="https://ru.wikipedia.org/wiki/Boost">Boost</a>. Boost активно использует stream, в частности, в своих сервисных API (например, для логирования), поэтому нам приходилось модифицировать его, исключая из него использование stream. Это, в свою очередь, затрудняло нам переход на новые версии Boost. <br>
+<br>
+<h3>Третий путь</h3><br>
+При переходе на стандарт C++14 мы рассматривали такие варианты:<br>
+<br>
+<ol>
+<li>Поднимать модифицированный нами STLPort на стандарт C++14. Опция очень непростая, т.к. поддержка STLPort была прекращена в 2010 году, и поднимать весь его код нам пришлось бы самостоятельно.</li>
+<li>Переход на другую реализацию STL, совместимую с C++14. Крайне желательно, чтобы эта реализация была под Windows и Linux.</li>
+<li>Использовать при компиляции под каждую ОС встроенную в соответствующий компилятор библиотеку.</li>
+</ol> <br>
+Первый вариант был отвергнут сразу из-за слишком большого объема работ.<br>
+<br>
+Мы некоторое время думали над вторым вариантом; в качестве кандидата рассматривали <a href="https://libcxx.llvm.org/">libc++</a>, но он на тот момент не работал под Windows. Чтобы портировать libc++ на Windows, пришлось бы проделать немало работы — например, писать самим всё, что связано с потоками, синхронизацией потоков и атомарностью, поскольку в libc++ в этих областях использовалось <a href="https://ru.wikipedia.org/wiki/POSIX">POSIX API</a>.<br>
+<br>
+И мы выбрали третий путь.<br>
+<br>
+<h3>Переход</h3><br>
+Итак, нам предстояло заменить использование STLPort на библиотеки соответствующих компиляторов (Visual Studio 2015 для Windows, gcc 7 для Linux, clang 8 для macOS). <br>
+<br>
+К счастью, наш код писался в основном по гайдлайнам и не использовал всяческие хитрые трюки, так что миграция на новые библиотеки протекала сравнительно гладко, с помощью скриптов, заменяющих в исходных файлах имена типов, классов, неймспейсов и инклюдов. Миграция затронула 10 000 исходных файлов (из 14 000). wchar_t заменялся на char16_t; мы решили отказаться от использования wchar_t, т.к. char16_t на всех ОС занимает 2 байта и не портит совместимость кода между Windows и Linux.<br>
+<br>
+Не обошлось без небольших приключений. Например, в STLPort итератор можно было неявно скастить к указателю на элемент, и в некоторых местах нашего кода это использовалось. В новых библиотеках так делать было уже нельзя, и эти места приходилось анализировать и переписывать вручную. <br>
+<br>
+Итак, миграция кода закончена, код компилируется для всех ОС. Настало время тестов. <br>
+<br>
+Тесты после перехода показали проседание производительности (местами до 20-30%) и увеличение потребляемой памяти (до 10-15%) по сравнению со старой версией кода. Это было, в частности, связано с неоптимальной работой стандартных строк. Поэтому строку нам опять пришлось использовать свою, слегка доработанную. <br>
+<br>
+Также вскрылась интересная особенность реализации контейнеров во встраиваемых библиотеках: пустые (без элементов) std::map и std::set из встроенных библиотек аллоцируют память. А у нас в силу особенностей реализации в некоторых местах кода создается довольно много пустых контейнеров этого типа. Аллоцируют стандартные контейнеры памяти немного, для одного корневого элемента, но для нас это оказалось критичным – на ряде сценариев у нас ощутимо упала производительность и выросло потребление памяти (по сравнению с STLPort). Поэтому мы заменили в нашем коде эти два типа контейнеров из встроенных библиотек на их реализацию от Boost, где эти контейнеры не имели такой особенности, и это решило проблему с замедлением и повышенным потреблением памяти.<br>
+<br>
+Как часто бывает после масштабных изменений в больших проектах, первая итерация исходников работала не без проблем, и тут нам сильно пригодились, в частности, поддержка отладочных итераторов в Windows-реализации. Шаг за шагом мы двигались вперед, и к весне 2017 (версия 8.3.11 1С:Предприятия) миграция была завершена. <br>
+<br>
+<h3>Итоги</h3><br>
+Переход на стандарт С++14 занял у нас около 6 месяцев. БОльшую часть времени над проектом работал один (но очень высококвалифицированный) разработчик, а на финальной стадии подключились представители команд, ответственных за конкретные области — UI, кластер серверов, средства разработки и администрирования и т.д.<br>
+<br>
+Переход сильно упростил нам работу по миграции на новейшие версии стандарта. Так, версия 1С:Предприятие 8.3.14 (в разработке, релиз запланирован на начало следующего года) уже переведена на стандарт <a href="https://ru.wikipedia.org/wiki/C%252B%252B17">С++17</a>. <br>
+<br>
+После миграции у разработчиков появилось больше возможностей. Если раньше у нас была своя доработанная версия STL и один неймспейс std, то теперь у нас в неймспейсе std находятся стандартные классы из встроенных библиотек компилятора, в неймспейсе stdx – наши, оптимизированные для наших задач строки и контейнеры, в boost – свежая версия boost. И разработчик использует те классы, которые оптимально подходят для решения его задач. <br>
+<br>
+Помогает в разработке также и «родная» реализация конструкторов перемещения (<a href="https://en.cppreference.com/w/cpp/language/move_constructor">move constructors</a>) для ряда классов. Если у класса есть конструктор перемещения и этот класс помещается в контейнер, то STL оптимизирует копирование элементов внутри контейнера (например, когда контейнер расширяется и надо изменить capacity и реаллоцировать память). <br>
+<br>
+<h3>Ложка дегтя</h3><br>
+Самое, пожалуй, неприятное (но не критичное) последствие миграции — мы столкнулись с увеличением объема <a href="https://ru.wikipedia.org/wiki/%25D0%259E%25D0%25B1%25D1%258A%25D0%25B5%25D0%25BA%25D1%2582%25D0%25BD%25D1%258B%25D0%25B9_%25D0%25BC%25D0%25BE%25D0%25B4%25D1%2583%25D0%25BB%25D1%258C">obj-файлов</a>, и полный результат билда со всеми промежуточными файлами стал занимать по 60 – 70 Гб. Такое поведение связано с особенностями современных стандартных библиотек, ставших менее критично относиться к объему генерируемых служебных файлов. Это не влияет на работу скомпилированного приложения, но доставляет ряд неудобств в разработке, в частности, увеличивает время компиляции. Повышаются также требования к свободному месту на диске на билдовых серверах и на машинах разработчиков. Наши разработчики параллельно работают над несколькими версиями платформы, и сотни гигабайт промежуточных файлов иногда создают трудности в работе. Проблема неприятная, но не критичная, ее решение мы пока отложили. Как один из вариантов ее решения рассматриваем технику <a href="https://en.wikipedia.org/wiki/Single_Compilation_Unit">unity build</a> (ее, в частности, использует Google при разработке браузера Chrome).</div><p>Source: <a href="https://habr.com/ru/post/429678/">https://habr.com/ru/post/429678/</a></p>
+<section class="navigation-panel">
+<h4>More articles:</h4>
+<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
+</section>
+<script src="../../js/main.js"></script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function (d, w, c) {
+      (w[c] = w[c] || []).push(function() {
+          try {
+              w.yaCounter52496797 = new Ya.Metrika({
+                  id:52496797,
+                  clickmap:true,
+                  trackLinks:true,
+                  accurateTrackBounce:true,
+                  webvisor:true
+              });
+          } catch(e) { }
+      });
+
+      var n = d.getElementsByTagName("script")[0],
+          s = d.createElement("script"),
+          f = function () { n.parentNode.insertBefore(s, n); };
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+      if (w.opera == "[object Opera]") {
+          d.addEventListener("DOMContentLoaded", f, false);
+      } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/52496797" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<!-- Google Analytics -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-134931760-1', 'auto'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+</section>
+</body>
+
+</html>
