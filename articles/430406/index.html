@@ -31,11 +31,12 @@
   <![endif]-->
   <nav class="page-headings-container js-page-headings-container"></nav>
   <div class="tools-bar js-tools-bar">
-    <!-- <a href="https://quick-geek.github.io/search.html" title="Search">🔎</a> -->
+    <!-- <a href="../../search.html" title="Search">🔎</a> -->
     <a class="js-list-of-headings-button" data-state="closed" href="#" title="Headings">📜</a>
     <a class="js-go-to-top-button" href="#" title="Go to Top">⬆️</a>
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
+  <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>C ++ 20 and Modules, Networking, Coroutines, Ranges, Graphics. The results of the meeting in San Diego</h1><div class="post__text post__text-html js-mediator-article">  A couple of years remain before C ++ 20, which means that feature freeze is just around the corner.  Soon the international committee will focus on combing the draft C ++ 20, and innovations will be added already in C ++ 23. <br><br>  The November meeting in San Diego is the last before the feature freeze.  What new items will appear in C ++ 20, which of the large things have been accepted, and what was rejected - all this is waiting for you under the cut. <br><br><img src="https://habrastorage.org/webt/o-/ab/6c/o-ab6cqomdapxcb3ynrcsbilslu.png"><br><a name="habracut"></a><br><h2>  char8_t </h2><br>  Added new data type <i>char8_t</i> .  The array of these characters is the UTF-8 string: <br><br><pre><code class="cpp">std::u8string hello = u8"Привет, мир!";
 
 // TODO: Вывести значение пока нельзя!

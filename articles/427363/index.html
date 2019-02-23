@@ -1,0 +1,88 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134931760-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-134931760-1');
+  </script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Introduction of LoRaWAN in an agricultural enterprise. All about construction, start-up and solutions</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="description" content="Good day! 
+
+ Today, with this post, I will begin a series of stories about how I met and built my first network LoRaWAN. I'll tell you about the tasks...">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="../../css/main.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
+</head>
+
+<body>
+  <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+  <nav class="page-headings-container js-page-headings-container"></nav>
+  <div class="tools-bar js-tools-bar">
+    <!-- <a href="../../search.html" title="Search">🔎</a> -->
+    <a class="js-list-of-headings-button" data-state="closed" href="#" title="Headings">📜</a>
+    <a class="js-go-to-top-button" href="#" title="Go to Top">⬆️</a>
+    <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
+  </div>
+  <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
+  <section class="page js-page"><h1>Introduction of LoRaWAN in an agricultural enterprise. All about construction, start-up and solutions</h1><div class="post__text post__text-html js-mediator-article">  Good day! <br><br>  Today, with this post, I will begin a series of stories about how I met and built my first network LoRaWAN.  I'll tell you about the tasks, decisions, and victories over yourself. <br><br>  Once, the task appeared to me: To find / implement a security system for sprinkling machines, such as "Frigate" (for readers' understanding: there is a problem of theft of sprayers).  After long tinkering on the Internet, I realized that there are simply no sensible decisions on the Ukrainian market. <br><a name="habracut"></a><br><img src="https://habrastorage.org/webt/7p/0e/do/7p0edoklfrtqlst78pa_kx4nmu0.jpeg"><br><br>  In the search for solutions, immediately faced with a lot of problems: <br><br>  - where to get food in the "field"; <br>  - how to detect theft; <br>  - what sensors to use; <br>  - how to transfer data on the status of sensors, systems; <br>  - and a couple of hundred more questions that seemed to confuse me. <br><br>  And then one day, colleagues from the Russian Federation suggest to me about a wonderful technology, and using the example of solutions from Vega, they are convinced that it is worth digging in this direction.  The search for manufacturers of LoRaWAN devices lasted about 2-3 weeks.  Unfortunately, in Ukraine there is still no amount of experience gained, which brothers from the Russian Federation have.  Of all those whom I managed to find (2-3 companies turned out to be such), I decided to continue communicating with the Kharkiv guys, who, although they did not have any interesting implementations, were in the “theme” and were ready to take risks with us, experiment to achieve results. <br><br>  The first step we put the base station and measured the coating.  We received confident 9700 m, which was enough for us, so we didn’t measure further. <br><br><img src="https://habrastorage.org/webt/dj/nh/yn/djnhynwcjvverxl5bkorhs39ac4.jpeg"><br><br>  After that, the final decision was made to start building LoRaWaN. <br><br>  The whole subsequent process was chaotic and chaotic, and actually continues. <br><br>  Every day makes some changes to the system, additions, because then I will describe only what has been implemented, and if there are questions, I will try to describe them in further posts. <br><br>  And so, today is done: <br><br>  The base station is mounted on a telescopic mast, at a height of 14 m <br><br><img src="https://habrastorage.org/webt/o8/dj/rw/o8djrw5bosjr5nfrbyrxqhalyii.jpeg"><br><br><h4>  On the protection of "Frigates" </h4><br><h3>  Physics </h3><br>  To ensure the safety of the sprinkler machines, the option of tying the supporting frame (pipes) and sprayers with UTP cable was chosen. <br><br><img src="https://habrastorage.org/webt/xo/w0/nh/xow0nhy70muwpgkffmclspbidzm.jpeg"><br><br>  Everything is simply linked by a closed circuit, in the event of a rupture of which a triggering / warning occurs. <br><br><img src="https://habrastorage.org/webt/fg/kt/ss/fgktssxkarqe7qd4rpkqvazziyg.jpeg"><br><br>  The circuit closes on the relay outputs of the LoRa device, 5 of them are implemented for us (initially the device has 2 outputs) for dividing the circuit into zones, and more informative alerts.  The power supply is implemented by 2 batteries 12V 18A / h, in the following I will put only 1 (for 4 months of testing, the battery charges dropped by 0.61V and 0.5V).  On the frigate also set howler 120 dB. <br><br><h3>  Logics </h3><br>  The LoRaWAN device, operating in class A, interrogates the relay outputs, in the event of an open circuit, an acoustic detector is activated and the device sends packets with information about the output number on which the open circuit occurred. <br><br>  Every 10 minutes, the device sends a packet to confirm the connection, as well as contains information and battery power. <br><br>  Also for the next season, gps trackers will be added to frigates, field moisture sensors, and information on the number of liters of water poured in will be transmitted.  Thus, the physical position of the frigate on the field, etc. will be displayed. <br><br><h3>  Software part </h3><br>  According to our technical specifications, they wrote, and continue to refine the server part, as well as the client part. <br>  I will not stop at the server yet, it deserves separate publications, but I will tell you about the client in a few words. <br><br>  Software for working with end devices is implemented to visualize their states and transfer alarm messages to the guard post. <br><br><img src="https://habrastorage.org/webt/tf/ul/mc/tfulmc78_6lksrbyhue2pplnru0.jpeg"><br><br>  Today, class C devices are also controlled from the application, which function as controllers in indoor alarm systems.  Thus, all storage and other premises are armed only from the security console, storing all information about the status, time, account through which the status of security devices was changed, etc. <br><br><img src="https://habrastorage.org/webt/ti/s8/uh/tis8uhxeuuetmmoqitbej9mepby.jpeg"><br><br>  Today I can say that the experiment with the launch was a success.  The technology allows us to close more and more tasks, already implemented: the connection of gas stations and fuel storage tanks, water meters, etc. <br><br>  The following posts will be formed as the project progresses, or according to your questions, dear readers. </div><p>Source: <a href="https://habr.com/ru/post/427363/">https://habr.com/ru/post/427363/</a></p>
+<section class="navigation-panel">
+<h4>More articles:</h4>
+<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
+</section>
+<script src="../../js/main.js"></script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function (d, w, c) {
+      (w[c] = w[c] || []).push(function() {
+          try {
+              w.yaCounter52496797 = new Ya.Metrika({
+                  id:52496797,
+                  clickmap:true,
+                  trackLinks:true,
+                  accurateTrackBounce:true,
+                  webvisor:true
+              });
+          } catch(e) { }
+      });
+
+      var n = d.getElementsByTagName("script")[0],
+          s = d.createElement("script"),
+          f = function () { n.parentNode.insertBefore(s, n); };
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+      if (w.opera == "[object Opera]") {
+          d.addEventListener("DOMContentLoaded", f, false);
+      } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/52496797" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<!-- Google Analytics -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-134931760-1', 'auto'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+</section>
+</body>
+
+</html>

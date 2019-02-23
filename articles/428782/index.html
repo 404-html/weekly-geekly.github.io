@@ -31,11 +31,12 @@
   <![endif]-->
   <nav class="page-headings-container js-page-headings-container"></nav>
   <div class="tools-bar js-tools-bar">
-    <!-- <a href="https://quick-geek.github.io/search.html" title="Search">🔎</a> -->
+    <!-- <a href="../../search.html" title="Search">🔎</a> -->
     <a class="js-list-of-headings-button" data-state="closed" href="#" title="Headings">📜</a>
     <a class="js-go-to-top-button" href="#" title="Go to Top">⬆️</a>
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
+  <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Microsoft has released a Linux version of the utility ProcDump</h1><div class="post__text post__text-html js-mediator-article"> <a href="https://github.com/Microsoft/ProcDump-for-Linux">ProcDump for Linux</a> is the reincarnation of the classic <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/procdump">ProcDump</a> tool from the suite of hardware and utilities for managing, diagnosing, troubleshooting, and monitoring the Microsoft Windows environment. <br><br><img src="https://habrastorage.org/getpro/habr/post_images/1aa/1fd/bd5/1aa1fdbd50b96def20d4886d942ef736.gif"><br><a name="habracut"></a><br>  Specifically, this tool from Mark Rusinovich shows how much CPU resources the process should take and how much time must pass before ProcDump creates a dump of the process.  That is, the dump is recorded automatically when the process once again increases the load on the CPU above a certain threshold. <br><br>  For example, under Windows, we want to study the anomalous behavior of wmiprvse.exe (the WMI Provider Host process), which at arbitrary points in time takes up to 90% of CPU resources.  Then we run the following command, which will write a dump of this process three times in case the CPU consumes more than 80% within three seconds. <br><br> <code>procdump.exe -c 80 -s 3 -n 3 wmiprvse</code> <br> <br>  Very comfortable indeed. <br><br><img src="https://habrastorage.org/webt/_w/-s/c8/_w-sc8umi6adcasl_wicjpikqak.png"><br><br>  The Linux version works in much the same way as under Windows, except that the options in the program are smaller: <br><br><pre>  Usage: procdump [OPTIONS ...] TARGET
     OPTIONS
        -C CPU threshold from 0 to 100 * nCPU

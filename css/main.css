@@ -1,5 +1,7 @@
 .page {
-	text-align: center;	
+	text-align: center;
+  margin-right: 35px;
+  margin-left: 35px;
 }
 
 p {
@@ -85,6 +87,16 @@ a[href*="http"]:not(.tools-bar a) {
 
 .navigation-panel {
 	text-align: left;
+}
+
+.donate-btn {
+  background-color: aqua;
+  transform: rotate(-90deg);
+  position: fixed;
+  top: 100px;
+  left: -20px;
+  padding: 5px;
+  text-decoration: none;
 }
 
 
