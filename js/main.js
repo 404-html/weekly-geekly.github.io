@@ -61,7 +61,7 @@ $(function() {
 	//Go to Bottom button Logic
 	$('.js-go-to-bottom-button').on('click', function(e) {
 		e.preventDefault();
-		$('html, body').animate({scrollTop: document.body.scrollHeight}, 800);
+		$('html, body').animate({scrollTop: document.querySelector('.js-mediator-article').scrollHeight}, 800);
 	});
 
 
