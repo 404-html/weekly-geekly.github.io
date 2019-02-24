@@ -30,7 +30,7 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
   <header class="page-header js-page-header">
-    <div class="page-header-logo-container"></div>
+    <a class="page-header-logo-container" href="https://weekly-geekly.github.io/index.html"></a>
     <div class="page-header-text">Geekly Articles each Day</div>
   </header>
   <nav class="page-headings-container js-page-headings-container"></nav>
@@ -42,7 +42,7 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Elusive littleBigPlanet bug</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/getpro/habr/post_images/081/428/982/0814289829eef320a5adbe4305034930.jpg" alt="image"><br><br>  In the history of game development, you can find a <a href="https://habr.com/post/328552/">lot of interesting bugs</a> with which <a href="https://habr.com/post/358704/">developers had to fight</a> .  However, as follows from the story <a href="https://twitter.com/mmalex/status/1066111290580582403">told by Twitter</a> technical director of Media Molecule company Alex Evans (known for his <a href="https://youtu.be/hcadJ2OllBs">participation in the demoscene of the</a> late 90s, LittleBigPlanet and Rag Doll Kung Fu) at the weekend, we still have to hear many legends. <br><br>  The case, which will be discussed, occurred ten years ago - in 2008.  During the development of the first part of the game <a href="https://ru.wikipedia.org/wiki/LittleBigPlanet">LittleBigPlanet</a> - the original puzzle platformer, which should be exclusive to the PlayStation 3 - the developers of the company had to deal with a truly elusive bug. <br><br>  Usually, in order to get the green light on the release of the game on consoles, it is required to undergo certification - to fulfill some set of requirements that the platform holder sets.  Certification can also assume such specific conditions as stable operation of the game during the day without departures. <br><br>  The development process of LittleBigPlanet almost came to an end and there were only two weeks left before the game was supposed to "go for gold."  Suddenly, a QA tester in Japan reported that the game stably “crashes” when he leaves it to work overnight.  Naturally, now, before fixing the bug, no issue of the game was out of the question. <br><a name="habracut"></a><br>  Time passed, but the team still could not reproduce the bug.  It took several days to make sure that the devs of developers and testers are identical - that they have the same hardware, they have the same OS version and the same environment.  Due to the difference in time zones, each attempt to reproduce the bug took more than 24 hours, which continued to heat up the situation. <br><br>  During the investigation, the developers managed to find out that the EyeToy <a href="https://ru.wikipedia.org/wiki/EyeToy">digital camera</a> , which worked in the audio recording mode, was connected to the tester's devkit - however, this fact did not bring any special benefit.  Finally, someone noticed a strange pattern: every time the game “fell” at the same time - at 4 am.  But what could have happened in Japan at 4 am? .. <br><br>  The answer was unexpected: they were cleaners who conscientiously fulfilled their labor duties.  A voice chat was built into the game - it was done to synchronize the characters' lips with a speech that players could use during the cooperative play of the game.  During the time that the cleaning was done, a vacuum cleaner worked near the audio recording EyeToy, and when audio was compressed, several bytes of memory leaked in the game chat — and it <i>only</i> occurred from “white noise”.  It was enough just to vacuum the room for an hour, and the “crash” was guaranteed. <br><br>  It is not surprising that when Media Molecule tried to reproduce this bug in its office with the help of a radio tuned to white noise, they did it right away.  As a result, it took only about five minutes for the developers to eliminate the bug itself - however, the memory of it did not disappear even ten years later. </div><p>Source: <a href="https://habr.com/ru/post/430996/">https://habr.com/ru/post/430996/</a></p>
-<section class="navigation-panel">
+<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
 </section>
@@ -85,6 +85,17 @@
   <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
 </section>
+
+  <footer class="page-footer">
+    <div class="page-footer-legal-info-container page-footer-element">
+      <p>
+        Weekly-Geekly | <span class="page-footer-legal-info-year js-page-footer-legal-info-year">2019</span>
+      </p>
+    </div>
+    <div class="page-footer-counters-container page-footer-element">
+      <a class="page-footer-counter-clustrmap" href='#'  title='Visit tracker'><img src='https://clustrmaps.com/map_v2.png?cl=698e5a&w=271&t=t&d=6iCFw7uJz0zcOaoxz5k5PcLCJUzv2WG8G5V8M3U6Rc4&co=3a3a3a&ct=ffffff'/></a>
+    </div>
+  </footer>
 </body>
 
 </html>

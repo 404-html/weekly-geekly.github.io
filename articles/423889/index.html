@@ -1,0 +1,174 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134931760-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-134931760-1');
+  </script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>My disappointment in software</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="description" content="The essence of software development 
+ - It is necessary to make 500 holes in the wall, so I designed an automatic drill. It uses elegant precision gea...">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="../../css/main.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
+</head>
+
+<body>
+  <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+  <header class="page-header js-page-header">
+    <a class="page-header-logo-container" href="https://weekly-geekly.github.io/index.html"></a>
+    <div class="page-header-text">Geekly Articles each Day</div>
+  </header>
+  <nav class="page-headings-container js-page-headings-container"></nav>
+  <div class="tools-bar js-tools-bar">
+    <!-- <a href="../../search.html" title="Search">🔎</a> -->
+    <a class="js-list-of-headings-button" data-state="closed" href="#" title="Headings">📜</a>
+    <a class="js-go-to-top-button" href="#" title="Go to Top">⬆️</a>
+    <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
+  </div>
+  <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
+  <section class="page js-page"><h1>My disappointment in software</h1><div class="post__text post__text-html js-mediator-article"><div style="text-align:center;"><img src="https://habrastorage.org/getpro/habr/post_images/4c8/46e/d60/4c846ed603ae9d952935d53def423386.png"></div><br>  <i><font color="gray"><b>The essence of software development</b></font></i> <i><font color="gray"><br></font></i>  <i><font color="gray">- It is necessary to make 500 holes in the wall, so I designed an automatic drill.</font></i>  <i><font color="gray">It uses elegant precision gears to continuously adjust speed and torque as needed.</font></i> <i><font color="gray"><br></font></i>  <i><font color="gray">“Great, she has perfect weight.”</font></i>  <i><font color="gray">We load 500 such drills into the gun, which we made, and shoot at the wall.</font></i> <br><br>  I have been programming for 15 years.  But lately, when developing, it is not customary to think about efficiency, simplicity and perfection: to the extent that it makes me sad during my career and for the IT industry as a whole. <br><br>  For example, modern cars work, say, 98% of what the current engine design physically allows.  Modern architecture uses a precisely calculated amount of material to perform its function and remain safe in these conditions.  All planes converged to the optimal size / shape / load and basically look the same. <br><br>  Only in software is considered normal if the program is running at 1% or even 0.01% of the possible performance.  No one seems to have any objections. <a name="habracut"></a>  People even take pride in how inefficient the program works, like “why bother, computers are fast enough”: <br><br><blockquote>  <a href="https://twitter.com/tveastman/status/1039002300600147968">@tveastman</a> : I run a Python program every day, it runs in 1.5 seconds.  I spent six hours and rewrote it on Rust, now it runs in 0.06 seconds.  This acceleration means that my time will pay off in 41 years, 24 days :-) </blockquote><br>  Probably, you heard such a mantra: “Programmer time is more expensive than computer time”.  This means that we spend computer time on an unprecedented scale.  Would you buy a car with a consumption of 100 liters per 100 kilometers?  What about 1000 liters?  With computers this happens all the time. <br><br><h1>  Everything is unbearably slow </h1><br>  Look around: laptops are thousands of times more powerful than those that brought man to the moon.  However, every second site cannot provide smooth scrolling of 60 FPS pages on the latest top MacBook Pro.  I can comfortably play games, watch 4K videos, but not scroll through web pages!  This is normal? <br><br>  The Google Inbox <a href="https://twitter.com/nikitonsky/statuses/968882438024941568">email</a> application in Chrome browser from the same Google, <a href="https://twitter.com/nikitonsky/statuses/968882438024941568">takes 13 seconds to open a medium-sized letter</a> : <br><br><div class="oembed"><twitter-widget class="twitter-tweet twitter-tweet-rendered" id="twitter-widget-0" style="position: static; visibility: visible; display: block; transform: rotate(0deg); max-width: 100%; width: 500px; min-width: 220px; margin-top: 10px; margin-bottom: 10px;" data-tweet-id="968882438024941568"></twitter-widget><script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div><br>  It also animates empty white forms instead of showing their contents, because this is the only way to animate something on a web page with decent performance.  No, not 60 FPS, but rather "as quickly as possible on this page."  I look forward to what the web community will offer when 120 Hz displays become mainstream.  They barely cope with 60 Hz. <br><br>  Windows 10 update <a href="https://grumpy.website/post/0PeXr1S7N">takes 30 minutes</a> .  What can be done for so long?  This time is enough to completely format my SSD-drive, download a fresh build and install it approximately 5 times in a row. <br><br><img src="https://habrastorage.org/getpro/habr/post_images/cf3/c23/be8/cf3c23be8d3562023a0eccbe9765dc7f.gif"><br><br><blockquote>  <a href="https://pavelfatin.com/typing-with-pleasure/">Pavel Fatin</a> : Typing in the editor is a relatively simple process, so even 286 could provide a fairly smooth typing process. </blockquote><br>  In modern text editors, the delay in typing is more than in 42-year-old Emacs.  Text editors!  What could be easier?  For each keystroke, you only need to update the tiny rectangular area on the screen, and modern text editors cannot do it in 16 ms.  And this is a lot of time.  LOT.  A 3D game fills the screen with hundreds of thousands (!!!) of polygons for the same 16 ms, and also processes input, recounts the world and dynamically loads / unloads resources.  How so? <br><br>  The trend is that the software does not become faster and more functional.  We get faster hardware, on which software with the same functions is turned more slowly than before.  Everything works much slower than the maximum speed.  Have you ever wondered why your phone boots from 30 to 60 seconds?  Why can't it boot, say, in one second?  There are no physical limitations.  Personally, I would like this.  I want the developers to reach the limit, using every bit for performance. <br><br><h1>  Everything is HUGE </h1><br>  And this is blowing up.  Web applications can open ten times faster if you just block ads.  Google is begging everyone to stop braking with the help of the AMP initiative - a technical solution that doesn’t need any technology, just a little common sense.  If you remove bloat, the Internet will work at a crazy speed.  Is it really hard to understand? <br><br>  The Android system without applications <a href="https://grumpy.website/post/0Oz1lDOq5">takes up almost 6 GB</a> .  Just think for a second how indecent this huge number is.  What is it, movies in HD quality?  I think basically the code: kernel, drivers.  Still some resources, of course, but they can not be so big.  How many drivers do you need for the phone? <br><br><img src="https://habrastorage.org/getpro/habr/post_images/6a3/637/792/6a36377926d98ae797d58a6c4cceff4e.jpg"><br><br>  Windows 95 occupied 30 MB.  Today we have web pages heavier than this OS!  Windows 10 is already 4 GB, that is 133 times more.  But is she 133 times better?  I mean, functionally they are almost the same.  Yes, we had Kortana, but I doubt that it weighs 3970 MB.  But this is Windows 10, should Android really be another 1.5 times as large? <br><br>  The Google keyboard application, as if nothing had happened, eats up 150 MB.  This program draws 30 keys on the screen - is it really five times harder than the entire Windows 95?  The Google app, basically just a package for Google Web Search, takes 350 MB!  Google Play services that I don’t use (I don’t buy books, music or videos there) - 300 MB, which simply sit here and which cannot be removed. <br><br><img src="https://habrastorage.org/getpro/habr/post_images/ddd/12f/4f7/ddd12f4f7aad903f421e6728675fa465.gif"><br><br>  After installing all the necessary applications (social networks, chat rooms, maps, taxis, banks, etc.), only 1 gigabyte for photos remained on the phone.  And this is generally without games and music!  Remember the times when the OS, applications and all your data were placed on a floppy disk? <br><br>  Your note-taking program is most likely written in Electron and, therefore, <a href="https://josephg.com/blog/electron-is-flash-for-the-desktop/">comes with a driver for the Xbox 360 controller</a> , can display 3D graphics, play audio and take photos using a webcam. <br><br><img src="https://habrastorage.org/getpro/habr/post_images/a3e/610/5f0/a3e6105f0567c22704a1b725a6b974ce.jpg"><br><br>  Simple text chat has always been famous for speed and low memory consumption.  So Slack is an example of a very resource-intensive application.  I mean that chat and a text editor are the most basic things, they should consume the least resources.  Welcome to the year 2018. <br><br>  You can say that they at least work.  But increasing the size doesn’t mean improvement.  This means that someone has lost control.  We no longer know what is happening.  Increasing size is an increase in complexity, a decrease in performance and reliability.  This is not normal and should not be considered normal.  On the bloated size you need to immediately pay attention - and stay away from them. <br><br><h1>  All rotting </h1><br>  The 16 GB Android phone was beautiful three years ago.  Today, under Android 8.1, it barely works, because each application has increased at least twice for no apparent reason.  No additional features.  They do not become faster and the appearance has not changed.  Are they just ... bloated? <br><br>  iPhone 4s came out with iOS 5, but it can barely work with iOS 9. And this is not because iOS 9 is much better - basically, the system has not changed.  But new hardware is faster, so they made the software slower.  Do not worry - you got exciting new features, for example ... the work of the same applications with the same speed!  I do not know. <br><br>  iOS 11 has stopped supporting 32-bit applications.  This means that if the developer is not ready to return and update the application, most likely you will not see this excellent program again. <br><br><blockquote>  <a href="https://twitter.com/jckarter/statuses/1017071794245623808">@jckarter</a> : The DOS program can be made to work without changes on almost any computer made after the 80s.  A javascript app may stop working due to tomorrow's Chrome update. </blockquote><br>  Today's web pages <a href="http://tonsky.me/blog/chrome-intervention/">will not work in any browser in 10 years</a> (and maybe earlier). <br><br>  "We need to run as fast as possible, just to stay in the same place."  But the point?  I can constantly buy new phones and laptops, like everyone else, but do it only in order to be able to run all the same applications that have only become slower? <br><br>  I think that we can and should correct the situation.  Now everyone is developing programs for today, occasionally for tomorrow.  But it would be nice to do things that work a little longer. <br><br><h1>  Worse means better </h1><br>  Now nobody understands anything.  And do not want to understand.  We just release half-hearted nonsense, hope for the best and call it “common sense for a startup.” <br><br>  Web pages are asked to update if something went wrong.  Who has time to find the cause of the problem? <br><br><img src="https://habrastorage.org/getpro/habr/post_images/188/446/b03/188446b03d1699c2035a234548d552da.jpg"><br><br>  Any web application produces a constant stream of “random” JS errors, even on compatible browsers. <br><br>  The entire web / SQL database architecture is built on the premise (even hope) that no one will change the data while you look at the open web page. <br><br>  Most collaboration applications have done “as best they could”, there are a lot of typical scenarios when they lose data.  You saw the “Which version to keep?” Dialogue. Today the bar is so low that users are happy even to this question. <br><br><img src="https://habrastorage.org/getpro/habr/post_images/04e/f5b/57d/04ef5b57d77c8eacd33b613875015037.jpg"><br><br>  And no, in my world is not a normal application that says: "I will destroy part of your work, just choose which one." <br><br>  Linux <i>intentionally</i> kills random processes.  And yet it is the most popular server OS. <br><br>  I have every device fails regularly anyway.  From time to time, the Dell monitor needs to be rebooted by hardware, because it has software.  AirDrop?  You are lucky if he finds a device, otherwise what to do?  Bluetooth?  Specifications are so complex that <a href="https://thewirecutter.com/blog/understanding-bluetooth-pairing-problems/">devices will not communicate with each other</a> , and <a href="http://time.com/4358533/bluetooth-fix-how/">periodic reboots are the best option</a> . <br><br><img src="https://habrastorage.org/getpro/habr/post_images/bfd/411/394/bfd41139404635b9c1fa3cc6fccfe5b4.jpg"><br><br>  And I don’t even mention the <a href="https://twitter.com/internetofshit">Internet of Things</a> .  It is so beyond reason that even nothing to add. <br><br>  I want to be proud of my work.  I want to do working, stable things.  To do this, you need to understand exactly what we are developing, inside and outside, and this cannot be done in bloated, overly complicated systems. <br><br><h1>  In programming, the same chaos </h1><br>  It seems that no one else is interested in high-quality, fast, efficient, durable, solid solutions.  Even if effective solutions have been known for a long time, we still struggle with the same problems: package management, build systems, compilers, language design, IDE. <br><br>  Assembly systems are inherently unreliable and periodically require complete cleaning, although they have all the information for invalidation.  Nothing prevents to make the assembly process reliable, predictable and 100% reproducible.  Nobody just thinks it's important.  NPM has been in the "sometimes running" state for many years. <br><br><blockquote><a href="https://twitter.com/przemyslawdabek/status/940547268729606145">@przemyslawdabek:</a> Кажется, что <code>rm-rf node_modules</code> является неотъемлемой частью рабочего процесса в проектах Node.js/JavaScript.</blockquote><br>
+А время сборки? Никто не считает проблемой, что компилятор работает минуты или даже часы. А как же «время программиста дороже»? Почти все компиляторы, пре- и постпроцессоры значительно, иногда катастрофически увеличивают время сборки, не обеспечивая пропорционально существенных преимуществ.<br>
+<br>
+<a href="https://xkcd.ru/303/"><img src="https://habrastorage.org/getpro/habr/post_images/d8b/e82/7f8/d8be827f80da2625c683f85d6b4e93ec.png"></a><br>
+<br>
+Вы ожидаете, что программисты будут принимать в основном рациональные решения, но иногда они делают прямо противоположное. Например, выбирая Hadoop <a href="https://www.chrisstucchio.com/blog/2013/hadoop_hatred.html">даже если он медленнее, чем выполнение той же задачи на одном десктопном компьютере</a>.<br>
+<br>
+Машинное обучение и ИИ отбросили программное обеспечение к гаданию на кофейной гуще во времена, когда большинство компьютеров даже не были достаточно надёжными.<br>
+<br>
+<blockquote><a href="https://twitter.com/freetonik/status/1039826129190875136">@rakhim</a>: Когда приложение или сервис говорит «под управлением ИИ» или «на основе машинного обучения», я читаю это как «ненадёжное, непредсказуемое поведение, которое не поддаётся объяснению». Я держусь подальше от «ИИ», потому что хочу от компьютеров противоположного: надёжности, предсказуемости и логики.</blockquote><br>
+Мы засунули виртуальные машины в Linux, а затем засунули Docker в виртуальные машины, просто потому что никто не смог разобраться с бардаком, который производят большинство программ, языков и их окружений. Мы накрываем дерьмо одеялами, чтобы не убирать его. Например, «единый бинарник» остаётся ОГРОМНЫМ преимуществом Go. Нет бардака&nbsp;== успех.<br>
+<br>
+<a href="https://xkcd.com/1987/"><img src="https://habrastorage.org/getpro/habr/post_images/987/ac3/b9e/987ac3b9eb5d2ec92f34762e703f6ede.png"></a><br>
+<i><font color="gray">Окружающая среда Python настолько загрязнилась, что мой ноутбук объявили зоной экологической катастрофы.<br>
+Примечание. Агентство по защите окружающей среды Python хотело залить его цементом и захоронить с картинкой на входе — предупреждением для будущих цивилизаций об опасности использовать sudo для установки случайных пакетов</font></i> <br>
+<br>
+А зависимости? Люди бездумно ставят переусложнённые «полные пакеты» для простейших проблем, не думая о последствиях. Из этих зависимостей растут новые. В конечном итоге вы получаете дерево, которое является чем-то средним между фильмом ужасов (огромное и полное конфликтов) и комедией (нет причин, по которым мы добавили сюда эти пакеты, <a href="https://medium.com/%40jdan/i-peeked-into-my-node-modules-directory-and-you-wont-believe-what-happened-next-b89f63d21558">но вот они</a>):<br>
+<br>
+<a href=""><img src="https://habrastorage.org/getpro/habr/post_images/062/15e/3d0/06215e3d045965acfc219741b48888cc.gif"></a><br>
+<br>
+Программы не могут работать несколько лет без перезагрузки. Иногда <a href="https://docs.gitlab.com/ee/administration/operations/unicorn.html">даже несколько дней&nbsp;— это слишком</a>. Происходят случайные глюки, и никто не знает почему.<br>
+<br>
+Что ещё хуже, ни у кого нет времени остановиться и выяснить, что произошло. Зачем беспокоиться, если всегда есть другой выход. Поднять новый инстанс AWS. Перезапустить процесс. Удалить и восстановить базу данных. Написать скрипт, который будет перезапускать ваше сломанное приложение каждые 20 минут. Включить одни и те же ресурсы несколько раз: <a href="https://blog.timac.org/2017/0410-analysis-of-the-facebook-app-for-ios-v-87-0/">тяп-ляп — и в продакшн</a>. Двигайся быстро, не трать время на исправление ошибок.<br>
+<br>
+Это не инженерная работа. Это просто ленивое программирование. Инженерная работа предполагает глубокое понимание производительности, структуры и ограничений того, что вы создаёте. Лепить халтуру из некачественного материала&nbsp;— совершенно противоположное занятие. Чтобы развиваться, мы должны понимать, что и зачем мы делаем.<br>
+<br>
+<h1>Мы застряли</h1><br>
+Таким образом, всё это просто куча едва работающего кода, добавленного поверх ранее написанного едва работающего кода. Он продолжает расти в размерах и сложности, уменьшая шансы на изменения.<br>
+<br>
+Чтобы иметь здоровую экосистему, <i>необходимо</i> вернуться. <i>Необходимо</i> иногда выбрасывать хлам и заменять его лучшими альтернативами.<br>
+<br>
+<img src="https://habrastorage.org/getpro/habr/post_images/bb0/713/67c/bb071367cc2b1dcc4af2b357acd9f97d.jpg"><br>
+<br>
+Но у кого есть на это время? Новые ядра ОС не выходили сколько, 25 лет? Это сейчас стало слишком сложным, чтобы просто взять и переписать. В браузерах накопилось столько пограничных ситуаций и исторических прецедентов, что никто не осмелится писать движок с нуля.<br>
+<br>
+Сегодняшнее определение прогресса — или подбросить топлива:<br>
+<br>
+<blockquote><a href="https://twitter.com/sahrizv/status/1018184792611827712">@sahrizv</a>: 2014 — нужно внедрить микросервисы для решения проблем с монолитами.<br>
+2016 — нужно внедрить Docker, чтобы решить проблемы с микросервисами.<br>
+2018 — нужно внедрить Kubernetes, чтобы решить проблемы с Docker.</blockquote><br>
+или изобретать велосипед:<br>
+<br>
+<blockquote><a href="https://twitter.com/dr_c0d3/status/1040092903052378112">@dr_c0d3</a>: 2000: напишите 100 строк XML, чтобы «декларативно» настроить сервлеты и EJB.<br>
+2018: напишите 100 строк YAML, чтобы «декларативно» настроить микросервисы.<br>
+В XML были хотя бы схемы…</blockquote><br>
+Мы застряли, и никто нас не спасёт.<br>
+<br>
+<h1>Бизнесу всё равно</h1><br>
+Пользователям тоже. Они выучились принимать то, что мы делаем. Мы (инженеры) говорим, что каждое приложение для Android занимает 350&nbsp;МБ? Хорошо, они будут с этим жить. Мы говорим, что не можем обеспечить плавную прокрутку? Окей, они свыкнутся с телефоном, который подтормаживает. Мы говорим: «Если не работает, перезагрузитесь»? Они перезагрузятся. Ведь у них нет выбора.<br>
+<br>
+Конкуренции тоже нет. Все строят одни и те же медленные, раздутые, ненадёжные продукты. Случайный скачок вперёд по качеству даёт конкурентное преимущество (iPhone/iOS против других смартфонов, Chrome против других браузеров) и заставляет всех перегруппироваться, но ненадолго.<br>
+<br>
+Наша миссия как инженеров — показать миру потрясающие возможности современных компьютеров с точки зрения производительности, надёжности, качества и удобства использования. Если нам не всё равно, люди потянутся. И никто кроме нас не покажет им, что такое возможно. Если только нам не наплевать.<br>
+<br>
+<h1>Не всё так плохо</h1><br>
+Иногда на пасмурном небосводе просвечивают лучики надежды.<br>
+<br>
+Работа <a href="https://twitter.com/mjpt777">Мартина Томпсона</a> (<a href="https://github.com/LMAX-Exchange/disruptor">LMAX Disruptor</a>, <a href="https://github.com/real-logic/simple-binary-encoding">SBE</a>, <a href="https://github.com/real-logic/aeron">Aeron</a>) впечатляет, она освежающе проста и эффективна.<br>
+<br>
+<a href="https://github.com/google/xi-editor">Редактор Xi</a> Рафа Левиена, кажется, построен на правильных принципах.<br>
+<br>
+<a href="https://www.youtube.com/user/jblow888">Джонатан Блоу</a> для своей игры разработал язык компилирования, который компилирует 500&nbsp;000 строк в секунду на ноутбуке. Это холодная компиляция, никакого промежуточного кэширования, никаких инкрементальных билдов.<br>
+<br>
+Не нужно быть гением, чтобы писать быстрые программы. Здесь нет какой-то магии. Единственное, что требуется, — это не строить софт на базе огромной кучи дерьма, которую поставляют современные инструменты.<br>
+<br>
+<h1>Манифест лучшего мира</h1><br>
+Я хочу видеть прогресс. Я хочу перемен. Чтобы современное программное обеспечение совершенствовалось, а не стояло на месте. Я не желаю заново изобретать одно и то же, каждый раз выпуская всё более медленный и раздутый продукт. Я хочу во что-то верить — в достойную цель, в будущее, которое лучше, чем то, что мы имеем сегодня, и чтобы появилось сообщество инженеров, которые разделяют это видение.<br>
+<br>
+Что мы имеем сегодня — это не прогресс. Мы едва достигаем бизнес-целей с этими плохими инструментами. Мы застряли в локальном оптимуме, и никто не хочет двигаться. Это даже не хорошее место, оно раздутое и неэффективное. Мы просто как-то привыкли к нему.<br>
+<br>
+Поэтому я хочу заявить: <b>нынешняя ситуация — полное дерьмо</b>. Как инженеры, мы можем и должны, и сделаем лучше. У нас могут быть лучшие инструменты, мы можем создавать лучшие приложения, более быстрые, предсказуемые, более надёжные, использующие меньше ресурсов (на порядки меньше!). Мы должны глубоко понять, что мы делаем и почему. Мы должны выпускать продукты надёжно, предсказуемо, с самым высоким качеством. Мы можем и должны гордиться нашей работой. Не просто «учитывая то, что у нас было...» — никаких оговорок!<br>
+<br>
+Надеюсь, я не одинок. Надеюсь, что есть люди, которые хотят того же. Я буду рад, если мы хотя бы начнём говорить о том, насколько абсурдно нелепа нынешняя ситуация в индустрии программного обеспечения. А потом, возможно, придумаем, как выбраться из неё.</div><p>Source: <a href="https://habr.com/ru/post/423889/">https://habr.com/ru/post/423889/</a></p>
+<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<h4>More articles:</h4>
+<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
+</section>
+<script src="../../js/main.js"></script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function (d, w, c) {
+      (w[c] = w[c] || []).push(function() {
+          try {
+              w.yaCounter52496797 = new Ya.Metrika({
+                  id:52496797,
+                  clickmap:true,
+                  trackLinks:true,
+                  accurateTrackBounce:true,
+                  webvisor:true
+              });
+          } catch(e) { }
+      });
+
+      var n = d.getElementsByTagName("script")[0],
+          s = d.createElement("script"),
+          f = function () { n.parentNode.insertBefore(s, n); };
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+      if (w.opera == "[object Opera]") {
+          d.addEventListener("DOMContentLoaded", f, false);
+      } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/52496797" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<!-- Google Analytics -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-134931760-1', 'auto'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+</section>
+
+  <footer class="page-footer">
+    <div class="page-footer-legal-info-container page-footer-element">
+      <p>
+        Weekly-Geekly | <span class="page-footer-legal-info-year js-page-footer-legal-info-year">2019</span>
+      </p>
+    </div>
+    <div class="page-footer-counters-container page-footer-element">
+      <a class="page-footer-counter-clustrmap" href='#'  title='Visit tracker'><img src='https://clustrmaps.com/map_v2.png?cl=698e5a&w=271&t=t&d=6iCFw7uJz0zcOaoxz5k5PcLCJUzv2WG8G5V8M3U6Rc4&co=3a3a3a&ct=ffffff'/></a>
+    </div>
+  </footer>
+</body>
+
+</html>

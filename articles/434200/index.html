@@ -30,7 +30,7 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
   <header class="page-header js-page-header">
-    <div class="page-header-logo-container"></div>
+    <a class="page-header-logo-container" href="https://weekly-geekly.github.io/index.html"></a>
     <div class="page-header-text">Geekly Articles each Day</div>
   </header>
   <nav class="page-headings-container js-page-headings-container"></nav>
@@ -159,7 +159,7 @@ error: aborting due to previous error</code></pre><br>
 <p>Раст — отличный язык для написания абсолютно любых приложений, а не только высоконагруженных бирж, блокчейнов и трейдинговых ботов. Всегда вместо передачи ссылки можно просто скопировать значение. Да-да, возможно, растовчане закидают меня камнями, но в в паре мест моего бота я вместо того, чтобы силиться объяснить компилятору, что переменную можно спокойно расшарить, я её клонировал, и передавал копию. Да, это не так классно, но у меня нет цели написать максимально производительное приложение, как нет такой цели у людей, пользующихся C#/Java/Go/… Я хочу быть максимально продуктивным, и получить приложение с приемлемой скоростью. Реализовать приложение на расте по всем канонам, исключив все ненужные копирования — весьма непростая задача. Но написать приложение за то же время, что и на своём любимом языке, и получить еще и бесплатный прирост производительности — очень даже реально.</p><br>
 <p>Попробуйте написать приложение на расте. Если у вас не получается пройти борроучекер, проверьте ваши структуры данных и их взаимосвязи, потому что я постепенно начал понимать, что борроучекер это не просто механизм, отвечающий за возможность освобождения памяти, но и отличный детектор правильности архитектуры приложения, из разряда "хей, а <em>почему</em> это объект Х зависит от У, я этого не предполагал!". Если же вы всё понимаете, но объяснять борроучекеру правильный ответ слишком сложно, просто скопируйте значение. Скорее всего, вы <em>все равно</em> получите приложение, работающее намного быстрее (если вы пишете на Java/C#/..., как я), либо намного стабильнее (если вы пишете на С/С++), за то же самое время, которое вы бы обычно затратили.</p><br>
 <p>Концепции раста очень мощные, и отлично работают на уровне прикладных приложений, которые не задумываются о производительности, но скорее только о продуктивности разработчиков, скорости внедрения новых фич и простоты поддержки. Очень грустно наблюдать, что такой отличный во всех отношениях язык всё больше получает клеймо "странного и сложного языка для низкоуровневых гиковских задач". Надеюсь, я немного пошатнул этот вредный миф, и в мире станет на сколько-то более продуктивных и счастливых разработиков больше.</p></div><p>Source: <a href="https://habr.com/ru/post/434200/">https://habr.com/ru/post/434200/</a></p>
-<section class="navigation-panel">
+<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
 </section>
@@ -202,6 +202,17 @@ error: aborting due to previous error</code></pre><br>
   <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
 </section>
+
+  <footer class="page-footer">
+    <div class="page-footer-legal-info-container page-footer-element">
+      <p>
+        Weekly-Geekly | <span class="page-footer-legal-info-year js-page-footer-legal-info-year">2019</span>
+      </p>
+    </div>
+    <div class="page-footer-counters-container page-footer-element">
+      <a class="page-footer-counter-clustrmap" href='#'  title='Visit tracker'><img src='https://clustrmaps.com/map_v2.png?cl=698e5a&w=271&t=t&d=6iCFw7uJz0zcOaoxz5k5PcLCJUzv2WG8G5V8M3U6Rc4&co=3a3a3a&ct=ffffff'/></a>
+    </div>
+  </footer>
 </body>
 
 </html>

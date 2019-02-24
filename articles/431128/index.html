@@ -30,7 +30,7 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
   <header class="page-header js-page-header">
-    <div class="page-header-logo-container"></div>
+    <a class="page-header-logo-container" href="https://weekly-geekly.github.io/index.html"></a>
     <div class="page-header-text">Geekly Articles each Day</div>
   </header>
   <nav class="page-headings-container js-page-headings-container"></nav>
@@ -173,7 +173,7 @@
  d0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................
  e0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................
  f0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................ </pre><br>  If you don’t see the difference right away, then you didn’t dig in these dumps for as long as I did. <br><br><h1>  Your thoughts </h1><br>  Is it worth doing?  Financially, of course, no! <br><br>  But it was fun and I learned a lot.  I have no idea <i>exactly where</i> this knowledge can be applied, but I feel that at some point they will be needed.  And just the feeling that you can solve the problem correctly is really nice and gives you confidence. <br><br><hr><br><a name="1"></a>  1. My assumption that RAM will work on this equipment, if it passes memtest86, was obviously wrong.  However, even looking back, the assumption does not seem silly.  By experience, a strange combination of hardware is not so rarely encountered, because of which the standard test falls.  <a href="https://habr.com/ru/post/431128/">↑</a> <br><br><a name="2"></a>  2. I recently learned about using I²C in another project.  I think I can read and write the EEPROM on the Cortex-M microcontroller using my own program, but in practice the soldering of the connector will be very difficult, and writing the code is too much work for me to get interested in.  Nevertheless, I am really happy that I am theoretically capable of that!  <a href="https://habr.com/ru/post/431128/">↑</a> </div><p>Source: <a href="https://habr.com/ru/post/431128/">https://habr.com/ru/post/431128/</a></p>
-<section class="navigation-panel">
+<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
 </section>
@@ -216,6 +216,17 @@
   <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
 </section>
+
+  <footer class="page-footer">
+    <div class="page-footer-legal-info-container page-footer-element">
+      <p>
+        Weekly-Geekly | <span class="page-footer-legal-info-year js-page-footer-legal-info-year">2019</span>
+      </p>
+    </div>
+    <div class="page-footer-counters-container page-footer-element">
+      <a class="page-footer-counter-clustrmap" href='#'  title='Visit tracker'><img src='https://clustrmaps.com/map_v2.png?cl=698e5a&w=271&t=t&d=6iCFw7uJz0zcOaoxz5k5PcLCJUzv2WG8G5V8M3U6Rc4&co=3a3a3a&ct=ffffff'/></a>
+    </div>
+  </footer>
 </body>
 
 </html>

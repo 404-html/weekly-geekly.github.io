@@ -32,7 +32,7 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
   <header class="page-header js-page-header">
-    <div class="page-header-logo-container"></div>
+    <a class="page-header-logo-container" href="https://weekly-geekly.github.io/index.html"></a>
     <div class="page-header-text">Geekly Articles each Day</div>
   </header>
   <nav class="page-headings-container js-page-headings-container"></nav>
@@ -44,7 +44,7 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>PlayStation Classic hacked, now games can be run from a flash drive</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/getpro/habr/post_images/0ef/f4a/d02/0eff4ad0251732a7ce298ba18f5b0e40.jpg"><br>  <i><font color="gray">Fragment of the motherboard included console</font></i> <br><br>  On Habré <a href="https://habr.com/search/%3Fq%3DPlayStation%2BClassic">already wrote</a> about the PlayStation Classic, which is a hardware emulator of the PlayStation One.  Unfortunately, the number of games sewn by the developers of the console in its memory is limited to 20 titles.  But there were craftsmen who removed this limit and taught the console to work with a flash drive - you can download games directly from the drive. <br><br>  It turned out that the cryptographic protection of the device is weak, so it was easy to crack the prefix.  Burglars - professionals in the field of modification and hack of consoles, received a dump of the console through the UART-port and began to analyze it.  The software part of the console is protected by a key, which, by a strange coincidence, is not stored somewhere, but in the console itself. <br><a name="habracut"></a><br><div class="oembed"><twitter-widget class="twitter-tweet twitter-tweet-rendered" id="twitter-widget-0" style="position: absolute; visibility: hidden; display: block; transform: rotate(0deg); max-width: 100%; width: 500px; min-width: 220px; margin-top: 10px; margin-bottom: 10px;"></twitter-widget><blockquote class="twitter-tweet" data-lang="en_US" data-twitter-extracted-i1550817141137195986="true"><p lang="en" dir="ltr">  Stream in an hour.  It'll just be me laughing for the whole night.  <a href="https://t.co/nUrYmvCG4E">pic.twitter.com/nUrYmvCG4E</a> </p>  - Yifan (@yifanlu) <a href="https://twitter.com/yifanlu/status/1070483982553206785%3Fref_src%3Dtwsrc%255Etfw">December 6, 2018</a> </blockquote><script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div><br>  So there is no question of any private keys that are stored by Sony.  Perhaps the company simply did not bother too much with the protection problem, realizing that the hardware emulator was not too hard to crack.  This is not a PS Vita or PS4 Pro. <br><br>  Moreover, the prefix, when executing any code, does not verify the signature, so that the craftsmen managed to launch their own files.  You can download them from a USB device, the process was demonstrated by a hacker (in the positive sense of the word) with the nickname yifanlu. <br><br><iframe width="560" height="315" src="https://www.youtube.com/embed/YIbLg9otz6s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><br>  Thanks to <a href="https://github.com/pathartl/BleemSync">open-source projects</a> created for the PlayStation Classic, now users of this console can download games from USB-drive.  The latter is recognized by the prefix and allows you to run a virtually unlimited set of games.  True, you need to edit some INI files, plus some regional versions of the console may not work with a hack. <br><br>  There are also reports that an improperly formatted and configured drive “wrys” the device.  So when modifying a device, be careful. <br><br>  It is worth noting that the approach to the modification of consoles from Nintendo, including the NES and SNES Classic, is about the same.  The software contents of the console are downloaded to the PC, modified, and then poured back, after which the console gets new features. </div><p>Source: <a href="https://habr.com/ru/post/432860/">https://habr.com/ru/post/432860/</a></p>
-<section class="navigation-panel">
+<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
 </section>
@@ -87,6 +87,17 @@
   <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
 </section>
+
+  <footer class="page-footer">
+    <div class="page-footer-legal-info-container page-footer-element">
+      <p>
+        Weekly-Geekly | <span class="page-footer-legal-info-year js-page-footer-legal-info-year">2019</span>
+      </p>
+    </div>
+    <div class="page-footer-counters-container page-footer-element">
+      <a class="page-footer-counter-clustrmap" href='#'  title='Visit tracker'><img src='https://clustrmaps.com/map_v2.png?cl=698e5a&w=271&t=t&d=6iCFw7uJz0zcOaoxz5k5PcLCJUzv2WG8G5V8M3U6Rc4&co=3a3a3a&ct=ffffff'/></a>
+    </div>
+  </footer>
 </body>
 
 </html>

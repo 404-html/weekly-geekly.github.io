@@ -30,7 +30,7 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
   <header class="page-header js-page-header">
-    <div class="page-header-logo-container"></div>
+    <a class="page-header-logo-container" href="https://weekly-geekly.github.io/index.html"></a>
     <div class="page-header-text">Geekly Articles each Day</div>
   </header>
   <nav class="page-headings-container js-page-headings-container"></nav>
@@ -42,7 +42,7 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Port 22 SSH port or not</h1><div class="post__text post__text-html js-mediator-article">  I stumbled upon a <a href="https://habr.com/post/418533/">discussion three months ago</a> about the need to transfer the SSH port.  A lot of participants in the discussion are convinced that there is no need to transfer the port to a non-standard port. <br><br>  It is enough to switch to key authorization and deliver Fail2ban and this will already be a guarantee of security.  Unfortunately, we live in the real and the world, which is constantly changing and the proposed security measures are no longer always sufficient. <br><a name="habracut"></a><br>  Let's take a look - key authorization has left two relatively secure ssh keys, these are RSA-4096 and ED25519, DSA keys are no longer included in recent versions of OpenSSH.  It should take into account the presence on the Internet of some doubts about the reliability of ED25519, Google to help, if you are interested. <br><br>  In addition to keys, a sufficiently long passphrase for your keys from random characters in different case and numbers, as a minimum, is recommended. <br><br>  Brute force attacks - let's briefly see what happens if your host is attacked purposefully. <br><br><h4>  Stage 1 - collecting information about the host, including open ports </h4><br>  This collection of information is not always reflected in your logs, for example, port scanning can go without a connection.  Fail2ban is useless here, it works only on the records in the logs.  At the first stage, the installed protection systems can also be monitored.  For example, the number of authorization attempts before blocking is determined, the blocking time. <br><br><h4>  Stage 2 - attempts to access the system through SSH hacking </h4><br>  For hacking, botnets with thousands of addresses are used and scanning in a simple case goes to bypass the default Fail2ban settings from hundreds and thousands of addresses, with a serious scan taking into account the settings of the victim protection system.  Fail2Ban is also useless here, especially if SSH is on port 22 and the Fail2Ban settings are defaulted. <br><br>  I have all ports closed on the outer perimeter of one of the servers, but in a couple of days up to several thousand hosts are dialing up that are trying to establish a connection to standard ports.  Moreover, the scan is taking into account the possible protection, packets from one address are, as a rule, with an interval of several minutes. <br><br>  Of course, Fail2ban can be effective to protect some other services with non-standard settings for your hosts and services. <br><br>  For some reason, it always seems that the second stage is the most dangerous, in fact, at the first stage, possible vulnerabilities on the host are looked for; they can be much more dangerous than a simple Brute force SSH.  Why break SSH when there is an open door with a vulnerability nearby. <br><br>  Regarding the change of the standard port, there is a fresh overview of <a href="https://www.cyberciti.biz/tips/linux-unix-bsd-openssh-server-best-practices.html">BestPractic security for SSH</a> , there the change of the standard port is 8 points, authorization by keys is the first point and the installation of Fail2ban or analogs 10 points.  <a href="https://www.cyberciti.biz/tips/linux-unix-bsd-openssh-server-best-practices.html">Top 20 OpenSSH Server Best Security Practices</a> . <br><br>  Switching the SSH port to non-standard allows you to use standard ports as a trap to track scanning attempts, and block the received IP addresses for a long time and on all ports, this is item 11, in the BestPractic article.  Naturally, it is necessary to specify white addresses in order not to get a random blocking - these are 7 and 8 points in the BestPractic article. <br><br>  In this way, we increase the cost of collecting information about our system.  Information on open ports will cost several thousand IP addresses or months to scan our system.  If my SSH port is unknown to a potential hacker, even if a vulnerability appears, it will not be able to use it. </div><p>Source: <a href="https://habr.com/ru/post/429410/">https://habr.com/ru/post/429410/</a></p>
-<section class="navigation-panel">
+<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
 </section>
@@ -85,6 +85,17 @@
   <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
 </section>
+
+  <footer class="page-footer">
+    <div class="page-footer-legal-info-container page-footer-element">
+      <p>
+        Weekly-Geekly | <span class="page-footer-legal-info-year js-page-footer-legal-info-year">2019</span>
+      </p>
+    </div>
+    <div class="page-footer-counters-container page-footer-element">
+      <a class="page-footer-counter-clustrmap" href='#'  title='Visit tracker'><img src='https://clustrmaps.com/map_v2.png?cl=698e5a&w=271&t=t&d=6iCFw7uJz0zcOaoxz5k5PcLCJUzv2WG8G5V8M3U6Rc4&co=3a3a3a&ct=ffffff'/></a>
+    </div>
+  </footer>
 </body>
 
 </html>

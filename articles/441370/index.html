@@ -32,7 +32,7 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
   <header class="page-header js-page-header">
-    <div class="page-header-logo-container"></div>
+    <a class="page-header-logo-container" href="https://weekly-geekly.github.io/index.html"></a>
     <div class="page-header-text">Geekly Articles each Day</div>
   </header>
   <nav class="page-headings-container js-page-headings-container"></nav>
@@ -52,7 +52,7 @@
        = help: within `[closure@src/main.rs: 8: 7: 8:21 x: std :: rc :: Rc &lt;i32&gt;]`, the trait `std :: marker :: Send` is not accepted for `std :: rc :: rc &lt;i32&gt;`
        = note: it’s not necessary because it’s the type of [closure@src/main.rs: 8: 7: 8:21 x: std :: rc :: Rc &lt;i32&gt;] `
      note: required by `spawn` </pre><br>  <a href="https://doc.rust-lang.org/nomicon/send-and-sync.html">The</a> <code>Send</code> and <code>Sync</code> <a href="https://doc.rust-lang.org/nomicon/send-and-sync.html">traits</a> allow the Rust type system to understand what data can be shared.  By incorporating this information into the type system, thread safety becomes part of type safety.  Instead of documentation, <a href="https://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html">thread safety is implemented according to the law of the compiler</a> . <br><br>  Programmers clearly see common objects between threads, and the compiler ensures the reliability of this installation. <br><br><div style="text-align:center;"><img src="https://habrastorage.org/getpro/habr/post_images/35c/af5/27e/35caf527e18989b41893e6fd37239dab.gif"></div><br><br>  Although tools for parallel programming are available in many languages, it is not easy to prevent the race condition.  If you require programmers to have a complex alternation of instructions and interaction between threads, then errors are inevitable.  Although violations of thread and memory security lead to similar consequences, traditional memory protection tools, such as reference counting and garbage collection, do not prevent race conditions.  In addition to the static memory security guarantee, the Rust ownership model also prevents unsafe data modification and incorrect sharing of objects between threads, while the type system provides thread safety during compilation. <br><br><div style="text-align:center;"><img src="https://habrastorage.org/getpro/habr/post_images/92d/429/fb9/92d429fb9c3812ddfdf115d71a3695ed.jpg"></div></div><p>Source: <a href="https://habr.com/ru/post/441370/">https://habr.com/ru/post/441370/</a></p>
-<section class="navigation-panel">
+<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
 </section>
@@ -95,6 +95,17 @@
   <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
 </section>
+
+  <footer class="page-footer">
+    <div class="page-footer-legal-info-container page-footer-element">
+      <p>
+        Weekly-Geekly | <span class="page-footer-legal-info-year js-page-footer-legal-info-year">2019</span>
+      </p>
+    </div>
+    <div class="page-footer-counters-container page-footer-element">
+      <a class="page-footer-counter-clustrmap" href='#'  title='Visit tracker'><img src='https://clustrmaps.com/map_v2.png?cl=698e5a&w=271&t=t&d=6iCFw7uJz0zcOaoxz5k5PcLCJUzv2WG8G5V8M3U6Rc4&co=3a3a3a&ct=ffffff'/></a>
+    </div>
+  </footer>
 </body>
 
 </html>

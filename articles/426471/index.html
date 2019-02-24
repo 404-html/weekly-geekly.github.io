@@ -30,7 +30,7 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
   <header class="page-header js-page-header">
-    <div class="page-header-logo-container"></div>
+    <a class="page-header-logo-container" href="https://weekly-geekly.github.io/index.html"></a>
     <div class="page-header-text">Geekly Articles each Day</div>
   </header>
   <nav class="page-headings-container js-page-headings-container"></nav>
@@ -42,7 +42,7 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>How data flows from spyware applications</h1><div class="post__text post__text-html js-mediator-article">  A huge amount of various software that collects everything that the hands of developers can reach reaches a real problem (among other ethical and legal problems) of the safety of the collected data.  Very often, the data simply lies in the clear, as the developers of spyware applications are so passionate about their collection that they have no time to think about their safe storage. <a name="habracut"></a><br><br>  For example, the TeenSafe application, designed to track children’s iPhones, stored Apple email user ID and text passwords in a public Amazon cloud.  TeenSafe used two AWS cloud servers (Amazon S3) to store a database of parent and child email addresses (addresses associated with the Apple ID of the device on which the application is installed), device names and identifiers, and text passwords for the Apple ID account baby  There were 10,200 entries in the database.  The most delicate thing about this moment is that TeenSafe requires you to disable two-factor authentication for the Apple device ID on which the application will be used. <br><br>  And Spyfone, which sells apps for spying on iOS and Android phones, left terabytes of data, including SMS, audio recordings of calls, contacts, and text messages on Facebook in open access on an incorrectly configured Amazon S3 server (AWS).  At the time of detection in the database were 3,666 monitored phones and 2,208 customers.  In addition, Spyfone left unprotected one of the functions in its API, allowing anyone to view a list of customers. <br><br>  A separate problem is the security of the servers where the data of such applications is stored.  For example, an unknown hacker hacked the server company TheTruthSpy, also producing applications for iOS and Android to spy on the owners of smartphones.  He was able to gain access to logins, passwords, photos, audio calls, SMS, geolocation data, chat rooms and other data intercepted on phones with the installed TheTruthSpy software.  In total, more than 10 thousand customer accounts were affected.  The hacking author claims that he was able to hack TheTruthSpy after examining the Android application code, which revealed some vulnerabilities.  In particular, TheTruthSpy server returned the login and password of the account in open form in response to sending him the client ID. <br><br>  Another hacker was able to access the Family Orbit server at the Rackspace site and download 281 gigabytes of photos and video collected by spyware.  Family Orbit is another application designed to keep track of "childish" smartphones.  As in the case of TheTruthSpy, an error was discovered in the Family Orbit application, which made it possible to gain access to the server without much difficulty.  The access key to the cloud server was “wired” right in the application itself, albeit in an encrypted form. <br><br>  Well, the crown of history is the case of a former employee of the Israeli company NSO Group, producing tools for extracting data from smartphones, who was trying to sell the stolen company code on the black market for $ 50 million. Then I, as an employee of a company producing DLP systems, had to shout “Use DLP systems”, but no.  Nothing will help here at all.  Just when you trust some application with sensitive information, especially about children, remember that it can store it practically “on the balcony”. </div><p>Source: <a href="https://habr.com/ru/post/426471/">https://habr.com/ru/post/426471/</a></p>
-<section class="navigation-panel">
+<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
 </section>
@@ -85,6 +85,17 @@
   <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
 </section>
+
+  <footer class="page-footer">
+    <div class="page-footer-legal-info-container page-footer-element">
+      <p>
+        Weekly-Geekly | <span class="page-footer-legal-info-year js-page-footer-legal-info-year">2019</span>
+      </p>
+    </div>
+    <div class="page-footer-counters-container page-footer-element">
+      <a class="page-footer-counter-clustrmap" href='#'  title='Visit tracker'><img src='https://clustrmaps.com/map_v2.png?cl=698e5a&w=271&t=t&d=6iCFw7uJz0zcOaoxz5k5PcLCJUzv2WG8G5V8M3U6Rc4&co=3a3a3a&ct=ffffff'/></a>
+    </div>
+  </footer>
 </body>
 
 </html>

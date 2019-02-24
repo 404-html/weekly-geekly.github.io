@@ -30,7 +30,7 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
   <header class="page-header js-page-header">
-    <div class="page-header-logo-container"></div>
+    <a class="page-header-logo-container" href="https://weekly-geekly.github.io/index.html"></a>
     <div class="page-header-text">Geekly Articles each Day</div>
   </header>
   <nav class="page-headings-container js-page-headings-container"></nav>
@@ -42,7 +42,7 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Bitcoin 10 years ago</h1><div class="post__text post__text-html js-mediator-article">  January 3, 2009 at 21:15:05 Moscow time, Satoshi Nakamoto quietly launched a chain of blocks of what would later be called the most successful cryptocurrency in the world. <br><br><img src="https://habrastorage.org/webt/zn/_q/s8/zn_qs8bzvqvz-q2vv_q77iqryw8.jpeg"><br><br>  What bitcoin was then, at the very beginning of its development (2009-2010)? <br><br>  I joined the community a little later and I really wanted to see and try it all in the form in which it was then. <br><br>  To do this, I found the earliest source code, added some necessary patches and collected it into working condition. <br><br>  And I found something interesting that I did not know myself.  For example, the fact that in bitcoin it was assumed that there was not only a trading platform, but also poker! <br><br>  I invite you together to recall (learn about) some features that have not reached our days, and if you wish, run that very ancient node. <br><a name="habracut"></a><br><h3>  Logo history </h3><br>  The original Satoshi logo contained two letters BC and looked like this <br><br><img src="https://habrastorage.org/webt/xo/ku/pt/xokuptxzk10djrfqzy4lwppm8g4.jpeg"><br><br>  There is another small addition that few people noticed.  Look at the screen shot and find confirmation of this: <br><br><img src="https://habrastorage.org/webt/-x/f3/ix/-xf3ixl81ahe4xxeabl29f7xgo0.jpeg"><br>  <i>(perhaps this is an error, and perhaps a feature disguised as an error)</i> <br><br>  Then in February 2010, Satoshi <a href="https://bitcointalk.org/index.php%3Ftopic%3D64.0">decided to</a> update the logo and switch to a single-letter symbol, which was much more popular. <br><br><img src="https://habrastorage.org/webt/qp/ea/xk/qpeaxkg-sp2wsd9zx680uh_mleg.png"><br><br>  Modern logos are no longer created by Satoshi himself, but by other people (bitboy, etc.) <br><br><h3>  Hidden features </h3><br>  These are additional windows, which, however, have always been always hidden from the user and ultimately removed from the main branch of development. <br><br>  You can see them visually in the wxWidgets form editor.  For example, here is the window for editing goods from the functionality of the trading platform for the sale of goods for bitcoins: <br><br><img src="https://habrastorage.org/webt/ee/yx/gt/eeyxgtac-jmst6jl0aucjd-k1we.jpeg"><br><br>  But about what very few people know, it's about poker in Bitcoin wallet.  Here’s what the CPokerDialogBase form looks like: <br><br><img src="https://habrastorage.org/webt/_g/wu/hm/_gwuhmqbwfcrh-u0btns6b_aoim.jpeg"><br><br><h3>  Bitcoin forwarding to IP address </h3><br>  In order to simplify the transfer of coins from one wallet to another, Satoshi has implemented the ability to send bitcoins directly to an IP address.  Here is how the coin sending dialogue looked like before: <br><br><img src="https://habrastorage.org/webt/_p/zw/0s/_pzw0sqvksiodtg2kvjxmg8sxh0.png"><br><br>  Moreover, it was possible to attach to this translation also a text message!  However, it did not fall into the blockchain. <br><br><h3>  Transaction replacement </h3><br>  There are a lot of interesting things in the source code.  In addition to the well-known complete list of opcodes of the scripting language, which was subsequently shortened for security reasons, the original client had the option of replacing the transaction with a new version (although there was no user interface to replace the transaction with a new version).  For example, it was theoretically possible to create a transaction that has a pending execution time (lock time) in the distant future.  But until this point, you can create a new version of this transaction, which will correct the execution time of the transaction and thus hold it. <br>  Such functionality has not yet come true, but in a stripped-down form, the replacement of transactions has become very widespread: it is a modern <a href="https://habr.com/post/327218/">Replace-by-Fee</a> . <br><br><h3>  Bitcoin wallet </h3><br>  I learned all this by collecting my wallet from old sources.  If you have an interest (see the poll below), then I will write another article about how I compiled it, what needed to be changed and updated, and how it finally did work and put the compiled files in order to play old new bitcoin all together. <br><br><h3>  PS </h3><br>  The post in the New Year is short, but if you suddenly want to see something else interesting, then I have already shot a lot of new episodes about the Tesla electron microscope, which I haven’t told here yet: <br><br><ul><li>  <a href="https://www.youtube.com/watch%3Fv%3DC5RKAD3Kb7k%26list%3DPLjSDyY6BQPVeaCKIMzqoxBBc7H_QDupPt%26index%3D4">showed the contents of</a> all the boxes </li><li>  <a href="https://www.youtube.com/watch%3Fv%3DISUbNV8Pdk8%26list%3DPLjSDyY6BQPVeaCKIMzqoxBBc7H_QDupPt%26index%3D7">disassembled the</a> microscope <a href="https://www.youtube.com/watch%3Fv%3DISUbNV8Pdk8%26list%3DPLjSDyY6BQPVeaCKIMzqoxBBc7H_QDupPt%26index%3D7">control unit</a> into blocks </li><li>  and even <a href="https://www.youtube.com/watch%3Fv%3DC8W-gMz-AR0%26list%3DPLjSDyY6BQPVeaCKIMzqoxBBc7H_QDupPt%26index%3D8">went to Brno</a> and visited the place where he had once been collected! </li></ul></div><p>Source: <a href="https://habr.com/ru/post/435040/">https://habr.com/ru/post/435040/</a></p>
-<section class="navigation-panel">
+<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
 </section>
@@ -85,6 +85,17 @@
   <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
 </section>
+
+  <footer class="page-footer">
+    <div class="page-footer-legal-info-container page-footer-element">
+      <p>
+        Weekly-Geekly | <span class="page-footer-legal-info-year js-page-footer-legal-info-year">2019</span>
+      </p>
+    </div>
+    <div class="page-footer-counters-container page-footer-element">
+      <a class="page-footer-counter-clustrmap" href='#'  title='Visit tracker'><img src='https://clustrmaps.com/map_v2.png?cl=698e5a&w=271&t=t&d=6iCFw7uJz0zcOaoxz5k5PcLCJUzv2WG8G5V8M3U6Rc4&co=3a3a3a&ct=ffffff'/></a>
+    </div>
+  </footer>
 </body>
 
 </html>

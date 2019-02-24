@@ -30,7 +30,7 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
   <header class="page-header js-page-header">
-    <div class="page-header-logo-container"></div>
+    <a class="page-header-logo-container" href="https://weekly-geekly.github.io/index.html"></a>
     <div class="page-header-text">Geekly Articles each Day</div>
   </header>
   <nav class="page-headings-container js-page-headings-container"></nav>
@@ -42,7 +42,7 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>The art of shamanism or custom firmware for Olinuxino. Part 1</h1><div class="post__text post__text-html js-mediator-article"><p>  Once, an Olinuxino from Olimex was found on an A13 processor from Allwinner in the old box, with 512 MB on board.  Having rummaged, an old homemade USB-uart / spi interface converter on the FT-shke (which was once made for AVRok firmware) and a power supply from some kind of radiotelephone were found there, and all this stuff is in the photo below. </p><br><p>  It’s a pity to throw out, I don’t want to store too much garbage, so it was decided to collect a simple web server from this and play around. </p><br><img src="https://habrastorage.org/webt/qc/uc/8o/qcuc8o6xnjey3pzv0xxxnitqoty.jpeg"><br><p><a name="habracut"></a><br>  Only one problem was with this set ...  there was no ethernet, but there was a connector for it with a 3.3V power supply.  It remains the case for small, from the old broken tablet to remove the wifi module and put it all together in a heap.  Wifi module in the tablet in the upper right corner is sealed.  It must be discharged like a wire with an antenna at the end. </p><br><img src="https://habrastorage.org/webt/wt/yp/sm/wtypsmd23ynzifbfyvgzpauls_m.jpeg"><br><br>  The realtek RTL8188 chip module is not the best choice, but it is what it is.  It must be installed on the intermediate board for further installation in the board.  As a result, we get something like this, the wifi module is removable. <br><br><img src="https://habrastorage.org/webt/fs/qm/vh/fsqmvhbbdqioy9qxzj5pvspmauy.jpeg"><br><br>  Then we collect everything in a heap and get a green light and a connection to wifi, but it will be later, and on the way to this we need to also assemble the firmware for this. <br><br><img src="https://habrastorage.org/webt/us/y4/sz/usy4szp6qadhx3uoufbzyoxolfq.jpeg"><br><br>  In the next article we will build the firmware for the board from scratch, starting with the bootloader and ending with Ubuntu 18.04.  because  there is no nand memory on the board, we will collect it for the boot option from the SD card.  And since  We will not use the monitor and then Linux will be small in the absence of xorg. <br><br>  In general, to be continued. <br><p>  <a href="https://habr.com/post/434942/">The second part of the article</a> <br>  <a href="https://habr.com/post/435586/">The third part of the article</a> </p></div><p>Source: <a href="https://habr.com/ru/post/434894/">https://habr.com/ru/post/434894/</a></p>
-<section class="navigation-panel">
+<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
 </section>
@@ -85,6 +85,17 @@
   <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
 </section>
+
+  <footer class="page-footer">
+    <div class="page-footer-legal-info-container page-footer-element">
+      <p>
+        Weekly-Geekly | <span class="page-footer-legal-info-year js-page-footer-legal-info-year">2019</span>
+      </p>
+    </div>
+    <div class="page-footer-counters-container page-footer-element">
+      <a class="page-footer-counter-clustrmap" href='#'  title='Visit tracker'><img src='https://clustrmaps.com/map_v2.png?cl=698e5a&w=271&t=t&d=6iCFw7uJz0zcOaoxz5k5PcLCJUzv2WG8G5V8M3U6Rc4&co=3a3a3a&ct=ffffff'/></a>
+    </div>
+  </footer>
 </body>
 
 </html>

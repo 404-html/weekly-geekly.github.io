@@ -30,7 +30,7 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
   <header class="page-header js-page-header">
-    <div class="page-header-logo-container"></div>
+    <a class="page-header-logo-container" href="https://weekly-geekly.github.io/index.html"></a>
     <div class="page-header-text">Geekly Articles each Day</div>
   </header>
   <nav class="page-headings-container js-page-headings-container"></nav>
@@ -42,7 +42,7 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Habrautilitis for the collection of habrastatistiki</h1><div class="post__text post__text-html js-mediator-article">  New Year - time to sum up.  And if you run a blog on Habré, or you are interested in seeing statistics on someone else's blog, then you may need my open-source utility. <br><br> <a href="https://habr.com/post/434226/"><img src="https://habrastorage.org/webt/uu/hr/3u/uuhr3usvc-lvcgail23fu3mrbly.png"></a> <br><a name="habracut"></a><br><h2>  What statistics gives? </h2><br>  CSV file with basic information about all articles: <br><br><ul><li>  title </li><li>  article rating </li><li>  number of bookmarks </li><li>  number of views </li><li>  number of comments </li><li>  author </li><li>  article link </li></ul><br> <a href=""><img src="https://habrastorage.org/webt/uj/me/ug/ujmeugzthknakwlevwuch8dupuu.png"><br></a>  <a href="">(a larger version of the screenshot is available by clicking)</a> <br><br>  CSV-file with information which author in the blog is responsible for how many views / comments / pluses / bookmarks. <br><br><img src="https://habrastorage.org/webt/hp/at/jy/hpatjyjxqtt142gezci4q7tli84.png"><br><br>  CSV file with similar information, but grouped by hubs. <br><br><img src="https://habrastorage.org/webt/gc/4r/im/gc4rimrzsg6oagwkvnh5dxhoqky.png"><br><br>  CSV file with similar information, but grouped by tags.  To download tags, you have to load not only the list of articles, but also each article individually, so if you don’t need it, then the <b>-skipTags</b> flag <b>will</b> speed up the process of downloading data. <br><br><img src="https://habrastorage.org/webt/s1/_t/a4/s1_ta4ggovumzpwojnqfn3li8_m.png"><br><br>  Well, as a bonus - JSON-file with the same information. <br><br><img src="https://habrastorage.org/webt/gf/vs/zt/gfvsztsevvbzhm4lif8sbabbzhi.png"><br><br><h2>  Where to get? </h2><br>  The sources <a href="https://github.com/Newbilius/HabrStatisticCollector">are on GitHub</a> , the utility is written in Java 10, and the <a href="https://github.com/Newbilius/HabrStatisticCollector/releases">already assembled JAR</a> , instructions for use and examples are also in the releases section. <br><br><h2>  How does it work and how to use? </h2><br>  Since the Habrahabr API is a myth *, the utility simply and sadly parses HTML through jsoup.  You can set a utility on both personal and corporate blogs - it’s all one. <br><br>  For corporate blogs, we give the program a link to the blog itself, for example, <code>https://habr.com/company/JetBrains/</code> <br><br>  For personal blogs, you need to specify a page with posts, for example: <code>https://habr.com/users/milfgard/posts/</code> <br><br>  More detailed help is built into the application, plus there is a readme file in the repository. <br><br>  * Maybe not, but I could not find such information <br><br><h2>  I found a bug / want more feature </h2><br>  Do not question - leave any bugs or suggestions to the <a href="https://github.com/Newbilius/HabrStatisticCollector/issues">gitkhab issues</a> , suggestions and improvements - there also in the form of pull-requests.  Well, or right here in the comments! </div><p>Source: <a href="https://habr.com/ru/post/434226/">https://habr.com/ru/post/434226/</a></p>
-<section class="navigation-panel">
+<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
 </section>
@@ -85,6 +85,17 @@
   <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
 </section>
+
+  <footer class="page-footer">
+    <div class="page-footer-legal-info-container page-footer-element">
+      <p>
+        Weekly-Geekly | <span class="page-footer-legal-info-year js-page-footer-legal-info-year">2019</span>
+      </p>
+    </div>
+    <div class="page-footer-counters-container page-footer-element">
+      <a class="page-footer-counter-clustrmap" href='#'  title='Visit tracker'><img src='https://clustrmaps.com/map_v2.png?cl=698e5a&w=271&t=t&d=6iCFw7uJz0zcOaoxz5k5PcLCJUzv2WG8G5V8M3U6Rc4&co=3a3a3a&ct=ffffff'/></a>
+    </div>
+  </footer>
 </body>
 
 </html>

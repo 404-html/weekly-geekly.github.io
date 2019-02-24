@@ -32,7 +32,7 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
   <header class="page-header js-page-header">
-    <div class="page-header-logo-container"></div>
+    <a class="page-header-logo-container" href="https://weekly-geekly.github.io/index.html"></a>
     <div class="page-header-text">Geekly Articles each Day</div>
   </header>
   <nav class="page-headings-container js-page-headings-container"></nav>
@@ -85,7 +85,7 @@
  255813Hz 7947
  383720Hz 7460
  511626Hz 7141 </pre><br>  I have to admit, the code is not quite stable.  In case of problems, it is recommended to disable Turbo Boost, CPU frequency scaling and performance optimization. <br><br><h1>  Conclusion </h1><br>  From this work there are two main conclusions. <br><br>  We have seen that low-level data is rather difficult to analyze and seems rather noisy.  Instead of evaluating with the naked eye, you can always use the good old FFT.  In preparing the data, it is necessary in some sense to take what was desired. <br><br>  Most importantly, we have shown that it is often possible to measure subtle hardware behavior from a simple process in user space.  This kind of thinking led to the discovery of the <a href="https://googleprojectzero.blogspot.com/2015/03/exploiting-dram-rowhammer-bug-to-gain.html">original vulnerability of Rowhammer</a> , it is implemented in the Meltdown / Specter attacks and again shown in the recent <a href="https://arstechnica.com/information-technology/2018/11/potentially-disastrous-rowhammer-bitflips-can-bypass-ecc-protections/">reincarnation of Rowhammer for ECC memory</a> . <br><br>  Much remains beyond the scope of this article.  We barely touched the internal workings of the memory subsystem.  For further reading, I recommend: <br><br><ul><li>  <a href="http://lackingrhoticity.blogspot.com/2015/04/l3-cache-mapping-on-sandy-bridge-cpus.html">L3 cache mapping on Sandy Bridge processors</a> </li><li>  <a href="https://habr.com/post/431102/">How a physical address is matched with strings and banks in DRAM</a> </li><li>  <a href="https://habr.com/post/431128/">Hanna Hartikainen cracked DDR3 SO-DIMM and made him work ... slower</a> </li></ul><br>  Finally, here is a good description of old ferrite memory: <br><br><ul><li>  <a href="http://www.psych.usyd.edu.au/pdp-11/core.html">Explanation of ferrite memory PDP-11 from the University of Sydney</a> </li></ul></div><p>Source: <a href="https://habr.com/ru/post/431010/">https://habr.com/ru/post/431010/</a></p>
-<section class="navigation-panel">
+<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
 </section>
@@ -128,6 +128,17 @@
   <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
 </section>
+
+  <footer class="page-footer">
+    <div class="page-footer-legal-info-container page-footer-element">
+      <p>
+        Weekly-Geekly | <span class="page-footer-legal-info-year js-page-footer-legal-info-year">2019</span>
+      </p>
+    </div>
+    <div class="page-footer-counters-container page-footer-element">
+      <a class="page-footer-counter-clustrmap" href='#'  title='Visit tracker'><img src='https://clustrmaps.com/map_v2.png?cl=698e5a&w=271&t=t&d=6iCFw7uJz0zcOaoxz5k5PcLCJUzv2WG8G5V8M3U6Rc4&co=3a3a3a&ct=ffffff'/></a>
+    </div>
+  </footer>
 </body>
 
 </html>

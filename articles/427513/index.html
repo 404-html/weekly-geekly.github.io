@@ -30,7 +30,7 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
   <header class="page-header js-page-header">
-    <div class="page-header-logo-container"></div>
+    <a class="page-header-logo-container" href="https://weekly-geekly.github.io/index.html"></a>
     <div class="page-header-text">Geekly Articles each Day</div>
   </header>
   <nav class="page-headings-container js-page-headings-container"></nav>
@@ -246,7 +246,7 @@
  Thread-1: locked resource -&gt; java.lang.Object@1ad895d1
  Thread-1: locked resource -&gt; java.lang.Object@6e41d7dd
 </pre><br>  As a result, using only the information obtained from the thread dump, we were able to find the cause and fix the deadlock in our application. Предложенная техника достаточна для большинства простых приложений (или приложений с небольшим количеством deadlock-ов). Чтобы разобраться с более сложными ситуациями, потребуются другие методы. <br><br><h3> Анализ более сложных Thread Dump-ов </h3><br> Дампы настоящих приложений могут быть очень большими и сложными. <br><br> В одной JVM одновременно могут быть запущены сотни тысяч потоков. И заблокированными могут оказаться больше чем два потока (или может быть несколько проблем многопоточности, вызванных одной проблемой). <br><br> Анализ такого громадного объема информации может стать настоящей проблемой. <br><br> Для анализа больших дампов предназначены специальные утилиты-анализаторы — Thread Dump Analyzers (TDAs). Эти утилиты парсят Java thread dump-ы и выводят информацию в человеко-читаемом виде, часто с применением графических средств. Более того, некоторые из них могут выполнить статический анализ и найти причину проблемы. Конечно, выбор конкретной утилиты зависит от целого ряда обстоятельств. <br><br> Тем не менее приведем список наиболее популярных TDA: <br><br><ul><li> <a href="http://fastthread.io/" rel="nofollow">fastThread</a> </li><li> <a href="https://spotify.github.io/threaddump-analyzer/" rel="nofollow">Spotify TDA</a> </li><li> <a href="https://www.ibm.com/developerworks/community/groups/service/html/communityview%3FcommunityUuid%3D2245aa39-fa5c-4475-b891-14c205f7333c" rel="nofollow">IBM Thread and Monitor Dump Analyze for Java</a> </li><li> <a href="https://github.com/irockel/tda" rel="nofollow">irockel TDA</a> </li></ul><br> Это далеко не полный список утилит подобного рода. Каждая утилита из этого списка выполняет достаточно качественный анализ и упрощает ручной труд анализа дампов. <br><br><h4>  Conclusion </h4><br> Thread dump-ы — это отличное средство анализа состояния Java-приложения, особенно в случаях неожиданного поведения многопоточных приложений. Однако без надлежащего багажа знаний, дампы могут внести дополнительную сложность и в без того сложную ситуацию. <br><br> В этой статье мы разработали приложение с deadlock, сформировали дамп зависшего приложения. Проанализировали дамп и нашли причину блокировки и исправили её. Это не всегда так просто, для анализа большинства реальных приложений очень полезно использовать специальные утилиты — анализаторы. <br><br> Тем не менее, каждый профессиональный Java-разработчик должен понимать основы анализа thread dump-ов. Должен ориентироваться в их структуре, знать какую информацию можно извлечь и как ее использовать для решения проблем многопоточности. <br><br> Хотя, thread dump — это не «серебряная пуля» в мире многопоточности, тем не менее это важное средство диагностирования сложных, но довольно распространенных проблем многопоточных Java-приложений. <br><br> <i>В программе курса <a href="https://otus.pw/YXS8/">Разработчик Java</a> вопросы многопоточности занимают заметную часть. Мы детально рассматриваем как разрабатывать программы так, чтобы не приходилось по ночам разбираться с deadlock-в продакшене.</i> <br><br> <i>Как всегда интересны ваши мнения и комментарии, которые можно оставить тут или заглянуть к Виталию <a href="https://otus.pw/o6hK/">на день открытых дверей</a> .</i> </div><p>Source: <a href="https://habr.com/ru/post/427513/">https://habr.com/ru/post/427513/</a></p>
-<section class="navigation-panel">
+<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
 </section>
@@ -289,6 +289,17 @@
   <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
 </section>
+
+  <footer class="page-footer">
+    <div class="page-footer-legal-info-container page-footer-element">
+      <p>
+        Weekly-Geekly | <span class="page-footer-legal-info-year js-page-footer-legal-info-year">2019</span>
+      </p>
+    </div>
+    <div class="page-footer-counters-container page-footer-element">
+      <a class="page-footer-counter-clustrmap" href='#'  title='Visit tracker'><img src='https://clustrmaps.com/map_v2.png?cl=698e5a&w=271&t=t&d=6iCFw7uJz0zcOaoxz5k5PcLCJUzv2WG8G5V8M3U6Rc4&co=3a3a3a&ct=ffffff'/></a>
+    </div>
+  </footer>
 </body>
 
 </html>

@@ -37,6 +37,10 @@ p {
 	text-align: justify;
 }
 
+a {
+  color: #3F51B5;
+}
+
 /*code {
 	background-color: rgba( 0, 0, 0, .3 );
     border-radius: 3px;
@@ -114,7 +118,7 @@ a[href*="http"]:not(.tools-bar a) {
 	}
 }
 
-.navigation-panel {
+.all-articles-navigation-panel {
 	text-align: left;
 }
 
@@ -148,3 +152,29 @@ a[href*="http"]:not(.tools-bar a) {
   overflow-y: scroll;
   border-top: 2px solid;
 }*/
+
+
+.page-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #3a3a3a;
+}
+
+.page-footer-element {
+  margin: 0 10px;
+}
+
+.page-footer-legal-info-container {
+  font-size: 2rem;
+  color: #698e5a;
+}
+
+.page-footer-counter-clustrmap {
+  cursor: default;
+}
+
+.page-footer-counter-clustrmap img {
+  clip-path: inset(0 22px);
+}

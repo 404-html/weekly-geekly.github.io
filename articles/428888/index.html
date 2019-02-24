@@ -30,7 +30,7 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
   <header class="page-header js-page-header">
-    <div class="page-header-logo-container"></div>
+    <a class="page-header-logo-container" href="https://weekly-geekly.github.io/index.html"></a>
     <div class="page-header-text">Geekly Articles each Day</div>
   </header>
   <nav class="page-headings-container js-page-headings-container"></nav>
@@ -42,7 +42,7 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>qml: power and simplicity</h1><div class="post__text post__text-html js-mediator-article">  My brother is a big fan of computer games and everything connected with them.  He scans the whole Internet in search of information about the old, rare, first editions of games, the names of which I do not even know (and even calls himself the "Historian of the Games").  He recently came up with a request to write a small viewer for <a href="https://www.mobygames.com/">one of the websites</a> on the Internet that is busy with this topic.  The task was to view information about all games by genre since 1950, and for this, the site has fairly convenient functionality, but the usual lists only general information (from the header) and no screenshots, so you had to open each page manually and spend a lot time to view and capture the necessary information. <br><a name="habracut"></a><br>  Glancing at the task, I said “let's do it!”.  In the next hour (with a little) several python scripts were written in order to parse the site and fill in the necessary information with a small SQLite database.  In this case, this is a justified decision, because every time I run through the pages of the site from the viewer for a long time, and the information for most of the games does not change.  New games are rarely added, and even then only those that came out recently. <br><br>  After the scripts were tested and we were ready to launch them and went to drink tea (with buns).  After waiting a couple of hours and passing the time for the game at Age of Wonders, we had a complete base in our hands with all the necessary information.  As an engineer, at this stage I was already completely satisfied, because if you have all the necessary data, what else do you need?  However, the brother turned to the viewer, so we did not stop there and continued to work. <br><br>  By this time, I had been working on Qt UI for quite a long time and had been studying Qml, so I didn’t think for a long time about which framework or technology to choose to put the task at hand.  I was pleasantly surprised how with just a few strokes of the pen, in just a couple of minutes (less than an hour or so) we had a beautiful viewer (the design appealed to the wife, and that says a lot) with the functionality we needed (filtering by year, by topic , by name, etc., uploading information to a separate file, etc.). <br><br>  After this story, I thought it was a good thing that in an era when Microsoft and Apple are trying to squeeze out every dollar of their users, there are companies and tools like Qt that, on the one hand, provide “powerful tools at a reasonable price” for professionals, and on the other hand, the means are provided to everyone for personal use, with, in general, a few restrictions on the part of the license.  For this, the guys have a big respect and respect and a low bow.  Thank. <br><br>  The project code is laid out <a href="https://github.com/Haridus/MobyViewer">here</a> , the Windows binary can be downloaded <a href="https://yadi.sk/d/o-muGqGfnd1UBg">here</a> . <br><br>  PS: In general, the viewer can be freely used, including with other objects and for other purposes.  My brother and I will be happy if the project will be useful to someone other than the two of us.  Do not forget only on occasion to put a link to the authors.  Thank. </div><p>Source: <a href="https://habr.com/ru/post/428888/">https://habr.com/ru/post/428888/</a></p>
-<section class="navigation-panel">
+<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
 </section>
@@ -85,6 +85,17 @@
   <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
 </section>
+
+  <footer class="page-footer">
+    <div class="page-footer-legal-info-container page-footer-element">
+      <p>
+        Weekly-Geekly | <span class="page-footer-legal-info-year js-page-footer-legal-info-year">2019</span>
+      </p>
+    </div>
+    <div class="page-footer-counters-container page-footer-element">
+      <a class="page-footer-counter-clustrmap" href='#'  title='Visit tracker'><img src='https://clustrmaps.com/map_v2.png?cl=698e5a&w=271&t=t&d=6iCFw7uJz0zcOaoxz5k5PcLCJUzv2WG8G5V8M3U6Rc4&co=3a3a3a&ct=ffffff'/></a>
+    </div>
+  </footer>
 </body>
 
 </html>

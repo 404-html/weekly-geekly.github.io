@@ -61,7 +61,8 @@ $(function() {
 	//Go to Bottom button Logic
 	$('.js-go-to-bottom-button').on('click', function(e) {
 		e.preventDefault();
-		$('html, body').animate({scrollTop: document.querySelector('.js-mediator-article').scrollHeight}, 800);
+		//$('html, body').animate({scrollTop: document.querySelector('.js-mediator-article').scrollHeight}, 800);
+		document.querySelector('.js-all-articles-navigation-panel').scrollIntoView({'block': 'start', 'behavior': 'smooth'});
 	});
 
 
@@ -80,4 +81,8 @@ $(function() {
 
 	//Get the list of all articles
 	$('.js-list-of-articles-container').load('../../index.html .js-all-articles-list');
+
+
+	//Set current year to legal info in the footer
+	$('.js-page-footer-legal-info-year').text(new Date().getFullYear());
 });

@@ -30,7 +30,7 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
   <header class="page-header js-page-header">
-    <div class="page-header-logo-container"></div>
+    <a class="page-header-logo-container" href="https://weekly-geekly.github.io/index.html"></a>
     <div class="page-header-text">Geekly Articles each Day</div>
   </header>
   <nav class="page-headings-container js-page-headings-container"></nav>
@@ -42,7 +42,7 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>GitHub announced its own CI / CD and began distributing invites.</h1><div class="post__text post__text-html js-mediator-article"><div style="text-align:center;"><img src="https://habrastorage.org/webt/-m/x3/vo/-mx3vo25rio9b08d71c31cg_bjc.png"></div>  At the last GitHub Universe, the company announced a lot of different things, but most of all I was hooked by their own CI / CD solution.  Based on Docker, it can collect and execute containers on push to the repository, the appearance of a new ticket, the creation of a release.  <a href="http://github.com/features/actions">here</a> you can leave a request for participation in the public beta, Microsoft will issue invites in small batches.  Under the cut - my speculation than such a thing can be useful to us with live GitLab and CircleCI. <br><a name="habracut"></a><br>  In the <a href="https://techcrunch.com/2018/10/16/github-launches-actions-its-workflow-automation-tool/">announcement</a> on TechCrunch an interesting phrase was heard: <br><blockquote>  I see CI / CD as one narrow use case of actions.  It's so, so much more, ”Lambert stressed.  I think I’m not going to be able to make it out. </blockquote>  It seems that the authors view new “Actions” not just as “run tests and build a package after a commit”.  And as a way to store executable code on GitHub, share it with colleagues and call it in response to external events, as <a href="https://ifttt.com/">IFTTT</a> is doing <a href="https://ifttt.com/">now</a> . <br><br>  Despite the risks (many open source solutions have installers of the “curl | bash” type, causing outrage from security experts), it is convenient to run code from the cloud.  Especially if it is your own code.  "Npx link-to-gist" reduces the code of assemblies, settings, configurations to one line.  Which is so easy to transfer to colleagues in the slug or run on a laptop of a new employee. <br><br>  CI / CD is available for free in the cloud version of GitLab, and in open source GitHub projects use integrations with popular CI systems as in the screenshot below.  But now all this is very limited: CI requires a lot of resources to build a Docker container, they prefer to sell it for money and are afraid of miners.  The appearance of a free and fast solution from Microsoft on GitHub can change the rules of the game.  Just as the gists did in their time. <br><br><img src="https://habrastorage.org/webt/il/1d/dn/il1ddn_3ibxahlj3hngra0jaqqm.png"></div><p>Source: <a href="https://habr.com/ru/post/426681/">https://habr.com/ru/post/426681/</a></p>
-<section class="navigation-panel">
+<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
 </section>
@@ -85,6 +85,17 @@
   <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
 </section>
+
+  <footer class="page-footer">
+    <div class="page-footer-legal-info-container page-footer-element">
+      <p>
+        Weekly-Geekly | <span class="page-footer-legal-info-year js-page-footer-legal-info-year">2019</span>
+      </p>
+    </div>
+    <div class="page-footer-counters-container page-footer-element">
+      <a class="page-footer-counter-clustrmap" href='#'  title='Visit tracker'><img src='https://clustrmaps.com/map_v2.png?cl=698e5a&w=271&t=t&d=6iCFw7uJz0zcOaoxz5k5PcLCJUzv2WG8G5V8M3U6Rc4&co=3a3a3a&ct=ffffff'/></a>
+    </div>
+  </footer>
 </body>
 
 </html>

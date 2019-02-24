@@ -30,7 +30,7 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
   <header class="page-header js-page-header">
-    <div class="page-header-logo-container"></div>
+    <a class="page-header-logo-container" href="https://weekly-geekly.github.io/index.html"></a>
     <div class="page-header-text">Geekly Articles each Day</div>
   </header>
   <nav class="page-headings-container js-page-headings-container"></nav>
@@ -42,7 +42,7 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>How to build IT architecture in a company using SAP Enterprise Architecture Designer</h1><div class="post__text post__text-html js-mediator-article">  In this article from the series of materials about SAP Data Management Suite, we will talk about the application for building the IT architecture in the company - SAP Enterprise Architecture Designer. <br><br>  Previous articles from the cycle: <br>  <a href="https://habr.com/company/sap/blog/425965/">SAP Data Management Suite as a complex for working with Big Data in companies</a> <br>  <a href="https://habr.com/company/sap/blog/426503/">SAP HANA functionality as a database for SAP HANA Data Management Suite</a> <br><br>  The <a href="https://www.sap.com/products/enterprise-architecture-designer.html">SAP Enterprise Architecture Designer (EA Designer) service</a> allows you to describe, model and analyze information landscapes, functional requirements, business processes, structures and data flows and other artifacts within a business. <br><br><img src="https://habrastorage.org/webt/zw/na/ni/zwnanikelmxkizb70hadqmy-sjc.png"><br><br><a name="habracut"></a><br><br>  EA Designer is a tool for creating and maintaining a full-fledged corporate architecture within a business.  With the help of EA Designer, you can quickly describe the IT architecture in the company and then easily visually analyze. <br><br>  All models are placed in a single repository, which simplifies working together in the framework of the process of creating a common corporate architecture. <br><br>  The service also provides support for links between objects of different models and diagrams.  Impact and origin analysis allows you to visualize and track these relationships in order to understand the relationships between objects and the impact of making changes to one of the objects in the chain. <br><br><img src="https://habrastorage.org/webt/yc/ha/we/ychaweun5r8yw8zfsewjg2dbxfi.png"><br><br>  EA Designer supports the creation and editing of the following chart types: <br><br>  <b>Business processes (Business Process)</b> .  Business process diagrams allow you to identify, describe and decompose business processes.  There is support for two options BPMN 2.0: <br><br><ul><li>  BPMN 2.0 Descriptive.  Usually used by business users.  Contains a subset of BPMN 2.0 objects suitable for designing and analyzing business processes. </li><li>  BPMN 2.0 Executable.  Usually used by process developers, it includes all standard BPMN 2.0 objects and allows you to model a business process with all technical details.  This makes it possible to use this model for the further implementation of the process in BPM systems — for example, SAP Process Orchestration.  Reverse reverse engineering of models from SAP BPM or Eclipse BPMN2 Modeler is also possible. </li></ul><br><br><img src="https://habrastorage.org/webt/kr/kb/-6/krkb-6rztspdw2u3e0ivzjs6be8.png"><br><br>  <b>Conceptual Data Model</b> .  It helps to develop and analyze the conceptual structure of information systems, to determine the main objects that should be presented, their attributes and relations between them. <br><br>  <b>Physical data model (Physical Data)</b> .  Helps to develop and analyze database structure.  You can reengineer any supported database.  Direct generation of database structures in SAP HANA based on the physical model is supported. <br><br>  <b>Data Flow Model (Data Movement Diagram)</b> .  Helps design and analyze data transfer between data stores and their conversion.  You can reverse engineer data streams and create them in the SAP Web IDE. <br><br><img src="https://habrastorage.org/webt/ju/2v/np/ju2vnpvyejg5e45bicr6swxssam.png"><br><br>  <b>Enterprise Architecture (Enterprise Architecture Diagram)</b> .  Helps analyze and document the organization, its capabilities and processes, applications and systems that support them, as well as the physical architecture on which they are implemented. <br><br><img src="https://habrastorage.org/webt/rw/7f/ye/rw7fyebrwh16yi98dow5mpws_tw.png"><br><br>  <b>NoSQL diagrams (NoSQL Document Schema, JSON)</b> .  They help develop, analyze and document the JSON structures used in systems.  You can reverse engineer JSON schemas (or inherit them from JSON documents) and create JSON schema files. <br><br>  <b>Requirements List</b> .  Displays a hierarchical list of business goals, functional requirements, etc. <br><br>  Based on the information from the models, you can quickly create reports in various common formats, distributing them among interested parties. <br><br>  EA Designer is available both on-premise and in cloud versions for deployment.  The user works with the application through the browser. <br><br><img src="https://habrastorage.org/webt/h0/14/ix/h014ixofm1c1c_phiuaqrh3ssco.png"><br><br><img src="https://habrastorage.org/webt/ag/yx/m7/agyxm71bpeowdj-iomraveknsfy.png"></div><p>Source: <a href="https://habr.com/ru/post/426791/">https://habr.com/ru/post/426791/</a></p>
-<section class="navigation-panel">
+<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
 </section>
@@ -85,6 +85,17 @@
   <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
 </section>
+
+  <footer class="page-footer">
+    <div class="page-footer-legal-info-container page-footer-element">
+      <p>
+        Weekly-Geekly | <span class="page-footer-legal-info-year js-page-footer-legal-info-year">2019</span>
+      </p>
+    </div>
+    <div class="page-footer-counters-container page-footer-element">
+      <a class="page-footer-counter-clustrmap" href='#'  title='Visit tracker'><img src='https://clustrmaps.com/map_v2.png?cl=698e5a&w=271&t=t&d=6iCFw7uJz0zcOaoxz5k5PcLCJUzv2WG8G5V8M3U6Rc4&co=3a3a3a&ct=ffffff'/></a>
+    </div>
+  </footer>
 </body>
 
 </html>

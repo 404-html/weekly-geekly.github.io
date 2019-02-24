@@ -30,7 +30,7 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
   <header class="page-header js-page-header">
-    <div class="page-header-logo-container"></div>
+    <a class="page-header-logo-container" href="https://weekly-geekly.github.io/index.html"></a>
     <div class="page-header-text">Geekly Articles each Day</div>
   </header>
   <nav class="page-headings-container js-page-headings-container"></nav>
@@ -42,7 +42,7 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>What is fluent-setter</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/webt/zt/3_/nj/zt3_njzlepmsaz8wmaiqpcz6_ts.png" alt="image"><br><br>  Today in PhpStorm, I created a private variable and noticed that the IDE suggests that I create two types of setters: the regular setter and the fluent setter. <br><br>  The term "fluent setter" I have not met before, so I created both options. <br><a name="habracut"></a><br><pre><code class="php hljs"><span class="hljs-comment"><span class="hljs-comment">/* PHP */</span></span> <span class="hljs-class"><span class="hljs-keyword"><span class="hljs-class"><span class="hljs-keyword">class</span></span></span><span class="hljs-class"> </span><span class="hljs-title"><span class="hljs-class"><span class="hljs-title">Foo</span></span></span><span class="hljs-class"> </span></span>{ <span class="hljs-keyword"><span class="hljs-keyword">private</span></span> $var; <span class="hljs-comment"><span class="hljs-comment">// Обычный setter public function setVar($var) { $this-&gt;var = $var; } // Это fluent setter public function setVar($var) { $this-&gt;var = $var; return $this; } }</span></span></code> </pre> <br>  Yeah, so <b>fluent setter, is the setter that the object itself returns</b> . <br><br>  What nonsense.  Who may need a view design <br><br><pre> <code class="php hljs">$object = $object-&gt;setVar(<span class="hljs-number"><span class="hljs-number">1</span></span>); <span class="hljs-comment"><span class="hljs-comment">// Это же то же самое, что и просто $object-&gt;setVar(1); // И даже если создавать новую переменную, польза сомнительная $sameObject = $object-&gt;setVar(1);</span></span></code> </pre> <br>  This is at first glance. <br><br>  A little later, I guessed.  This is what is called cheating in jQuery.  Thanks to the returned object, we can immediately apply the next setter. <br><br><pre> <code class="javascript hljs"><span class="hljs-comment"><span class="hljs-comment">/* Javascript */</span></span> $(<span class="hljs-string"><span class="hljs-string">'#elementId'</span></span>).val(<span class="hljs-number"><span class="hljs-number">13</span></span>).css(<span class="hljs-string"><span class="hljs-string">'font-size'</span></span>, <span class="hljs-string"><span class="hljs-string">'20px'</span></span>).appendTo(element2); <span class="hljs-comment"><span class="hljs-comment">// И в столбик мне нравится: $('#elementId') .val(13) .css('font-size', '20px') .appendTo(element2);</span></span></code> </pre> <br>  Fluent-setters are invented to make the code clearer and clearer. <br><br>  Yes, in Javascript it is noticeable.  In Java and PHP, too.  Moreover, there are already widely used setters, so why not make them in a fluent version. <br><br><pre> <code class="php hljs"><span class="hljs-comment"><span class="hljs-comment">/* php */</span></span> $car-&gt;setColor(<span class="hljs-string"><span class="hljs-string">'#f00'</span></span>)-&gt;setWeight(<span class="hljs-string"><span class="hljs-string">'1200'</span></span>)-&gt;setPower(<span class="hljs-number"><span class="hljs-number">55000</span></span>); $car -&gt;setColor(<span class="hljs-string"><span class="hljs-string">'#f00'</span></span>) -&gt;setWeight(<span class="hljs-string"><span class="hljs-string">'1200'</span></span>) -&gt;setPower(<span class="hljs-number"><span class="hljs-number">55000</span></span>);</code> </pre> <br>  In Python, of course, you can write setter functions, but the benefits of them are not obvious.  It will be more convenient for me personally to use an ordinary Python setter, which does not look like a function, but as an assignment operator.  To do setters like set_var () in Python, in my opinion, contradicts the Python ideas of simplicity. <br><br><pre> <code class="python hljs"><span class="hljs-comment"><span class="hljs-comment"># python # обычные @property car.color = '#f00' car.weight = 1200 car.power = 55000 # fluent-сеттеры, которые выглядят как функции. Так разве лучше? Лично меня смущает. car.color('#f00').weight('1200').power(55000) # Да и так тоже не лучше... car.set_color('#f00').set_weight('1200').set_power(55000) # Если писать в столбик, то надо слэши добавлять, и это ещё страшнее выглядит. car.set_color('#f00') \ .set_weight('1200') \ .set_power(55000)</span></span></code> </pre><br>  Later, I found <a href="https://en.wikipedia.org/wiki/Fluent_interface">an article</a> about Fluent Interface, where I came <a href="https://en.wikipedia.org/wiki/Fluent_interface">across a</a> more pleasing <a href="https://en.wikipedia.org/wiki/Fluent_interface">example in python</a> . <br><br>  A minute of self-education is over. </div><p>Source: <a href="https://habr.com/ru/post/429020/">https://habr.com/ru/post/429020/</a></p>
-<section class="navigation-panel">
+<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
 </section>
@@ -85,6 +85,17 @@
   <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
 </section>
+
+  <footer class="page-footer">
+    <div class="page-footer-legal-info-container page-footer-element">
+      <p>
+        Weekly-Geekly | <span class="page-footer-legal-info-year js-page-footer-legal-info-year">2019</span>
+      </p>
+    </div>
+    <div class="page-footer-counters-container page-footer-element">
+      <a class="page-footer-counter-clustrmap" href='#'  title='Visit tracker'><img src='https://clustrmaps.com/map_v2.png?cl=698e5a&w=271&t=t&d=6iCFw7uJz0zcOaoxz5k5PcLCJUzv2WG8G5V8M3U6Rc4&co=3a3a3a&ct=ffffff'/></a>
+    </div>
+  </footer>
 </body>
 
 </html>
