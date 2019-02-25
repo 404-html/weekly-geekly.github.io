@@ -85,4 +85,11 @@ $(function() {
 
 	//Set current year to legal info in the footer
 	$('.js-page-footer-legal-info-year').text(new Date().getFullYear());
+
+
+	//Fetch articles for New Articles Previewers
+	// $('.js-new-article-preview').each(function(index, element) {
+	// 	const link = $('.js-all-articles-list li:nth-child(' + index + 1 +') a').attr('href');
+	// 	$(element).load(link + ' .js-mediator-article');
+	// });
 });
