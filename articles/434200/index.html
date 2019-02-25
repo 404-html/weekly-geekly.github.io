@@ -43,7 +43,7 @@
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Is it so scary Rust, as it is painted</h1><div class="post__text post__text-html js-mediator-article"><p>  Some time ago, I began to understand the need to diversify my programming experience exclusively in C #.  After some study of various options, such as Haskell, Scala, Rust and some others, the choice fell on the last one.  Over time, I began to notice that Rust is increasingly being advertised solely as a "system language" that is needed for extremely complex compilers and super-loaded systems, with special security and multithreading requirements, and for simpler options there is Go / Python / Java / ..., while I gladly and quite successfully used it as a replacement for my workhorse C #. </p><br><p><img src="https://habrastorage.org/getpro/habr/post_images/2d4/c19/0e3/2d4c190e3cd252bf7dc714c91d448943.png"></p><br><p>  In this article I wanted to tell why I consider this trend as a whole harmful, and why Rust is a good general-purpose language in which you can do any projects, starting with any microservices, and ending with the scripting of the daily routine. </p><a name="habracut"></a><br><h3 id="vvedenie">  Introduction </h3><br><p>  Why, in fact, learn a new language, the more difficult?  It seems to me that the answer of the article <a href="http://www.nestor.minsk.by/sr/2003/07/30710.html">“Overcoming Mediocrity” is the</a> closest to the truth, namely: </p><br><blockquote>  Everyone knows that writing the entire program manually in machine language is wrong.  But they understand much less often that there is a more general principle: in the presence of a choice of several languages, it is wrong to program on something other than the most powerful one, unless other reasons influence the choice. </blockquote><p>  The more complex the language, the richer the phrases composed with its help, and the better it can express the desired subject area.  Since  concepts are usually studied once, and are applied many times, much more profitable from the point of view of investing their own time to study all kinds of scary words like "monadic transformers" (and, preferably, their meaning), in order to save their mental forces and spend them nice  And therefore, it is very sad to see the trend of some companies to make specially "simplified" languages.  As a result, the vocabulary of these languages ​​is much smaller, and it is not difficult to learn it, but then reading the “my yours to buy onion” programs is very difficult, not to mention possible ambiguous interpretations. </p><br><h3 id="osnovy">  The basics </h3><br><p>  As usual, a newbie gets to know a programming language?  He goesogle the most popular book on the language, gets it, and starts reading.  As a rule, it contains HelloWorld, a compiler installation instruction, and then basic information on the language with a gradual complication.  In the case of rasta, this is a <a href="https://doc.rust-lang.org/book/">handpiece</a> , and the first example is reading a number from the console and displaying it on the screen.  How would we do this in the same C #?  Well, probably something like that </p><br><pre><code class="cs">var number = int.Parse(Console.ReadLine());
 Console.WriteLine($"You guessed: {number}");</code></pre><br>
-<p>А что у нас в расте?</p><br>
+<p>     ?</p><br>
 <pre><code class="rust">let mut guess = String::new();
 
 io::stdin().read_line(&amp;mut guess)
@@ -53,28 +53,28 @@ let guess: u32 = guess.trim().parse()
     .expect("Please type a number!");
 
 println!("You guessed: {}", guess);</code></pre><br>
-<p>Утроенное количество кода, все эти реверансы с созданием переменной перед использованием (привет Паскаль!), вызовом кучи вспомогательного кода, и т.п. "Что за ужас" подумает среднестатистический разработчик и в очередной раз убедится в "системности" языка.</p><br>
-<p>А ведь на самом деле это можно написать существенно проще:</p><br>
+<p>  ,         ( !),    ,  .. "  "          "" .</p><br>
+<p>         :</p><br>
 <pre><code class="rust">let mut guess = String::new();
 io::stdin().read_line(&amp;mut guess)?;
 let guess: u32 = guess.trim().parse()?;
 println!("You guessed: {}", guess);</code></pre><br>
-<p>Всё еще остается отдельное создание переменной и чтение в неё из потока, но тут уже накладывает отпечаток идеология раста, что выделение буфера он перекладывает на пользователя. Сперва непривычно, но потом понимаешь, что с ответственностью приходит и соответствующая сила. Ну а для тех, кто не парится, всегда есть опция написать трёхстрочную функцию и забыть этот вопрос раз и навсегда.</p><br>
-<p>Почему пример в книжке составлен таким образом? Скорее всего из-за того, что объяснение обработки ошибок происходит сильно позже, а игнорировать их как в случае с C# не позволяет парадигма раста, который контролирует все возможные пути, где что-то может пойти не так.</p><br>
-<h3 id="layftaymy-i-borroucheker">Лайфтаймы и борроучекер</h3><br>
-<p>Ох уж эти страшные звери. Люди бросаются непонятными заклинаниями навроде </p><br>
+<p>           ,       ,       .  ,   ,       .    ,   ,             .</p><br>
+<p>      ?   - ,       ,        C#    ,     ,  -    .</p><br>
+<h3 id="layftaymy-i-borroucheker">  </h3><br>
+<p>    .      </p><br>
 <pre><code class="rust">fn search&lt;F&gt;(self, hash: u64, is_match: F, compare_hashes: bool)  
    -&gt; RawEntryMut&lt;'a, K, V, S&gt;
   where for&lt;'b&gt; F: FnMut(&amp;'b K) -&gt; bool</code></pre><br>
-<p>Новички в панике бегут, ребята из го говорят "мы же вас предупреждали про ненужную сложность", хаскеллисты говорят "столько сложности для языка, в котором даже эффектов нет", а джависты крутят пальцем у виска "стоило ли огород городить, чтобы только от GC отказаться".</p><br>
-<p>На деле же при написании прикладной программы вам скорее всего не понадобится указывать <em>ни одного</em> лайфтайма вообще. Причина этого в том, что в расте есть правила вывода лайфтаймов, которые почти всегда компилятор может выставить сам. Вот они:</p><br>
+<p>   ,     "      ",   "   ,     ",       "   ,    GC ".</p><br>
+<p>             <em> </em>  .    ,       ,       .  :</p><br>
 <blockquote><ul>
 <li>Each elided lifetime in input position becomes a distinct lifetime parameter.</li>
 <li>If there is exactly one input lifetime position (elided or not), that lifetime is assigned to all elided output lifetimes.</li>
 <li>If there are multiple input lifetime positions, but one of them is &amp;self or &amp;mut self, the lifetime of self is assigned to all elided output lifetimes.</li>
 <li>Otherwise, it is an error to elide an output lifetime.</li>
 </ul><br>
-</blockquote><p>Или, если в двух словах, в случае статических функций время жизни всех аргументов полагаются равными, в случае инстансных методов время жизни всех результирующих ссылок полагается равным времени жизни инстанса, на котором мы вызываем метод. И на практике это почти всегда соблюдается в случае прикладного кода. Поэтому, там вы вместо ужаса выше обычно будете писать что-то вроде</p><br>
+</blockquote><p>,    ,          ,              ,     .           . ,         - </p><br>
 <pre><code class="rust">struct Point(i32, i32);
 
 impl Point {
@@ -86,36 +86,36 @@ impl Point {
         &amp;self.1
     }
 }</code></pre><br>
-<p>И компилятор сам <a href="https://play.rust-lang.org/%3Fversion%3Dstable%26mode%3Ddebug%26edition%3D2018%26gist%3Db4f61e2f37e5f0ce1e3f4263797205c6">с радостью выведет всё</a>, что нужно, чтобы это работало.</p><br>
-<p>Лично я вижу прелесть концепции в автоматическом управлении в нескольких аспектах</p><br>
+<p>   <a href="https://play.rust-lang.org/%3Fversion%3Dstable%26mode%3Ddebug%26edition%3D2018%26gist%3Db4f61e2f37e5f0ce1e3f4263797205c6">   </a>,  ,   .</p><br>
+<p>          </p><br>
 <ul>
-<li>с точки зрения человека с опытом программирования на языке с GC память не является отдельным видов ресурсов. В C# есть целая история с интерфейсом <code>IDisposable</code>, который используется для детерминированной очистки ресурсов, именно потому, что GC удаляет объект "когда то там", а нам может потребоваться освободить ресурс немедленно. В итоге есть целый ворох следствий: и про правильную реализацию финализаторов надо не забыть, и целое ключевое слово для этого было введено (как и try-with-resources в Java), и компилятор перелопатить, чтобы генерировал foreach с учетом этого… Унификация всех видов ресурсов, которые освободятся автоматически, и максимально быстро после последнего использования это очень приятно. Открыл себе файл, и работаешь с ним, он закроется когда нужно без всяких скоупингов. Сразу отвечу на потенциальное возражение, что DI контейнеры несколько облегчают жизнь, но не решают всех вопросов</li>
-<li>с точки зрения человека с опытом программирования на языке с ручным управлением, в 99% случаев не надо использовать умные указатели, достаточно использовать обычные ссылки.</li>
+<li>          GC      .  C#      <code>IDisposable</code>,      ,  ,  GC   "  ",       .      :        ,         (  try-with-resources  Java),   ,   foreach   …    ,   ,         .   ,    ,       .     ,  DI    ,     </li>
+<li>           ,  99%      ,    .</li>
 </ul><br>
-<p>В итоге, код получается чистый (как в языке с GC), но в то же время все ресурсы освобождаются максимально быстро (как в языке с ручным управлением). А лайфтайм: декларативное описание ожидаемого времени жизни объекта. А декларативное описание всегда лучше, чем императивное "освободи объект здесь".</p><br>
-<h3 id="zhestokiy-kompilyator">Жестокий компилятор</h3><br>
-<p>Некоторое следствие предыдущего пункта. Есть хорошая картинка, она в целом описывает многие языки, но нарисованна конкретно для случая раста:</p><br>
+<p> ,    (    GC),           (     ).  :      .     ,   "  ".</p><br>
+<h3 id="zhestokiy-kompilyator"> </h3><br>
+<p>   .   ,      ,      :</p><br>
 <p><img src="https://habrastorage.org/getpro/habr/post_images/6b8/d57/0e4/6b8d570e4cc64209f008915a49e50346.png"></p><br>
-<p>На самом деле компилятор действительно довольно придирчивый. Особенно это было верно до появления Rust 2018, когда компилятор в некоторых случаях не пропускал совершенно очевидно правильный код. Но и сейчас возникают проблемы, особенно от непонимания концепции владения. Например, когда человек пытается реализовать двусвязный список. При наивной реализации он сначала попробует сделать </p><br>
+<p>      .       Rust 2018,           .     ,     . ,      .        </p><br>
 <pre><code class="rust">pub struct Node {
     value: u64,
     next: Option&lt;Box&lt;Node&gt;&gt;,
     prev: Option&lt;Box&lt;Node&gt;&gt;,
 }</code></pre><br>
-<p>Компилятор скомпилирует объявление этой структуры, но воспользоваться ей не получится, т.к. <code>Box&lt;Node&gt;</code> является владеющей ссылкой, или <code>unique_ptr</code> в терминах C++. А уникальная ссылка, конечно же, может быть только одна</p><br>
-<p>Следующая попытка человека может выглядеть так:</p><br>
+<p>    ,     , .. <code>Box&lt;Node&gt;</code>   ,  <code>unique_ptr</code>   C++.   ,  ,    </p><br>
+<p>     :</p><br>
 <pre><code class="rust">pub struct Node {
     value: u64,
     next: Option&lt;&amp;Box&lt;Node&gt;&gt;,
     prev: Option&lt;&amp;Box&lt;Node&gt;&gt;,
 }</code></pre><br>
-<p>Теперь у нас есть невладеющие ссылки (они же <code>shared_ptr</code>), и их может быть сколько угодно на один объект. Но тут возникает две проблемы: во-первых владелец должен где-то быть. А значит мы скорее всего получим кучу ошибок компиляции "владелец умер, когда кто-то ссылался на его данные", потому как dangling pointers раст не допускает. А во-вторых, что важнее, мы не сможем изменять эти значения, из-за правил раста "либо одна мутабельная ссылка, либо произвольное количество иммутабельных, и никак иначе".</p><br>
-<p>После этого человек обычно начинает биться о клавиатуру, и писать статьи что <a href="https://rcoh.me/posts/rust-linked-list-basically-impossible/">"в расте даже связный список реализовать нормально не получится"</a>. Реализовать же его, конечно, <a href="https://doc.rust-lang.org/std/collections/struct.LinkedList.html">можно</a>, но немного сложнее чем в других языках, придется руками добавить подсчёт ссылок (примитивы <code>Rc</code>/<code>Arc</code>/<code>Cell</code>/<code>RefCell</code>), чтобы рантайме подсчитывать количество этих самых ссылок, потому что компилятор в данной ситуации бессилен.</p><br>
-<p>Причины этого: эта структура данных плохо ложится на концепцию владения раста, вокруг построен весь язык и экосистема в целом. Любые структуры данных, где необходимо наличие нескольких владельцев потребуют некоторых приседаний, например реализация всевозможных лесов/деревьев/графов или тех же связных списков. Но это верно для всех языков программирования: попытки реализовать своё управление памятью в языках с GC приводит к страшным монстрам, работающих через WeakReferences с гигантскими <code>byte[]</code> массивам, воскрешающие объекты в деструкторах, чтобы вернуть их в пул, и прочей страшной некромантией. Попытки уйти от динамической природы JS, чтобы написать производительный код, <a href="https://habr.com/post/350018/">приводит к еще более странным вещам</a>.</p><br>
-<p>Таким образом, в любом языке программирования есть своя "болевая точка", и в случае раста, это структуры данных с многими владельцами. Но, если мы смотрим с прикладной точки зрения высокоуровневых программистов, наши программы устроенны как раз таким образом. Например, в моем окружении типовое приложение выглядит как некоторый слой контроллеров, которые шарят между собой сервисы. Каждый сервис имеет ссылку на какие-то репозитории, которые возвращают какие-то объекты. Всё это отлично укладывается в концепцию ownership'а. И если учесть, что на практике основными структурами данных являются списки, массивы и хэшмапы, то оказывается, что всё не так уж и плохо.</p><br>
-<h3 id="chto-zhe-delat-s-etim-zverem">Что же делать с этим зверем</h3><br>
-<p>На самом же деле компилятор изо всех сил пытается помочь. Сообщения об ошибках в расте, наверное, наиболее приятные из всех языков программирования, с которыми я работал.</p><br>
-<p>Например, <a href="https://play.rust-lang.org/%3Fversion%3Dstable%26mode%3Ddebug%26edition%3D2018%26gist%3D0e5032535835d93237396ed5918e55a8">при попытке</a> использовать первый вариант нашего связного списка выполучите сообщение</p><br>
+<p>      (  <code>shared_ptr</code>),         .     : -   - .          " ,  -    ",   dangling pointers   .  -,  ,      , -   "   ,    ,   ".</p><br>
+<p>       ,     <a href="https://rcoh.me/posts/rust-linked-list-basically-impossible/">"        "</a>.   , , <a href="https://doc.rust-lang.org/std/collections/struct.LinkedList.html"></a>,       ,      ( <code>Rc</code>/<code>Arc</code>/<code>Cell</code>/<code>RefCell</code>),       ,       .</p><br>
+<p> :         ,        .   ,        ,    //     .       :         GC    ,   WeakReferences   <code>byte[]</code> ,    ,     ,    .      JS,    , <a href="https://habr.com/post/350018/">     </a>.</p><br>
+<p> ,       " ",    ,      . ,         ,       . ,          ,     .      - ,   - .       ownership'.   ,        ,   ,  ,       .</p><br>
+<h3 id="chto-zhe-delat-s-etim-zverem">     </h3><br>
+<p>         .     , ,      ,    .</p><br>
+<p>, <a href="https://play.rust-lang.org/%3Fversion%3Dstable%26mode%3Ddebug%26edition%3D2018%26gist%3D0e5032535835d93237396ed5918e55a8"> </a>        </p><br>
 <pre><code class="plaintext">error[E0382]: assign to part of moved value: `head`
   --&gt; src\main.rs:23:5
    |
@@ -126,8 +126,8 @@ impl Point {
    |     ^^^^^^^^^ value partially assigned here after move
    |
    = note: move occurs because `head` has type `Node`, which does not implement the `Copy` trait</code></pre><br>
-<p>Он говорит как раз о том, что мы передали владение ссылкой одному элементу, и уже не можем его использовать повторно. Также он нам рассказывает, что есть некий <code>Copy</code> трейт, который позволяет вместо перемещения объекта производить его копирование, из-за чего его использовать после "перемещения", потому что переместили мы копию. Если вы не знали про его существование, то ошибка компиляции снабдит вас информацией для размышления "А может стоит добавить реализацию этого трейта?".</p><br>
-<p>Вообще, раст для меня первый язык, в котором есть <a href="https://hackernoon.com/compile-driven-learning-3264034ca266">compiler-driven development</a>. Вы просто запускаете компиляцию, если что-то не работает, язык просто скажет вам "хмм, что-то не сходится. Я думаю, проблема в Х. Попробуй добавить вот этот код, и всё заработает". Типовой пример, допустим мы написали две функции, и забыли добавить ограничение на генерик:</p><br>
+<p>     ,       ,       .    ,    <code>Copy</code> ,        , -     "",     .       ,         "      ?".</p><br>
+<p>,     ,    <a href="https://hackernoon.com/compile-driven-learning-3264034ca266">compiler-driven development</a>.    ,  -  ,     ", -  .  ,   .     ,   ".  ,     ,      :</p><br>
 <pre><code class="rust">fn foo&lt;T: Copy&gt;() {
 
 }
@@ -135,7 +135,7 @@ impl Point {
 fn bar&lt;T&gt;() {
     foo::&lt;T&gt;();
 }</code></pre><br>
-<p>Компилируем, получаем ошибку:</p><br>
+<p>,  :</p><br>
 <pre><code class="rust">error[E0277]: the trait bound `T: std::marker::Copy` is not satisfied
  --&gt; src\main.rs:6:5
   |
@@ -150,15 +150,15 @@ note: required by `foo`
   | ^^^^^^^^^^^^^^^^^
 
 error: aborting due to previous error</code></pre><br>
-<p>Копипастим <code>where T: std::marker::Copy</code> из сообщения об ошибке, компилируем, <a href="https://play.rust-lang.org/%3Fversion%3Dstable%26mode%3Ddebug%26edition%3D2018%26gist%3D16d75a2c919d2f4029411ddfa5ec2db3">всё готово</a>, поехали в прод!</p><br>
-<p>Да, IDE всех современных языков умеют это делать через всякие сниппеты, но во-первых тут польза в том, что вы видите, из какого крейта/неймспейса прилетело ограничение, а во-вторых это поддержка всё же со стороны компилятора, а не IDE. Это очень помогает при кросс-платформенной разработке, когда у вас локально всё собирается, а на некоторой матрице на CI сервере где-то что-то падает из-за условной компиляции. На билд-сервере IDE нет, а так лог глянул, подставил, и всё собралось. Удобно.</p><br>
-<p>Я писал некоторое время назад телеграм-бота на расте, в качестве тренировки языка. И у меня был момент, где я решил отрефакторить всё приложение. Я заменил всё, что хотел, а потом в течение получаса пытался собрать проект, и вставлял предложения от компилятора тут и там. По прошествии этого времени всё собралось и заработало с первого раза.</p><br>
-<p>Ну и могу сказать, что по прошествии года с того момента как я впервые начал на расте писать, я научился писать простые сниппеты без ошибок с первого раза. Звучит смешно, особенно для людей с динамических ЯП, но для меня это был серьезный прогресс. А еще за всё время работы с растом я дебаг включал ровно два раза. И в обоих случаях я дебажил FFI с С++ кодом, который сегфолтился. Растовый код у меня либо работал правильно, либо не собирался. В случае с C# у меня уверенность сильно ниже, я все время думаю "а не придет ли тут null", "а не будет ли тут KeyNotFoundException", "правильно ли я синхронизировал доступ к этим переменным из многих потоков", и т.п. Ну а в случае с JS (когда я фуллстечил и писал фронт в том числе) после каждого изменения следовала обязательная проверка в браузере, что там изменилось.</p><br>
-<p>Уверенность в том, что собралось == работает действительно имеет место. Это не значит, что в коде нет багов, это значит, что все баги связаны с логикой приложения. У вас нет неожиданных нуллов, несихнронизированного доступа, buffer overflow и так далее. А их намного легче отловить, а иногда можно вынести на уровень типов (<a href="http://blog.ploeh.dk/2015/08/10/type-driven-development/">хорошая статья на тему</a>).</p><br>
-<h3 id="itogo">Итого</h3><br>
-<p>Раст — отличный язык для написания абсолютно любых приложений, а не только высоконагруженных бирж, блокчейнов и трейдинговых ботов. Всегда вместо передачи ссылки можно просто скопировать значение. Да-да, возможно, растовчане закидают меня камнями, но в в паре мест моего бота я вместо того, чтобы силиться объяснить компилятору, что переменную можно спокойно расшарить, я её клонировал, и передавал копию. Да, это не так классно, но у меня нет цели написать максимально производительное приложение, как нет такой цели у людей, пользующихся C#/Java/Go/… Я хочу быть максимально продуктивным, и получить приложение с приемлемой скоростью. Реализовать приложение на расте по всем канонам, исключив все ненужные копирования — весьма непростая задача. Но написать приложение за то же время, что и на своём любимом языке, и получить еще и бесплатный прирост производительности — очень даже реально.</p><br>
-<p>Попробуйте написать приложение на расте. Если у вас не получается пройти борроучекер, проверьте ваши структуры данных и их взаимосвязи, потому что я постепенно начал понимать, что борроучекер это не просто механизм, отвечающий за возможность освобождения памяти, но и отличный детектор правильности архитектуры приложения, из разряда "хей, а <em>почему</em> это объект Х зависит от У, я этого не предполагал!". Если же вы всё понимаете, но объяснять борроучекеру правильный ответ слишком сложно, просто скопируйте значение. Скорее всего, вы <em>все равно</em> получите приложение, работающее намного быстрее (если вы пишете на Java/C#/..., как я), либо намного стабильнее (если вы пишете на С/С++), за то же самое время, которое вы бы обычно затратили.</p><br>
-<p>Концепции раста очень мощные, и отлично работают на уровне прикладных приложений, которые не задумываются о производительности, но скорее только о продуктивности разработчиков, скорости внедрения новых фич и простоты поддержки. Очень грустно наблюдать, что такой отличный во всех отношениях язык всё больше получает клеймо "странного и сложного языка для низкоуровневых гиковских задач". Надеюсь, я немного пошатнул этот вредный миф, и в мире станет на сколько-то более продуктивных и счастливых разработиков больше.</p></div><p>Source: <a href="https://habr.com/ru/post/434200/">https://habr.com/ru/post/434200/</a></p>
+<p> <code>where T: std::marker::Copy</code>    , , <a href="https://play.rust-lang.org/%3Fversion%3Dstable%26mode%3Ddebug%26edition%3D2018%26gist%3D16d75a2c919d2f4029411ddfa5ec2db3"> </a>,   !</p><br>
+<p>, IDE         ,  -    ,   ,   /  ,  -       ,   IDE.     - ,      ,      CI  - -  -  .  - IDE ,    , ,   . .</p><br>
+<p>     -  ,    .     ,      .   ,  ,        ,        .           .</p><br>
+<p>   ,              ,          .  ,      ,       .              .       FFI  ++ ,  .       ,   .    C#     ,     "     null", "     KeyNotFoundException", "          ",  ..      JS (        )        ,   .</p><br>
+<p>  ,   ==    .   ,     ,  ,       .     ,  , buffer overflow   .     ,        (<a href="http://blog.ploeh.dk/2015/08/10/type-driven-development/">   </a>).</p><br>
+<h3 id="itogo"></h3><br>
+<p> —       ,     ,    .        . -, ,    ,          ,    ,     ,   ,   . ,    ,         ,      ,  C#/Java/Go/…     ,      .       ,     —   .       ,      ,        —   .</p><br>
+<p>    .       ,       ,      ,      ,     ,       ,   ",  <em></em>      ,    !".     ,       ,   .  ,  <em> </em>  ,    (    Java/C#/...,  ),    (    /++),     ,     .</p><br>
+<p>   ,       ,     ,      ,       .   ,            "       ". ,      ,      -      .</p></div><p>Source: <a href="https://habr.com/ru/post/434200/">https://habr.com/ru/post/434200/</a></p>
 <section class="all-articles-navigation-panel js-all-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>

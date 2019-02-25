@@ -372,11 +372,11 @@
       </tr>
       <tr>
         <td id="file-oncallconnected-js-L8" class="blob-num js-line-number" data-line-number="8"></td>
-        <td id="file-oncallconnected-js-LC8" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">call</span>.<span class="pl-en">say</span>(<span class="pl-s"><span class="pl-pds">"</span>Мир тебе, землянин! Конкурс прост: я показываю в браузере изображения, в них зашифрованы слова или словосочетания, имеющие отношение к конференции и &lt;say-as stress='2'&gt;АйТи&lt;/say-as&gt;.<span class="pl-pds">"</span></span> <span class="pl-k">+</span></td>
+        <td id="file-oncallconnected-js-LC8" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">call</span>.<span class="pl-en">say</span>(<span class="pl-s"><span class="pl-pds">"</span> , !  :     ,      ,      &lt;say-as stress='2'&gt;&lt;/say-as&gt;.<span class="pl-pds">"</span></span> <span class="pl-k">+</span></td>
       </tr>
       <tr>
         <td id="file-oncallconnected-js-L9" class="blob-num js-line-number" data-line-number="9"></td>
-        <td id="file-oncallconnected-js-LC9" class="blob-code blob-code-inner js-file-line">    <span class="pl-s"><span class="pl-pds">"</span>А ты пытаешься их отгадать, разговаривая со мной по телефону. Всего пять вопросов и по три попытки отгадать правильный ответ. Готов??? Понеслась!<span class="pl-pds">"</span></span>,</td>
+        <td id="file-oncallconnected-js-LC9" class="blob-code blob-code-inner js-file-line">    <span class="pl-s"><span class="pl-pds">"</span>    ,     .          . ??? !<span class="pl-pds">"</span></span>,</td>
       </tr>
       <tr>
         <td id="file-oncallconnected-js-L10" class="blob-num js-line-number" data-line-number="10"></td>
@@ -474,7 +474,7 @@
       </tr>
       <tr>
         <td id="file-startgame-js-L8" class="blob-num js-line-number" data-line-number="8"></td>
-        <td id="file-startgame-js-LC8" class="blob-code blob-code-inner js-file-line">      <span class="pl-c"><span class="pl-c">//</span> qIndex и attempts на старте = 0</span></td>
+        <td id="file-startgame-js-LC8" class="blob-code blob-code-inner js-file-line">      <span class="pl-c"><span class="pl-c">//</span> qIndex  attempts   = 0</span></td>
       </tr>
       <tr>
         <td id="file-startgame-js-L9" class="blob-num js-line-number" data-line-number="9"></td>
@@ -518,11 +518,11 @@
       </tr>
       <tr>
         <td id="file-startgame-js-L19" class="blob-num js-line-number" data-line-number="19"></td>
-        <td id="file-startgame-js-LC19" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">startASR</span>(); <span class="pl-c"><span class="pl-c">//</span> запуск распознавания</span></td>
+        <td id="file-startgame-js-LC19" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">startASR</span>(); <span class="pl-c"><span class="pl-c">//</span>  </span></td>
       </tr>
       <tr>
         <td id="file-startgame-js-L20" class="blob-num js-line-number" data-line-number="20"></td>
-        <td id="file-startgame-js-LC20" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">wireCall</span>(); <span class="pl-c"><span class="pl-c">//</span> отправка медиапотока в ASR</span></td>
+        <td id="file-startgame-js-LC20" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">wireCall</span>(); <span class="pl-c"><span class="pl-c">//</span>    ASR</span></td>
       </tr>
       <tr>
         <td id="file-startgame-js-L21" class="blob-num js-line-number" data-line-number="21"></td>
@@ -548,7 +548,7 @@
       </div>
     </div>
 </div>
-</div></div></div></li><li>  <b>startASR</b> creates <a href="https://voximplant.com/docs/references/voxengine/asr">an ASR instance</a> and specifies the preferred recognition dictionary.  When the player pronounces the answer, the function <a href="https://voximplant.com/docs/references/voxengine/asr/asr">stops the ASR</a> and starts processing what they <b>hear</b> - <b>onRecognitionResult</b> ; </li><li>  <b>onRecognitionResult</b> removes unnecessary from the answer: <br><br><pre> <code class="javascript hljs"><span class="hljs-keyword"><span class="hljs-keyword">let</span></span> rr = e[<span class="hljs-number"><span class="hljs-number">0</span></span>].replace(<span class="hljs-string"><span class="hljs-string">"это "</span></span>, <span class="hljs-string"><span class="hljs-string">""</span></span>).replace(<span class="hljs-string"><span class="hljs-string">"вероятно "</span></span>, <span class="hljs-string"><span class="hljs-string">""</span></span>).replace(<span class="hljs-string"><span class="hljs-string">"может быть "</span></span>, <span class="hljs-string"><span class="hljs-string">""</span></span>).replace(<span class="hljs-string"><span class="hljs-string">"может это "</span></span>, <span class="hljs-string"><span class="hljs-string">""</span></span>); rr = rr.replace(<span class="hljs-regexp"><span class="hljs-regexp">/ /g</span></span>, <span class="hljs-string"><span class="hljs-string">''</span></span>);</code> </pre> <br>  And then begins counting attempts, points, and also voiced comments along the way: <br><br><div class="spoiler">  <b class="spoiler_title">show code</b> <div class="spoiler_text"><div class="oembed"><script type="text/javascript" src="https://gist.github.com/7e95f1ddee5549954365ffce492ecca3.js"></script><link rel="stylesheet" href="https://github.githubassets.com/assets/gist-embed-b3b573358bfc66d89e1e95dbf8319c09.css"><div id="gist92464285" class="gist">
+</div></div></div></li><li>  <b>startASR</b> creates <a href="https://voximplant.com/docs/references/voxengine/asr">an ASR instance</a> and specifies the preferred recognition dictionary.  When the player pronounces the answer, the function <a href="https://voximplant.com/docs/references/voxengine/asr/asr">stops the ASR</a> and starts processing what they <b>hear</b> - <b>onRecognitionResult</b> ; </li><li>  <b>onRecognitionResult</b> removes unnecessary from the answer: <br><br><pre> <code class="javascript hljs"><span class="hljs-keyword"><span class="hljs-keyword">let</span></span> rr = e[<span class="hljs-number"><span class="hljs-number">0</span></span>].replace(<span class="hljs-string"><span class="hljs-string">" "</span></span>, <span class="hljs-string"><span class="hljs-string">""</span></span>).replace(<span class="hljs-string"><span class="hljs-string">" "</span></span>, <span class="hljs-string"><span class="hljs-string">""</span></span>).replace(<span class="hljs-string"><span class="hljs-string">"  "</span></span>, <span class="hljs-string"><span class="hljs-string">""</span></span>).replace(<span class="hljs-string"><span class="hljs-string">"  "</span></span>, <span class="hljs-string"><span class="hljs-string">""</span></span>); rr = rr.replace(<span class="hljs-regexp"><span class="hljs-regexp">/ /g</span></span>, <span class="hljs-string"><span class="hljs-string">''</span></span>);</code> </pre> <br>  And then begins counting attempts, points, and also voiced comments along the way: <br><br><div class="spoiler">  <b class="spoiler_title">show code</b> <div class="spoiler_text"><div class="oembed"><script type="text/javascript" src="https://gist.github.com/7e95f1ddee5549954365ffce492ecca3.js"></script><link rel="stylesheet" href="https://github.githubassets.com/assets/gist-embed-b3b573358bfc66d89e1e95dbf8319c09.css"><div id="gist92464285" class="gist">
     <div class="gist-file">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">
@@ -580,7 +580,7 @@
       </tr>
       <tr>
         <td id="file-onrecognitionresult-js-L6" class="blob-num js-line-number" data-line-number="6"></td>
-        <td id="file-onrecognitionresult-js-LC6" class="blob-code blob-code-inner js-file-line">    <span class="pl-smi">call</span>.<span class="pl-en">say</span>(<span class="pl-s"><span class="pl-pds">"</span>&lt;say-as stress='3'&gt;Крутотенюшка&lt;/say-as&gt;! Держи пятюню!<span class="pl-pds">"</span></span>, <span class="pl-smi">Language</span>.<span class="pl-c1">RU_RUSSIAN_MALE</span>);</td>
+        <td id="file-onrecognitionresult-js-LC6" class="blob-code blob-code-inner js-file-line">    <span class="pl-smi">call</span>.<span class="pl-en">say</span>(<span class="pl-s"><span class="pl-pds">"</span>&lt;say-as stress='3'&gt;&lt;/say-as&gt;!  !<span class="pl-pds">"</span></span>, <span class="pl-smi">Language</span>.<span class="pl-c1">RU_RUSSIAN_MALE</span>);</td>
       </tr>
       <tr>
         <td id="file-onrecognitionresult-js-L7" class="blob-num js-line-number" data-line-number="7"></td>
@@ -592,7 +592,7 @@
       </tr>
       <tr>
         <td id="file-onrecognitionresult-js-L9" class="blob-num js-line-number" data-line-number="9"></td>
-        <td id="file-onrecognitionresult-js-LC9" class="blob-code blob-code-inner js-file-line">    <span class="pl-smi">call</span>.<span class="pl-en">say</span>(<span class="pl-s"><span class="pl-pds">"</span>Нормально! Засчитываю три балла.<span class="pl-pds">"</span></span>, <span class="pl-smi">Language</span>.<span class="pl-c1">RU_RUSSIAN_MALE</span>);</td>
+        <td id="file-onrecognitionresult-js-LC9" class="blob-code blob-code-inner js-file-line">    <span class="pl-smi">call</span>.<span class="pl-en">say</span>(<span class="pl-s"><span class="pl-pds">"</span>!   .<span class="pl-pds">"</span></span>, <span class="pl-smi">Language</span>.<span class="pl-c1">RU_RUSSIAN_MALE</span>);</td>
       </tr>
       <tr>
         <td id="file-onrecognitionresult-js-L10" class="blob-num js-line-number" data-line-number="10"></td>
@@ -604,7 +604,7 @@
       </tr>
       <tr>
         <td id="file-onrecognitionresult-js-L12" class="blob-num js-line-number" data-line-number="12"></td>
-        <td id="file-onrecognitionresult-js-LC12" class="blob-code blob-code-inner js-file-line">    <span class="pl-smi">call</span>.<span class="pl-en">say</span>(<span class="pl-s"><span class="pl-pds">"</span>Ну такое… всего лишь один балл. Погнали дальше.<span class="pl-pds">"</span></span>, <span class="pl-smi">Language</span>.<span class="pl-c1">RU_RUSSIAN_MALE</span>);</td>
+        <td id="file-onrecognitionresult-js-LC12" class="blob-code blob-code-inner js-file-line">    <span class="pl-smi">call</span>.<span class="pl-en">say</span>(<span class="pl-s"><span class="pl-pds">"</span> …    .  .<span class="pl-pds">"</span></span>, <span class="pl-smi">Language</span>.<span class="pl-c1">RU_RUSSIAN_MALE</span>);</td>
       </tr>
       <tr>
         <td id="file-onrecognitionresult-js-L13" class="blob-num js-line-number" data-line-number="13"></td>

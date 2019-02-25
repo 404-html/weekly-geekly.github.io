@@ -47,8 +47,8 @@
     BlastXMLParser instance = <span class="hljs-keyword"><span class="hljs-keyword">new</span></span> BlastXMLParser();
     instance.setFile(f);
 }</code></pre><br>
-<p>Начальник требует стопроцентного покрытия? Отлично, протестируем, что пустой конструктор по умолчанию и тривиальный сеттер не падают с исключением. То что сеттер действительно что-то установил проверять не будем, тем более что по факту мы null перезаписали null'ом. Это надёжно, такой тест падать не должен.</p><br>
-<p>Слишком банально и не удаётся такое пропихнуть на ревью? Можно <a href="">поступить хитрее</a>:</p><br>
+<p>   ? , ,            .     -    ,       null  null'.  ,     .</p><br>
+<p>        ?  <a href=""> </a>:</p><br>
 <pre><code class="java hljs"><span class="hljs-meta"><span class="hljs-meta">@Test</span></span>
 <span class="hljs-function"><span class="hljs-keyword"><span class="hljs-function"><span class="hljs-keyword">public</span></span></span><span class="hljs-function"> </span><span class="hljs-keyword"><span class="hljs-function"><span class="hljs-keyword">void</span></span></span><span class="hljs-function"> </span><span class="hljs-title"><span class="hljs-function"><span class="hljs-title">getParametersTest</span></span></span><span class="hljs-params"><span class="hljs-function"><span class="hljs-params">()</span></span></span><span class="hljs-function"> </span></span>{
     List&lt;IGeneratorParameter&lt;?&gt;&gt; parameters = generator.getParameters();
@@ -58,73 +58,73 @@
     containsParameterType(parameters, ColorByType.class);
     ...
 }</code></pre><br>
-<p>Выглядит солидно, будто что-то действительно проверяется. Взглянем однако на метод <a href="">containsParameterType</a>:</p><br>
+<p> ,  -  .     <a href="">containsParameterType</a>:</p><br>
 <pre><code class="java hljs"><span class="hljs-keyword"><span class="hljs-keyword">public</span></span> &lt;T&gt; <span class="hljs-function"><span class="hljs-keyword"><span class="hljs-function"><span class="hljs-keyword">boolean</span></span></span><span class="hljs-function"> </span><span class="hljs-title"><span class="hljs-function"><span class="hljs-title">containsParameterType</span></span></span><span class="hljs-params"><span class="hljs-function"><span class="hljs-params">(List&lt;IGeneratorParameter&lt;?&gt;&gt; list, Class&lt;T&gt; type)</span></span></span><span class="hljs-function"> </span></span>{
     <span class="hljs-keyword"><span class="hljs-keyword">for</span></span> (IGeneratorParameter&lt;?&gt; item : list) {
         <span class="hljs-keyword"><span class="hljs-keyword">if</span></span> (item.getClass().getName().equals(type.getName())) <span class="hljs-keyword"><span class="hljs-keyword">return</span></span> <span class="hljs-keyword"><span class="hljs-keyword">true</span></span>;
     }
     <span class="hljs-keyword"><span class="hljs-keyword">return</span></span> <span class="hljs-keyword"><span class="hljs-keyword">false</span></span>;
 }</code></pre><br>
-<p>Изящно, правда? Оба метода по отдельности выглядят разумно, но вместе они ничего не проверяют. Такое может прокатить, особенно если методы закоммитить по отдельности и отправить разным ревьюверам. Тем более что они в разных классах!</p><br>
-<p>Однако так долго не протянешь. Злое начальство заподозрит неладное, не увидев никаких ассертов в коде. Ассерты всё-таки добавлять стоит. Но, например, так, чтобы они не выполнялись. Вот <a href="">грубый подход</a>:</p><br>
+<p>, ?      ,      .   ,          .       !</p><br>
+<p>    .    ,      .  -  . , , ,    .  <a href=""> </a>:</p><br>
 <pre><code class="java hljs"><span class="hljs-keyword"><span class="hljs-keyword">for</span></span> (<span class="hljs-keyword"><span class="hljs-keyword">int</span></span> i = <span class="hljs-number"><span class="hljs-number">0</span></span>; i &lt; <span class="hljs-number"><span class="hljs-number">0</span></span>; i++)
 {
     Assert.assertTrue(errorProbabilities[i] &gt; <span class="hljs-number"><span class="hljs-number">0.0</span></span>d);
 }</code></pre><br>
-<p>Цикл на 0 итераций. Такое пропустит разве что сильно пьяный ревьювер. Однако <a href="">следующий вариант</a> гораздо изящнее:</p><br>
+<p>  0 .       .  <a href=""> </a>  :</p><br>
 <pre><code class="java hljs">List&lt;JavaOperationSignature&gt; sigs = <span class="hljs-keyword"><span class="hljs-keyword">new</span></span> ArrayList&lt;&gt;();
 List&lt;JavaOperationSignature&gt; sigs2 = <span class="hljs-keyword"><span class="hljs-keyword">new</span></span> ArrayList&lt;&gt;();
 
-<span class="hljs-keyword"><span class="hljs-keyword">for</span></span> (<span class="hljs-keyword"><span class="hljs-keyword">int</span></span> i = <span class="hljs-number"><span class="hljs-number">0</span></span>; i &lt; sigs.size(); i++) { <span class="hljs-comment"><span class="hljs-comment">// делаем вид, что заполняем списки</span></span>
+<span class="hljs-keyword"><span class="hljs-keyword">for</span></span> (<span class="hljs-keyword"><span class="hljs-keyword">int</span></span> i = <span class="hljs-number"><span class="hljs-number">0</span></span>; i &lt; sigs.size(); i++) { <span class="hljs-comment"><span class="hljs-comment">//  ,   </span></span>
     sigs.add(JavaOperationSignature.buildFor(nodes.get(i)));
     sigs2.add(JavaOperationSignature.buildFor(nodes2.get(i)));
 }
 
-<span class="hljs-keyword"><span class="hljs-keyword">for</span></span> (<span class="hljs-keyword"><span class="hljs-keyword">int</span></span> i = <span class="hljs-number"><span class="hljs-number">0</span></span>; i &lt; sigs.size() - <span class="hljs-number"><span class="hljs-number">1</span></span>; i++) { <span class="hljs-comment"><span class="hljs-comment">// делаем вид, что сравниваем</span></span>
+<span class="hljs-keyword"><span class="hljs-keyword">for</span></span> (<span class="hljs-keyword"><span class="hljs-keyword">int</span></span> i = <span class="hljs-number"><span class="hljs-number">0</span></span>; i &lt; sigs.size() - <span class="hljs-number"><span class="hljs-number">1</span></span>; i++) { <span class="hljs-comment"><span class="hljs-comment">//  ,  </span></span>
     assertTrue(sigs.get(i) == sigs.get(i + <span class="hljs-number"><span class="hljs-number">1</span></span>));
     assertTrue(sigs2.get(i) == sigs2.get(i + <span class="hljs-number"><span class="hljs-number">1</span></span>));
 }</code></pre><br>
-<p>Тут уже многие ревьюверы не заметят подвоха! Оба цикла ни разу не выполняются, потому что граница — размер пустого списка. Берите на заметку.</p><br>
-<p>Предположим, ваш коллега десять лет назад написал тест, проверяющий, что метод кидает исключение. Сделал он это старомодным способом, через catch. Прекрасно, допишите любых новых ассертов <a href="">в конец метода</a>. Никто не заметит, что они не выполняются:</p><br>
+<p>      !      ,    —   .   .</p><br>
+<p>,       , ,    .     ,  catch. ,     <a href="">  </a>.   ,    :</p><br>
 <pre><code class="java hljs"><span class="hljs-keyword"><span class="hljs-keyword">try</span></span> {
     getDs().save(e);
 } <span class="hljs-keyword"><span class="hljs-keyword">catch</span></span> (Exception ex) {
-    <span class="hljs-keyword"><span class="hljs-keyword">return</span></span>; <span class="hljs-comment"><span class="hljs-comment">// нормальный выход из теста здесь!</span></span>
+    <span class="hljs-keyword"><span class="hljs-keyword">return</span></span>; <span class="hljs-comment"><span class="hljs-comment">//     !</span></span>
 }
 
-<span class="hljs-comment"><span class="hljs-comment">// Следующая строчка выполнится, если что-то пойдёт не так</span></span>
+<span class="hljs-comment"><span class="hljs-comment">//   ,  -   </span></span>
 Assert.assertFalse(<span class="hljs-string"><span class="hljs-string">"Should have got rejection for dot in field names"</span></span>, <span class="hljs-keyword"><span class="hljs-keyword">true</span></span>); 
-<span class="hljs-comment"><span class="hljs-comment">// А это не выполнится никогда</span></span>
+<span class="hljs-comment"><span class="hljs-comment">//     </span></span>
 e = getDs().get(e);
-Assert.assertEquals(<span class="hljs-string"><span class="hljs-string">"a"</span></span>, e.mymap.get(<span class="hljs-string"><span class="hljs-string">"a.b"</span></span>)); <span class="hljs-comment"><span class="hljs-comment">// Но никто этого не заметит!</span></span>
+Assert.assertEquals(<span class="hljs-string"><span class="hljs-string">"a"</span></span>, e.mymap.get(<span class="hljs-string"><span class="hljs-string">"a.b"</span></span>)); <span class="hljs-comment"><span class="hljs-comment">//     !</span></span>
 Assert.assertEquals(<span class="hljs-string"><span class="hljs-string">"b"</span></span>, e.mymap.get(<span class="hljs-string"><span class="hljs-string">"c.e.g"</span></span>));</code></pre><br>
-<p>Ваши менеджеры совсем обнаглели и смотрят на покрытие не только основного кода, но и тестов? Теперь они замечают такие штуки? Ладно, и с этим можно бороться. Будем писать ассерты, которые проверяют всякую ерунду. <a href="">Например</a>, что свежесозданный объект не равен null:</p><br>
+<p>           ,   ?     ? ,     .   ,    . <a href=""></a>,      null:</p><br>
 <pre><code class="java hljs">Assert.assertNotNull(<span class="hljs-keyword"><span class="hljs-keyword">new</span></span> Electronegativity());</code></pre><br>
-<p>Если оператор <code>new</code> у вас возвращает null, то у вашей виртуальной машины серьёзные проблемы. Поэтому такой ассерт надёжен как скала. Хотя, конечно, опытному ревьюверу сразу бросится в глаза. Более хитрый способ обмануть систему — проверить <a href="">булево значение</a>:</p><br>
+<p>  <code>new</code>    null,       .      . , ,      .      —  <a href=""> </a>:</p><br>
 <pre><code class="java hljs">DocumentImplementation document = <span class="hljs-keyword"><span class="hljs-keyword">new</span></span> DocumentImplementation(props);
 assertNotNull(document.toString().contains(KEY));
 assertNotNull(document.toString().contains(VALUE));</code></pre><br>
-<p>Благодаря автобоксингу примитивный <code>boolean</code> заворачивается в объектный <code>Boolean</code>, который, конечно, никогда не будет нуллом. Этот ассерт уже не так бросается в глаза, честно выполняется и ему совершенно наплевать, true там вернётся или false. Подобный фокус <a href="">работает</a> и с другими примитивными типами:</p><br>
+<p>   <code>boolean</code>    <code>Boolean</code>, , ,    .        ,      , true    false.   <a href=""></a>     :</p><br>
 <pre><code class="java hljs">Assert.assertNotNull(<span class="hljs-string"><span class="hljs-string">"could not get nr. of eqr: "</span></span>, afpChain.getNrEQR());</code></pre><br>
-<p>В отрыве от контекста код выглядит вполне разумно. Ревьюверу придётся проявить истинную дотошность, чтобы заметить, что метод <code>getNrEQR</code> возвращает примитивный <code>int</code> и поэтому такой ассерт не может упасть.</p><br>
-<p>Ещё отличный способ ничего не проверить — <a href="">написать</a> длинное сообщение к ассерту с конкатенацией разных компонентов, а второй аргумент вообще убрать:</p><br>
+<p>       .     ,  ,   <code>getNrEQR</code>   <code>int</code>       .</p><br>
+<p>      — <a href=""></a>        ,     :</p><br>
 <pre><code class="java hljs">Assert.assertNotNull(<span class="hljs-string"><span class="hljs-string">"Attempt to test atom type which is not defined in the "</span></span> +
      getAtomTypeListName() + <span class="hljs-string"><span class="hljs-string">": "</span></span> + exception.getMessage());</code></pre><br>
-<p>Видите? Кажется, раз у нас длинное-длинное сообщение, то проверяется что-то серьёзное. На самом деле проверяется, что это самое сообщение не равно null, чего не может быть, потому что конкатенация строк в джаве всегда выдаст ненулевой объект.</p><br>
-<p>Вообще, конечно, если хочется бросить пыль в глаза, то <code>assertNotNull</code> ваш лучший друг. Но не единственный друг! К примеру, <code>assertEquals</code> прекрасно можно использовать, чтобы <a href="">сравнивать число с самим собой</a>:</p><br>
+<p>? ,    - ,   - .    ,       null,    ,          .</p><br>
+<p>, ,      ,  <code>assertNotNull</code>   .    !  , <code>assertEquals</code>   ,  <a href="">    </a>:</p><br>
 <pre><code class="java hljs">Assert.assertEquals(ac2.getAtomCount(), ac2.getAtomCount());</code></pre><br>
-<p>А если вас поймают за руку, всегда можно оправдаться, что вы проверяли стабильность метода <code>getAtomCount</code>. Может кто-нибудь вместо простого геттера туда генератор случайных чисел засунет!</p><br>
-<p>Если вы работаете с типом double, то самое время вспомнить про сравнение с NaN. К сожалению, <code>assertNotEquals</code> тут вам не помощник, он слишком умный. Но <a href="">всегда можно использовать</a> <code>assertTrue</code>:</p><br>
+<p>     ,   ,      <code>getAtomCount</code>.  -        !</p><br>
+<p>     double,        NaN.  , <code>assertNotEquals</code>    ,   .  <a href="">  </a> <code>assertTrue</code>:</p><br>
 <pre><code class="java hljs">Assert.assertTrue(result1.get(i) != Double.NaN);</code></pre><br>
-<p>Как известно, NaN ничему не равен, даже самому себе, а потому такое сравнение всегда истинно.</p><br>
-<p>Также <code>assertTrue</code> полезен для <a href="https://gitbox.apache.org/repos/asf%3Fp%3Dcommons-math.git%3Ba%3Dblob%3Bf%3Dsrc/test/java/org/apache/commons/math4/complex/ComplexFormatAbstractTest.java%3Bh%3D61f92aa71e8f2cb4e931980110ddedd38c53cc06%3Bhb%3DHEAD">очевидных instanceof-проверок</a>:</p><br>
+<p> , NaN   ,   ,      .</p><br>
+<p> <code>assertTrue</code>   <a href="https://gitbox.apache.org/repos/asf%3Fp%3Dcommons-math.git%3Ba%3Dblob%3Bf%3Dsrc/test/java/org/apache/commons/math4/complex/ComplexFormatAbstractTest.java%3Bh%3D61f92aa71e8f2cb4e931980110ddedd38c53cc06%3Bhb%3DHEAD"> instanceof-</a>:</p><br>
 <pre><code class="java hljs">Assert.assertNotNull(cf.getRealFormat());
 Assert.assertNotNull(cf.getImaginaryFormat());
 Assert.assertTrue(cf.getRealFormat() <span class="hljs-keyword"><span class="hljs-keyword">instanceof</span></span> NumberFormat);
 Assert.assertTrue(cf.getImaginaryFormat() <span class="hljs-keyword"><span class="hljs-keyword">instanceof</span></span> NumberFormat);</code></pre><br>
-<p>Методы <code>getRealFormat</code> и <code>getImaginaryFormat</code> и так возвращают <code>NumberFormat</code>, так что instanceof проверяет разве что неравенство нуллу. Но на нулл мы и так проверили выше. Таким нехитрым образом число ассертов можно увеличить вдвое.</p><br>
-<p>Есть ещё ряд способов, по которым я быстро не нашёл примеров. Скажем, можно использовать метод <code>assertThat</code> из <a href="http://joel-costigliola.github.io/assertj/">AssertJ</a> и не воспользоваться результатом (например, <code>assertThat(somethingIsTrue())</code> вместо <code>assertThat(somethingIsTrue()).is(true)</code>). Можно завернуть текст теста в большой <code>try { ... } catch(Throwable t) {}</code> так чтобы поймать и проигнорировать <code>AssertionError</code>. Такого же эффекта можно добиться хитрее. Например, отправить ассерты в фоновый поток через <code>CompletableFuture.runAsync()</code> и не сджойнить результат. Я уверен, вы и сами придумаете множество способов, чтобы противостоять менеджерскому произволу.</p><br>
-<p>Но будьте осторожны. Начальство ни в коем случае не должно узнать про статический анализ. Иначе всё зря. Большинство упомянутых в статье способов, к сожалению, легко находятся хорошим статическим анализатором. Так что т-с-с-с!</p></div><p>Source: <a href="https://habr.com/ru/post/434972/">https://habr.com/ru/post/434972/</a></p>
+<p> <code>getRealFormat</code>  <code>getImaginaryFormat</code>    <code>NumberFormat</code>,   instanceof     .        .        .</p><br>
+<p>   ,       . ,    <code>assertThat</code>  <a href="http://joel-costigliola.github.io/assertj/">AssertJ</a>     (, <code>assertThat(somethingIsTrue())</code>  <code>assertThat(somethingIsTrue()).is(true)</code>).       <code>try { ... } catch(Throwable t) {}</code>      <code>AssertionError</code>.      . ,       <code>CompletableFuture.runAsync()</code>    .  ,      ,    .</p><br>
+<p>  .           .   .     ,  ,     .   ---!</p></div><p>Source: <a href="https://habr.com/ru/post/434972/">https://habr.com/ru/post/434972/</a></p>
 <section class="all-articles-navigation-panel js-all-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>

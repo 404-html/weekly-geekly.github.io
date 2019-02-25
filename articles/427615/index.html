@@ -45,15 +45,15 @@
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Stop making sites with endless scrollingǃ</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/getpro/habr/post_images/887/353/e8a/887353e8a847e1e037e12d006ad52610.png"><br><br>  TL; DR.  Although the endless scrolling is suitable for some cases, but it can create problems. <br><br>  Infinite scrolling can be misleading, out of control, and stressful to users. <br><br>  In this article we will explain why you need to stop creating sites with endless scrolling.  But first, consider a brief history of the issue. <br><a name="habracut"></a><br><h1>  Brief history of scrolling </h1><br>  To understand what scrolling is, look at the origin of the <a href="https://www.etymonline.com/search%3Fq%3Dscroll">word</a> . <br><br>  <i><b>scroll (</b> n.): c.</i>  <i>1400, “roll of parchment or paper”</i> <br><br>  Scrolls were originally used when the document became too long (for example, religious content).  With so much content it became difficult to manage, difficult to read and rewrite. <br><br>  When computers entered our lives, we still needed a way to navigate through large pieces of content. <br><br><h1>  The evolution of scrolls in computers </h1><br><h4>  1. Rows (and columns) </h4><br>  After the advent of the web, designers invented / explored many ways to paginate / scroll content.  Before the Internet, we scrolled lines on the screen. <br><br>  Horizontal scrolling made the scrolling tool not only for reading the content, but also for navigating the screen. <br><br><h4>  2. Windows (not an operating system) </h4><br>  Having scrolling pushed people to create a window interface.  With the help of windows you can simultaneously view several pieces of content. <br><br><img src="https://habrastorage.org/getpro/habr/post_images/b26/022/110/b2602211079f2027790a99c80e097b2a.png"><br>  <i><font color="gray">In the Program Manager Windows 3.1 several "scrolls"</font></i> <br><br><h4>  3. Web pages </h4><br>  Scrolling solves the most <i>fundamental</i> problem when browsing the web.  However, it can cause many problems for users and can prevent them.  Let's take a closer look. <br><br><h1>  Options for navigating web pages </h1><br>  I will try to determine how developers and designers created an interface for navigating web pages. <br><br>  Let's start with some server systems pagination. <br><br><h2>  Layout of pages based on the offset </h2><br>  The most famous pagination system.  In this technique, you first need to find how many elements need to be paginated: <br><br><pre><code>-- All posts count
 SELECT COUNT(*) AS total FROM posts</code></pre><br>
-После этого нужно подсчитать страницы. Предположим, мы показываем <code>10</code> элементов на странице:<br>
+    . ,   <code>10</code>   :<br>
 <br>
 <pre><code>-- First page items
 SELECT * FROM posts LIMIT 10</code></pre><br>
-И если мы хотим перейти на страницу <code>3</code>, то нужно пропустить первые <code>30</code> элементов, используя смещение (<code>OFFSET</code>):<br>
+       <code>3</code>,     <code>30</code> ,   (<code>OFFSET</code>):<br>
 <br>
 <pre><code>-- Third page items
 SELECT * FROM posts LIMIT 10 OFFSET 30</code></pre><br>
-Клиенту отправляется информация следующим образом:<br>
+    :<br>
 <br>
 <pre><code>{
   "pagination": {
@@ -63,21 +63,21 @@ SELECT * FROM posts LIMIT 10 OFFSET 30</code></pre><br>
   },
   "items": [...]
 }</code></pre><br>
-<h2>Плюсы и минусы пагинации на основе смещения:</h2><br>
+<h2>      :</h2><br>
 <ul>
-<li><font color="green">Хорошо</font>: легко перейти на любую страницу</li>
-<li><font color="green">Хорошо</font>: более свободный вариант для пользователя</li>
-<li><font color="red">Плохо</font>: проблемы с производительностью</li>
-<li><font color="red">Плохо</font>: при изменении данных могут отображаться повторяющиеся элементы</li>
+<li><font color="green"></font>:     </li>
+<li><font color="green"></font>:     </li>
+<li><font color="red"></font>:   </li>
+<li><font color="red"></font>:       </li>
 </ul><br>
-<h2>Пагинация по указателю</h2><br>
-Большие данные затрудняют расчёт таблиц, так как данные постоянно прибывают (подумайте о Twitter). Таким образом, разработчики придумали новые методы разбиения данных на страницы: <b>по указателям</b> (cursor).<br>
+<h2>  </h2><br>
+    ,      (  Twitter).  ,        : <b> </b> (cursor).<br>
 <br>
-Каждой строке присваивается уникальный указатель. Не нужно обсчитывать всю таблицу и знать точное число страниц:<br>
+    .          :<br>
 <br>
 <pre><code>-- Get extra 1 item to get its cursor.
 SELECT * FROM posts ORDER BY id DESC LIMIT 11</code></pre><br>
-Предположим, что у каждого сообщения уникальный указатель (ID в данном примере) для разбиения на страницы. Клиент получит следующую информацию:<br>
+,       (ID   )    .    :<br>
 <br>
 <pre><code>{
   "pagination": {
@@ -85,102 +85,102 @@ SELECT * FROM posts ORDER BY id DESC LIMIT 11</code></pre><br>
   },
   "items": [...]
 }</code></pre><br>
-И вы можете запросить следующую страницу с помощью указателя:<br>
+        :<br>
 <br>
 <pre><code>-- Offsetting records using 1234 cursor
 SELECT * FROM posts WHERE id &gt;= 1234 ORDER BY id LIMIT 11</code></pre><br>
-<h2>Плюсы и минусы пагинации по указателям:</h2><br>
+<h2>     :</h2><br>
 <ul>
-<li><font color="green">Хорошо</font>: более производительная, нет обсчёта таблицы</li>
-<li><font color="green">Хорошо</font>: отображение повторяющихся элементов невозможно, если кто-то вставит строку в центр таблицы</li>
-<li><font color="red">Плохо</font>: невозможно перейти на любую страницу</li>
-<li><font color="red">Плохо</font>: ограничения для клиента, неизвестно общее количество страниц и номер текущей страницы</li>
+<li><font color="green"></font>:  ,   </li>
+<li><font color="green"></font>:    ,  -     </li>
+<li><font color="red"></font>:     </li>
+<li><font color="red"></font>:   ,        </li>
 </ul><br>
-Рассмотрим некоторые методы навигации.<br>
+   .<br>
 <br>
-<h2>Следующий и предыдущий</h2><br>
-<b>Действие</b>: на основе кликов<br>
-<b>Техника</b>: на основе смещения или по указателям<br>
+<h2>  </h2><br>
+<b></b>:   <br>
+<b></b>:      <br>
 <br>
-Она в основном используется для навигации по блогам. Это самая старая версия бесконечной прокрутки. При таком подходе пользователь может не знать, где заканчивается контент.<br>
+       .      .       ,   .<br>
 <br>
 <img src="https://habrastorage.org/getpro/habr/post_images/0ad/57a/f72/0ad57af72c28e0993121a32d605f6fb7.png"><br>
-<i><font color="gray">Пагинация WordPress</font></i><br>
+<i><font color="gray"> WordPress</font></i><br>
 <br>
-<h2>Нумерация страниц</h2><br>
-<b>Действие</b>: на основе кликов<br>
-<b>Техника</b>: на основе смещения<br>
+<h2> </h2><br>
+<b></b>:   <br>
+<b></b>:   <br>
 <br>
-По-моему, это наиболее удобный тип навигации. Он использует пагинацию на основе смещения, которая позволяет перейти на нужную страницу, а также одним кликом перейти к концу или началу.<br>
+-,     .      ,      ,         .<br>
 <br>
 <img src="https://habrastorage.org/getpro/habr/post_images/2f3/e85/218/2f3e85218406db64a61d0e2434fbea33.png"><br>
-<i><font color="gray">Примеры нумерации</font></i><br>
+<i><font color="gray"> </font></i><br>
 <br>
-Google использует такую навигацию в результатах поиска:<br>
+Google      :<br>
 <br>
 <img src="https://habrastorage.org/getpro/habr/post_images/c4d/bf0/323/c4dbf0323f98e5d21a83b89ee4529985.png"><br>
 <br>
-<h2>Загрузить ещё</h2><br>
-<b>Действие</b>: триггер<br>
-<b>Техника</b>: на основе указателей, <i>хотя можно реализовать на основе смещения, но это будет неудобно</i> <br>
+<h2> </h2><br>
+<b></b>: <br>
+<b></b>:   , <i>     ,    </i> <br>
 <br>
-Это один из новейших методов разбиения на страницы, он также использует предыдущую версию бесконечной прокрутки.<br>
+       ,       .<br>
 <br>
 <img src="https://habrastorage.org/getpro/habr/post_images/d4f/20f/467/d4f20f467cebf417347e2d04213469f6.png"><br>
-<i><font color="gray">Кнопка «Загрузить ещё»</font></i><br>
+<i><font color="gray"> « »</font></i><br>
 <br>
-В приведённом выше примере пользователь нажимает кнопку «Загрузить ещё» (Load More), чтобы увидеть больше контента.<br>
+       « » (Load More),    .<br>
 <br>
-<h2>Бесконечная прокрутка</h2><br>
-<b>Действие</b>: на основе прокрутки<br>
-<b>Техника</b>: на основе указателей, <i>хотя можно реализовать на основе смещения, но это будет ОЧЕНЬ неудобно</i> <br>
+<h2> </h2><br>
+<b></b>:   <br>
+<b></b>:   , <i>     ,     </i> <br>
 <br>
-Бесконечная прокрутка — новейшая техника пагинации на основе указателей.<br>
+  —      .<br>
 <br>
-<blockquote>Хью Уильямс утверждает, что <a href="https://hughewilliams.com/2012/03/06/ideas-and-invention-and-the-story-of-bings-image-search/">изобрёл бесконечную прокрутку в 2005 году для Microsoft</a>.</blockquote><blockquote><a href="https://github.com/metafizzy/infinite-scroll">Metafizzy</a> разработала open source инструмент, помогающий разработчикам реализовать бесконечную прокрутку.</blockquote><br>
+<blockquote>  ,  <a href="https://hughewilliams.com/2012/03/06/ideas-and-invention-and-the-story-of-bings-image-search/">    2005   Microsoft</a>.</blockquote><blockquote><a href="https://github.com/metafizzy/infinite-scroll">Metafizzy</a>  open source ,     .</blockquote><br>
 <img src="https://habrastorage.org/getpro/habr/post_images/2da/5a8/9dc/2da5a89dc2faef5630298cbb06213ffe.gif"><br>
-<i><font color="gray">Бесконечная прокрутка позволяет прокручивать страницу до бесконечности</font></i> <br>
+<i><font color="gray">      </font></i> <br>
 <br>
-<h1>Хватит делать сайты с бесконечной прокруткой!</h1><br>
-До сих пор мы рассматривали, как сюда попасть. Теперь поговорим, почему здесь так хреново.<br>
+<h1>     !</h1><br>
+    ,   .  ,    .<br>
 <br>
-<h2>Поиск футера</h2><br>
-Нижний колонтитул&nbsp;— базовая единица анатомии веб-страницы, как и заголовок. Сайты указывают там подробные сведения и ссылки: номера телефонов, адреса, ссылки на разделы справки и поддержки. Если пользователи ищут эту информацию, они обычно прокручивают страницу вниз до футера.<br>
+<h2> </h2><br>
+ &nbsp;—    -,   .       :  , ,      .     ,       .<br>
 <br>
-С бесконечной прокруткой пользователям трудно найти футер, потому что невозможно увидеть конец страницы. Невозможность достичь футера может напрягать пользователя (что не здорово).<br>
+      ,      .       (  ).<br>
 <br>
-Сайты с бесконечной прокруткой (например, Twitter) решают проблему, размещая необходимую информацию и ссылки в боковую панель. Боковая панель&nbsp;— это решение проблемы, но не очень хорошее. Футер должен оставаться футером.<br>
+    (, Twitter)  ,        .  &nbsp;—   ,    .    .<br>
 <br>
 <img src="https://habrastorage.org/getpro/habr/post_images/947/fb1/3d6/947fb13d63a289d88fd048af296efe2c.png"><br>
-<i><font color="gray">Футер Twitter на правой боковой панели</font> </i><br>
+<i><font color="gray"> Twitter    </font> </i><br>
 <br>
-<h2>Не используйте бесконечную прокрутку, если у вас нет таймлайна или ленты</h2><br>
-Приложения социальных сетей работают с таймлайном. Пользователи стремятся ориентироваться во времени, работать с прошлым. В этом случае бесконечная прокрутка упрощает навигацию. Здесь она хороша для производительности, особенно в мобильных устройствах.<br>
+<h2>   ,       </h2><br>
+     .     ,   .       .     ,    .<br>
 <br>
-Но если у вас интернет-магазин, новостной сайт, журнал или блог, то стремление пользователей — перемещаться по элементам или статьям, и тогда бесконечная прокрутка становится для них кошмаром. В списке с таймлайном люди в основном не ищут дату или уникальный элемент. В списках на основе элементов пользователь хочет именно найти конкретный элемент. Бесконечная прокрутка делает это практически невозможным.<br>
+    -,  ,   ,    —     ,        .             .           .      .<br>
 <br>
-<h2>Дайте пользователям больше контроля</h2><br>
-Пользователи, как правило, не любят UI, который не могут контролировать.<br>
+<h2>   </h2><br>
+,  ,   UI,    .<br>
 <br>
-Событие прокрутки не ведёт явно к намерению что-то делать. Люди перемещаются по странице, а если хотят совершить действие, то обычно делают клик или прикасаются к экрану (это и есть триггеры). Они информируют UI о своем решении. Но бесконечная прокрутка срабатывает без какого-либо решения.<br>
+       - .    ,     ,         (   ).   UI   .      - .<br>
 <br>
-Бесконечная прокрутка делает страницы менее управляемыми. Пользователи также могут столкнуться с глюками прыжков.<br>
+     .       .<br>
 <br>
-Вместо бесконечной прокрутки поставьте кнопку «Загрузить ещё», которая является триггером. Это даст пользователю контроль. (Я бы предпочел старый стиль нумерации страниц, но мы предполагаем, что сейчас используем пагинацию по указателям).<br>
+     « »,   .    . (      ,   ,      ).<br>
 <br>
-<h2>Разрешите пользователям идти куда они хотят</h2><br>
-Люди перемещаются по страницам, сохраняют некоторые в закладки, делятся с друзьями и т.д.<br>
+<h2>     </h2><br>
+   ,    ,     ..<br>
 <br>
-Однако бесконечная прокрутка не может сохранить состояние по своей сути. Пользователи не могут делиться текущим состоянием. Это также означает, что вы не можете отслеживать действия пользователей с помощью инструментов аналитики.<br>
+         .      .   ,           .<br>
 <br>
-Если ваш метод внутренней пагинации основан на указателях, почти невозможно разрешить пользователям произвольную навигацию. Если у вас сайт электронной коммерции, то дайте пользователям возможность переходить к нужным продуктам.<br>
+       ,      .      ,        .<br>
 <br>
-Кроме того, если в списке есть функция «Сортировать по», необходимо показать пользователю нумерацию страниц. Если список в алфавитном порядке, нельзя заставлять людей прокручивать список до буквы K, иначе они сойдут с ума.<br>
+ ,      « »,     .     ,        K,     .<br>
 <br>
-Нужно показывать пользователю, где он находится. Когда он обновляет страницу с бесконечной прокруткой, то будет отброшен в самое начало, и ему придётся снова прокручивать вниз до того места, где он был раньше.<br>
+  ,   .       ,      ,         ,    .<br>
 <br>
-<h1>Вывод</h1><br>
-Бесконечная прокрутка хороша в некоторых случаях, но как правило, она создаёт больше проблем, чем решает. Дизайнеры не должны рассматривать бесконечную прокрутку как серебряную пулю, которая решает все проблемы с разбиением на страницы. Хватит делать сайты с бесконечной прокруткой!</div><p>Source: <a href="https://habr.com/ru/post/427615/">https://habr.com/ru/post/427615/</a></p>
+<h1></h1><br>
+     ,   ,    ,  .         ,        .      !</div><p>Source: <a href="https://habr.com/ru/post/427615/">https://habr.com/ru/post/427615/</a></p>
 <section class="all-articles-navigation-panel js-all-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>

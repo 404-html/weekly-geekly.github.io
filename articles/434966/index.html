@@ -51,32 +51,32 @@ proc main():
   println(summ(inputln(), inputln()))
 end
 </code></pre><br>
-<h4>Поддерживаемые конструкции</h4><br>
+<h4> </h4><br>
 <ul>
-<li>Циклы: for..end, while..end, until..end</li>
-<li>Условия: if..[else..]end, switch..[case..end..][else..]end</li>
-<li>Методы: proc &lt;имя&gt;():… end, func &lt;имя&gt;():… end</li>
-<li>Label &amp; goto: &lt;имя&gt;:, jump &lt;имя&gt;</li>
-<li>Enum перечисления и константные массивы.</li>
+<li>: for..end, while..end, until..end</li>
+<li>: if..[else..]end, switch..[case..end..][else..]end</li>
+<li>: proc &lt;&gt;():… end, func &lt;&gt;():… end</li>
+<li>Label &amp; goto: &lt;&gt;:, jump &lt;&gt;</li>
+<li>Enum    .</li>
 </ul><br>
-<h4>Переменные</h4><br>
-Транслятор их может определять автоматически, либо если разработчик пишет var перед их определением.<br>
+<h4></h4><br>
+    ,     var   .<br>
 <br>
-Примеры кода:<br>
+ :<br>
 <br>
 <pre><code class="ruby">a ?= 10
 b ?= a + 20
 </code></pre><br>
 <pre><code class="ruby">var a = 10, b = a + 20
 </code></pre><br>
-Поддерживаются глобальные и локальные переменные.<br>
+    .<br>
 <br>
-<h4>ООП</h4><br>
-Ну вот и подобрались мы к самой вкусной теме. В языке Mash поддерживаются все парадигмы объектно-ориентированного программирования. Т.е. классы, наследования, полиморфизм (в т.ч. динамический), динамические автоматические рефлексия и интроспекция (полная).<br>
+<h4></h4><br>
+        .   Mash    - . .. , ,  ( .. ),      ().<br>
 <br>
-Без лишних слов, лучше просто приведу примеры кода.<br>
+  ,     .<br>
 <br>
-Простой класс и работа с ним:<br>
+     :<br>
 <br>
 <pre><code class="ruby">uses &lt;bf&gt;
 uses &lt;crt&gt;
@@ -107,9 +107,9 @@ proc main():
   x-&gt;Free()
 end
 </code></pre><br>
-Выведет: 30.<br>
+: 30.<br>
 <br>
-Наследование и полиморфизм:<br>
+  :<br>
 <br>
 <pre><code class="ruby">uses &lt;bf&gt;
 uses &lt;crt&gt;
@@ -148,9 +148,9 @@ proc main():
   x-&gt;Free()
 end
 </code></pre><br>
-Выведет: 60.<br>
+: 60.<br>
 <br>
-Что на счет динамического полиморфизма? Да это же рефлексия!:<br>
+    ?    !:<br>
 <br>
 <pre><code class="ruby">uses &lt;bf&gt;
 uses &lt;crt&gt;
@@ -190,9 +190,9 @@ proc main():
   x-&gt;Free()
 end
 </code></pre><br>
-Выведет: 60.<br>
+: 60.<br>
 <br>
-Теперь уделим минутку интроспекции для простых значений и классов:<br>
+        :<br>
 <br>
 <pre><code class="ruby">uses &lt;bf&gt;
 uses &lt;crt&gt;
@@ -208,17 +208,17 @@ proc main():
   println(BoolToStr(typeof(3.14) == typeReal))
 end
 </code></pre><br>
-Выведет: true, true.<br>
+: true, true.<br>
 <br>
-<h4>Об операторах присваивания и явных указателях</h4><br>
-Оператор ?= служит для присвоения переменной указателя на значение в памяти.<br>
-Оператор = изменяет значение в памяти по указателю из переменной.<br>
-И теперь немного о явных указателях. Добавил я их в язык чтобы они были.<br>
-@&lt;переменная&gt; — взять явный указатель на переменную.<br>
-?&lt;переменная&gt; — получить переменную по указателю.<br>
-@= — присвоить значение переменной по явному указателю на неё.<br>
+<h4>     </h4><br>
+ ?=         .<br>
+ =        .<br>
+     .        .<br>
+@&lt;&gt; —     .<br>
+?&lt;&gt; —    .<br>
+@= —        .<br>
 <br>
-Пример кода:<br>
+ :<br>
 <br>
 <pre><code class="ruby">uses &lt;bf&gt;
 uses &lt;crt&gt;
@@ -234,10 +234,10 @@ proc main():
   InputLn()
 end
 </code></pre><br>
-Выведет: какое-то число, 10, 11.<br>
+: - , 10, 11.<br>
 <br>
 <h4>Try..[catch..][finally..]end</h4><br>
-Пример кода:<br>
+ :<br>
 <br>
 <pre><code class="ruby">uses &lt;bf&gt;
 uses &lt;crt&gt;
@@ -256,16 +256,16 @@ proc main():
   inputln()
 end
 </code></pre><br>
-<h4>Планы на будущее</h4><br>
-Все присматриваюсь да присматриваюсь к GraalVM &amp; Truffle. У моей среды выполнения отсутствует JIT компилятор, так что в плане производительности он пока что может составлять конкуренцию разве что питону. Надеюсь, что мне окажется под силу реализовать JIT компиляцию на базе GraalVM или LLVM.<br>
+<h4>  </h4><br>
+     GraalVM &amp; Truffle.      JIT ,              . ,       JIT    GraalVM  LLVM.<br>
 <br>
-<h4>Репозиторий</h4><br>
-Вы можете поиграться с наработками и проследить за проектом сами.<br>
+<h4></h4><br>
+         .<br>
 <br>
-<a href="http://mash-lang.tech/">Сайт</a><br>
-<a href="http://github.com/RoPi0n/mash-lang">Репозиторий на GitHub</a><br>
+<a href="http://mash-lang.tech/"></a><br>
+<a href="http://github.com/RoPi0n/mash-lang">  GitHub</a><br>
 <br>
-Спасибо, что дочитали до конца, если вы это сделали.</div><p>Source: <a href="https://habr.com/ru/post/434966/">https://habr.com/ru/post/434966/</a></p>
+,    ,    .</div><p>Source: <a href="https://habr.com/ru/post/434966/">https://habr.com/ru/post/434966/</a></p>
 <section class="all-articles-navigation-panel js-all-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>

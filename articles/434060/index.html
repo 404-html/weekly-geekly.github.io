@@ -21,7 +21,8 @@
 
 
 var length = array.Length; for (int i = 0; i < length; i++) { //do smth }
- Пишут они это в надежд...">
+ , CLR Array.Length. .
+...">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="stylesheet" href="../../css/main.css">
@@ -50,9 +51,9 @@ var length = array.Length; for (int i = 0; i < length; i++) { //do smth }
 <span class="hljs-keyword"><span class="hljs-keyword">for</span></span> (<span class="hljs-keyword"><span class="hljs-keyword">int</span></span> i = <span class="hljs-number"><span class="hljs-number">0</span></span>; i &lt; length; i++) {
     <span class="hljs-comment"><span class="hljs-comment">//do smth</span></span>
 }</code></pre><br>
-Пишут они это в надежде ускорить цикл, думая что создавая локальную переменную избавляют CLR от необходимости вызывать каждый раз геттер для Array.Length. Я решил раз и навсегда для себя понять стоит так делать или можно сэкономить своё время и написать без временной переменной.<br>
+      ,       CLR        Array.Length.                     .<br>
 <a name="habracut"></a><br>
-Для начала рассмотрим два метода на C#:<br>
+      C#:<br>
 <br>
 <pre><code class="cs hljs"><span class="hljs-function"><span class="hljs-keyword"><span class="hljs-function"><span class="hljs-keyword">public</span></span></span><span class="hljs-function"> </span><span class="hljs-keyword"><span class="hljs-function"><span class="hljs-keyword">int</span></span></span><span class="hljs-function"> </span><span class="hljs-title"><span class="hljs-function"><span class="hljs-title">WithoutVariable</span></span></span><span class="hljs-function">(</span><span class="hljs-params"></span><span class="hljs-function"><span class="hljs-params"></span>)</span></span> {
     <span class="hljs-keyword"><span class="hljs-keyword">int</span></span> sum = <span class="hljs-number"><span class="hljs-number">0</span></span>;
@@ -69,7 +70,7 @@ var length = array.Length; for (int i = 0; i < length; i++) { //do smth }
     }
     <span class="hljs-keyword"><span class="hljs-keyword">return</span></span> sum;
 }</code></pre><br>
-И давайте посмотрим на код, который получается после JIT компиляции в релизе на .NET Framework 4.7.2 под LegacyJIT-x86:<br>
+    ,    JIT     .NET Framework 4.7.2  LegacyJIT-x86:<br>
 <table>
 <tbody><tr>
 <td>WithoutVariable()<br>
@@ -132,17 +133,17 @@ var length = array.Length; for (int i = 0; i < length; i++) { //do smth }
 &nbsp;&nbsp;&nbsp;&nbsp;<font color="#00007f">mov</font>&nbsp;&nbsp;<font color="#46aa03">eax</font><font color="#339933">,</font>&nbsp;<font color="#46aa03">esi</font></td>
 </tr>
 </tbody></table><br>
-<div class="spoiler"><b class="spoiler_title">Скриншот сравнения в Meld</b><div class="spoiler_text"><img src="https://habrastorage.org/webt/gc/4s/mi/gc4smi2gsptfuyqiuwyizrv2q80.png"><br>
+<div class="spoiler"><b class="spoiler_title">   Meld</b><div class="spoiler_text"><img src="https://habrastorage.org/webt/gc/4s/mi/gc4smi2gsptfuyqiuwyizrv2q80.png"><br>
 </div></div><br>
-Несложно заметить, что количество ассемблерных инструкций абсолютно одинаково — 15 штук. Причём логика этих инструкций тоже практически полностью совпадает. Есть только небольшое различие в порядке инициализации переменных и сравнении стоит ли продолжать цикл. Можно заметить, что в обоих случаях длина массива заносится в регистры два раза перед циклом:<br>
+ ,       — 15 .        .              .  ,             :<br>
 <br>
 <ul>
-<li>чтобы проверить на 0 (<b>arrayLength</b>);</li>
-<li>и во временную переменную для проверки в условии цикла (<b>arrayLength2</b>);</li>
+<li>   0 (<b>arrayLength</b>);</li>
+<li>         (<b>arrayLength2</b>);</li>
 </ul><br>
-Получается, что оба вышеприведённых метода компилируются в один и тот же код, но первый пишется быстрее и явный выигрыш в скорости выполнения отсутствует.<br>
+,           ,           .<br>
 <br>
-Приведённый выше ассемблерный код навёл меня на некоторые мысли и я решил проверить ещё пару методов:<br>
+               :<br>
 <br>
 <pre><code class="cs hljs"><span class="hljs-function"><span class="hljs-keyword"><span class="hljs-function"><span class="hljs-keyword">public</span></span></span><span class="hljs-function"> </span><span class="hljs-keyword"><span class="hljs-function"><span class="hljs-keyword">int</span></span></span><span class="hljs-function"> </span><span class="hljs-title"><span class="hljs-function"><span class="hljs-title">WithoutVariable</span></span></span><span class="hljs-function">(</span><span class="hljs-params"></span><span class="hljs-function"><span class="hljs-params"></span>)</span></span> {
     <span class="hljs-keyword"><span class="hljs-keyword">int</span></span> sum = <span class="hljs-number"><span class="hljs-number">0</span></span>;
@@ -160,7 +161,7 @@ var length = array.Length; for (int i = 0; i < length; i++) { //do smth }
     }
     <span class="hljs-keyword"><span class="hljs-keyword">return</span></span> sum;
 }</code></pre><br>
-Теперь суммируется текущий элемент и длина массива, только в первом случае длина массива каждый раз запрашивается, а во втором сохраняется один раз в локальную переменную. Посмотрим на ассемблерный код этих методов:<br>
+      ,         ,         .      :<br>
 <table>
 <tbody><tr>
 <td>WithoutVariable()<br>
@@ -237,18 +238,18 @@ return&nbsp;sum<font color="#666666">;</font><br>
 </td>
 </tr>
 </tbody></table><br>
-<div class="spoiler"><b class="spoiler_title">Скриншот сравнения в Meld</b><div class="spoiler_text"><img src="https://habrastorage.org/webt/co/8z/ix/co8zixjrk_p7fexmgmyhs1xfqqa.png"><br>
+<div class="spoiler"><b class="spoiler_title">   Meld</b><div class="spoiler_text"><img src="https://habrastorage.org/webt/co/8z/ix/co8zixjrk_p7fexmgmyhs1xfqqa.png"><br>
 </div></div><br>
-Количество инструкций у этих двух методов и сами инструкции почти абсолютно одинаковые, опять различие есть только в порядке инициализации переменных и проверке на продолжение цикла. Причём можно заметить, что в расчёте sum учитывается только тот array.Length, который был взят самым первым. Очевидно что вот это:<br>
+           ,             .   ,    sum    array.Length,     .    :<br>
 <blockquote><font color="#00007f">int</font>&nbsp;arrayLength2&nbsp;=&nbsp;localRefToArray<font color="#339933">.</font>Length<font color="#666666">;</font><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<font color="#00007f">mov</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#46aa03">edi</font><font color="#339933">,</font>&nbsp;<font color="#0000ff">dword</font>&nbsp;ptr&nbsp;<font color="#009900">[</font><font color="#46aa03">edx</font><font color="#339933">+</font><font color="#ff0000">4</font><font color="#009900">]</font><br>
 if&nbsp;<font color="#009900">(</font>i&nbsp;&gt;=arrayLength2<font color="#009900">)</font>&nbsp;throw&nbsp;new&nbsp;IndexOutOfRangeException<font color="#009900">(</font><font color="#009900">)</font><font color="#666666">;</font><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<font color="#00007f">cmp</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#46aa03">ecx</font><font color="#339933">,</font>&nbsp;<font color="#46aa03">edi</font><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<font color="#00007f">jae</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;04b12d39</blockquote>во всех четырёх методах — заинлайниная проверка на выход за пределы массива и она выполняется для каждого элемента массива.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<font color="#00007f">jae</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;04b12d39</blockquote>    —              .<br>
 <br>
-<i>Можно сделать уже первый вывод о том, что заводить дополнительную переменную чтобы пытаться ускорить выполнение цикла это пустая трата времени, т.к. компилятор всё сделает за нас. Заводить переменную с длиной цикла имеет смысл только чтобы увеличить читабельность кода.</i><br>
+<i>      ,             , ..     .            .</i><br>
 <br>
-Совершенно другая ситуация с ForEach. Возьмём три метода:<br>
+    ForEach.   :<br>
 <br>
 <pre><code class="cs hljs"><span class="hljs-function"><span class="hljs-keyword"><span class="hljs-function"><span class="hljs-keyword">public</span></span></span><span class="hljs-function"> </span><span class="hljs-keyword"><span class="hljs-function"><span class="hljs-keyword">int</span></span></span><span class="hljs-function"> </span><span class="hljs-title"><span class="hljs-function"><span class="hljs-title">ForEachWithoutLength</span></span></span><span class="hljs-function">(</span><span class="hljs-params"></span><span class="hljs-function"><span class="hljs-params"></span>)</span></span> {
     <span class="hljs-keyword"><span class="hljs-keyword">int</span></span> sum = <span class="hljs-number"><span class="hljs-number">0</span></span>;
@@ -274,7 +275,7 @@ if&nbsp;<font color="#009900">(</font>i&nbsp;&gt;=arrayLength2<font color="#0099
     }
     <span class="hljs-keyword"><span class="hljs-keyword">return</span></span> sum;
 }</code></pre><br>
-И посмотрим на их код после JIT:<br>
+      JIT:<br>
 <br>
 <div class="spoiler"><b class="spoiler_title">ForEachWithoutLength()</b><div class="spoiler_text"><font color="#666666">;int&nbsp;sum&nbsp;=&nbsp;0;</font><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<font color="#00007f">xor</font>&nbsp;&nbsp;<font color="#46aa03">esi</font><font color="#339933">,</font>&nbsp;<font color="#46aa03">esi</font><br>
@@ -354,11 +355,11 @@ if&nbsp;<font color="#009900">(</font>i&nbsp;&gt;=arrayLength2<font color="#0099
 <font color="#666666">;return&nbsp;sum;</font><br>
 &nbsp;&nbsp;exit<font color="#339933">:</font><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<font color="#00007f">mov</font>&nbsp;&nbsp;<font color="#46aa03">eax</font><font color="#339933">,</font>&nbsp;<font color="#46aa03">esi</font></div></div><br>
-Первое что бросается в глаза это то, что получилось меньше ассемблерных инструкций, по сравнению с циклом for (например для простого суммирования элементов вышло в foreach 12 инструкций, в for 15).<br>
+      ,     ,     for (       foreach 12 ,  for 15).<br>
 <br>
-<div class="spoiler"><b class="spoiler_title">Скриншот сравнения For и ForEach</b><div class="spoiler_text"><img src="https://habrastorage.org/webt/mw/ga/qy/mwgaqykzztnhwmztdcg4ns5thwa.png"><br>
+<div class="spoiler"><b class="spoiler_title">  For  ForEach</b><div class="spoiler_text"><img src="https://habrastorage.org/webt/mw/ga/qy/mwgaqykzztnhwmztdcg4ns5thwa.png"><br>
 </div></div><br>
-В самом деле, если написать бенчмарк for vs foreach на 1 000 000 элементов массива, то получится такая картина для <br>
+  ,    for vs foreach  1 000 000  ,      <br>
 <br>
 <pre><code class="cs hljs">sum+=array[i];</code></pre><table>
 <tbody><tr>
@@ -391,7 +392,7 @@ if&nbsp;<font color="#009900">(</font>i&nbsp;&gt;=arrayLength2<font color="#0099
 <td>1.23</td>
 <td>0.65</td>
 </tr>
-</tbody></table>и для <br>
+</tbody></table>  <br>
 <br>
 <pre><code class="cs hljs">sum+=array[i] + array.Length;</code></pre><table>
 <tbody><tr>
@@ -424,17 +425,17 @@ if&nbsp;<font color="#009900">(</font>i&nbsp;&gt;=arrayLength2<font color="#0099
 <td>1.13</td>
 <td>0.56</td>
 </tr>
-</tbody></table>ForEach для массивов отрабатывает быстрее чем For. Почему так происходит? Чтобы это понять нужно сравнивать код после JIT.<br>
+</tbody></table>ForEach      For.   ?        JIT.<br>
 <br>
-<div class="spoiler"><b class="spoiler_title">Скриншот сравнения всех трёх вариантов foreach</b><div class="spoiler_text"><img src="https://habrastorage.org/webt/ae/wx/5s/aewx5szyufp55plv9zsq2wznplq.png"><br>
+<div class="spoiler"><b class="spoiler_title">     foreach</b><div class="spoiler_text"><img src="https://habrastorage.org/webt/ae/wx/5s/aewx5szyufp55plv9zsq2wznplq.png"><br>
 </div></div><br>
-Посмотрим на ForEachWithoutLength. В нём длина массива запрашивается только один раз и не происходит никаких проверок на выход элементов за пределы массива. Так происходит потому что цикл ForEach во-первых запрещает изменение коллекции внутри цикла, а во-вторых точно не будет выходить за пределы коллекции. Из-за этого JIT может себе позволить вообще убрать проверки на выход за пределы массива.<br>
+  ForEachWithoutLength.                   .      ForEach -     ,  -       . -  JIT           .<br>
 <br>
-Теперь посмотрим внимательно на метод ForEachWithLengthWithoutLocalVariable. В его коде есть только один странный момент в том, что sum+=length происходит не с сохранённой ранее локальной переменной arrayLength, а с новой, которую программа спрашивает каждый раз из памяти. Получается, что обращений к памяти за длиной массива будет N + 1, где N — длина массива.<br>
+     ForEachWithLengthWithoutLocalVariable.          ,  sum+=length        arrayLength,   ,       . ,         N + 1,  N —  .<br>
 <br>
-Осталось рассмотреть метод ForEachWithLengthWithLocalVariable. Его код ничем не отличается от ForEachWithLengthWithoutLocalVariable, кроме работы с длинной массива. Компилятор опять сгенерировал локальную переменную arrayLength, с помощью которой проверяет что массив не пустой, но при этом компилятор честно сохранил нашу явную локальную переменную length и сложение в теле цикла происходит уже с ней. Получается, что этот метод всего дважды обращается к памяти для определения длины массива. Эту разницу в количестве обращений к памяти в реальных приложениях очень сложно заметить.<br>
+   ForEachWithLengthWithLocalVariable.       ForEachWithLengthWithoutLocalVariable,     .      arrayLength,        ,           length         . ,            .             .<br>
 <br>
-Ассемблерный код рассмотренных методов получился такой простой потому что сами методы простые. Будь в методе больше параметров, там была бы уже работа со стеком, переменные хранились бы не только в регистрах и возможно было бы больше проверок, но основная логика осталась бы такая же: введение локальной переменной с длиной массива может иметь смысл только для повышения читабельности кода. Кроме того, оказалось, что Foreach по массиву часто выполняется быстрее чем For.</div><p>Source: <a href="https://habr.com/ru/post/434060/">https://habr.com/ru/post/434060/</a></p>
+           .     ,       ,             ,       :              .  , ,  Foreach       For.</div><p>Source: <a href="https://habr.com/ru/post/434060/">https://habr.com/ru/post/434060/</a></p>
 <section class="all-articles-navigation-panel js-all-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>

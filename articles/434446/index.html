@@ -43,36 +43,36 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>What I don't like is Go</h1><div class="post__text post__text-html js-mediator-article">  At the current job have to use Go.  I am well acquainted with this language.  I don't like him, and his popularity puzzles me. <br><br>  <b>Ergonomics development</b> <br><br>  I have never met a language that is so openly opposed to convenience for a developer.  For example, Rob Pike has repeatedly and openly hostile to any discussion of syntax highlighting on the <a href="https://play.golang.org/">Go Playground</a> .  In response to reasonably formulated user questions, his public answers sparkled with disdain and disrespect: <br><br><blockquote>  Gofmt was written specifically to reduce meaningless discussions about code formatting, which was great.  Unfortunately, this did not affect the number of meaningless discussions about syntax highlighting or, as I prefer to call it, spitzensparken blinkelichtzen. </blockquote><br>  And again in the <a href="http://grokbase.com/t/gg/golang-nuts/12asys9jn4/go-nuts-go-playground-syntax-highlighting">2012 Go-Nuts</a> branch: <br><br><blockquote>  Syntax highlighting - for small ones.  In childhood I was taught arithmetic on <a href="http://en.wikipedia.org/wiki/Cuisenaire_rods">colored sticks</a> .  Now I have grown up and use black and white numbers. </blockquote><a name="habracut"></a><br>  Clearly, of Rob’s acquaintances, no one suffers from synesthesia, dyslexia, or poor vision.  Because of its position, the official Go site and documentation are still without syntax highlighting. <br><br>  The Go development team is not limited to Pike, but the others strongly support his attitude to ergonomics.  In the discussion <a href="https://github.com/golang/go/issues/19412">of union / sum types</a> , the ianlancetaylor user rejected a request specifically defining the advantage of ergonomics as being too insignificant and not worthy of attention: <br><br><blockquote>  This has been discussed several times in the past, including before the open release.  Then we came to the conclusion that sum types do not particularly extend the interface types.  If you look, in the end it all comes down to the fact that the compiler checks that you have filled in all cases of type switching.  This is a pretty minor advantage to change the language. </blockquote><br>  This attitude is at odds with the opinion of union types in other languages.  In 2000, JWZ criticized Java: <br><br><blockquote>Также я думаю, что для моделирования enum и :keywords используются довольно ламерские идиомы. (Например, компилятор не имеет возможности выдать спасительное предупреждение, что «<code>`enumeration value x'</code>, не обработано в switch»).</blockquote><br>
-Команда Java приняла такую критику близко к сердцу, и теперь Java может выдать это предупреждение для операторов множественного выбора по типам перечисления. Другие языки&nbsp;— в том числе и современные языки, такие как Rust, Scala, Elixir и им подобные, а также собственный прямой предок Go, язык C&nbsp;— тоже выдают предупреждения, где это возможно. Очевидно, что такие предупреждения полезны, но для команды Go комфорт разработчика недостаточно важен и не заслуживает рассмотрения.<br>
+  <section class="page js-page"><h1>What I don't like is Go</h1><div class="post__text post__text-html js-mediator-article">  At the current job have to use Go.  I am well acquainted with this language.  I don't like him, and his popularity puzzles me. <br><br>  <b>Ergonomics development</b> <br><br>  I have never met a language that is so openly opposed to convenience for a developer.  For example, Rob Pike has repeatedly and openly hostile to any discussion of syntax highlighting on the <a href="https://play.golang.org/">Go Playground</a> .  In response to reasonably formulated user questions, his public answers sparkled with disdain and disrespect: <br><br><blockquote>  Gofmt was written specifically to reduce meaningless discussions about code formatting, which was great.  Unfortunately, this did not affect the number of meaningless discussions about syntax highlighting or, as I prefer to call it, spitzensparken blinkelichtzen. </blockquote><br>  And again in the <a href="http://grokbase.com/t/gg/golang-nuts/12asys9jn4/go-nuts-go-playground-syntax-highlighting">2012 Go-Nuts</a> branch: <br><br><blockquote>  Syntax highlighting - for small ones.  In childhood I was taught arithmetic on <a href="http://en.wikipedia.org/wiki/Cuisenaire_rods">colored sticks</a> .  Now I have grown up and use black and white numbers. </blockquote><a name="habracut"></a><br>  Clearly, of Rob’s acquaintances, no one suffers from synesthesia, dyslexia, or poor vision.  Because of its position, the official Go site and documentation are still without syntax highlighting. <br><br>  The Go development team is not limited to Pike, but the others strongly support his attitude to ergonomics.  In the discussion <a href="https://github.com/golang/go/issues/19412">of union / sum types</a> , the ianlancetaylor user rejected a request specifically defining the advantage of ergonomics as being too insignificant and not worthy of attention: <br><br><blockquote>  This has been discussed several times in the past, including before the open release.  Then we came to the conclusion that sum types do not particularly extend the interface types.  If you look, in the end it all comes down to the fact that the compiler checks that you have filled in all cases of type switching.  This is a pretty minor advantage to change the language. </blockquote><br>  This attitude is at odds with the opinion of union types in other languages.  In 2000, JWZ criticized Java: <br><br><blockquote>  ,    enum  :keywords    . (,       ,  «<code>`enumeration value x'</code>,    switch»).</blockquote><br>
+ Java      ,   Java           .  &nbsp;—      ,   Rust, Scala, Elixir   ,      Go,  C&nbsp;—   ,   . ,    ,    Go        .<br>
 <br>
-<h1>Политика</h1><br>
-Нет, я не про интриги в списках рассылках и на встречах. Вопрос более глубокий и интересный.<br>
+<h1></h1><br>
+,          .     .<br>
 <br>
-Как и любой язык, Go является инструментом политики. Он воплощает определённый набор представлений, как должно быть написано и организовано программное обеспечение. В случае Go воплощается чрезвычайно жёсткая кастовая иерархия «опытных программистов» и «неквалифицированных программистов», навязанная самим языком.<br>
+   , Go   .     ,        .   Go      « »  « »,   .<br>
 <br>
-Со стороны неквалифицированных программистов язык запрещает функции, которые считаются «слишком продвинутыми». Здесь нет универсальных дженериков, нельзя писать функции более высокого порядка, которые обобщают более чем один конкретный тип, и чрезвычайно строгие правила о наличии запятых, неиспользуемых символов и других недостатках, которые могут возникнуть в обычном коде. Программисты Go живут в мире, который ещё <i>более</i> ограниченный, чем Java 1.4.<br>
+      ,   « ».    ,      ,       ,       ,     ,      .  Go   ,   <i></i> ,  Java 1.4.<br>
 <br>
-Опытным программистам доверяют эти функции — и они могут отдавать системы на таком коде коллегам по обе стороны барьера. Реализация языка содержит родовые функции, которые нельзя использовать на практике, и с отношениями типов, которые язык просто не способен выразить. Это мир, в котором живут <i>разработчики программ</i> на Go.<br>
+     —             .     ,     ,    ,      .  ,    <i> </i>  Go.<br>
 <br>
-Не знаю как внутри Google, но за её пределами это негласное политическое разделение программистов на «благонадежных» и «неблагонадёжных» лежит в основе многих рассуждений о языке.<br>
+    Google,           «»  «»       .<br>
 <br>
-<h1>Пакеты и распространение кода</h1><br>
-Пакетный менеджер <code>go get</code> разочаровывает своим отказом от ответственности. Границы пакетов — это место для коммуникации между разработчиками, а команда Go принципиально отказывается помочь.<br>
+<h1>   </h1><br>
+  <code>go get</code>     .   —      ,   Go   .<br>
 <br>
-Я могу уважать позицию команды Go, которая заключается в том, что это не их проблема, но тут их действия невыгодно отличаются от других основных языков. Достаточно вспомнить катастрофическую историю попыток управления пакетами для библиотек C и посмотреть на Autotools — пример того, как долго может сохраняться столь бедственное положение. С учётом этого весьма удивительно наблюдать, что команда разработчиков языка в 21 веке умывает руки в такой ситуации.<br>
+     Go,    ,     ,          .          C    Autotools —  ,       .      ,      21      .<br>
 <br>
 <h1>GOPATH</h1><br>
-Монолитный путь для всех исходников неизбежно приводит к конфликтам версий между зависимостями. Настройка <code>vendor</code> частично решает эту проблему за счёт существенного раздутия репозитория и нетривиального изменения связей, которые могут привести к ошибкам, если в одном приложении остались ссылки на «вендорскую» и «невендорскую» копии одной и той же библиотеки.<br>
+           .  <code>vendor</code>             ,     ,        «»  «»      .<br>
 <br>
-Опять же, ответ команды Go «не наша проблема» разочаровывает и расстраивает.<br>
+ ,   Go «  »   .<br>
 <br>
-<h1>Обработка ошибок в Go</h1><br>
-Стандартный подход Go к действиям, которые могут завершиться ошибкой, включает в себя возврат нескольких значений (не многокомпонентного объекта; в Go таких нет) с типом последнего значения <code>error</code> в виде интерфейса, где значение <code>nil</code> означает «ошибки нет».<br>
+<h1>   Go</h1><br>
+  Go  ,    ,       (  ;  Go  )     <code>error</code>   ,   <code>nil</code>  « ».<br>
 <br>
-Поскольку это негласное соглашение, оно не представлено в системе типов Go. Не существует обобщённого типа, представляющего результат потенциально ошибочной операции, над которым можно писать полезные объединяющие функции. Более того, он не всегда соблюдается: ничто, кроме здравого смысла, не мешает программисту вернуть <code>error</code> в каком-то ином виде, например, в середине последовательности возвращаемых значений или в начале — поэтому методы обработки ошибок тоже чреваты проблемами.<br>
+   ,       Go.    ,     ,       .  ,    : ,   ,     <code>error</code>  -  , ,         —       .<br>
 <br>
-В Go невозможно составить потенциально ошибочные операции более лаконичным способом, чем что-то такое:<br>
+ Go        ,  - :<br>
 <br>
 <pre><code class="go">a, err := fallibleOperationA()
 if err != nil {
@@ -85,19 +85,19 @@ if err != nil {
 }
 
 return b, nil</code></pre><br>
-В других языках это можно сформулировать как<br>
+      <br>
 <br>
 <pre><code class="plaintext">a = fallibleOperationA()
 b = fallibleOperationB(a)
 return b</code></pre><br>
-в языках с исключениями или<br>
+    <br>
 <br>
 <pre><code class="plaintext">return fallibleOperationA()
     .then(a =&gt; fallibleOperationB(a))
     .result()</code></pre><br>
-в языках с соответствующими абстракциями.<br>
+    .<br>
 <br>
-Это существенная разница, особенно если у вас длинные последовательности таких операций (даже при поддержке редактора, который поддерживает генерацию ветвей). Приходится тратить лишнее время на кодирование и дополнительные когнитивные усилия на чтение кода. Руководства по стилю помогают, но смешивание стилей только усугубляет ситуацию. Как пример:<br>
+  ,         (   ,    ).             .    ,      .  :<br>
 <br>
 <pre><code class="go">a, err := fallibleOperationA()
 if err != nil {
@@ -116,7 +116,7 @@ if err != nil {
 fallibleOperationD(a, c)
 
 return fallibleOperationE()</code></pre><br>
-Да поможет вам Бог сделать вложение или что-то кроме передачи ошибки обратно на стек.</div><p>Source: <a href="https://habr.com/ru/post/434446/">https://habr.com/ru/post/434446/</a></p>
+       -      .</div><p>Source: <a href="https://habr.com/ru/post/434446/">https://habr.com/ru/post/434446/</a></p>
 <section class="all-articles-navigation-panel js-all-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>

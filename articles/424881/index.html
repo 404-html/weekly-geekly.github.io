@@ -46,34 +46,34 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Newtoo - development of a full browser engine from scratch in 2018?</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/webt/w_/g8/kg/w_g8kgyrfkl3ngwlfj1wtuq7-fq.png" alt="image"><br><br>  Hello!  My name is Dmitry Kozichev. <br><br>  Today I will tell you about my attempt to create my own modern web browser engine from scratch. <br><br>  My engine is called Newtoo. <br><br><h2>  What the newtoo </h2><br>  So, Newtoo.  Why did I create it? <br><br>  It so happens that there are only 4 popular browser engines in the world that are so complex that the developers themselves do not know even half of their code base, and so advanced in technology that it is a waste of time to start catching up with them. <br><br>  Is it really so?  My project was created to repeat the exploits of modern browser engines and to check whether it is realistic to create a worthy alternative to large projects whose history begins in the nineties.  My new engine is created from scratch, which means its story begins - today. <br><br>  Ideology Newtoo - show the page faster than others. <br><br><h1>  How Newtoo Works Faster </h1><br>  As I said earlier, the main browser engines have been developing not for the first year.  Those errors that were made in the initial stages of development remain in the project to the end.  The clearest example of this is that smart pointers in C ++ are an even more complex syntax, a big overhead when working, creating and deleting smart pointers.  In addition, there are <a href="https://eax.me/cpp-smart-pointers/">so many types of smart pointers</a> and you need to know which one to use, because each has its own nuances of <s>surprises</s> .  Look at <a href="https://opensource.apple.com/source/WebCore/WebCore-7604.5.6/html/HTMLAllCollection.cpp.auto.html">this</a> file from webkit.  When you see such code, the syntax of smart pointers, you try to calm down and breathe evenly, but this kind of code is the whole webkit from head to toe.  There are no such flaws in my engine. <br><a name="habracut"></a><br><h1>  What's in the box </h1><br>  Let's see what Newtoo is made of. <br><br>  At the moment, the following parts of the project have been implemented: <br><br><ul><li>  HTML parser </li><li>  HTML serializer </li><li>  CSS parser (selectors, rules and properties) </li><li>  CSS serializer </li><li>  Basic DOM API <sup>1</sup> </li></ul><br>  The remaining parts of the project that are not yet implemented: <br><br><ul><li>  Cascading CSS (calculation of css styles) </li><li>  Linker </li><li>  Render </li><li>  JS virtual machine and events </li><li>  Event handler and <i>interactive page selection</i> </li></ul><br><h2>  HTML parser </h2><br>  My HTML parser can be called modern.  Let's start with the fact that it is built on the standard <a href="https://www.w3.org/TR/html53/single-page.html">HTML5</a> .  It takes into account any of your mistakes. <br><br>  For example, you forgot to put quotes by typing the attribute <br><br><pre><code class="xml">&lt;article id=hello&gt;&lt;/article&gt;</code></pre><br>
-Движок вас поймет, есть значение атрибута написано без пробелов<br>
+  ,      <br>
 <br>
-Вы можете не закрывать тег, когда это не обязательно<br>
+    ,    <br>
 <br>
 <pre><code class="xml">
 &lt;div&gt;
    &lt;p&gt;First line
    &lt;p&gt;Second line
-   &lt;img src="ru/images/2019.png" alt="С новым годом!"&gt;
+   &lt;img src="ru/images/2019.png" alt="  !"&gt;
    &lt;p&gt;Third line &lt;br&gt; Last line
 &lt;/div&gt;
 </code></pre><br>
-Парсер поддерживает префиксы<br>
+  <br>
 <br>
 <pre><code class="xml">
 &lt;myprefix:span&gt;Hello, world!&lt;/myprefix:span&gt;
 </code></pre><br>
-Для того, чтобы обратно превратить элементы страницы в код, я написал сериализатор HTML. Я думаю, вы догадались, что он делает.<br>
+ ,       ,    HTML.  ,  ,   .<br>
 <br>
-<h3>Как работает парсер HTML</h3><br>
-Для начала наш парсер режет наш html код на кусочки и определяет их тип.<br>
+<h3>   HTML</h3><br>
+      html       .<br>
 <br>
-К примеру вот это:<br>
+   :<br>
 <br>
 <pre><code class="xml">
 &lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;title&gt;Lorem ipsum&lt;/title&gt;&lt;/head&gt;&lt;/html&gt;
 </code></pre><br>
-Превращается в это:<br>
+  :<br>
 <br>
 <pre><code class="xml">
 &lt;!doctype html&gt;   - doctype token
@@ -85,42 +85,42 @@ Lorem ipsum       - text token
 &lt;/head&gt;           - close tag token
 &lt;/html&gt;           - close tag token
 </code></pre><br>
-Эти кусочки называются токены.<br>
+   .<br>
 <br>
-Токены делятся на 6 типов:<br>
+   6 :<br>
 <br>
 <ul>
-<li>Тег</li>
-<li>Закрывающийся тег</li>
-<li>Текст</li>
-<li>Комментарий</li>
-<li>Тип документа (doctype)</li>
-<li>Javascript или css код</li>
+<li></li>
+<li> </li>
+<li></li>
+<li></li>
+<li>  (doctype)</li>
+<li>Javascript  css </li>
 </ul><br>
 <hr><br>
-Парсер читает токены слева направо. Для каждого типа свой подход парсинга.<br>
+    .      .<br>
 <br>
-Когда парсер читает содержимое тега, сам тег регистрируется в иерархии (иерархия от ребенка до родителя вниз), а когда парсер закончил читать содержимое тега, он удаляет его из иерархии.<br>
+    ,      (     ),       ,     .<br>
 <br>
-<i>Если это открывающийся тег, он парсит его название тега, атрибуты, а затем, если это параграф и в иерархии тоже есть параграф, удаляет существующий в иерархии тег параграфа и добавляет туда новый, если это не одиночный тег (тег без закрывающегося тега). Если это закрывающийся тег, парсер удаляет из иерархии последний тег и если последний тег был параграфом, то удаляет сразу два последних. А если это код, в нем разрешены спецсимволы.</i><br>
+<i>   ,     , ,  ,         ,          ,      (   ).    ,            ,     .    ,    .</i><br>
 <br>
-Используя такой метод парсинга токенов, можно писать &lt;p&gt; без закрывающегося тега.<br>
+    ,   &lt;p&gt;   .<br>
 <br>
-<h2>Парсер CSS</h2><br>
-На данный момент движок умеет парсить только стилевые css правила, например:<br>
+<h2> CSS</h2><br>
+        css , :<br>
 <br>
 <pre><code class="css">.flex[alignment="right"] { font-weight: light; color: #999 }
 </code></pre><br>
-Поддерживая только одни стилевые правила, можно уже нормально отобразить настольную версию какого-нибудь сайта.<br>
+    ,       - .<br>
 <br>
-В отличии от других движков, Newtoo поддерживает одиночные комментарии '//' в css коде и не удаляет их при взаимодействии с css через javascript.<br>
+    , Newtoo    '//'  css         css  javascript.<br>
 <br>
-<h3>Парсер CSS селекторов</h3><br>
-Чтобы узнать, какие именно html элементы страницы нужно форматировать стилями css, был придуман <a href="https://puzzleweb.ru/css/selectors.php">язык селекторов</a>. Вы наверное его уже знаете.<br>
+<h3> CSS </h3><br>
+ ,   html      css,   <a href="https://puzzleweb.ru/css/selectors.php"> </a>.     .<br>
 <br>
-Парсер селекторов поддерживает все комбинаторы, два вида кавычек, селекторы тегов, классов, атрибутов, множественные селекторы и классы. <br>
+    ,   ,  , , ,    . <br>
 <br>
-Вот полный список всех поддерживаемых селекторов:<br>
+     :<br>
 <br>
 <pre><code>TagName
 #Id
@@ -144,24 +144,24 @@ Lorem ipsum       - text token
 #element:active
 #element:...
 </code></pre><br>
-Да, <a href="https://www.w3.org/TR/selectors/">селекторы четвертого уровня</a> движок пока не поддерживает, но я работаю на этим.<br>
+, <a href="https://www.w3.org/TR/selectors/">  </a>    ,     .<br>
 <br>
 <h2>DOM API</h2><br>
-Когда мой парсер HTML читает наш код, он создает объектную модель документа (DOM). DOM выглядит как дерево из узлов, где корень — окно браузера, от него ответвляется документ, а от документа уже элементы страницы. Cо всеми узлами DOM можно взаимодействовать через JavaScript c помощью DOM API.<br>
+   HTML   ,      (DOM). DOM     ,   —  ,    ,      . C   DOM    JavaScript c  DOM API.<br>
 <br>
-Мой движок поддерживает любые изменения изменения DOM. Например, можно переделать html код любого элемента:<br>
+      DOM. ,   html   :<br>
 <br>
-<pre><code class="javascript">document.getElementById("article").innerHTML = "Статья исчезла. &lt;b&gt;Бум!&lt;/b&gt;";
+<pre><code class="javascript">document.getElementById("article").innerHTML = " . &lt;b&gt;!&lt;/b&gt;";
 </code></pre><br>
-Сейчас не буду перечислять все функции работы с элементами, документом, текстом, выделением, поверьте, их много!<br>
+        , , , , ,  !<br>
 <br>
-Виртуальную машину JavaScript пока не написал, но API уже есть и хорошо работает.<br>
+  JavaScript   ,  API     .<br>
 <br>
-<h2>Будущее проекта</h2><br>
-Про перспективы проекта ничего не могу сказать, вам решать.<br>
-Если вам понравился мой движок, значит я хорошо постарался.<br>
+<h2> </h2><br>
+      ,  .<br>
+    ,    .<br>
 <br>
-<a href="https://github.com/FlightBlaze/Newtoo">Newtoo на GitHub</a></div><p>Source: <a href="https://habr.com/ru/post/424881/">https://habr.com/ru/post/424881/</a></p>
+<a href="https://github.com/FlightBlaze/Newtoo">Newtoo  GitHub</a></div><p>Source: <a href="https://habr.com/ru/post/424881/">https://habr.com/ru/post/424881/</a></p>
 <section class="all-articles-navigation-panel js-all-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>

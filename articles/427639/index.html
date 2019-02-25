@@ -44,12 +44,12 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Google Public DNS silently turned on support for DNS over TLS</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/webt/re/rt/iq/rertiqvfycgdfitrxn-uqn16oja.png"><br><br>  Suddenly, without prior announcement, at <b>8.8.8.8</b> DNS over TLS was earned.  Earlier, Google announced only support for <a href="https">DNS over HTTPS.</a> <br><br>  A public resolver from CloudFlare with an IP address <a href="http://1.1.1.1/">1.1.1.1</a> supports DNS over TLS since the project was launched. <br><br><h3>  Why do you need it </h3><br>  When using the classic DNS scheme, providers can crawl their dirty paws into your DNS packets, see which domains you request, and replace the answers as you like.  Fraudsters do the same, replacing resolvers on hacked routers in order to direct the user to a fake server. <br><br>  With DNS over TLS / HTTPS, requests are sent inside an encrypted tunnel so that the provider cannot replace or view the request. <br><br>  And with the advent of domain name encryption in X.509 certificates ( <a href="https://blog.cloudflare.com/esni/">ESNI</a> ), blocking via DPI over SNI (Server Name Indication, a special field in which the domain name is transmitted in the first TLS packet), which are now used by some large providers, will become impossible. <br><br><h3>  How it works </h3><br>  A TCP connection is made to TCP port 853, and a resolver certificate is checked using system root certificates, just like HTTPS in a browser.  This eliminates the need to add any keys manually.  A normal DNS query is performed inside the tunnel.  This creates less overhead than DNS over HTTPS, which adds HTTP headers to the request and response. <br><br>  Unfortunately, currently only in Android 9 (Pie) support for DNS over TLS is built into the system resolver.  <a href="https://blog.cloudflare.com/enable-private-dns-with-1-1-1-1-on-android-9-pie/">Setup Instructions for Android 9</a> . <br><br>  For other systems, it is proposed to use a third-party daemon, and direct the system resolver to localhost (127.0.0.1). <br><br><h3>  Setup on macOS </h3><br>  Let's analyze the DNS over TLS setting on the latest macOS version, using the <a href="https://www.knot-resolver.cz/">knot</a> resolver as an example. <br><a name="habracut"></a><br><h4>  Installation </h4><br><pre><code class="hljs sql">brew <span class="hljs-keyword"><span class="hljs-keyword">install</span></span> knot-resolver</code></pre><br>
-По умолчанию knot будет работать как обычный рекурсивный резолвер, подобно dnsmasq. <br>
+  knot      ,  dnsmasq. <br>
 <br>
-<h4>Редактируем конфиг</h4><br>
+<h4> </h4><br>
 <pre><code class="hljs lua">nano /usr/<span class="hljs-keyword"><span class="hljs-keyword">local</span></span>/etc/kresd/<span class="hljs-built_in"><span class="hljs-built_in">config</span></span></code></pre><br>
 <br>
-И добавляем в конец файла:<br>
+    :<br>
 <pre><code class="hljs pgsql">
 <span class="hljs-keyword"><span class="hljs-keyword">policy</span></span>.<span class="hljs-keyword"><span class="hljs-keyword">add</span></span>(
         <span class="hljs-keyword"><span class="hljs-keyword">policy</span></span>.<span class="hljs-keyword"><span class="hljs-keyword">all</span></span>(
@@ -58,8 +58,8 @@
                         {<span class="hljs-string"><span class="hljs-string">'8.8.4.4'</span></span>, hostname=<span class="hljs-string"><span class="hljs-string">'8.8.4.4'</span></span>}
                 })))
 </code></pre><br>
-В итоге мой конфиг выглядит так:<br>
-<div class="spoiler"><b class="spoiler_title">Раскрыть спойлер</b><div class="spoiler_text"><pre><code class="hljs pgsql"><span class="hljs-comment"><span class="hljs-comment">-- Config file example useable for personal resolver.</span></span>
+     :<br>
+<div class="spoiler"><b class="spoiler_title"> </b><div class="spoiler_text"><pre><code class="hljs pgsql"><span class="hljs-comment"><span class="hljs-comment">-- Config file example useable for personal resolver.</span></span>
 <span class="hljs-comment"><span class="hljs-comment">-- The goal is to have a validating resolver with tiny memory footprint,</span></span>
 <span class="hljs-comment"><span class="hljs-comment">-- while actively tracking and refreshing frequent records to lower user latency.</span></span>
 <span class="hljs-comment"><span class="hljs-comment">-- Refer to manual: https://knot-resolver.readthedocs.io/en/latest/daemon.html#configuration</span></span>
@@ -92,9 +92,9 @@ modules = {
                 })))
 </code></pre><br>
 </div></div><br>
-<div class="spoiler"><b class="spoiler_title">Подробнее про hostname и проверку подлинности TLS-сертификата</b><div class="spoiler_text">Параметр <code>hostname</code> в данном случае — Common Name (CN) или Subject Alt Name (SAN) сертификата. То есть, доменное имя, для которого выпущен сертификат. По нему проверяется подлинность сертификата сервера. <br>
+<div class="spoiler"><b class="spoiler_title">  hostname    TLS-</b><div class="spoiler_text"> <code>hostname</code>    — Common Name (CN)  Subject Alt Name (SAN) .  ,  ,    .      . <br>
 <br>
-Вот какие значения SAN у сертификата, который используется при подключении на 8.8.8.8:853<br>
+   SAN  ,      8.8.8.8:853<br>
 <pre><code class="hljs css"><span class="hljs-selector-tag"><span class="hljs-selector-tag">dns</span></span><span class="hljs-selector-class"><span class="hljs-selector-class">.google</span></span>
 8888<span class="hljs-selector-class"><span class="hljs-selector-class">.google</span></span>
 8<span class="hljs-selector-class"><span class="hljs-selector-class">.8</span></span><span class="hljs-selector-class"><span class="hljs-selector-class">.4</span></span><span class="hljs-selector-class"><span class="hljs-selector-class">.4</span></span>
@@ -104,41 +104,41 @@ modules = {
 2001<span class="hljs-selector-pseudo"><span class="hljs-selector-pseudo">:4860</span></span><span class="hljs-selector-pseudo"><span class="hljs-selector-pseudo">:4860</span></span><span class="hljs-selector-pseudo"><span class="hljs-selector-pseudo">:0</span></span><span class="hljs-selector-pseudo"><span class="hljs-selector-pseudo">:0</span></span><span class="hljs-selector-pseudo"><span class="hljs-selector-pseudo">:0</span></span><span class="hljs-selector-pseudo"><span class="hljs-selector-pseudo">:0</span></span><span class="hljs-selector-pseudo"><span class="hljs-selector-pseudo">:8844</span></span>
 2001<span class="hljs-selector-pseudo"><span class="hljs-selector-pseudo">:4860</span></span><span class="hljs-selector-pseudo"><span class="hljs-selector-pseudo">:4860</span></span><span class="hljs-selector-pseudo"><span class="hljs-selector-pseudo">:0</span></span><span class="hljs-selector-pseudo"><span class="hljs-selector-pseudo">:0</span></span><span class="hljs-selector-pseudo"><span class="hljs-selector-pseudo">:0</span></span><span class="hljs-selector-pseudo"><span class="hljs-selector-pseudo">:0</span></span><span class="hljs-selector-pseudo"><span class="hljs-selector-pseudo">:8888</span></span>
 </code></pre><br>
-Любое из этих значений можно использовать в качестве параметра hostname. Если же вы будете разворачивать собственный публичный рекурсивный резолвер, у вас вряд ли получится выпустить X.509-сертификат на IP-адрес, поэтому в параметре hostname придется указывать доменное имя. <br>
+         hostname.         ,       X.509-  IP-,    hostname    . <br>
 </div></div><br>
-<h4>Запуск демона</h4><br>
+<h4> </h4><br>
 <pre><code class="hljs pgsql">sudo brew services <span class="hljs-keyword"><span class="hljs-keyword">start</span></span> knot-resolver</code></pre><br>
-Проверить, успешно ли запустился демон, можно командой:<br>
+,    ,  :<br>
 <br>
 <pre><code class="hljs matlab">sudo lsof -<span class="hljs-built_in"><span class="hljs-built_in">i</span></span> -P -n | grep kresd</code></pre><br>
-процесс kresd должен слушать порт 53 на localhost.<br>
+ kresd    53  localhost.<br>
 <br>
-Если что-то пошло не так, смотрим лог ошибок:<br>
+ -   ,   :<br>
 <br>
 <pre><code class="hljs pgsql">cat  /usr/<span class="hljs-keyword"><span class="hljs-keyword">local</span></span>/var/<span class="hljs-keyword"><span class="hljs-keyword">log</span></span>/kresd.<span class="hljs-keyword"><span class="hljs-keyword">log</span></span></code></pre><br>
-<h4>Проверка работы резолвера</h4><br>
+<h4>  </h4><br>
 <pre><code class="hljs css"><span class="hljs-selector-tag"><span class="hljs-selector-tag">dig</span></span> @<span class="hljs-keyword"><span class="hljs-keyword">127</span></span>.<span class="hljs-keyword"><span class="hljs-keyword">0</span></span>.<span class="hljs-keyword"><span class="hljs-keyword">0</span></span>.<span class="hljs-keyword"><span class="hljs-keyword">1</span></span> habr.com</code></pre><br>
-Проверяем, что локальный резолвер отвечает корректно. <br>
+,     . <br>
 <br>
-<h4>Установка в качестве системного резолвера</h4><br>
-Если все работает правильно, можно назначить системный резолвер в свойствах сетевого адаптера:<br>
+<h4>    </h4><br>
+   ,        :<br>
 <br>
 <img src="https://habrastorage.org/webt/wc/ez/lr/wcezlrsk9e3wep7vyimwb7uoruk.png"><br>
 <br>
 <b>UPD</b><br>
 <br>
-<h2>В чем разница между DNSCrypt, DNSSEC, DNS over TLS/HTTPS.</h2><br>
-<b>DNSCrypt </b> может работать по UDP и TCP. Подключение на порт 443. Для шифрования используется собственный протокол, который отличается от HTTPS. Может быть легко выделен с помощью DPI. Это скорее черновик, который тестировали до внедрения DNS over TLS/HTTPS, так как он не имеет RFC, то есть не является официальным стандартом интернета. Вероятнее всего, в скором, времени он будет полностью вытеснен последними. <br>
+<h2>    DNSCrypt, DNSSEC, DNS over TLS/HTTPS.</h2><br>
+<b>DNSCrypt </b>    UDP  TCP.    443.     ,    HTTPS.       DPI.   ,     DNS over TLS/HTTPS,      RFC,       .  ,  ,      . <br>
 <br>
-<b>DNS over TLS (DoT)</b> — TCP-подключение происходит на порт 853, внутри тоннеля передается обычный DNS-запрос. Провайдер видит, что это DNS запрос но не может в него вмешаться. При прочих равных, в DNS over TLS должно быть чуть меньше накладных расходов на каждый запрос, чем в over HTTPS.<br>
+<b>DNS over TLS (DoT)</b> — TCP-    853,     DNS-.  ,   DNS       .   ,  DNS over TLS         ,   over HTTPS.<br>
 <br>
-<b>DNS over HTTP (DoH)</b> — TCP-подключение на порт 443, подобно обычному HTTPS. Внутри другой формат запроса, с HTTP-заголовками. Однако для провайдера такой запрос будет виден как обычное HTTPS-подключение. Полагаю, этот протокол был придуман на случай, когда DNS-запросы к чужим серверам будут заблокированы, чтобы маскировать под обычный веб трафик. А также, чтобы браузеры могли сами резолвить домены и не создавать при этом аномальный трафик. <br>
+<b>DNS over HTTP (DoH)</b> — TCP-   443,   HTTPS.    ,  HTTP-.          HTTPS-. ,      ,  DNS-     ,      .  ,             . <br>
 <br>
-По сути, DNS over HTTPS и over TLS — одно и то же, с немного отличающемся форматом запросов. Оба эти протокола приняты в качестве стандартов и имеют RFC. Вероятнее всего, в ближайшее время мы увидим массовое распространение их обоих.<br>
+ , DNS over HTTPS  over TLS —    ,     .          RFC.  ,         .<br>
 <br>
-<b>DNSSEC </b> — протокол цифровой подписи DNS-записей. Не имеет отношения к шифрованию, так как все запросы передаются в открытом виде. Может работать как по старому классическому протоколу DNS, то есть UDP/TCP на порту 53, так и внутри DNS over TLS/HTTPS. Целью DNSSEC является подтверждение подлинности DNS-записи. Владелец домена может добавить публичный ключ на корневые сервера своей доменной зоны и подписывать все записи на мастер NS-серверах. По сути, к каждой DNS записи, например, A-записи или MX-записи, добавляется еще одна запись типа RRSIG, содержащая подпись. Процедура валидации DNSSEC на рекурсивном резолвере позволяет установить, действительно эта запись была создана владельцем домена.<br>
+<b>DNSSEC </b> —    DNS-.     ,        .        DNS,   UDP/TCP   53,    DNS over TLS/HTTPS.  DNSSEC    DNS-.                   NS-.  ,   DNS , , A-  MX-,      RRSIG,  .   DNSSEC     ,       .<br>
 <br>
-Более подробное сравнение всех протоколов <a href="https://dnscrypt.info/faq/">dnscrypt.info/faq</a> (абзац Other protocols)</div><p>Source: <a href="https://habr.com/ru/post/427639/">https://habr.com/ru/post/427639/</a></p>
+     <a href="https://dnscrypt.info/faq/">dnscrypt.info/faq</a> ( Other protocols)</div><p>Source: <a href="https://habr.com/ru/post/427639/">https://habr.com/ru/post/427639/</a></p>
 <section class="all-articles-navigation-panel js-all-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>

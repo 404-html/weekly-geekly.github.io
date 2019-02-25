@@ -41,30 +41,30 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>What the Turing Test actually tests</h1><div class="post__text post__text-html js-mediator-article">  Some time ago I <a href="https://habr.com/post/427123/">offered to play Test Turing</a> with my bot Misha.  Who tried it, he knows that the robot player is determined elementarily.  Who has not tried, can read about it in the first comment under that article. <br><br>  Now the time has come to arrange a debriefing, tell about the device of the bot and draw conclusions. <br><br><div style="text-align:center;"><img src="https://habrastorage.org/webt/wh/jf/st/whjfstnwrekjyudmitgjaqkhemi.png"></div><br><a name="habracut"></a><br><h2>  Rules of the game </h2><br>  The rules of the game were listed in the previous article, I repeat here, so that you and me do not follow the links. <br><br><ol><li>  Each participant connected to the bot can take on the role of the player who answers the questions, or the judge who asks these questions. <br></li><li>  If a participant chooses to be a judge, the bot randomly selects a player for him - either among human players, or by connecting a robot.  That is, in the game, the respondent is always alone, and the judge asks questions only to him. <br></li><li>  If a participant chooses to be a player, then the bot likewise seeks him as a member of a participating judge <br></li><li>  The game is divided into tours of 5 questions.  At the end of each round, the judge decides with whom he communicates, with a person or with a car - this is where the game ends.  If he cannot decide, he can start the next round or give up, stopping the game. <br></li><li>  The robot plays the role of a little boy, Misha, five years old.  In order for the judge not to facilitate the task, it is recommended that the human player also respond on behalf of Misha. <br></li></ol><br><div style="text-align:center;"><img src="https://habrastorage.org/webt/5o/hn/q3/5ohnq3poaw3kcy9hpq_g7utadbq.png"></div><br>  From the moment of launch until the writing of the article, 256 games were played (a bit strange, but true). <br><br>  Of these, we ended up with an obvious result, that is, both sides played until the end of the next round (no one played more than one round) and the judge made the decision - 115 games <br><br><ul><li>  solution "robot" - 74 </li><li>  decision "man" - 41 </li></ul><br>  There were 26 erroneous decisions, of which: <br><br><ul><li>  “robot” solution (actually a human being) - 15 </li><li>  decision "man" (actually a robot) - 11 </li></ul><br>  As you see, more often people were mistaken for robots than robots for humans. <br><br>  As a result, the robot was correctly defined in (74-15) / 115 = 51% of games, and the robot was taken for 11/115 = 9.5% of games, that is, we can confidently say that Misha-bot failed the test. <br><br><div style="text-align:center;"><img src="https://habrastorage.org/webt/fl/9r/g8/fl9rg8vdr_04iztb-3u9kdkr-qk.png"></div><br>  For comparison, at a <a href="http://www.cnews.ru/news/top/rossijskij_konkurent_siri_priznan_luchshim">competition in 2012,</a> 29% of 150 conversations judges took the <a href="https://ru.wikipedia.org/wiki/%25D0%2596%25D0%25B5%25D0%25BD%25D1%258F_%25D0%2593%25D1%2583%25D1%2581%25D1%2582%25D0%25BC%25D0%25B0%25D0%25BD">bot-Odessa Zhenya Gustman</a> per person, and in 2014 - 33% of judges based on the results of 300 conversations. <br><h2>  What is under the hood </h2><br>  The bot is written in Python and by and large consists of three modules: <br><br><ul><li>  proper bot with game engine <br></li><li>  robot manager <br></li><li>  robot <br></li></ul><br>  The main game algorithm is contained in the Game class, which stores the participants' id and implements a simple state machine: <br><br><ul><li>  Beginning of the game <br></li><li>  We are waiting for a question from the judge <br></li><li>  Waiting for a response from the player <br></li><li>  We are waiting for a decision from the judge <br></li><li>  Game over <br></li></ul><br><div style="text-align:center;"><img src="https://habrastorage.org/webt/ao/ih/3b/aoih3bnisp6g0rsvyhxswvm5oym.jpeg"></div><br>  On transitions between states, the bot passes the judge's questions to the player, the answers from the player to the judge.  It is transmitted only by one message and the bot becomes in the next state, so if someone tried to ask or answer two, he saw that the bot does not allow it. <br><br>  When the bot receives a response from the robot, it transmits it not immediately, but with a time delay - it did not immediately appear, I added it according to the remark <a href="https://habr.com/users/galqiwi/" class="user_link">galqiwi</a> , thank you. <br><br>  Each state change is saved in the SQLite database, in case of unforeseen situations - loss of power, reboot of the operating system, or simply the bot owner (I, I mean) wanted to stop it and redo something.  With the new launch, the bot loads the saved games from the database and the game continues. <br><br>  Further, there are two waiting lines - the judges waiting for the players, and the players waiting for the judges.  When a participant starts a new game, the corresponding queue is viewed, is there a partner for him.  If not, the member himself is queued. <br><br>  In a separate thread lives dispatcher robots.  He periodically scans the queue of judges waiting for players, and creates a copy of the robot for them.  It specifically made a delay so that the robot does not always have time to intercept the judge and the human player also had a chance to connect to the game.  The dispatcher has the ability to create different versions of robots, you just need to register their classes.  But so far only one has been implemented. <br><br>  And finally, the robot module.  But before telling about the inside of the robot, I’ll tell you about the question and answer database with which it works. <br><br>  At first I typed this text file: <br><br><pre><code>T: Миша
-T: Меня зовут Миша
-Q: Как тебя зовут?
-Q: Как тебя звать?
-Q: Как вас зовут?
-Q: Как твое имя?
-Q: Ты кто?
+  <section class="page js-page"><h1>What the Turing Test actually tests</h1><div class="post__text post__text-html js-mediator-article">  Some time ago I <a href="https://habr.com/post/427123/">offered to play Test Turing</a> with my bot Misha.  Who tried it, he knows that the robot player is determined elementarily.  Who has not tried, can read about it in the first comment under that article. <br><br>  Now the time has come to arrange a debriefing, tell about the device of the bot and draw conclusions. <br><br><div style="text-align:center;"><img src="https://habrastorage.org/webt/wh/jf/st/whjfstnwrekjyudmitgjaqkhemi.png"></div><br><a name="habracut"></a><br><h2>  Rules of the game </h2><br>  The rules of the game were listed in the previous article, I repeat here, so that you and me do not follow the links. <br><br><ol><li>  Each participant connected to the bot can take on the role of the player who answers the questions, or the judge who asks these questions. <br></li><li>  If a participant chooses to be a judge, the bot randomly selects a player for him - either among human players, or by connecting a robot.  That is, in the game, the respondent is always alone, and the judge asks questions only to him. <br></li><li>  If a participant chooses to be a player, then the bot likewise seeks him as a member of a participating judge <br></li><li>  The game is divided into tours of 5 questions.  At the end of each round, the judge decides with whom he communicates, with a person or with a car - this is where the game ends.  If he cannot decide, he can start the next round or give up, stopping the game. <br></li><li>  The robot plays the role of a little boy, Misha, five years old.  In order for the judge not to facilitate the task, it is recommended that the human player also respond on behalf of Misha. <br></li></ol><br><div style="text-align:center;"><img src="https://habrastorage.org/webt/5o/hn/q3/5ohnq3poaw3kcy9hpq_g7utadbq.png"></div><br>  From the moment of launch until the writing of the article, 256 games were played (a bit strange, but true). <br><br>  Of these, we ended up with an obvious result, that is, both sides played until the end of the next round (no one played more than one round) and the judge made the decision - 115 games <br><br><ul><li>  solution "robot" - 74 </li><li>  decision "man" - 41 </li></ul><br>  There were 26 erroneous decisions, of which: <br><br><ul><li>  “robot” solution (actually a human being) - 15 </li><li>  decision "man" (actually a robot) - 11 </li></ul><br>  As you see, more often people were mistaken for robots than robots for humans. <br><br>  As a result, the robot was correctly defined in (74-15) / 115 = 51% of games, and the robot was taken for 11/115 = 9.5% of games, that is, we can confidently say that Misha-bot failed the test. <br><br><div style="text-align:center;"><img src="https://habrastorage.org/webt/fl/9r/g8/fl9rg8vdr_04iztb-3u9kdkr-qk.png"></div><br>  For comparison, at a <a href="http://www.cnews.ru/news/top/rossijskij_konkurent_siri_priznan_luchshim">competition in 2012,</a> 29% of 150 conversations judges took the <a href="https://ru.wikipedia.org/wiki/%25D0%2596%25D0%25B5%25D0%25BD%25D1%258F_%25D0%2593%25D1%2583%25D1%2581%25D1%2582%25D0%25BC%25D0%25B0%25D0%25BD">bot-Odessa Zhenya Gustman</a> per person, and in 2014 - 33% of judges based on the results of 300 conversations. <br><h2>  What is under the hood </h2><br>  The bot is written in Python and by and large consists of three modules: <br><br><ul><li>  proper bot with game engine <br></li><li>  robot manager <br></li><li>  robot <br></li></ul><br>  The main game algorithm is contained in the Game class, which stores the participants' id and implements a simple state machine: <br><br><ul><li>  Beginning of the game <br></li><li>  We are waiting for a question from the judge <br></li><li>  Waiting for a response from the player <br></li><li>  We are waiting for a decision from the judge <br></li><li>  Game over <br></li></ul><br><div style="text-align:center;"><img src="https://habrastorage.org/webt/ao/ih/3b/aoih3bnisp6g0rsvyhxswvm5oym.jpeg"></div><br>  On transitions between states, the bot passes the judge's questions to the player, the answers from the player to the judge.  It is transmitted only by one message and the bot becomes in the next state, so if someone tried to ask or answer two, he saw that the bot does not allow it. <br><br>  When the bot receives a response from the robot, it transmits it not immediately, but with a time delay - it did not immediately appear, I added it according to the remark <a href="https://habr.com/users/galqiwi/" class="user_link">galqiwi</a> , thank you. <br><br>  Each state change is saved in the SQLite database, in case of unforeseen situations - loss of power, reboot of the operating system, or simply the bot owner (I, I mean) wanted to stop it and redo something.  With the new launch, the bot loads the saved games from the database and the game continues. <br><br>  Further, there are two waiting lines - the judges waiting for the players, and the players waiting for the judges.  When a participant starts a new game, the corresponding queue is viewed, is there a partner for him.  If not, the member himself is queued. <br><br>  In a separate thread lives dispatcher robots.  He periodically scans the queue of judges waiting for players, and creates a copy of the robot for them.  It specifically made a delay so that the robot does not always have time to intercept the judge and the human player also had a chance to connect to the game.  The dispatcher has the ability to create different versions of robots, you just need to register their classes.  But so far only one has been implemented. <br><br>  And finally, the robot module.  But before telling about the inside of the robot, I’ll tell you about the question and answer database with which it works. <br><br>  At first I typed this text file: <br><br><pre><code>T: 
+T:   
+Q:   ?
+Q:   ?
+Q:   ?
+Q:   ?
+Q:  ?
 
-T: Конечно
-Q: Ты настоящий мальчик?
+T: 
+Q:   ?
 
-T: Я мальчик
-T: Конечно
-Q: Ты человек?
-Q: Ты настоящий человек?
-Q: Ты живой человек?
+T:  
+T: 
+Q:  ?
+Q:   ?
+Q:   ?
 
-T: Я мальчик
-T: Нет, конечно
-Q: Ты компьютер?
-Q: Ты машина?</code></pre><br>
-… ну и так далее. Затем отдельной утилиткой считал их в базу данных — таблица вопросов, таблица ответов, связь между ними многие-ко-многим. Плюс табличка использованных слов с линками на вопросы. Причем слова сохранялись не в оригинальной форме, а в нормальной и с синонимами. Нормальная форма слова определялась по <a href="https://pymorphy2.readthedocs.io/en/latest/index.html">pymorphy2</a> от <a href="https://habr.com/users/kmike/" class="user_link">kmike</a>, а синонимы к ней искались из словаря <a href="https://russianword.net/">YARN</a>, предварительно сконвертированного из XML в SQLite — словарь занял всего 22 мегабайта, а сколько удовольствия…<br>
+T:  
+T: , 
+Q:  ?
+Q:  ?</code></pre><br>
+…    .         —  ,  ,    --.        .       ,      .      <a href="https://pymorphy2.readthedocs.io/en/latest/index.html">pymorphy2</a>  <a href="https://habr.com/users/kmike/" class="user_link">kmike</a>,        <a href="https://russianword.net/">YARN</a>,    XML  SQLite —    22 ,   …<br>
 <br>
-Метод поиска синонимов к нормальной форме слова:<br>
+      :<br>
 <br>
 <pre><code> &nbsp;&nbsp;&nbsp;def normalSynonyms(self,orig):
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r = self.morph.parse(orig)
@@ -76,99 +76,99 @@ Q: Ты машина?</code></pre><br>
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;words = self.yarn.words(syns[g])
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res = res + words
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return res</code></pre><br>
-Теперь собственно робот. Вообще от робота требуется реализация лишь одного метода <br>
+  .         <br>
 <br>
 <pre><code>getAnswer(self, text)</code></pre><br>
-, то есть просто получение ответа на заданный вопрос. Если роботу надо хранить предыдущие вопросы и контекст, какие-то дополнительные действия, то он делает это сам. Поскольку на каждую игру создается свой экземпляр класса робота, то контексты из разных чатов не пересекаются. <br>
+,        .        , -  ,     .         ,       . <br>
 <br>
-Поиск нужного ответа мой робот делает в два этапа:<br>
+        :<br>
 <br>
 <ol>
-<li>Проверяет, известен ли ему вопрос. Если известен, то выбирает один из подходящих ответов.<br>
+<li>,    .  ,      .<br>
 </li>
-<li>Иначе разбивает вопрос на токены-слова, также находит им синонимы в нормальной форме, отбирает среди известных вопросов те, в которых есть найденные слова, и уже из найденных вопросов выбирает наиболее вероятные по количеству совпадений. И выдает подходящий ответ.<br>
+<li>    -,       ,     ,     ,           .    .<br>
 </li>
 </ol><br>
 <br>
-Как видите, робот не умеет «думать» над ответом, всё, что он может ответить — это одна из заготовок, подходящая или неподходящая для очередного вопроса. Вы скажете, что это фигня, а я скажу — читайте классиков.<br>
+ ,    «»  , ,     —    ,      .  ,   ,    —  .<br>
 <br>
-"<i>Словарь Вильяма Шекспира, по подсчёту исследователей, составляет 12000 слов. Словарь негра из людоедского племени «Мумбо-Юмбо» составляет 300 слов. Эллочка Щукина легко и свободно обходилась тридцатью.</i>"<br>
+"<i>  ,   ,  12000 .      «-»  300 .       .</i>"<br>
 <br>
-Правда, классики не упомянули, обладала ли Эллочка Щукина интеллектом, пусть даже искусственным. Наверное, и сами не были уверены.<br>
+,   ,     ,   . ,     .<br>
 <br>
-<h2>Выбор персонажа</h2><br>
-Как видите, простота алгоритма робота не позволяет ему поддерживать сложные диалоги, поэтому встал вопрос, какого человека, точнее персонажа, сможет имитировать робот.<br>
+<h2> </h2><br>
+ ,         ,   ,  ,  ,   .<br>
 <br>
-Нужен был персонаж, который может отвечать уклончиво, путаться в ответах, не стесняется повторяться. Но, с другой стороны, который был бы <i>похож</i> на человека. &nbsp;Так как я не обеспечил робота какими-либо книжными знаниями и не снабдил его возможностью искать в интернете, то его персонаж не мог быть взрослым образованным человеком. Его область знаний должна была ограничиваться минимумом, только тем, что он сам мог видеть и понять.<br>
+  ,    ,   ,   . ,   ,    <i></i>  . &nbsp;      -          ,         .       ,  ,       .<br>
 <br>
-Было соблазнительно выбрать Людоедку Эллочку — а что, минимум словарного и фразеологического запаса, любой заготовленный ответ годится практически на любой вопрос. Но это было не интересно, хотелось усложнить задачу.<br>
+     —  ,     ,        .     ,   .<br>
 <br>
-Поэтому выбор пал на роль ребенка. Возраст у ребенка должен быть такой, чтобы &nbsp;позволять ему связно говорить, понимать — это где-то от двух-трех лет. Он должен знать какие-то базовые вещи, но еще плохо работать с абстракциями. Например, я не вкладывал в робот калькулятор, поэтому и робот в роли ребенка не сможет посчитать «один плюс два» — так что отпадает школьный возраст и близкий к нему. Так что я взял средний возраст в пять лет, когда дети достаточно самоуверенны, но толком еще ничего не знают.<br>
+     .      ,  &nbsp;   ,  —  -  - .    -  ,      . ,      ,          «  » —         .         ,    ,      .<br>
 <br>
-Однако, выбрав для робота роль ребенка, я понимал, что следствием этого выбора будет необходимость, чтобы все игроки-люди так же играли роль маленького мальчика. Практика показала, что мало кто это всерьез воспринял, отвечали как хотели, только что телефонами не обменивались.<br>
+,     ,  ,      ,   -      .  ,      ,   ,     .<br>
 <br>
-<h2>Железо</h2><br>
-Осталось показать тот суперкомпьютер, на котором живет Миша-бот:<br>
+<h2></h2><br>
+   ,    -:<br>
 <br>
 <div style="text-align:center;"><img src="https://habrastorage.org/webt/kv/5r/-m/kv5r-meieliwncfgwvnlsrxegwm.jpeg"></div><br>
-Это Raspberry Pi 3. На хвосте к нему висит SSD, прицеплен на всякий случай, если понадобится активная работа с базами данных, но в самом роботе не используется.<br>
+ Raspberry Pi 3.      SSD,    ,       ,      .<br>
 <br>
-Собственно, это всё о роботе Мише.<br>
+,     .<br>
 <br>
-<h1>Размышления о Тесте Тьюринга</h1><br>
-За почти семьдесят лет с момента написания статьи Тесту Тьюринга нашли определение, что это бихевиористский подход, сравнительный анализ на основе поведения — поведение человека сравнивается с поведением машины. Оно, конечно, так, однако я хочу обратить внимание на другие аспекты, на которые Алан Тьюринг, похоже, не обратил внимания.<br>
+<h1>   </h1><br>
+           ,    ,      —      . , , ,        ,    , ,   .<br>
 <br>
-Итак, то, что мы называем Тестом Тьюринга, было описано Тьюрингом в статье "<a href="http://www.etheroneph.com/files/can_the_machine_think.pdf">Может ли машина мыслить?</a>" (первая публикация называлась «Computing Machinery and Intelligence») &nbsp;и названо автором «игрой в имитацию». Если исходить лишь из её названия, можно было полагать, что игроки действительно должны имитировать поведение друг друга — человек притворяется машиной, а машина человеком. Но по замыслу Тьюринга в игре лишь машина должна подражать человеку.<br>
+, ,     ,      "<a href="http://www.etheroneph.com/files/can_the_machine_think.pdf">   ?</a>" (   «Computing Machinery and Intelligence») &nbsp;   «  ».      ,   ,         —   ,   .           .<br>
 <br>
-Цитата:<br>
-"<i>Можно &nbsp;было бы &nbsp;заметить, что &nbsp;при «игре в имитацию» &nbsp;не исключена возможность того, &nbsp;что простое подражание поведению &nbsp;человека не окажется для машины наилучшей стратегией. &nbsp;Такой случай возможен, но я не думаю, чтобы он привел &nbsp;нас к чему-нибудь существенно новому. Во всяком случае никто &nbsp;не пытался исследовать теорию нашей игры в этом направлении, и &nbsp;мы будем считать, что наилучшая стратегия для машины состоит в том, чтобы давать &nbsp;ответы, которые в соответствующей обстановке дал бы человек.</i>"<br>
+:<br>
+"<i> &nbsp;  &nbsp;,  &nbsp; «  » &nbsp;   , &nbsp;    &nbsp;      . &nbsp;  ,    ,    &nbsp;  -  .     &nbsp;        ,  &nbsp;  ,        ,   &nbsp;,       .</i>"<br>
 <br>
-Человеку-игроку же Тьюринг отвел роль не активного участника, который может запутывать судью своими <i>сознательно </i>неправильными ответами, а лишь роль образца, контрольного примера, с которым задающий вопросы будет сравнивать ответы машины. От человека ожидается естественное поведение, типичное для человека.<br>
+-       ,      <i> </i> ,    ,  ,        .     ,   .<br>
 <br>
 <a href="https://timmybeanbrain.wordpress.com/2012/09/04/dog-eat-dog-world/"><div style="text-align:center;"><img src="https://habrastorage.org/webt/vz/i4/do/vzi4dobp4eonl4urtyhroof-oaw.png"></div></a><br>
-Цитата:<br>
-"<i>Если &nbsp;бы человек попытался &nbsp;притвориться машиной, то, &nbsp;очевидно, вид у него был бы &nbsp;весьма жалкий. Он сразу выдал бы &nbsp;себя медлительностью и неточностью при &nbsp;подсчетах.</i>"<br>
+:<br>
+"<i> &nbsp;   &nbsp; , , &nbsp;,      &nbsp; .     &nbsp;     &nbsp;.</i>"<br>
 <br>
-Замечу, что Тьюринг не говорит, что человек <i>не должен</i> имитировать машину. Хотя человек может, если хочет, имитировать машину, другого человека или инопланетянина, вообще заниматься чем угодно, даже игнорировать вопросы или задавать встречные, но цель игры — получить ответ на вопрос «может ли [данная] машина мыслить?», поэтому человек здесь лишь помогает задающему вопросы в достижении цели, а не препятствует ему.<br>
+,    ,   <i> </i>  .   ,  ,  ,    ,    ,      ,    —     «  []  ?»,          ,    .<br>
 <br>
-Из ответов бота: <br>
-"<i>2018-10-23 13:01:53,385 186 Player2Judge Стал бы человек вести себя как машина, чтобы обмануть другого человека?</i>"<br>
+  : <br>
+"<i>2018-10-23 13:01:53,385 186 Player2Judge       ,    ?</i>"<br>
 <br>
-Подытожу — два игрока, машина и человек:<br>
-<br>
-<ul>
-<li>машина имитирует человека как можно лучше — это ее основная цель в игре<br>
-</li>
-<li>человек ведет себя естественно<br>
-</li>
-</ul><br>
-<h2>Лучшее качество машины</h2><br>
-Разобравшись с правилами, следующим шагом предположим, что мы хотим построить мыслящую машину. Как она должна работать, точнее, как она должна проявлять свои мысленные способности?<br>
-<br>
-Мы можем воспользоваться представлениями о мыслящей машине из кинофантастики. Подходит ли Джарвис из «Железного человека» под это определение? R2-D2 или C-3PO из «Звездных войн»? Дэвид из «A.I.»? Долорес Абернати из «Мира Дикого Запада»? Афина из «Земли будущего»? ВАЛЛ-И из одноименного мультфильма? Вроде про каждого из них интуитивно можно сказать, что это мыслящие машины, потому что они ведут себя <i>осмысленно</i>, и не похоже, что они действуют по какой-то относительно простой программе.<br>
-<br>
-Теперь проведем мысленный эксперимент — зададимся вопросом, какая из перечисленных машин скорее всего пройдет Тест Тьюринга? По условиям игры для этого достаточно ответить на вопрос, какая из машин сможет сымитировать человека так, что по его ответам его нельзя будет отличить от настоящего человека. <br>
-<br>
-Очевидно, сразу отпадут роботы R2-D2 и ВАЛЛ-И, как не умеющие разговаривать на человеческом языке, и их я предлагаю далее не рассматривать.<br>
-<br>
-Также очевидно, что в претендентах на победу окажутся машины, специально сконструированные для такой имитации — из нашего списка это Долорес и Афина. Причем если Долорес (я имею в виду её в статусе «девы в беде» в начале первого сезона) сама считает себя человеком, то Афина, напротив, вполне чётко понимает, что она робот, но может исполнить, при необходимости, имитацию на достаточно высоком уровне.<br>
-<br>
-Что же касается Джарвиса, C-3PO и Дэвида, то они тоже осознают, что они машины, и не имеют ни склонности, ни способности скрывать это от людей. Задающему вопросы не придется подлавливать их на каких-то каверзных вопросах, они и сами во всем признаются.<br>
-<br>
-И вот к чему мы пришли. Оказалось, что Тест Тьюринга пройдет машина, которая:<br>
+ —  ,   :<br>
 <br>
 <ul>
-<li>либо будет считать себя человеком и иметь соответствующие человеку воспоминания, знания и жизненный опыт;<br>
+<li>      —      <br>
 </li>
-<li>либо, зная о своем происхождении, будет лгать в ответах на вопросы, имитируя человека.<br>
+<li>   <br>
 </li>
 </ul><br>
-То есть Тест Тьюринга проверяет способность машины не к мышлению, а ко лжи — &nbsp;к сознательной или к самообману. Печалька.<br>
+<h2>  </h2><br>
+  ,   ,      .    , ,       ?<br>
 <br>
-В защиту Тьюринга надо сказать, что перед ним не стояла задача оценки моральных качеств машины. Он искал даже не ответ, а способ получения ответа на вопрос «может ли машина мыслить?», и это в то время (1950), когда задача создания искусственного интеллекта казалась скорее фантастикой, чем теоретической наукой. На этом фоне «игра в имитацию» была значительным шагом вперёд в понимании, как оценивать искусственный интеллект. <br>
+        .     « »   ? R2-D2  C-3PO  « »?   «A.I.»?    «  »?   « »? -   ?        ,    ,      <i></i>,   ,     -   .<br>
 <br>
-Цитата:<br>
-"… <i>нас интересует не то, будут ли все цифровые вычислительные машины хорошо играть в имитацию, и не то, будут ли хорошо играть в эту игру те вычислительные машины, которыми мы располагаем в настоящее время; вопрос заключается в том, существуют ли воображаемые вычислительные машины, которые могли бы играть хорошо.</i>"</div><p>Source: <a href="https://habr.com/ru/post/427259/">https://habr.com/ru/post/427259/</a></p>
+    —  ,         ?         ,       ,           . <br>
+<br>
+,    R2-D2  -,       ,       .<br>
+<br>
+ ,       ,      —       .    (       «  »    )    ,  , ,   ,   ,   ,  ,     .<br>
+<br>
+   , C-3PO  ,    ,   ,     ,      .        -  ,      .<br>
+<br>
+     . ,     , :<br>
+<br>
+<ul>
+<li>         ,    ;<br>
+</li>
+<li>,    ,      ,  .<br>
+</li>
+</ul><br>
+         ,    — &nbsp;    . .<br>
+<br>
+    ,          .     ,       «   ?»,      (1950),        ,   .    «  »      ,    . <br>
+<br>
+:<br>
+"… <i>   ,          ,   ,          ,      ;    ,     ,     .</i>"</div><p>Source: <a href="https://habr.com/ru/post/427259/">https://habr.com/ru/post/427259/</a></p>
 <section class="all-articles-navigation-panel js-all-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>

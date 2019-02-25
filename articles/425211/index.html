@@ -42,105 +42,105 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>286 and network</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/webt/u0/fg/qh/u0fgqhjs35vptzyp4con0-xvuzy.png"><br><br>  I am a junkie.  I have a wardrobe full of old iron.  From Boolean IC chips in DIP packages to Voodoo5.  Of course, all this is of no practical value, but some people enjoy the pleasure of messing with old pieces of iron.  If you are one of them, I invite you under the cat, where I will tell you how the computer based on the AMD 286 processor “was friends” with the modern network, and what came of it. <br><a name="habracut"></a><br>  The idea of ​​screwing the network to the 286th was born a long time ago, since it is easiest to transfer data to a computer over the network, and in general, this is interesting.  Does TCP / IP work?  Does the web browser earn money?  Although browsers under Dos, people on 286m have already repeatedly launched, but I have never seen 286go under Windows on the Internet.  Well, the main goal is to connect to a home NAS, which stores all the software for my old hardware.  And the NAS is more or less modern, and only TCP / IP can do it. <br><br>  I already had experience connecting to this drive of old computers.  Including while writing previous articles about old iron.  But in previous articles I only considered 32-bit processors, and everything is pretty easy there: even on 386SX-16, Windows 95 runs (yes, terribly slow, yes, the installation takes more than 9 hours, but it works), which has a native TCP stack / IP and a bunch of drivers for all kinds of network cards included.  If you want to be quicker, that is, Windows for Workgroups 3.11, onto which, after installing Win32s, you can roll your own TCP / IP stack.  And, although it will not be able to log in to a modern file server, open folders without a password become quite accessible to the PC even in this configuration.  And Internet Explorer 5 runs even on 386SX, it would be enough memory! <br><br><img src="https://habrastorage.org/getpro/habr/post_images/f3e/e2f/d32/f3ee2fd32b07851840033e01fde11eb6.jpg" alt="image"><br>  <i>image pulled from google</i> <br><br>  But alas, by 286 all this does not apply.  The main difficulty is that the 286 processor is 16-bit, and Windows for Workgroups 3.11 is not available for it, since the Standard mode, which allowed its predecessor 3.1 to run on 16-bit processors, was cut out of 3.11.  Unsatisfied at 286 and the Win32s extension (for obvious reasons), and, accordingly, it will not be possible to install the native Microsoft TCP / IP stack. <br><br>  Thus, we return to DOS. <br><br>  After a brief, thoughtful googling, the DOS TCP / IP picture became much less clear than it was before.  Basically, it all came down to the fact that the application normally running under DOS itself has its own stack, and all it needs is a packet driver for the network card.  But I could not find an application that allows you to mount remote disks. <br>  However, I came across as many as 2 different network clients for DOS from Microsoft itself (MS Client and MS LAN Manager), and another very strange beast called Windows for Workgroups 3.1.  Yes, it was 3.1, not 3.11, and this meant that everything might work in the standard mode. <br>  What would be extremely interesting.  Of course, I did not expect to see TCP / IP stack 3.1, but also on Google I came across a description of the 16-bit TCP / IP stack from Microsoft.  Interesting. <br>  Having bought the distribution kit 3.1 on eBay, I proceeded to the installation. <br><br><img src="https://habrastorage.org/getpro/habr/post_images/f68/0ca/a9c/f680caa9cc17b5eccfef9405bb5a07d6.png" alt="image"><br>  <i>image pulled from google</i> <br><br>  The system turned out to be a slightly modified 3.1 with a built-in network interface under DOS, very similar to the stripped-down MS LAN Manager.  All the difference from the traditional 3.1 was reduced to the presence of the “mount network drive” button in the File Manager and the corresponding dialog box.  Network configuration from under Windows itself was impossible.  How to perform the setup from under DOS was not clear.  Although after installing the system, she identified my network card as NE1000 or compatible, which was not far from the truth, because the Genius GR1222 card I used was true.  But I had a native driver disc for this card, including under DOS.  It remained unclear, however, how to configure the driver for the interrupt and the address of the I / O card. <br><br>  Moreover, after reading Google it turned out that the driver for MS LAN Manager and the packet driver are two different things. <br><br>  The situation with the drivers under DOS began to clear up a bit. <br><br>  So, there were 3 big standards: <br><br><ol><li>  Odi.  This driver model used Novell to communicate with its Netware servers.  I do not have Netvari, so it will not work. </li><li>  NDIS.  This is a Microsoft model, for their LAN Manager and Windows.  In theory, that is necessary. </li><li>  A batch driver that many DOS applications use. </li></ol><br>
-Итак, начнем с продукции Майкрософт. И MS Client и MS LAN Manager у меня давно были, еще с очень стародавних времен. Но, по словам Гугла, TCP/IP стек MS Client не работал под Windows for Workgroups, поэтому я начал свои эксперименты с MS LAN Manager.<br>
+,    .  MS Client  MS LAN Manager    ,     . ,   , TCP/IP  MS Client    Windows for Workgroups,       MS LAN Manager.<br>
 <br>
-Сетевая карта определилась как NE1000, что меня не удивило, и программа показала мне экран выбора сетевого протокола.<br>
+    NE1000,    ,        .<br>
 <br>
 <img src="https://habrastorage.org/webt/70/0y/ry/700yryozwdf5wy3xod2cmptymay.png"><br>
 <br>
-В Версии 2.2с программа поддерживала TCP/IP!!! Моей радости не было предела. Я прямо видел, как буду через 5-7 минут писать статью на Хабр с 286го. Но реальность оказалась несколько сложнее. Сначала я выбрал настройку протокола с помощью DHCP, но после перезагрузки машина зависала на этапе получения адреса.<br>
+  2.2   TCP/IP!!!     .   ,    5-7       286.     .        DHCP,         .<br>
 <br>
-ОК. Настроим вручную.<br>
+.  .<br>
 <br>
-Теперь при перезагрузке машина ругается на неправильные символы в файле PROTOCOL.INI<br>
-Это странно. Не буду мучать читателя всеми своими измышлениями, скажу лишь, что в настройках LAN Manager IP адрес пишется не через точку, а через пробел, вот так:<br>
+          PROTOCOL.INI<br>
+ .       ,  ,    LAN Manager IP     ,   ,  :<br>
 <br>
 <code>192 168 1 101</code><br>
 <br>
-Когда я это понял, компьютер перестал ругаться на неправильные настройки при загрузке, и стал загружать все протоколы, но после загрузки LAN Manager сообщал, что не видит никаких серверов. Это не беда, но ни ping, ни NET USE не работали. А это уже беда.<br>
-Подумав, я решил, что дело, должно быть, в настройках самой сетевой карты.<br>
-После непродожительных поисков в .INI файлах, я нашел строки, указывающие на значение прерывания и адреса ввода-вывода сетевой платы. Они были неправильными. Поправил. Перезагрузка.<br>
-Снова то же самое.<br>
-Ладно, возможно, Windows for Workgroups поможет.<br>
-Первое, что изменилось в Windows, это окно сетевого логина.<br>
+   ,        ,     ,    LAN Manager ,     .   ,   ping,  NET USE  .    .<br>
+,  ,  ,  ,     .<br>
+    .INI ,   ,       -  .   . . .<br>
+   .<br>
+, , Windows for Workgroups .<br>
+,    Windows,    .<br>
 <br>
 <img src="https://habrastorage.org/webt/np/_p/w-/np_pw-zioknnaussccfhrczwfka.png"><br>
 <br>
-Но в итоге Винда сказало то же, что и ДОС: серверов не видно. Ладно, думалось мне, это все из-за того, что она стучится в домен Windows NT и не видит его. Кстати, странно, что Windows <b>for Workgroups</b> хочет в домен, ну да ладно.<br>
+      ,   :   . ,  ,   - ,      Windows NT    . , ,  Windows <b>for Workgroups</b>   ,   .<br>
 <br>
-Но окошко Диспетчера Файлов тоже не могло найти сетевой диск.<br>
+         .<br>
 <br>
 <img src="https://habrastorage.org/webt/qz/_n/9n/qz_n9np69ce4pl4mitvoxsp97se.png"><br>
 <br>
-Не судьба.<br>
+ .<br>
 <br>
-Ладно, попробуем поменять сетевой адаптер. У меня их несколько разных, и я решил попробовать использовать D-Link DE-220P. После настройки карты в MS LAN Manager и перезагрузки, свершилось чудо:<br>
+,    .     ,      D-Link DE-220P.     MS LAN Manager  ,  :<br>
 <br>
 <img src="https://habrastorage.org/webt/69/ka/bu/69kabu1movodxft9bstqv73frag.png"><br>
 <br>
-Компьютер получил адрес по DHCP. Отлично, двигаемся дальше.<br>
+    DHCP. ,  .<br>
 <br>
-Файловый менеждер увидел сетевой диск:<br>
+    :<br>
 <br>
 <img src="https://habrastorage.org/webt/4v/qk/hk/4vqkhkrbuksdwb16e7ofukzjqui.png"><br>
 <br>
-В ДОСе тоже все отлично<br>
+    <br>
 <br>
 <code>NET USE Z: \\HOSTNAME\SHARENAME</code><br>
 <br>
 <img src="https://habrastorage.org/webt/i3/kq/cd/i3kqcdkqqtcszkgfx1mfy5imtcg.png"><br>
 <br>
-Отлично! А что там внутри?<br>
+!    ?<br>
 <br>
 <code>DIR Z:</code><br>
 <br>
 <img src="https://habrastorage.org/webt/_d/yj/sm/_dyjsmyaszhkvysmvttyt-g12ou.png"><br>
 <br>
-Так зачем я расписывал все неудачи с предыдущей сетевой картой, если все было так просто, поменял карту и все заверте…<br>
+         ,     ,     …<br>
 <br>
-Да потому, что со старым железом всегда так. Всегда что-то не работает. Никогда, ни одного раза у меня не получалось собрать старую систему с первого раза из полностью рабочих компонентов. Это невозможно.<br>
+ ,      .  -  . ,                 .  .<br>
 <br>
-Но теперь все работает. Правда, поиграть в игрушки с сетевого диска не получится: без EMM386 весь софт LAN Managera грузится в нижние 640КБ, и для программ остается совсем немного места:<br>
+   . ,        :  EMM386   LAN Managera    640,       :<br>
 <br>
 <img src="https://habrastorage.org/webt/ad/uw/r3/aduwr30dxajhhvqdixoobneub2s.png"><br>
 <br>
-С Браузерами под Windows тоже пока не сложилось, ни Netscape Navigator, ни MS Internet Explorer не согласились запускаться на 286м, а NCSA Mosaic старых версий не захотели работать со стеком TCP/IP LAN Manager'а. Что, наверное, не так важно, ведь я хотел иметь доступ к сетевому хранилищу, и я его имею. Да и под ДОС есть браузеры, и они работают на 286. Но все равно, немного обидно.<br>
+   Windows    ,  Netscape Navigator,  MS Internet Explorer     286,  NCSA Mosaic        TCP/IP LAN Manager'. , ,   ,        ,    .      ,     286.   ,  .<br>
 <br>
-Ну и, конечно, 286й компьютер с таким количеством «нижней» памяти, как есть сейчас, абсолютно бесполезен. Дело в том, что софт, использующий «верхнюю» память под ДОС требует 386 процессора или выше, так как работа 286го с памятью выше 1 МБ очень специфична… даже в защищённом режиме процессор 16-и разрядный, и никакой линейной адресации нет, а чтобы вернуться в реальный режим, 286му процессору требовался аппаратный ресет. Конечно, есть баг с линией А20 в реальном режиме, и он даже использовался, но, все равно, почти весь софт для 286го «сидит» в нижних 640 КБ, и мне надо будет делать загрузочное меню в ДОС: либо сеть, либо нормальное количество памяти, третьего не дано. И, так как сеть под Windows запускается из-под ДОС, то при выборе нормальной памяти не станет сети и под Windows. Что, конечно, не беда для такой древней машины, но нужно сделать возможность выбирать конфигурацию загрузки. К счастью, ДОС 6.22 поддерживает загрузочное меню. Этим и воспользуемся.<br>
+ , , 286     «» ,   ,  .   ,  ,  «»     386   ,    286    1   …      16- ,     ,      , 286    . ,     20   ,    , ,  ,     286 «»   640 ,         :  ,    ,   . ,     Windows  - ,           Windows. , ,      ,       .  ,  6.22   .   .<br>
 <br>
-Я решил сделать меню с 3мя пунктами:<br>
+     3 :<br>
 <br>
 <ol>
-<li>Загрузка без сетевых драйверов. Это дает максимум «нижней» памяти. Для приложений ДОС и игр.</li>
-<li>Загрузка с драйверами NDIS. Тут памяти для приложений ДОС почти не остается, поэтому будем сразу и Windows грузить.</li>
-<li>Загрузка с пакетным драйвером.</li>
+<li>   .    «» .     .</li>
+<li>   NDIS.        ,     Windows .</li>
+<li>   .</li>
 </ol><br>
-Вот именно пакетный драйвер и позволяет работать многим приложениям, использующим сеть под ДОС. В комплекте с D-Link DE220 такой драйвер был, впрочем, в интернете немало драйверов для большого количества карт, особенно под шину ISA. С любой более-менее распространенной картой проблем возникнуть не должно. А нераспространенные в основном были клонами NE2000, так что и с ними проблем возникнуть не должно, но тут уж как повезет.<br>
+        ,    .    D-Link DE220   , ,        ,    ISA.   -      .       NE2000,         ,     .<br>
 <br>
-Для того, чтобы использовать TCP/IP с пакетным драйвером, нужен еще какой-нибудь стек TCP/IP. Для ДОС есть, например, <a href="http://www.brutman.com/mTCP/mTCP.html">mTCP</a>, а для Windows — <a href="https://thanksfortrumpetwinsock.com/">Trumpet Winsock</a>, 1я версия которого у меня осталась еще с модемных времен.<br>
+ ,   TCP/IP   ,   -  TCP/IP.   , , <a href="http://www.brutman.com/mTCP/mTCP.html">mTCP</a>,   Windows — <a href="https://thanksfortrumpetwinsock.com/">Trumpet Winsock</a>, 1         .<br>
 <br>
-Он запустился, но я не знаю, заработал ли. По крайней мере, теперь при запуске старого NCSA Mosaic сообщение об отсутствии стека TCP/IP не выдавалось, но браузер наглухо вешал компьютер, так и не заканчивая загрузку.<br>
+ ,    ,  .   ,     NCSA Mosaic     TCP/IP  ,     ,     .<br>
 <br>
 <img src="https://habrastorage.org/getpro/habr/post_images/cac/cf7/d79/caccf7d79a8e973159b85669ea5f3a9d.gif" alt="image"><br>
-<i>Изображение из Гугла</i><br>
+<i>  </i><br>
 <br>
-Остался старый 16-битный стек TCP/IP для Windows. Как его установить в уже установленную систему было непонятно. В отличие от WFWG 3.11, версия 3.1 не позволяет изменить настройки сети непосредственно из-под Windows. Как это сделать из-под ДОС мне выяснить не удалось, а в самом установочном пакете стека установщика нет.<br>
+  16-  TCP/IP  Windows.         .    WFWG 3.11,  3.1       - Windows.    -     ,        .<br>
 <br>
-Поэтому, переустанавливаем Windows. На позднем этапе установки она определяет сетевую плату (на этот раз, как NE2000-совместимую, и не дает варианта выбора другой), и позволяет настроить протокол… Выбираем «неперечисленный или обновленный протокол» <br>
+,  Windows.         (  ,  NE2000-,      ),    …  «   » <br>
 <br>
 <img src="https://habrastorage.org/webt/y6/bw/e8/y6bwe8pbwrbibj4oes33algs6ko.png"><br>
 <br>
-и подсовываем дистрибутив 16-битного стека… Увиделся и установился. Начало хорошее. Но дальше дело не пошло: ни под ДОС, ни под Windows стек TCP/IP не заработал. Жаль.<br>
+   16- …   .  .     :   ,   Windows  TCP/IP  . .<br>
 <br>
-Ну, ладно, пока я сдаюсь. Я в любом случае получил море удовольствия от возни с этой железкой, она классная. Даже несмотря на то, что это очень дешевая, бюджетная плата для 286. Она была выпущена уже во времена 386, использует большой чип Headland вместо россыпи дискретной логики, имеет слоты SIMM, процессор работает на частоте 16 МГц, в то время, когда Intel оставила рынок 286х на 12 МГц. Кстати, надо будет поменять осциллятор на 24 МГц, чтобы получить 12 на процессоре… и вообще, плата маленькая и даже на вид недорогая. Но она приятная и очень быстрая. С момента включения компьютера до начала проверки памяти проходит меньше секунды. И даже несмотря на то, что плата поздняя, она может работать с памятью в корпусах DIP. Правда, только с 1 МБ, а для Windows все же надо побольше…<br>
+, ,   .            ,  .    ,    ,    286.       386,    Headland    ,   SIMM,     16 ,   ,  Intel   286  12 . ,      24 ,   12  …  ,       .      .           .     ,   ,        DIP. ,   1 ,   Windows    …<br>
 <br>
 <img src="https://habrastorage.org/webt/io/7v/6v/io7v6vburm1k4xmym3df6fuz7lg.png"><br>
 <br>
-Несколько ностальгических скриншотов Windows:<br>
+   Windows:<br>
 <br>
 <img src="https://habrastorage.org/webt/q6/ac/sg/q6acsgtkva7mmwteyqi_lcaa7vg.png"><br>
 <br>
-Windows на 286 работает только в Стандартном режиме. В этом режиме любое приложение ДОС, запущенное из-под Windows работает в полноэкранном режиме и полностью блокирует работу всех остальных приложений Windows. Таковы особенности 16и бит.<br>
+Windows  286     .      ,  - Windows            Windows.   16 .<br>
 <br>
 <img src="https://habrastorage.org/webt/lp/-8/wu/lp-8wu_eknfoivst1yi8pxtwukk.png"></div><p>Source: <a href="https://habr.com/ru/post/425211/">https://habr.com/ru/post/425211/</a></p>
 <section class="all-articles-navigation-panel js-all-articles-navigation-panel">

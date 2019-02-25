@@ -43,7 +43,7 @@
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Moving from Ubuntu to Windows 10, Hyper-V and getting rid of the iron router</h1><div class="post__text post__text-html js-mediator-article">  Having bought a new laptop, I regretfully noticed that my beloved Ubuntu no longer supports the work of the sensors and the fans are constantly buzzing, making the work not comfortable.  At the same time, if you download the pre-installed Windows 10 Pro from the original hard drive, then there is a pleasant silence for the ear.  While it was cool outside (and at home), it was tolerable.  But as the heat came, patience came to an end.  It was decided to migrate to Windows. <br><a name="habracut"></a><br>  In my work, I use numerous virtual machines to build, test, and debug the software being developed.  Windows 10 Pro includes Hyper-V virtualization - once the money is paid, you have to use it!  In Ubuntu, I used libvirt and virtual machines combined into one internal virtual network. <br><br>  Transferring Windows from the original disk to the SSD and transforming the virtual machine images into hyper-v format, with a pain in my heart, I began to master the new operating system. <br><br>  It turned out not so scary!  Virtual desktops were replaced with windows desktops (unfortunately only horizontal), the console replaced the WSL console (Windows Subsystem for Linux), X11 applications were installed and added to VcXsrv autorun, virtual machines started working in Hyper-V, and even OSX was launched. <br><br>  The native terminal was not entirely convenient and without tabs, so it was mercilessly replaced by the xfce4 terminal, which is launched via a shortcut with a hidden console linux window: <br><br><img src="https://habrastorage.org/webt/_b/zv/_m/_bzv_muthimp9okycb35xuvpfry.png" alt="image"><br><br>  An object: <br><br><pre><code>C:\Windows\System32\wscript.exe ./runhidden.vbs bash -c "export DISPLAY=:0.0; export GDK_DPI_SCALE=1.2; cd ~; exec xfce4-terminal"
 </code></pre><br>
-Код скрипта для запуска приложения со скрытым окном (скрывается родная консоль, которая открывается при запуске X11 приложений с командной строки), нагугленного на просторах интернета:<br>
+        (  ,     X11    ),    :<br>
 <br>
 <pre><code class="vbscript">' Simple command-line help.
 select case WScript.Arguments(0)
@@ -65,45 +65,45 @@ next
 ' Execute the command with its window *hidden* (0)
 WScript.CreateObject("Shell.Application").ShellExecute exe, args, "", "open", 0
 </code></pre><br>
-В итоге получилось так:<br>
+   :<br>
 <br>
 <img src="https://habrastorage.org/webt/by/tx/gn/bytxgn1z4ml4972rbgn8iqd9zy8.png" alt="image"><br>
 <br>
-Мне приходится часто ездить, специально для поездок у меня был мелкий маршрутизатор TP-LINK WR703N прошитый OpenWRT:<br>
+   ,         TP-LINK WR703N  OpenWRT:<br>
 <br>
 <img src="https://habrastorage.org/webt/sa/x3/0v/sax30vjxwdlvnboyclll-0nj9ew.jpeg" alt="image"><br>
 <br>
-На маршрутизаторе настроены VPN до рабочих машин и для выхода в интернет. Если есть кабель, то подключается к сети через кабель, раздает по WiFi для ноутбука, телефонов и других устройств, если только WiFi, то подключается к ноутбуку через кабель. Настроить одновременно клиента WiFi и точку доступа можно, но качество сигнала падает, начинаются отключения и падение скорости.<br>
+   VPN        .   ,      ,   WiFi  ,    ,   WiFi,      .    WiFi    ,    ,     .<br>
 <br>
-В связи с этим возникла идея вообще избавиться от этого маршрутизатора (заодно повысив пропускную способность подключения), клубка проводов и блока питания, заменив его виртуальным маршрутизатором. Очевидно, что все виртуальные машины и Windows должны быть объединены в одну локальную сеть. <br>
+           (    ),     ,    . ,      Windows       . <br>
 <br>
-Запускаем Диспетчер Hyper-V и выбираем Диспетчер виртуальных коммутаторов. Создаем новый внутренний виртуальный коммутатор, который будет обслуживать нашу виртуальную локальную сеть. Назовем его LAN Internal:<br>
+  Hyper-V     .     ,       .   LAN Internal:<br>
 <br>
 <img src="https://habrastorage.org/webt/-s/lq/fm/-slqfmjvqoobpxlv17wqpol0u-c.png" alt="image"><br>
 <br>
-Выходить в интернет мы будем через беспроводной адаптер и езернет кабель. Создаем два внешних виртуальных коммутатора, не забыв убрать галку «Разрешить управляющей операционной системе предоставлять общий доступ к этому сетевому адаптеру» — незачем Windows ходить в интернет напрямую.<br>
+          .     ,     «          » —  Windows    .<br>
 <br>
-Виртуальный коммутатор для WiFi:<br>
+   WiFi:<br>
 <br>
 <img src="https://habrastorage.org/webt/uw/e0/ib/uwe0ibm1xw__cdfjznkxtzio2zo.png" alt="image"><br>
 <br>
-Виртуальный коммутатор для езернет кабеля:<br>
+    :<br>
 <br>
 <img src="https://habrastorage.org/webt/uf/do/hs/ufdohsximsv3dtozw8rso1lyylg.png" alt="image"><br>
 <br>
-Операционной системой виртуальной машины маршрутизатора я выбрал серверную Ubuntu 16.04. Почему 16.04? Потому что в 18.04 простые настройки сети в /etc/network/interfaces заменили на netplan — не хочу! Создаем новую виртуальную машину и добавляем в нее наши виртуальные коммутаторы:<br>
+        Ubuntu 16.04.  16.04?    18.04     /etc/network/interfaces   netplan —  !           :<br>
 <br>
 <img src="https://habrastorage.org/webt/_t/yq/gb/_tyqgbiqmzf_dvk1ailm6skqon4.png" alt="image"><br>
 <br>
-В закладке Безопасность либо отключаем безопасную загрузку, либо выбираем Центр сертификации Microsoft UEFI и ставим операционную систему как обычно.<br>
+      ,     Microsoft UEFI      .<br>
 <br>
-После установки, заходим в свежеустановленную систему и проверяем сетевые интерфейсы командой ifconfig. Внешние подключения через кабель и WiFi могут получить ip адреса если они подключены и активны. Если адреса не получены, воспользуемся утилитой получения адреса:<br>
+ ,          ifconfig.      WiFi   ip      .    ,    :<br>
 <code>dhclient eth0 eth1 eth2</code><br>
 <br>
-Внутренний будет без адреса, так как в нашей локальной сети еще не работает сервер dhcp.<br>
-В моем случае eth0 — внешний езернет, eth1 — локальная сеть, eth2 — внешнее беспроводное подключение (в порядке добавление сетевых карт). Локальная сеть у нас будет 192.168.3.0.<br>
+   ,           dhcp.<br>
+   eth0 —  , eth1 —  , eth2 —    (    ).      192.168.3.0.<br>
 <br>
-Отредактируем настройки сети в /etc/network/interfaces с помощью, например, редактора nano:<br>
+    /etc/network/interfaces  , ,  nano:<br>
 <br>
 <pre><code>source /etc/network/interfaces.d/*
 
@@ -127,19 +127,19 @@ iface eth1 inet static
 allow-hotplug eth2
 iface eth2 inet dhcp
 </code></pre><br>
-Перезагружаем маршрутизатор и заходим на него опять. Теперь все сетевые интерфейсы должны иметь адреса (внешние если имеют подключение).<br>
+      .        (   ).<br>
 <br>
-Настройке маршрутизации посвящено множество статей и имеется достаточное количество материала, поэтому пробежимся быстро по минимальной настройке.<br>
+         ,      .<br>
 <br>
-Устанавливаем необходимые нам приложения:<br>
+   :<br>
 sudo apt install dnsmasq iptables-persistent netfilter-persistent openvpn<br>
 <br>
-Разрешаем пересылку ip пакетов:<br>
+  ip :<br>
 <br>
 <pre><code class="bash">cat &gt; /etc/sysctl.d/10-forwarding.conf 
 net.ipv4.ip_forward=1
 </code></pre><br>
-Настраиваем межсетевой экран:<br>
+  :<br>
 <br>
 <pre><code>cat &gt; /etc/iptables/rules.v4
 # Generated by iptables-save v1.6.0 on Fri Jun 22 11:13:10 2018
@@ -163,7 +163,7 @@ COMMIT
 COMMIT
 # Completed on Fri Jun 22 11:13:10 2018
 </code></pre><br>
-Настраиваем dhcp сервер и сервер имен:<br>
+ dhcp    :<br>
 <br>
 <pre><code>cat &gt; /etc/dnsmasq.d/router.conf 
 dhcp-authoritative
@@ -180,32 +180,32 @@ dhcp-leasefile=/tmp/dhcp.leases
 interface=eth1
 dhcp-range=lan,192.168.3.100,192.168.3.249,255.255.255.0,12h
 </code></pre><br>
-Перезагружаем и получаем работающий маршрутизатор для Windows и других виртуальных машин! <br>
+      Windows    ! <br>
 <br>
 <img src="https://habrastorage.org/webt/eu/nu/pd/eunupdout4qw9horqictv4iguvc.png" alt="image"><br>
 <br>
-Настраиваем на маршрутизаторе openvpn и наслаждаемся жизнью без дополнительных железок и кабелей.<br>
+   openvpn        .<br>
 <br>
-Но позвольте, спросите вы, а как же быть с телефоном и другими гаджетами? <br>
+ ,  ,         ? <br>
 <br>
-Простое решение — использовать встроенный в Windows 10 Мобильный хотспот! Но не все так просто. Мобильный хотспот не хочет активироваться на виртуальном интерфейсе нашей виртуальной локальной сети! Незадача…<br>
+  —    Windows 10  !     .            ! …<br>
 <br>
 <img src="https://habrastorage.org/webt/gt/pw/gl/gtpwglwzawhwizzfhy6yuf4jwju.png" alt="image"><br>
 <br>
-Погуглив наметившуюся проблему, были найдены несколько альтернативных утилит для запуска мобильной точки доступа. К сожалению, все они были платные. Было решено написать свое приложение, с некоторыми плюшками, бесплатное и с открытым кодом.<br>
+  ,          .  ,    .     ,   ,     .<br>
 <br>
-Помучившись неделю, приложение было написано (и заодно освоен ранее не изведанный зверь — Visual Studio):<br>
+ ,    (       — Visual Studio):<br>
 <br>
 <img src="https://habrastorage.org/webt/yq/w9/0d/yqw90do8yfntfel9p_9batr8tb8.png" alt="image"><br>
 <br>
-Кроме активации точки доступа, приложение может запускаться при входе в систему, активировать точку по запуску и закрывать приложение после активации.<br>
+   ,       ,         .<br>
 <br>
-Исходный код доступен на <a href="https://github.com/pdaxrom/NoWiFi">github</a>.<br>
-Для тех, кто не может или кому лень собирать из исходных текстов, приложение (бесплатно, без смс и всякой рекламы) доступно в Windows Магазине <a href="https://www.microsoft.com/ru-ru/p/nowifi/9nk0dst7hzx5">NoWiFi</a>.<br>
+    <a href="https://github.com/pdaxrom/NoWiFi">github</a>.<br>
+ ,          ,  (,     )   Windows  <a href="https://www.microsoft.com/ru-ru/p/nowifi/9nk0dst7hzx5">NoWiFi</a>.<br>
 <br>
-Таким образом, поставленная задача была решена, старый маршрутизатор окончательно отправился на пенсию, а в рюкзаке освободилось место!<br>
+ ,    ,      ,     !<br>
 <br>
-На этом у меня все, всем спасибо за внимание и терпение при чтении столь нудного материала!</div><p>Source: <a href="https://habr.com/ru/post/429856/">https://habr.com/ru/post/429856/</a></p>
+    ,           !</div><p>Source: <a href="https://habr.com/ru/post/429856/">https://habr.com/ru/post/429856/</a></p>
 <section class="all-articles-navigation-panel js-all-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>

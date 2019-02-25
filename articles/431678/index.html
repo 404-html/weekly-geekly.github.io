@@ -41,44 +41,44 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>There is a mobile developer in the forest, he sees - Kotlin is on fire. He sat down in Kotlin and burned</h1><div class="post__text post__text-html js-mediator-article"><p>  The world is going crazy.  They say that all new mobile projects on Android are written exclusively on Kotlin.  Nowadays, it is very dangerous not to learn new technologies.  Initially, your knowledge becomes obsolete, you take off from work, live near a heating main, fight with homeless people for food and die in obscurity without learning a functional programming.  Therefore, I went to Kurslin to study the course of <a href="https://www.coursera.org/learn/kotlin-for-java-developers">Kotlin for Java Developers</a> and began to read a <a href="https://www.manning.com/books/kotlin-in-action">book</a> (hello, <a href="https://habr.com/users/abreslav/" class="user_link">abreslav</a> , <a href="https://habr.com/users/yole/" class="user_link">yole</a> ), <a href="https://habr.com/users/abreslav/" class="user_link">asked</a> around friends you know how and came back with a certain emptiness in my heart.  Help Oleg the traveler find meaning in Kotlin! </p><br><ul><li>  Bonus: habros "How do you use Kotlin?" </li></ul><br><p><img src="https://habrastorage.org/webt/ua/41/wb/ua41wbfvcsn2uwhlqabj5pakpic.png"><br></p><a name="habracut"></a><br><p>●&nbsp; В Java ты чаще понимаешь по узкому контексту, что происходит. <code>a = b</code> — запись в поле или локал, <code>a[1] = 2</code> — запись в массив. В Котлине за любым простым выражением может стоять сколь угодно сложный код из-за всяких <a href="https://kotlinlang.org/docs/reference/operator-overloading.html">умностей вроде перегрузки</a>. Без IDE ничего не поймёшь. А IDE плохо, когда ты едешь в поезде и видишь, что свинговый жабоинтерфейс высасывает из ноутбука батарейку как вампир.</p><br>
-<p>●&nbsp; Котлин даёт одинаковый API для коллекций и сиквенсов, из-за чего люди злоупотребляют цепочками map/filter на коллекциях, создавая кучу промежуточных неленивых копий. Стримы в джаве специально введены для различия между ленивой и неленивой коллекцией. Да, есть инспекция в IDE для этого — потому что инспекции призваны исправлять недостатки языков. </p><br>
-<p>●&nbsp; Кстати, об IDE. Насколько хороша поддержка Kotlin в IntelliJ IDEA? Она действительно лучше, чем для Java? Есть большие сомнения. Может быть, кому-то из JB хватит духу проадвокатировать по данному вопросу.</p><br>
-<p>●&nbsp; Котлин форсит использование <code>it</code>, что приводит к нечитаемому коду. Что-нибудь типа <code>seq.map { it -&gt; foo(it, 1); }.map { it -&gt; bar(it, 2); }.filter { it -&gt; it.getBaz() &gt; 0; }</code>. Что это вообще было? Имена переменным даны не зря! А тут получается монолог вроде «Возьмём это, прикрутим к нему то, потом его закрутим и если оно стало больше того, то наденем сверху шарнир». </p><br>
+  <section class="page js-page"><h1>There is a mobile developer in the forest, he sees - Kotlin is on fire. He sat down in Kotlin and burned</h1><div class="post__text post__text-html js-mediator-article"><p>  The world is going crazy.  They say that all new mobile projects on Android are written exclusively on Kotlin.  Nowadays, it is very dangerous not to learn new technologies.  Initially, your knowledge becomes obsolete, you take off from work, live near a heating main, fight with homeless people for food and die in obscurity without learning a functional programming.  Therefore, I went to Kurslin to study the course of <a href="https://www.coursera.org/learn/kotlin-for-java-developers">Kotlin for Java Developers</a> and began to read a <a href="https://www.manning.com/books/kotlin-in-action">book</a> (hello, <a href="https://habr.com/users/abreslav/" class="user_link">abreslav</a> , <a href="https://habr.com/users/yole/" class="user_link">yole</a> ), <a href="https://habr.com/users/abreslav/" class="user_link">asked</a> around friends you know how and came back with a certain emptiness in my heart.  Help Oleg the traveler find meaning in Kotlin! </p><br><ul><li>  Bonus: habros "How do you use Kotlin?" </li></ul><br><p><img src="https://habrastorage.org/webt/ua/41/wb/ua41wbfvcsn2uwhlqabj5pakpic.png"><br></p><a name="habracut"></a><br><p>●&nbsp;  Java      ,  . <code>a = b</code> —     , <code>a[1] = 2</code> —   .             -  <a href="https://kotlinlang.org/docs/reference/operator-overloading.html">  </a>.  IDE   .  IDE ,       ,         .</p><br>
+<p>●&nbsp;    API    , -     map/filter  ,     .            . ,    IDE   —       . </p><br>
+<p>●&nbsp; ,  IDE.    Kotlin  IntelliJ IDEA?   ,   Java?   .  , -  JB      .</p><br>
+<p>●&nbsp;    <code>it</code>,     . -  <code>seq.map { it -&gt; foo(it, 1); }.map { it -&gt; bar(it, 2); }.filter { it -&gt; it.getBaz() &gt; 0; }</code>.    ?     !      « ,    ,         ,    ». </p><br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/uXxu6M0SRIc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><br>
-<p>●&nbsp; Цепочки вроде <code>?.let { foo(it); }?.let { bar(it); }</code> — это вообще ад и должны быть запрещены в декларации о правах человека. И это считается идиоматично, Карл. В отличие от нормального if. Читать такой код невозможно.</p><br>
-<p>●&nbsp; От интеропа с джавой кровь идёт из глаз. А тут всякие JvmStatic и JvmName, и код превращается в цирк с конями. </p><br>
-<p>Например, вот у нас есть такое:</p><br>
+<p>●&nbsp;   <code>?.let { foo(it); }?.let { bar(it); }</code> —            .    , .     if.    .</p><br>
+<p>●&nbsp;        .    JvmStatic  JvmName,       . </p><br>
+<p>,     :</p><br>
 <pre><code class="kotlin">class C {
     companion object {
         @JvmStatic fun foo() {}
         fun bar() {}
     }
 }</code></pre><br>
-<p>Относительно помеченного аннотацией метода компилятор сгенерит и статический метод во внешнем по отношению к объекту классе, и метод экземпляра в самом объекте. Возможные варианты:</p><br>
+<p>               ,      .  :</p><br>
 <ul>
-<li><code>C.foo();</code> — работает</li>
-<li><code>C.bar();</code> — синтаксическая ошибка, ибо метод не статический</li>
-<li><code>C.Companion.foo()</code>; — остается метод экземпляра</li>
-<li><code>C.Companion.bar();</code> — единственный правильный способ</li>
+<li><code>C.foo();</code> — </li>
+<li><code>C.bar();</code> —  ,    </li>
+<li><code>C.Companion.foo()</code>; —   </li>
+<li><code>C.Companion.bar();</code> —   </li>
 </ul><br>
-<p>Оправились от красоты решения? Окей, пошли дальше. Теперь вы готовы понять и принять тот факт, что, например, нельзя одновременно объявить два таких метода:</p><br>
+<p>   ? ,  .        , , ,      :</p><br>
 <pre><code class="kotlin">fun List&lt;String&gt;.filterValid(): List&lt;String&gt;
 fun List&lt;Int&gt;.filterValid(): List&lt;Int&gt;</code></pre><br>
-<p>Ведь их сигнатуры на уровне JVM совпадают: <code>filterValid(Ljava/util/List;)Ljava/util/List;</code></p><br>
-<p>Поэтому нужно подпихнуть специальный костыль:</p><br>
+<p>     JVM : <code>filterValid(Ljava/util/List;)Ljava/util/List;</code></p><br>
+<p>    :</p><br>
 <pre><code class="kotlin">fun List&lt;String&gt;.filterValid(): List&lt;String&gt;
 
 @JvmName("filterValidInt")
 fun List&lt;Int&gt;.filterValid(): List&lt;Int&gt;</code></pre><br>
-<p>А как вам такое: в Kotlin нет checked exceptions. А в Java-реальности они есть. Отряд специального назначения «Боевые протезы» имеет честь представить новый самоходный костыль <code>@Throws</code>:</p><br>
+<p>   :  Kotlin  checked exceptions.   Java-  .    « »       <code>@Throws</code>:</p><br>
 <pre><code class="kotlin">@Throws(IOException::class)
 fun foo() {
     throw IOException()
 }</code></pre><br>
-<p>Можно долго рассуждать, что «джависты постоянно ноют, что тут всё не как в джаве». Но если вот это красиво, то что тогда ужасно?</p><br>
-<p>В общем, рекомендуется открыть статью <a href="https://kotlinlang.org/docs/reference/java-to-kotlin-interop.html">Java-to-Kotlin Interop</a> и своими глазами посмотреть, как это выглядит.</p><br>
-<p>●&nbsp; <a href="https://kotlinlang.org/docs/reference/java-interop.html">Автоматические геттеры/сеттеры</a> с добавлением английского слова get и первой буквой проперти в большом регистре (видимо, в локали ENGLISH? Ведь регистр букв системно-зависим) — это страшно. </p><br>
+<p>  ,  «  ,       ».     ,    ?</p><br>
+<p> ,    <a href="https://kotlinlang.org/docs/reference/java-to-kotlin-interop.html">Java-to-Kotlin Interop</a>    ,   .</p><br>
+<p>●&nbsp; <a href="https://kotlinlang.org/docs/reference/java-interop.html"> /</a>     get        (,   ENGLISH?    -) —  . </p><br>
 <pre><code class="kotlin">import java.util.Calendar
 fun calendarDemo() {
     val calendar = Calendar.getInstance()
@@ -89,44 +89,44 @@ fun calendarDemo() {
         calendar.isLenient = true                      // call setLenient()
     }
 }</code></pre><br>
-<p>●&nbsp; <a href="https://kotlinlang.org/docs/reference/extensions.html">Экстеншн-методы</a> загрязняют публичный интерфейс такими вещами, о которых автор и подумать боялся.</p><br>
-<p>Так как этой фичи нет в джаве, поясню. Можно написать любой метод, слева поставить имя «принимающего класса», и всё — он расширен. Давайте расширим <code>MutableList</code> функцией <code>swap</code>:</p><br>
+<p>●&nbsp; <a href="https://kotlinlang.org/docs/reference/extensions.html">-</a>     ,      .</p><br>
+<p>      , .    ,    « »,   —  .   <code>MutableList</code>  <code>swap</code>:</p><br>
 <pre><code class="kotlin">fun MutableList&lt;Int&gt;.swap(index1: Int, index2: Int) {
-    val tmp = this[index1] // 'this' относится к листу
+    val tmp = this[index1] // 'this'   
     this[index1] = this[index2]
     this[index2] = tmp
 }
 
 val lst = mutableListOf(1, 2, 3)
-lst.swap(0, 2) // 'this' внтури 'swap()' будет иметь значение 'lst'</code></pre><br>
-<p>Работа экстеншн-методов возможна, даже если автор специально сделал финальный класс, явно показав, что не хочет сторонних расширений. Получается что-то вроде изнасилования с особым цинизмом. И конечно, они ломают совместимость: что будет, если в следующей версии библиотеки автор добавит методы с теми же именами, но с другим возвращаемым типом? Он должен думать обо всех экстеншн-методах, которые любые люди могут добавить в тот же класс? </p><br>
-<p>Кроме того, невозможно сделать оптимизированные реализации экстеншн-методов в конкретных подклассах. Хотя, казалось бы, вот эта фича могла бы произвести вау-эффект.</p><br>
-<p>●&nbsp; Библиотека местами не продумана. Например, reduce. </p><br>
-<p>Вот как выглядит reduce: </p><br>
+lst.swap(0, 2) // 'this'  'swap()'    'lst'</code></pre><br>
+<p> - ,       ,  ,     .  -     .  ,   :  ,            ,     ?      -,         ? </p><br>
+<p> ,     -   . ,  ,       -.</p><br>
+<p>●&nbsp;    . , reduce. </p><br>
+<p>   reduce: </p><br>
 <pre><code class="kotlin">listOf(1, 2, 3).reduce { sum, element -&gt; sum + element } == 6</code></pre><br>
-<p>Там есть только форма с identity (<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/fold.html">fold</a>), но она не всегда применима. </p><br>
+<p>     identity (<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/fold.html">fold</a>),     . </p><br>
 <pre><code class="kotlin">listOf(1, 2, 3).fold(0) { sum, element -&gt; sum + element } == 6</code></pre><br>
-<p>Кстати, почему Хабр подсвечивает эти две строчки по-разному? Аааа, уже неважно.</p><br>
-<p>По сути, fold и reduce делают одно и то же, но fold требует определённого начального значения, а reduce использует в качестве этого начального значения первый элемент списка. Соответственно, форма без identity кидает исключение для пустой коллекции. </p><br>
-<p>Всегда ли такое поведение всем нужно? Почему не вернуть какое-нибудь <code>Optional</code> и дать пользователю самому решить, что делать в случае пустой коллекции? Да или хоть null вернуть, раз уж это null-friendly язык.</p><br>
-<p>●&nbsp; Давайте ещё навалим про библиотеку. Нафига в <em>стандартную</em> библиотеку языка, который поддерживает дата-классы, включили пары? Это ж прямое поощрение плохого кода.</p><br>
-<p>Напоминаю, <a href="https://kotlinlang.org/docs/reference/data-classes.html">дата-классы</a> выглядят так: </p><br>
+<p>,       -? ,  .</p><br>
+<p> , fold  reduce     ,  fold    ,  reduce         . ,   identity     . </p><br>
+<p>     ?    - <code>Optional</code>     ,      ?    null ,    null-friendly .</p><br>
+<p>●&nbsp;     .   <em></em>  ,   -,  ?      .</p><br>
+<p>, <a href="https://kotlinlang.org/docs/reference/data-classes.html">-</a>  : </p><br>
 <pre><code class="kotlin">data class User(val name: String, val age: Int)
 val duncan = User("Duncan MacLeod", 426) 
 val (name, age) = duncan
-println("$name, $age years of age") // печатает "JaDuncan MacLeodne, 426 years of age"</code></pre><br>
-<p>Пара выглядит вот так:</p><br>
+println("$name, $age years of age") //  "JaDuncan MacLeodne, 426 years of age"</code></pre><br>
+<p>   :</p><br>
 <pre><code class="kotlin">val (name, age) = Pair("Java", 23)
-println("$name, $age years of age") // тоже печатает "Java, 23 years of age"</code></pre><br>
-<p>А все потому, что внутри:</p><br>
+println("$name, $age years of age") //   "Java, 23 years of age"</code></pre><br>
+<p>  ,  :</p><br>
 <pre><code class="kotlin">public data class Pair&lt;out A, out B&gt;(
     public val first: A,
     public val second: B
 )</code></pre><br>
-<p>Совершенно очевидно, что среднестатистический быдлокодер забьёт писать свои классы на второй день использования, и код превратится в кошмарную пародию на лисп. Складываем огуречные жопки с сотнями нефти, пишем фильтры-франкенштейны и в продакшен. Быстро, просто, нечитаемо.</p><br>
-<p>●&nbsp; Очень странный момент — возможность не указывать возвращаемый тип метода (особенно публичного). </p><br>
-<p>Совсем недавно был случай в C++, от которого меня чуть не разорвало от злости. Программа падала в произвольном месте, а я не понимал — почему. Оказалось, в C++ можно не писать return в методе, который согласно сигнатуре должен что-то возвращать. Это не синтаксическая ошибка согласно стандарту, а undefined behavior. Соответсвенно, программа в рантайме падает с произвольной ошибкой. Чудесный язык — в нем есть специальный синтаксис для неработающих методов. С тех пор я очень аккуратно проверяю, что мы обещали вернуть из метода и что отдали на выходе. Эдакая параноидальная привычка.</p><br>
-<p>И вот теперь, в лучшем в мире языке Kotlin мы можем вообще не указывать возвращаемый тип. Это провоцирует людей писать нечленораздельную лапшу, в которой и ничего не понятно. Если метод <code>a</code> вызывает метод <code>b</code>, а тот метод <code>c</code>, а тот содержит в теле выражение <code>when</code>, в котором в ветках ещё три метода вызываются <code>d</code>, <code>e</code> и <code>f</code>, попробуй пойми тип метода <code>а</code>!</p><br>
+<p> ,           ,        .      ,  -   . , , .</p><br>
+<p>●&nbsp;    —       ( ). </p><br>
+<p>     C++,        .     ,     — . ,  C++    return  ,     - .      ,  undefined behavior. ,       .   —        .       ,           .   .</p><br>
+<p>  ,      Kotlin       .      ,      .   <code>a</code>   <code>b</code>,    <code>c</code>,       <code>when</code>,         <code>d</code>, <code>e</code>  <code>f</code>,     <code></code>!</p><br>
 <pre><code class="kotlin">fun a(check: Int) = b(check)
 fun b(check: Int) = c(check)
 
@@ -144,27 +144,27 @@ fun f() = "result 3";
 fun main(args: Array&lt;String&gt;) {
     println(::a.returnType)
     for (i in 1..3)  println(a(i).javaClass.name)</code></pre><br>
-<p>Причём вначале вроде всё было просто и понятно, а в процессе эволюции поменялось, и капец. Меняешь возвращаемый тип метода <code>f</code>, и у тебя автоматом меняется возвращаемый тип метода <code>а</code> совсем в другом пакете, и ты не понимаешь, что происходит. </p><br>
-<p>Изначально в нашем примере выхлоп выглядел вот так:</p><br>
+<p>       ,     ,  .     <code>f</code>,         <code></code>    ,    ,  . </p><br>
+<p>       :</p><br>
 <pre><code class="plaintext">kotlin.String
 java.lang.String
 java.lang.String
 java.lang.String</code></pre><br>
-<p>Но стоит только поменять определения функций на вот такие:</p><br>
+<p>        :</p><br>
 <pre><code class="kotlin">fun d() = "1";
 fun e() = 100500;
 fun f() = listOf&lt;String&gt;();</code></pre><br>
-<p>И результат тут же изменится на</p><br>
+<p>     </p><br>
 <pre><code class="plaintext">kotlin.Any
 java.lang.String
 java.lang.Integer
 kotlin.collections.EmptyList</code></pre><br>
-<p>Никакой кристаллизации API. Для публичных методов явная спецификация API должна быть священной коровой, а Kotlin её не требует.</p><br>
-<h1 id="zaklyuchenie">Заключение</h1><br>
-<p>Пожалуй, для начала достаточно. Из этой статьи может показаться, что все в Котлине плохо, но это очевидно, не так. Как минимум, зарплата Kotlin-разработчика обычно неплоха :-) </p><br>
-<p>В недавнем докладе на Joker 2018 (<a href="https://assets.ctfassets.net/oxjq45e8ilak/1r2vtOZWDuswCU0SCk6c2y/6f3ca08e94de4ad4feb2899bb502adc3/Pavel_Finkelshtein_Kotlin_2_years_in_production_without_breaks.pdf">есть слайды</a>), Паша (<a href="https://habr.com/users/asm0dey/" class="user_link">asm0dey</a>) Финкельштейн отмечал, что на бэкенде Kotlin помогает писать более красивый и лаконичный код (но не всегда это получается), на нем получаются более выразительные тесты, с ним работает GraalVM, и всё это с примерами для Spring, Spring Security, Spring Transactions, jOOQ, и т.п.</p><br>
-<p>Стоит ли переходить на Kotlin с Java для мобильных приложений? Неясно. В любом случае, Kotlin интересный. Давайте в нём покопаемся!</p><br>
-<blockquote>Минутка рекламы. Уже на этой неделе, 8-9 декабря 2018, пройдет <a href="https://mobiusconf.com/">конференция Mobius</a>. На ней Святослав Щербина из JetBrains расскажет о том, <a href="https://mobiusconf.com/talks/2edqedhw7a60kikyqa6iwo/">как писать мобильные приложения на Kotlin Muplitplatform</a>. Кроме того, можно будет пересечься со множеством людей, реально использующих Kotlin, и узнать, зачем и как они это делают. Места все еще есть, а вот времени уже почти не осталось, так что, если хотите прийти, сейчас у вас последний шанс. Билеты можно <a href="https://mobiusconf.com/registration/">приобрести на официальном сайте</a>.</blockquote></div><p>Source: <a href="https://habr.com/ru/post/431678/">https://habr.com/ru/post/431678/</a></p>
+<p>  API.      API    ,  Kotlin   .</p><br>
+<h1 id="zaklyuchenie"></h1><br>
+<p>,   .     ,     ,   ,  .  ,  Kotlin-   :-) </p><br>
+<p>    Joker 2018 (<a href="https://assets.ctfassets.net/oxjq45e8ilak/1r2vtOZWDuswCU0SCk6c2y/6f3ca08e94de4ad4feb2899bb502adc3/Pavel_Finkelshtein_Kotlin_2_years_in_production_without_breaks.pdf"> </a>),  (<a href="https://habr.com/users/asm0dey/" class="user_link">asm0dey</a>)  ,    Kotlin        (    ),      ,    GraalVM,       Spring, Spring Security, Spring Transactions, jOOQ,  ..</p><br>
+<p>    Kotlin  Java   ? .   , Kotlin .    !</p><br>
+<blockquote> .    , 8-9  2018,  <a href="https://mobiusconf.com/"> Mobius</a>.      JetBrains   , <a href="https://mobiusconf.com/talks/2edqedhw7a60kikyqa6iwo/">     Kotlin Muplitplatform</a>.  ,      ,   Kotlin,  ,      .    ,       ,  ,   ,     .   <a href="https://mobiusconf.com/registration/">   </a>.</blockquote></div><p>Source: <a href="https://habr.com/ru/post/431678/">https://habr.com/ru/post/431678/</a></p>
 <section class="all-articles-navigation-panel js-all-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
