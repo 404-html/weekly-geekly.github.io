@@ -1,0 +1,101 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134931760-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-134931760-1');
+  </script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Messenger problems: vanishing messages in Signal for Mac are not permanently deleted</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="description" content="Information security researcher Alec Muffett discovered the possibility of recovering disappearing messages in the Mac version of the secure messenger...">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="../../css/main.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
+</head>
+
+<body>
+  <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+  <header class="page-header js-page-header">
+    <a class="page-header-logo-container" href="https://weekly-geekly.github.io/index.html"></a>
+    <div class="page-header-text">Geekly Articles each Day</div>
+  </header>
+  <nav class="page-headings-container js-page-headings-container"></nav>
+  <div class="tools-bar js-tools-bar">
+    <!-- <a href="../../search.html" title="Search">🔎</a> -->
+    <a class="js-list-of-headings-button" data-state="closed" href="#" title="Headings">📜</a>
+    <a class="js-go-to-top-button" href="#" title="Go to Top">⬆️</a>
+    <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
+  </div>
+  <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
+  <section class="page js-page"><h1>Messenger problems: vanishing messages in Signal for Mac are not permanently deleted</h1><div class="post__text post__text-html js-mediator-article"> <a href="https://habr.com/company/pt/blog/358282/"><img src="https://habrastorage.org/webt/rc/ki/qb/rckiqbc0kgt0wkajo6fx6utpsda.jpeg"></a> <br><br>  Information security researcher Alec Muffett <a href="https://twitter.com/AlecMuffett/status/993917102791766016">discovered the</a> possibility of recovering disappearing messages in the Mac version of the secure messenger Signal.  As a result, sensitive user information may be at risk. <a name="habracut"></a><br><br><h2>  What is the problem </h2><br>  Another researcher Patrick Wardle (Patrick Wardle) <a href="https://objective-see.com/blog/blog_0x2E.html">was able to understand</a> the reasons for the incorrect work of the messenger.  According to him, macOS creates copies of the disappearing messages in a special, readable database in the Notification Center operating system - for long messages, only a part of them is copied.  From this source, they can be restored at any time after the message is deleted from the Signal database itself. <br><br>  In addition, the researcher found that when you enable notifications for the Signal application in the macOS service, it will display notifications for the disappearing messages, including in the form of abbreviated messages (usually they include the first lines of the message). <br><br><img src="https://habrastorage.org/webt/3a/il/yo/3ailyotsfbcdpptmcka_lvh54aq.png"><br><br>  As a result, the disappearing messages can be saved in the user interface of the notification center and displayed on the notification panel even after they are deleted.  A copy of the abbreviated message is also stored in the SQLite database of the notification center, which can be accessed by a user with normal privileges — or a malicious application. <br><br>  To protect the content of messages, experts recommend turning off the notification function until Signal developers fix the problem. <br><br><h2>  Not only Signal </h2><br>  Not only Signal users have recently been <a href="https://www.huffingtonpost.co.uk/entry/whatsapp-text-bomb-bug-discovered-that-can-crash-your-phone_uk_5af2b75fe4b0a0d601e81218">faced</a> with security problems, but also WhatsApp - iOS and Android versions of the application become victims of text bombs that disable them. <br><br>  Users receive two kinds of messages.  The first contains the text “This is very interesting”, a smiley and the “Read more” link.  When you click on it, the application freezes.  The second text message contains the text “If you touch the black point then your WhatsApp will hang” (“If you touch the black point, your WhatsApp will hang”).  Indeed, when you click on a point, the application freezes. <br><br>  In order to return the smartphone to a working state in both cases, you need to restart it, in order to avoid problems in the future, you should delete the chat containing the “bomb”. </div><p>Source: <a href="https://habr.com/ru/post/358282/">https://habr.com/ru/post/358282/</a></p>
+<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<h4>More articles:</h4>
+<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
+</section>
+<script src="../../js/main.js"></script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function (d, w, c) {
+      (w[c] = w[c] || []).push(function() {
+          try {
+              w.yaCounter52496797 = new Ya.Metrika({
+                  id:52496797,
+                  clickmap:true,
+                  trackLinks:true,
+                  accurateTrackBounce:true,
+                  webvisor:true
+              });
+          } catch(e) { }
+      });
+
+      var n = d.getElementsByTagName("script")[0],
+          s = d.createElement("script"),
+          f = function () { n.parentNode.insertBefore(s, n); };
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+      if (w.opera == "[object Opera]") {
+          d.addEventListener("DOMContentLoaded", f, false);
+      } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/52496797" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<!-- Google Analytics -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-134931760-1', 'auto'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+</section>
+
+  <footer class="page-footer">
+    <div class="page-footer-legal-info-container page-footer-element">
+      <p>
+        Weekly-Geekly | <span class="page-footer-legal-info-year js-page-footer-legal-info-year">2019</span>
+      </p>
+    </div>
+    <div class="page-footer-counters-container page-footer-element">
+      <a class="page-footer-counter-clustrmap" href='#'  title='Visit tracker'><img src='https://clustrmaps.com/map_v2.png?cl=698e5a&w=271&t=t&d=6iCFw7uJz0zcOaoxz5k5PcLCJUzv2WG8G5V8M3U6Rc4&co=3a3a3a&ct=ffffff'/></a>
+    </div>
+  </footer>
+</body>
+
+</html>
