@@ -1,0 +1,101 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134931760-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-134931760-1');
+  </script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Disable any items from our DOM tree using MutationObserver</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="description" content="Recently sitting on the couch, I decided to play around with MutationObserver . This is a fairly notable feature, with which you can listen to the DOM...">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="../../css/main.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
+</head>
+
+<body>
+  <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+  <header class="page-header js-page-header">
+    <a class="page-header-logo-container" href="https://weekly-geekly.github.io/index.html"></a>
+    <div class="page-header-text">Geekly Articles each Day</div>
+  </header>
+  <nav class="page-headings-container js-page-headings-container"></nav>
+  <div class="tools-bar js-tools-bar">
+    <!-- <a href="../../search.html" title="Search">🔎</a> -->
+    <a class="js-list-of-headings-button" data-state="closed" href="#" title="Headings">📜</a>
+    <a class="js-go-to-top-button" href="#" title="Go to Top">⬆️</a>
+    <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
+  </div>
+  <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
+  <section class="page js-page"><h1>Disable any items from our DOM tree using MutationObserver</h1><div class="post__text post__text-html js-mediator-article">  Recently sitting on the couch, I decided to play around with <a href="https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver">MutationObserver</a> .  This is a fairly notable feature, with which you can listen to the DOM tree.  Now quite common. <br><br>  Also, with the help of MutationObserver, you can not only listen but also in fact prevent changes to the DOM tree.  Thinking about it, I made a library that can block unnecessary tags and attributes that you still did not use. <br><a name="habracut"></a><br>  It looks like <a href="https://wasiher.github.io/strict_dom/">this</a> : <br><br><pre><code class="hljs json">{ <span class="hljs-attr"><span class="hljs-attr">"tagsType"</span></span>: <span class="hljs-string"><span class="hljs-string">"blacklist"</span></span>, <span class="hljs-attr"><span class="hljs-attr">"tags"</span></span>: [ <span class="hljs-string"><span class="hljs-string">"script"</span></span> ], <span class="hljs-attr"><span class="hljs-attr">"attributesType"</span></span>: <span class="hljs-string"><span class="hljs-string">"blacklist"</span></span>, <span class="hljs-attr"><span class="hljs-attr">"attributes"</span></span>: { <span class="hljs-attr"><span class="hljs-attr">"*"</span></span>: [<span class="hljs-string"><span class="hljs-string">"onerror"</span></span>] } }</code> </pre> <br><div style="text-align:center;"><img src="https://habrastorage.org/getpro/habr/post_images/eb1/6a1/c70/eb16a1c709da8cc850e23a75f3ad081e.jpg" alt="quack"></div><br>  Using the manifest, for example, we cut off all script tags and all onerror attributes that should not be added after running strict_dom.  Those.  in fact, it is possible to cut out many potential XSS vulnerabilities on the site (in this variant, not really), or to wean yourself and your team from using any obsolete HTML tags and attributes. <br><br>  The manifest can have the following parameters: <br><br><ul><li>  outdatedUrl - the link to which will be redirected if the browser is old (disabled by default) </li><li>  tagsType - choose the principle of blacklist or whitelist to remove tags </li><li>  tags - list of unnecessary tags </li><li>  attributesType - choose the principle of blacklist or whitelist to remove attributes to tags </li><li>  attributes - list of unnecessary attributes </li></ul><br>  Actually, all this works through MutationObserver, and the code can peep <a href="https://github.com/wasiher/strict_dom.js/">here</a> </div><p>Source: <a href="https://habr.com/ru/post/333564/">https://habr.com/ru/post/333564/</a></p>
+<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<h4>More articles:</h4>
+<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
+</section>
+<script src="../../js/main.js"></script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function (d, w, c) {
+      (w[c] = w[c] || []).push(function() {
+          try {
+              w.yaCounter52496797 = new Ya.Metrika({
+                  id:52496797,
+                  clickmap:true,
+                  trackLinks:true,
+                  accurateTrackBounce:true,
+                  webvisor:true
+              });
+          } catch(e) { }
+      });
+
+      var n = d.getElementsByTagName("script")[0],
+          s = d.createElement("script"),
+          f = function () { n.parentNode.insertBefore(s, n); };
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+      if (w.opera == "[object Opera]") {
+          d.addEventListener("DOMContentLoaded", f, false);
+      } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/52496797" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<!-- Google Analytics -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-134931760-1', 'auto'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+</section>
+
+  <footer class="page-footer">
+    <div class="page-footer-legal-info-container page-footer-element">
+      <p>
+        Weekly-Geekly | <span class="page-footer-legal-info-year js-page-footer-legal-info-year">2019</span>
+      </p>
+    </div>
+    <div class="page-footer-counters-container page-footer-element">
+      <a class="page-footer-counter-clustrmap" href='#'  title='Visit tracker'><img src='https://clustrmaps.com/map_v2.png?cl=698e5a&w=271&t=t&d=6iCFw7uJz0zcOaoxz5k5PcLCJUzv2WG8G5V8M3U6Rc4&co=3a3a3a&ct=ffffff'/></a>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134931760-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-134931760-1');
+  </script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Colorful code: how color helps in working with code</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="description" content="As a programmer working with different languages ​​and on different platforms, at one point in time I encountered one unexpected problem: to conduct a...">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="../../css/main.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
+</head>
+
+<body>
+  <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+  <header class="page-header js-page-header">
+    <a class="page-header-logo-container" href="https://weekly-geekly.github.io/index.html"></a>
+    <div class="page-header-text">Geekly Articles each Day</div>
+  </header>
+  <nav class="page-headings-container js-page-headings-container"></nav>
+  <div class="tools-bar js-tools-bar">
+    <!-- <a href="../../search.html" title="Search">🔎</a> -->
+    <a class="js-list-of-headings-button" data-state="closed" href="#" title="Headings">📜</a>
+    <a class="js-go-to-top-button" href="#" title="Go to Top">⬆️</a>
+    <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
+  </div>
+  <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
+  <section class="page js-page"><h1>Colorful code: how color helps in working with code</h1><div class="post__text post__text-html js-mediator-article">  As a programmer working with different languages ​​and on different platforms, at one point in time I encountered one unexpected problem: to conduct a review or write my own code, I had to spend quite a lot of time switching between IDEs and languages.  There was a need for some kind of tool that would help me to do it more efficiently and without loss of concentration.  And suddenly a <i>color</i> came to my rescue.  And I want to share this little life hacking. <br><a name="habracut"></a><br>  All IDEs have such a great feature as syntax highlighting.  Everything is good, but everywhere it is different and even within the same development environment may differ for different languages.  But the main thing is that the backlight does not help often enough (personally for me) to distinguish structural components, such as methods, variables, classes, structures ... They are usually drawn in one color and I decided to choose my own color scheme that would perform the function of differentiation only <i>syntactic</i> elements (such as keywords), but also <i>semantic</i> (classes, structures, methods and functions). <br><br><div class="spoiler">  <b class="spoiler_title">Darkula color scheme example in Android Studio</b> <div class="spoiler_text">  In principle, only keywords and constants are highlighted. <br><img src="https://habrastorage.org/web/31e/0b1/00e/31e0b100e7744d71bfdc6456a07551a3.png"><br></div></div><br>  The concept started with the Ciapre color scheme for Xcode.  It initially (and it should be recognized, the IDE itself) provides such semantic division by color.  Flat colors do not cut eyes and are quite different for different types of semantic elements. <br>  The result is approximately the following separation: <br><br><ul><li>  Keywords - red </li><li>  Reference Types (grades) - yellow </li><li>  Interfaces - Orange </li><li>  Value Types - Purple </li><li>  Constant values ​​are also purple, but brighter. </li><li>  Methods and functions - blue (external, from packages / modules - slightly brighter) </li><li>  Fields and type properties - green </li></ul><br>  After transferring to different IDEs, something like this happened (yes, I know the first reaction - “what kind of sourness” :-)): <br><br><ul><li>  Swift (Xcode) <br>  In Xcode, problems with interfaces (in terms of separation from classes), they are considered to be the reference type and also appear yellow. <br><br><img src="https://habrastorage.org/web/956/63c/5ea/95663c5eaf3a42c8b2287ca1a1c56107.png"></li><li>  Kotlin (Android Studio) (can be compared with the example above - darkula) <br>  There are different kinds of qualifiers and labels in the cotlin, there is a separate color for them too. <br><br><img src="https://habrastorage.org/web/8ca/84f/86d/8ca84f86d5f54f23aa7ab62a48b6cb97.png"></li><li>  Java (Android Studio) <br><br><img src="https://habrastorage.org/web/1f8/5f5/806/1f85f580675b4319a5af8aac5251a920.png"></li><li>  C # (Visual Studio) <br>  In Sharpe there are neimspaces, for them - a separate color.  Well, the studio is also saddened by the fact that there is no clear semantic separation in the settings (class field, method, etc.).  This helps me ReSharper. <br><br><img src="https://habrastorage.org/web/447/743/f18/447743f18fa648c5975c408f4d253b94.png"></li></ul><br>  From additional bonuses - vision allows you to immediately find the oddities already at the level of color perception without even reading the text.  If I know that there should be an interface, then I will see that there is not enough orange in the place where I expect it (for example, a type corresponding to the interface can be written and everything seems valid but not). <br><br>  Actually, that's all :) <br><br><div class="spoiler">  <b class="spoiler_title">For those who want to put color schemes</b> <div class="spoiler_text">  <a href="https://1drv.ms/u/s!AvGqfMM-H0_86U3TMnceTmyt47iD">Android Studio</a> <br>  <a href="https://1drv.ms/u/s!AvGqfMM-H0_86U5YLOKhMOI3XjXi">Xcode</a> <br>  <a href="https://1drv.ms/u/s!AvGqfMM-H0_86VKLoACvACuott1B">Visual Studio 2017</a> <br></div></div><br>  Good and beautiful code to all! </div><p>Source: <a href="https://habr.com/ru/post/335692/">https://habr.com/ru/post/335692/</a></p>
+<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<h4>More articles:</h4>
+<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
+</section>
+<script src="../../js/main.js"></script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function (d, w, c) {
+      (w[c] = w[c] || []).push(function() {
+          try {
+              w.yaCounter52496797 = new Ya.Metrika({
+                  id:52496797,
+                  clickmap:true,
+                  trackLinks:true,
+                  accurateTrackBounce:true,
+                  webvisor:true
+              });
+          } catch(e) { }
+      });
+
+      var n = d.getElementsByTagName("script")[0],
+          s = d.createElement("script"),
+          f = function () { n.parentNode.insertBefore(s, n); };
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+      if (w.opera == "[object Opera]") {
+          d.addEventListener("DOMContentLoaded", f, false);
+      } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/52496797" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<!-- Google Analytics -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-134931760-1', 'auto'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+</section>
+
+  <footer class="page-footer">
+    <div class="page-footer-legal-info-container page-footer-element">
+      <p>
+        Weekly-Geekly | <span class="page-footer-legal-info-year js-page-footer-legal-info-year">2019</span>
+      </p>
+    </div>
+    <div class="page-footer-counters-container page-footer-element">
+      <a class="page-footer-counter-clustrmap" href='#'  title='Visit tracker'><img src='https://clustrmaps.com/map_v2.png?cl=698e5a&w=271&t=t&d=6iCFw7uJz0zcOaoxz5k5PcLCJUzv2WG8G5V8M3U6Rc4&co=3a3a3a&ct=ffffff'/></a>
+    </div>
+  </footer>
+</body>
+
+</html>
