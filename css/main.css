@@ -179,3 +179,30 @@ a[href*="http"]:not(.tools-bar a) {
 .page-footer-counter-clustrmap img {
   clip-path: inset(0 22px);
 }
+
+.ad-block-container-image-wrapper {
+  border: thin #c0c0c0 solid;
+  display: flex;
+  flex-flow: column;
+  padding: 5px;
+  max-width: 220px;
+  margin: auto;
+}
+
+.ad-block-container-image-wrapper:hover {
+  cursor: pointer;
+}
+
+.ad-block-container-image {
+  max-width: 220px;
+  max-height: 150px;
+  width: auto !important;;
+}
+
+.ad-block-container-image-title {
+  background-color: #222;
+  color: #fff;
+  font: italic smaller sans-serif;
+  padding: 3px;
+  text-align: center;
+}
