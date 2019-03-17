@@ -125,10 +125,11 @@ a[href*="http"]:not(.tools-bar a) {
 
 .donate-btn {
   background-color: aqua;
-  transform: rotate(-90deg);
+  transform: translate(0,100%) rotate(-90deg);
+  transform-origin: 0 0;
   position: fixed;
-  top: 200px;
-  left: -20px;
+  top: 345px;
+  left: 5px;
   padding: 5px;
   text-decoration: none;
 }

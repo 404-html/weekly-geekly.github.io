@@ -92,4 +92,90 @@ $(function() {
 	// 	const link = $('.js-all-articles-list li:nth-child(' + index + 1 +') a').attr('href');
 	// 	$(element).load(link + ' .js-mediator-article');
 	// });
+
+
+	//Donate Button
+	const $donateButton = $('.donate-btn');
+
+	const getRandomElement = function(array) { 
+	  return array[Math.floor(Math.random() * (array.length - 0) + 0)]; 
+	};
+
+	const arrayOfDonateButtons = [
+		{
+			'bgColor': 'orange',
+			'textColor': 'blue',
+			'text': 'DONATE',
+			'link': 'http://bit.ly/2TTe9my'
+		},
+		{
+			'bgColor': 'red',
+			'textColor': 'black',
+			'text': 'DONATE',
+			'link': 'http://bit.ly/2Y4FYYh'
+		},
+		{
+			'bgColor': 'green',
+			'textColor': 'blue',
+			'text': 'DONATE',
+			'link': 'http://bit.ly/2HofpIN'
+		},
+		{
+			'bgColor': 'aqua',
+			'textColor': 'blue',
+			'text': 'DONATE',
+			'link': 'http://bit.ly/2HDrysq'
+		},
+		{
+			'bgColor': '#3a3a3a'/*grey*/,
+			'textColor': 'blue',
+			'text': 'DONATE',
+			'link': 'http://bit.ly/2FhVl8q'
+		},
+		{
+			'bgColor': '#3a3a3a'/*grey*/,
+			'textColor': 'white',
+			'text': 'DONATE',
+			'link': 'http://bit.ly/2FhVl8q'
+		},
+		{
+			'bgColor': '#2196f3'/*lightblue*/,
+			'textColor': 'white',
+			'text': 'DONATE',
+			'link': 'http://bit.ly/2UGBNjs'
+		}
+	];
+
+
+	const arrayOfDonateButtonsTexts = [
+		'DONATE',
+		'Donate',
+		'Please donate 1$',
+		'Donate 1$',
+		'Give me 1$',
+		'Need 1$',
+		'Let me win!',
+		'Let Me WIN!!!',
+		'Let Me Win!',
+		'💰💰💰',
+		'💲💲💲',
+		'🤑🤑🤑',
+		'🙏🙏🙏💲🙏🙏🙏',
+		'Donate 1💲',
+		'I need only 1💲',
+		'I need only 1$',
+		'Need 1$ only'
+	];
+
+	const randomDonateButton = getRandomElement(arrayOfDonateButtons);
+	const randomDonateButtonText = getRandomElement(arrayOfDonateButtonsTexts);
+
+	$donateButton.text(randomDonateButtonText);
+	//$donateButton.attr('href', randomDonateButton.link);
+	$donateButton.attr('href', 'https://weekly-geekly.github.io/donate.html' + '?utm_source=TestSource&utm_medium=TestMEd&utm_campaign=TestName&utm_term=' + randomDonateButton.bgColor + '-' + randomDonateButton.textColor + '&utm_content=' + randomDonateButtonText);
+	$donateButton.css({
+		'background-color': randomDonateButton.bgColor,
+		'color': randomDonateButton.textColor,
+		'top': $donateButton.width() + $('.js-page-header').height()
+	});
 });
