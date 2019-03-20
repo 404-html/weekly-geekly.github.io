@@ -1,0 +1,101 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134931760-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-134931760-1');
+  </script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Filter events by categories in the Event Map report</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="description" content="Colleagues, today I want to provide you with the material that I personally looked for six months ago. Then I went to Stackoverflow and tried to find ...">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="../../css/main.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
+</head>
+
+<body>
+  <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+  <header class="page-header js-page-header">
+    <a class="page-header-logo-container" href="https://weekly-geekly.github.io/index.html"></a>
+    <div class="page-header-text">Geekly Articles each Day</div>
+  </header>
+  <nav class="page-headings-container js-page-headings-container"></nav>
+  <div class="tools-bar js-tools-bar">
+    <!-- <a href="../../search.html" title="Search">🔎</a> -->
+    <a class="js-list-of-headings-button" data-state="closed" href="#" title="Headings">📜</a>
+    <a class="js-go-to-top-button" href="#" title="Go to Top">⬆️</a>
+    <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
+  </div>
+  <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
+  <section class="page js-page"><h1>Filter events by categories in the Event Map report</h1><div class="post__text post__text-html js-mediator-article">  Colleagues, today I want to provide you with the material that I personally looked for six months ago.  Then I went to Stackoverflow and tried to find a solution to my problem, but I did not get a solution.  Now I came to the conclusion that, once there was one such comrade who needed such a decision, then sooner or later others will appear. <br><br>  I want to talk about the event filter by category in <a href="https://support.google.com/analytics/answer/2521316%3Fhl%3Dru">the</a> Event Flow <a href="https://support.google.com/analytics/answer/2521316%3Fhl%3Dru">report</a> . <br><br>  If you work with Google Analytics for a large site, the chances are high that you have a huge amount of events tracking.  As a rule, when we have a huge cloud of events, they are divided into categories (sometimes they are beautifully divided, sometimes - not very).  Breaking events into categories is, of course, good form. <br><a name="habracut"></a><br><br>  For simplicity, I will give examples from the service to which I have a direct relationship.  This is a mailing service.  If you do not know - these services allow you to send hundreds of thousands of letters to your recipient at the touch of a button.  With the help of these services, you also become a “happy” recipient of these letters.  But let's not talk about sad things. <br><br>  So.  In our service, we have a number of categories of events that are directly related to user behavior.  These include: “Address Book Upload” (“Address Book Upload”), “Email Campaign Flow”, “Purchase” (“Purchase”), and others.  For each of these categories, we need to see exactly at which step the user stopped interacting and “dropped out” (such users are referred to as “drop-offs”). <br><br>  The problem is that if we have a situation when the user at a certain step stopped creating a newsletter (stopped generating a sequence of events of the “Create a newsletter” category), but nevertheless went to another section of the site and started downloading the address book there, this user would not labeled "dropped off."  Why?  Yes, because he continued to generate events of a different category and was not "dropped" in relation to all events. <br><br>  We also need to have specific numbers and data about those who have fallen away from the "mailing list creation". <br><br><img src="https://habrastorage.org/getpro/habr/post_images/6db/6cd/f91/6db6cdf91de7e7572d18992d4f93e176.png" alt="image"><br><br>  As you can see, this report presents categories of events intertwined with each other.  It’s not so easy to understand and get a clear picture of these intricacies. <br><br>  One day, I went to Stackoverflow for the help of the wise men there, and they recommended that I use <a href="https://support.google.com/analytics/answer/3123951%3Fhl%3Dru">Segments</a> ("Segments") to filter events.  Some of the readers might think that this is a good solution - we take and build a segment according to the condition “Event Category = Create Mailing”, and the trick is in the bag.  In fact, the decision is wrong, since the segments are built at the session and user level.  This means that if you build such a segment, you simply simply get all the users who generated at least one event in this category, but they could (and probably did) generate other category events! <br><br>  But what REALLY works for me is the creation of a separate View exclusively for our purpose - to display only a specific category of events in the “Event Map” report. <br><br>  And here's a short guide. <br><br><h2>  Copy your main View. </h2><br><br><img src="https://habrastorage.org/getpro/habr/post_images/1d3/610/27d/1d361027de98d50f38a10976d307b478.png" alt="image"><br><br>  A trifle, is not it?  All that is required of us is to click the corresponding button on the panel and rename the new view.  We will give it the name Campaign Flow, because this is what it will show us in the Event Map. <br><br><h2>  Create filters for the new View. </h2><br><br><img src="https://habrastorage.org/getpro/habr/post_images/24c/f25/67f/24cf2567f8b24ef1ddd0a411f7d33c37.png" alt="image"><br><br>  Things are easy - go to the “Filters” section in the settings of our presentation and create one small, wonderful filter that will save us from worries.  The purpose of this filter is to cut off all calls to the Google Analytics server that do not contain the “Event Category” parameter with an “Event Campaign Flow” value.  That's all. <br><br>  If we want to have all the information and data that is available in our main report (transactions, profits, and so on), we act a little differently - we create a filter that eliminates the treatment of the categories of “undesirable" events, while leaving everything else . <br><br><img src="https://habrastorage.org/getpro/habr/post_images/6d4/c3c/1f7/6d4c3c1f7fc8e9835a3d39fd6ed88f9b.png" alt="image"><br><br>  Perhaps all.  Looks pretty simple, right?  I hope this technique will allow you to clean up your Event Maps and make your life a little easier. </div><p>Source: <a href="https://habr.com/ru/post/312240/">https://habr.com/ru/post/312240/</a></p>
+<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<h4>More articles:</h4>
+<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
+</section>
+<script src="../../js/main.js"></script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function (d, w, c) {
+      (w[c] = w[c] || []).push(function() {
+          try {
+              w.yaCounter52496797 = new Ya.Metrika({
+                  id:52496797,
+                  clickmap:true,
+                  trackLinks:true,
+                  accurateTrackBounce:true,
+                  webvisor:true
+              });
+          } catch(e) { }
+      });
+
+      var n = d.getElementsByTagName("script")[0],
+          s = d.createElement("script"),
+          f = function () { n.parentNode.insertBefore(s, n); };
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+      if (w.opera == "[object Opera]") {
+          d.addEventListener("DOMContentLoaded", f, false);
+      } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/52496797" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<!-- Google Analytics -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-134931760-1', 'auto'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+</section>
+
+  <footer class="page-footer">
+    <div class="page-footer-legal-info-container page-footer-element">
+      <p>
+        Weekly-Geekly | <span class="page-footer-legal-info-year js-page-footer-legal-info-year">2019</span>
+      </p>
+    </div>
+    <div class="page-footer-counters-container page-footer-element">
+      <a class="page-footer-counter-clustrmap" href='#'  title='Visit tracker'><img src='https://clustrmaps.com/map_v2.png?cl=698e5a&w=271&t=t&d=6iCFw7uJz0zcOaoxz5k5PcLCJUzv2WG8G5V8M3U6Rc4&co=3a3a3a&ct=ffffff'/></a>
+    </div>
+  </footer>
+</body>
+
+</html>

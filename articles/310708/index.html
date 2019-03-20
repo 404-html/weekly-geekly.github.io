@@ -1,0 +1,101 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134931760-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-134931760-1');
+  </script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Debugging php in Visual Studio Code (Xdebug, Windows)</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="description" content="In some cases, it may be necessary to debug applications on php. Visual Studio code provides such an opportunity, provided you install the additional ...">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="../../css/main.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
+</head>
+
+<body>
+  <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+  <header class="page-header js-page-header">
+    <a class="page-header-logo-container" href="https://weekly-geekly.github.io/index.html"></a>
+    <div class="page-header-text">Geekly Articles each Day</div>
+  </header>
+  <nav class="page-headings-container js-page-headings-container"></nav>
+  <div class="tools-bar js-tools-bar">
+    <!-- <a href="../../search.html" title="Search">🔎</a> -->
+    <a class="js-list-of-headings-button" data-state="closed" href="#" title="Headings">📜</a>
+    <a class="js-go-to-top-button" href="#" title="Go to Top">⬆️</a>
+    <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
+  </div>
+  <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
+  <section class="page js-page"><h1>Debugging php in Visual Studio Code (Xdebug, Windows)</h1><div class="post__text post__text-html js-mediator-article"><p>  In some cases, it may be necessary to debug applications on php.  Visual Studio code provides such an opportunity, provided you install the additional extension PHP Debug ( <a href="https://marketplace.visualstudio.com/items%3FitemName%3Dfelixfbecker.php-debug">marketplace</a> , <a href="https://github.com/felixfbecker/vscode-php-debug">github</a> ). </p><br><a name="habracut"></a><br><h2 id="ustanovka-php-debug">  Installing PHP Debug </h2><br><p> To install, press <code>Ctrl+p</code> and enter the <code>ext install php-debug</code> command.  Click on the "enable" button, in the end you should see something like the following: </p><br><div style="text-align:center;"><img src="https://habrastorage.org/getpro/habr/post_images/0d5/06b/0b6/0d506b0b6660c443c39f4862abc0c217.png" alt="image"></div><br><h2 id="ustanovka-i-nastroyka-xdebug">  Install and configure Xdebug </h2><br><p>  PHP Debug uses Xdebug for debugging.  Follow the <a href="https://xdebug.org/wizard.php">link</a> to set up Xdebug.  It is assumed that the apache server is already installed and configured on the local machine.  Hereinafter, actions are indicated for Windows.  You can create a file, for example, <code>test.php</code> containing: </p><br><pre> <code class="php hljs"> <span class="hljs-meta"><span class="hljs-meta">&lt;?php</span></span> phpinfo();</code> </pre> <br><p>  Open it in a browser and copy the contents of the page into a dialog box.  Another way: </p><br><ul><li>  <code>win+R</code> ; </li><li>  <code>cmd</code> + <code>Enter</code> ; </li><li>  <code>php -i &gt; phpinfo.text</code> ; </li><li>  open with any convenient <code>phpinfo.txt</code> editor and insert all its contents into the dialog box. </li></ul><br><p><img src="https://2.downloader.disk.yandex.ru/preview/9eb83a2b363ac7c7200ba3f46f381baf0527d7bdce88adfd3f1fa84da82835ea/inf/D76eX95nE7V2dPLT4KvZ2t8u7RDyG1lz96ULl-mO6fwkynnj0Xa-dFUvBNjTtCR3u7vSOIPa1vDvKRe1TpzOUw%3D%3D?uid=0&amp;filename=2016-09-21_21-10-20.png&amp;disposition=inline&amp;hash=&amp;limit=0&amp;content_type=image%2Fpng&amp;tknv=v2&amp;size=1153x506" alt="Xdebug setup"></p><br><p>  Then follow the installation instructions: download the <code>.dll</code> and without changing its name, copy it to the specified folder, add the <code>php.ini</code> file with the line specified in the manual. </p><br><p>  In addition, add the following lines.  The final addition will be something like this: </p><br><pre> <code class="hljs tex"> [XDebug] zend_extension = C:<span class="hljs-tag"><span class="hljs-tag">\</span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">xampp</span></span></span></span><span class="hljs-tag"><span class="hljs-tag">\</span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">php</span></span></span></span><span class="hljs-tag"><span class="hljs-tag">\</span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">ext</span></span></span></span><span class="hljs-tag"><span class="hljs-tag">\</span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">php</span></span></span></span>_xdebug-2.4.1-5.6-vc11.dll xdebug.remote_enable=1 xdebug.remote_host=127.0.0.2 xdebug.remote_port=9000 xdebug.remote_autostart=on xdebug.remote_handler=dbgp xdebug.profiler_enable=1 xdebug.profiler_output_dir="C:<span class="hljs-tag"><span class="hljs-tag">\</span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">xampp</span></span></span></span><span class="hljs-tag"><span class="hljs-tag">\</span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">tmp</span></span></span></span>" xdebug.remote_log ="C:<span class="hljs-tag"><span class="hljs-tag">\</span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">xampp</span></span></span></span><span class="hljs-tag"><span class="hljs-tag">\</span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">tmp</span></span></span></span><span class="hljs-tag"><span class="hljs-tag">\</span><span class="hljs-name"><span class="hljs-tag"><span class="hljs-name">xdebug</span></span></span></span>.log"</code> </pre> <br><p>  As you may have already guessed, in this example, <a href="https://www.apachefriends.org/ru/index.html">XAMPP is</a> installed on the local machine. </p><br><p>  Pay attention to the line <code>xdebug.remote_host=127.0.0.2</code> .  By default, Xdebug listens on port 127.0.0.1.  Enter here the address of the site being debugged. </p><br><p>  Note: Visual Studio code does not work with Xdebug version 2.5 or higher.  Therefore, choose the appropriate * .dll file for your php version. </p><br><h2 id="nastroyka-visual-studio-code">  Setup Visual Studio code </h2><br><p>  Call the debug panel (1) and click on the icon with the small gear (2). </p><br><div style="text-align:center;"><img src="https://habrastorage.org/getpro/habr/post_images/331/204/b52/331204b52da667b7d515b29310f48631.png" alt="image"></div><br><p>  In the list that appears, select <code>PHP</code> .  The <code>launch.json</code> file will be generated <code>launch.json</code> . </p><br><pre> <code class="hljs json"> { <span class="hljs-attr"><span class="hljs-attr">"version"</span></span>: <span class="hljs-string"><span class="hljs-string">"0.2.0"</span></span>, <span class="hljs-attr"><span class="hljs-attr">"configurations"</span></span>: [ { <span class="hljs-attr"><span class="hljs-attr">"name"</span></span>: <span class="hljs-string"><span class="hljs-string">"Listen for XDebug"</span></span>, <span class="hljs-attr"><span class="hljs-attr">"type"</span></span>: <span class="hljs-string"><span class="hljs-string">"php"</span></span>, <span class="hljs-attr"><span class="hljs-attr">"request"</span></span>: <span class="hljs-string"><span class="hljs-string">"launch"</span></span>, <span class="hljs-attr"><span class="hljs-attr">"port"</span></span>: <span class="hljs-number"><span class="hljs-number">9000</span></span> }, { <span class="hljs-attr"><span class="hljs-attr">"name"</span></span>: <span class="hljs-string"><span class="hljs-string">"Launch currently open script"</span></span>, <span class="hljs-attr"><span class="hljs-attr">"type"</span></span>: <span class="hljs-string"><span class="hljs-string">"php"</span></span>, <span class="hljs-attr"><span class="hljs-attr">"request"</span></span>: <span class="hljs-string"><span class="hljs-string">"launch"</span></span>, <span class="hljs-attr"><span class="hljs-attr">"program"</span></span>: <span class="hljs-string"><span class="hljs-string">"${file}"</span></span>, <span class="hljs-attr"><span class="hljs-attr">"cwd"</span></span>: <span class="hljs-string"><span class="hljs-string">"${fileDirname}"</span></span>, <span class="hljs-attr"><span class="hljs-attr">"port"</span></span>: <span class="hljs-number"><span class="hljs-number">9000</span></span> } ] }</code> </pre> <br><p>  Setting up the PHP Debug is over. </p><br><h2 id="otladka-php-v-visual-studio-code">  Debugging php in Visual Studio code </h2><br><p>  Open your application \ website in your browser.  Open the application folder in the Visual Studio code.  Set in the desired files and lines a breakpoint.  Open the debug panel and select <code>Listen for Xdebug</code> (1) to start debugging.  Click the start button (2). </p><br><div style="text-align:center;"><img src="https://habrastorage.org/getpro/habr/post_images/4a1/80b/870/4a180b870f4e2919fbef7e77b6704325.png" alt="image"></div><br><p>  Refresh your browser and enjoy. </p><br><p><img src="https://raw.githubusercontent.com/felixfbecker/vscode-php-debug/master/images/demo.gif" alt="Debugging php in Visual Studio code"></p></div><p>Source: <a href="https://habr.com/ru/post/310708/">https://habr.com/ru/post/310708/</a></p>
+<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<h4>More articles:</h4>
+<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
+</section>
+<script src="../../js/main.js"></script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function (d, w, c) {
+      (w[c] = w[c] || []).push(function() {
+          try {
+              w.yaCounter52496797 = new Ya.Metrika({
+                  id:52496797,
+                  clickmap:true,
+                  trackLinks:true,
+                  accurateTrackBounce:true,
+                  webvisor:true
+              });
+          } catch(e) { }
+      });
+
+      var n = d.getElementsByTagName("script")[0],
+          s = d.createElement("script"),
+          f = function () { n.parentNode.insertBefore(s, n); };
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+      if (w.opera == "[object Opera]") {
+          d.addEventListener("DOMContentLoaded", f, false);
+      } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/52496797" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<!-- Google Analytics -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-134931760-1', 'auto'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+</section>
+
+  <footer class="page-footer">
+    <div class="page-footer-legal-info-container page-footer-element">
+      <p>
+        Weekly-Geekly | <span class="page-footer-legal-info-year js-page-footer-legal-info-year">2019</span>
+      </p>
+    </div>
+    <div class="page-footer-counters-container page-footer-element">
+      <a class="page-footer-counter-clustrmap" href='#'  title='Visit tracker'><img src='https://clustrmaps.com/map_v2.png?cl=698e5a&w=271&t=t&d=6iCFw7uJz0zcOaoxz5k5PcLCJUzv2WG8G5V8M3U6Rc4&co=3a3a3a&ct=ffffff'/></a>
+    </div>
+  </footer>
+</body>
+
+</html>
