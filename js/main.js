@@ -146,12 +146,7 @@ $(function() {
 		}
 	];
 
-
-	const arrayOfDonateButtonsTexts = [
-		'DONATE'
-	];
-
-	const donateButtonText = arrayOfDonateButtonsTexts[arrayOfDonateButtonsTexts.length - 1];
+	const donateButtonText = 'DONATE';
 	const donateButtonBgColor = '#2196f3';
 	const donateButtonTextColor = 'white';
 
