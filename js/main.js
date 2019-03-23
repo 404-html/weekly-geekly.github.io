@@ -148,34 +148,18 @@ $(function() {
 
 
 	const arrayOfDonateButtonsTexts = [
-		'DONATE',
-		'Donate',
-		'Please donate 1$',
-		'Donate 1$',
-		'Give me 1$',
-		'Need 1$',
-		'Let me win!',
-		'Let Me WIN!!!',
-		'Let Me Win!',
-		'💰💰💰',
-		'💲💲💲',
-		'🤑🤑🤑',
-		'🙏🙏🙏💲🙏🙏🙏',
-		'Donate 1💲',
-		'I need only 1💲',
-		'I need only 1$',
-		'Need 1$ only'
+		'DONATE'
 	];
 
-	const randomDonateButton = getRandomElement(arrayOfDonateButtons);
-	const randomDonateButtonText = getRandomElement(arrayOfDonateButtonsTexts);
+	const donateButtonText = arrayOfDonateButtonsTexts[arrayOfDonateButtonsTexts.length - 1];
+	const donateButtonBgColor = '#2196f3';
+	const donateButtonTextColor = 'white';
 
-	$donateButton.text(randomDonateButtonText);
-	//$donateButton.attr('href', randomDonateButton.link);
-	$donateButton.attr('href', 'https://weekly-geekly.github.io/donate.html' + '?utm_source=TestSource&utm_medium=TestMEd&utm_campaign=TestName&utm_term=' + randomDonateButton.bgColor + '-' + randomDonateButton.textColor + '&utm_content=' + randomDonateButtonText);
+	$donateButton.text(donateButtonText);
+	$donateButton.attr('href', 'https://weekly-geekly.github.io/donate.html' + '?utm_source=DonsResearch&utm_medium=DonsResearchMedium&utm_campaign=DonsResearchCampaign&utm_term=' + donateButtonBgColor + '-' + donateButtonTextColor + '&utm_content=' + donateButtonText);
 	$donateButton.css({
-		'background-color': randomDonateButton.bgColor,
-		'color': randomDonateButton.textColor,
+		'background-color': donateButtonBgColor,
+		'color': donateButtonTextColor,
 		'top': $donateButton.width() + $('.js-page-header').height()
 	});
 });
