@@ -146,7 +146,7 @@ $(function() {
 		}
 	];
 
-	const donateButtonText = 'DONATE';
+	const donateButtonText = 'Donate';
 	const donateButtonBgColor = '#2196f3';
 	const donateButtonTextColor = 'white';
 
