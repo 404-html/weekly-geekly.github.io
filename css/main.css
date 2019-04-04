@@ -161,6 +161,7 @@ a[href*="http"]:not(.tools-bar a) {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 10px;
   background-color: #3a3a3a;
 }
 
@@ -206,4 +207,19 @@ a[href*="http"]:not(.tools-bar a) {
   font: italic smaller sans-serif;
   padding: 3px;
   text-align: center;
+}
+
+
+.demo-article-container {
+  border: thick double #32a1ce;
+  padding: 15px;
+  margin: 15px;
+}
+
+.demo-article-image {
+  max-width: 50%;
+}
+
+.demo-article-text {
+  padding: 30px;
 }
