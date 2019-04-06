@@ -68,10 +68,22 @@
 </pre><br><pre>  Type = InterceptorBenchmarks Mode = Throughput GarbageCollection = Concurrent Workstation  
  LaunchCount = 1 WarmupCount = 3 TargetCount = 3  
 </pre><table><tbody><tr><th>  Method </th><th>  Median </th><th>  Stddev </th></tr><tr><td>  CreateInstance </td><td>  0.0000 ns </td><td>  0.0000 ns </td></tr><tr><td>  CreateClassProxy </td><td>  1,972.0032 ns </td><td>  8.5611 ns </td></tr><tr><td>  CreateClassProxyWithTarget </td><td>  2,246.4208 ns </td><td>  5.3436 ns </td></tr><tr><td>  CreateInterfaceProxyWithTarget </td><td>  2,063.6905 ns </td><td>  41.9450 ns </td></tr><tr><td>  CreateInterfaceProxyWithoutTarget </td><td>  2,105.9238 ns </td><td>  4.9295 ns </td></tr><tr><td>  Foo_GetRandomNumber </td><td>  11.0409 ns </td><td>  0.1306 ns </td></tr><tr><td>  Foo_InterfaceProxyGetRandomNumber </td><td>  51.6061 ns </td><td>  0.2764 ns </td></tr><tr><td>  FooClassProxy_GetRandomNumber </td><td>  9.0125 ns </td><td>  0.1766 ns </td></tr><tr><td>  BarClassProxy_GetRandomNumber </td><td>  44.8110 ns </td><td>  0.4770 ns </td></tr><tr><td>  FooInterfaceProxyWithCallLoggerInterceptor_GetRandomNumber </td><td>  1,756.8129 ns </td><td>  75.4694 ns </td></tr><tr><td>  BarClassProxyWithCallLoggerInterceptor_GetRandomNumber </td><td>  1,714.5871 ns </td><td>  25.2403 ns </td></tr><tr><td>  FooInterfaceProxyWith2Interceptors_GetRandomNumber </td><td>  2,636.1626 ns </td><td>  20.0195 ns </td></tr><tr><td>  BarClassProxyWith2Interceptors_GetRandomNumber </td><td>  2,603.6707 ns </td><td>  4.6360 ns </td></tr><tr><td>  <b>Bus_GetRandomNumber</b> </td><td>  <b>100,471,410.5375 ns</b> </td><td>  <b>113,713.1684 ns</b> </td></tr><tr><td>  <b>BusInterfaceProxyWith2Interceptors_GetRandomNumber</b> </td><td>  <b>100,539,356.0575 ns</b> </td><td>  <b>89,725.5474 ns</b> </td></tr><tr><td>  CallLogger_Intercept </td><td>  3,841.4488 ns </td><td>  26.3829 ns </td></tr><tr><td>  WriteLine </td><td>  859.0076 ns </td><td>  34.1630 ns </td></tr></tbody></table>  I think if you replace <i>Reflection</i> with LambdaExpression, <i>you</i> can ensure that there will be no difference in performance, but you need to rewrite DynamicProxy, add support to popular containers (now interceptors are supported exactly from <a href="http://docs.autofac.org/en/latest/advanced/interceptors.html">Autofac</a> and <a href="">Castle.Windsor boxes</a> , I don’t know about the others) .  I doubt it will happen soon. <br><br>  Therefore, if on average your operations are performed for at least 100 ms and the three previous minuses do not frighten you, the “container AOP” in C # is already production-ready. </div><p>Source: <a href="https://habr.com/ru/post/305360/">https://habr.com/ru/post/305360/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../305342/index.html">Why tech support is (intentionally) unbearable</a></li>
+<li><a href="../305350/index.html">Introduction to ReactiveUI: Studying Teams</a></li>
+<li><a href="../305352/index.html">6 "harmful" tips to the developer</a></li>
+<li><a href="../305354/index.html">Guilloche</a></li>
+<li><a href="../305356/index.html">The digest of interesting materials for the mobile # 161 developer (July 3-10)</a></li>
+<li><a href="../305364/index.html">Running cron inside the Docker container</a></li>
+<li><a href="../305366/index.html">Amazing story document.write</a></li>
+<li><a href="../305368/index.html">QNX 2 per virtual machine</a></li>
+<li><a href="../305372/index.html">Ubuntu Unity desktop shell launched in Windows 10 environment</a></li>
+<li><a href="../305374/index.html">UX design in the mobile application: a request to evaluate the application</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

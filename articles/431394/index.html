@@ -77,10 +77,22 @@
 <font></font>
      // ... or you can just take them and iterate
      List &lt;EHC_E15_PRODUCT_SERVICE_SECTION&gt; allSvcs = info.getPRODUCT_SERVICE_SECTIONAll (); </pre></blockquote><br>  ... and you need to call the desired method, otherwise you risk an exception.  But if there are many ways to perform a single task through the API, then there are many ways to accomplish it in the code using the API, which inevitably leads to problems. <br><br>  You can say: <i>"Well, everything is not so bad"</i> ;  enough to use what you need.  But then you realize that some of these data structures are built into ten or more levels in depth, each has dozens of substructures and / or fields, and all of them have several access methods.  Yes, all of them have really long names.  And then you realize that the developers of HAPI are tired of typing text and started using abbreviations for the whole with such clear names for data structures like LA1, ILT and PCR. <br><br>  The API tries to be useful: if it does not find the expected in the field that you are requesting to parse, then it throws an exception, and you need to figure out what went wrong.  Of course, this implies that you already know what is being transmitted to you in the data stream. <br><br>  <b>Anonymous</b> worked in health care and supported the library wrapped around HAPI.  He was regularly given assignments (to which they were assigned for several weeks) by simply parsing one additional field.  After spending a lot of time chewing on API documentation volumes, he wrote a common parser from a single class of 300 lines with several split, substring, parseDate and parseInt, as a replacement for the entire interface. <br><br>  After this, the addition of a new field took no more than ten minutes. </div><p>Source: <a href="https://habr.com/ru/post/431394/">https://habr.com/ru/post/431394/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../431382/index.html">JVM Ecosystem Survey Results</a></li>
+<li><a href="../431384/index.html">CLion 2018.3: remote development, code profiling, speed and not only</a></li>
+<li><a href="../431388/index.html">The world through the eyes of the car. How do drones see it?</a></li>
+<li><a href="../431390/index.html">Digital trends in 2019 and their impact on changing consumer behavior</a></li>
+<li><a href="../431392/index.html">Shamir's secret sharing scheme</a></li>
+<li><a href="../431396/index.html">How we collect customer biometric data</a></li>
+<li><a href="../431398/index.html">How I hacked one hosting provider</a></li>
+<li><a href="../431400/index.html">30 Android libraries and tools that shouldn't pass you by in 2018</a></li>
+<li><a href="../431402/index.html">Uber's AI went through Montezuma's Revenge better than a man</a></li>
+<li><a href="../431404/index.html">Real speed Wi-Fi (in enterprises)</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

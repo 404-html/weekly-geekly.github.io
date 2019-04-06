@@ -58,10 +58,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Voice search on the Internet for senior citizens</h1><div class="post__text post__text-html js-mediator-article">  Recently, an old grandmother living in another city was given a laptop, Skype was configured to automatically answer incoming calls, and desktop shortcuts were created with links like: skype: username? Call &amp; video = true <br><br>  Shortcut keys F1-F12 are installed on each label.  So grandma just press the desired key on the keyboard, according to the mark, and the call is the right person. <br><br>  It turns out a decent savings in the intercity.  For the Internet, a reduced rate for retirees is used. <br><br>  Now I decided to add the opportunity for her to search for information on the Internet. <br><a name="habracut"></a><br>  First, I installed the tampermonkey extension in Chrome. <br><br>  In it created UserScript: <br><br><pre><code class="javascript hljs"><span class="hljs-comment"><span class="hljs-comment">// ==UserScript== // @name   // @namespace http://tampermonkey.net/ // @version 0.1 // @author agran // @include https://www.google.ru/* // @require http://code.jquery.com/jquery-latest.js // ==/UserScript== /* jshint -W097 */ 'use strict'; var script1 = false; var intervalvar; (function (window, undefined) { if (window.self != window.top) { return; } $( document ).ready(function() { intervalvar = setInterval(Intervalfun, 300); }); })(window); function Intervalfun () { // #spchf -      // #spch -     // #gsri_ok0 - ,       // voice -        ,      google    if (/voice/.test(window.location.hash) &amp;&amp; (($("#spchf").html() == '') &amp;&amp; !$("#spch").is(':visible'))) { $("#gsri_ok0").click(); script1 = true; } // $(".r").find("a").attr('href') -      // script1 -         ,            URL . if (script1 &amp;&amp; $("#spchf").html() != '' &amp;&amp; $(".r").find("a").attr('href') != '') { window.open($(".r").find("a").attr('href'), "_self"); clearInterval(intervalvar); intervalvar = setInterval(Intervalfun, 2000); //      ,          . } }</span></span></code> </pre> <br>  I checked that the microphone turns on, gave the microphone the necessary permissions. <br><br>  Created on the desktop file "voice.bat" with the following contents: <br><br> <code>taskkill /F /IM chrome.exe /T &gt; nul <br> start "chrome-voice" "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" -start-maximized https://www.google.ru/#voice <br></code> <br>  This forcibly closes all Chrome processes and launches it with the window maximized, opening Google with the hashtag activating the script. <br><br>  He created the shortcut “Voice Search” to it, and in it set Quick Access on the Num0 key. <br><br>  Due to the forced closure of Chrome pops up a window with a proposal to restore the old tabs.  To make it less intrusive, install chrome: // flags / # enable-session-crashed-bubble to Disable. <br><br>  Everything, now the grandmother presses the button on the keyboard and says that she wants to know, and the first site from Google search results is displayed on the screen. </div><p>Source: <a href="https://habr.com/ru/post/355138/">https://habr.com/ru/post/355138/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../355128/index.html">Opera browser is 20 years old</a></li>
+<li><a href="../355130/index.html">Google Chrome optimized memory handling: the browser has become faster</a></li>
+<li><a href="../355132/index.html">In Opera Mini, there are two modes of data compression</a></li>
+<li><a href="../355134/index.html">Rostelecom has released a browser for Russian families</a></li>
+<li><a href="../355136/index.html">The iconic computer magazine Wired prohibits blocking ads and introduces a paid banner cleaning service.</a></li>
+<li><a href="../355140/index.html">Opera browser released with built-in ad blocker</a></li>
+<li><a href="../355142/index.html">Firefox 48: multiprocessing (and how to enable it)</a></li>
+<li><a href="../355144/index.html">Sign Firefox Extensions</a></li>
+<li><a href="../355146/index.html">Microsoft again boasts energy efficiency Edge</a></li>
+<li><a href="../355148/index.html">77% of users feel guilty for blocking online advertising</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

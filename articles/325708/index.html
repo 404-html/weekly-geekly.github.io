@@ -62,10 +62,22 @@ wget -c http://link/file
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Some useful commands for working in terminal Linux</h1><div class="post__text post__text-html js-mediator-article">  Downloading a file using a link with the ability to continue downloading, for example, when the connection is broken: <br><pre><code class="bash hljs">wget -c http://link/file</code> </pre> <br>  View recording in a text file in real time: <br><pre> <code class="bash hljs">tailf file</code> </pre> <br>  Find out the command execution time: <br><pre> <code class="bash hljs">time <span class="hljs-built_in"><span class="hljs-built_in">command</span></span></code> </pre> <br>  Tracking changes in the output of the command: <br><pre> <code class="bash hljs">watch <span class="hljs-built_in"><span class="hljs-built_in">command</span></span></code> </pre> <br>  The key combination to close the current session in bash and various utilities, for example, the MySQL client: <br><pre> <code class="bash hljs">Ctrl-D</code> </pre> <br>  Quick file backup: <br><pre> <code class="bash hljs">cp file{,.copy}</code> </pre> <a name="habracut"></a><br>  File cleanup: <br><pre> <code class="bash hljs">&gt; file</code> </pre> <br>  Cleaning a file if you do not have rights to the file: <br><pre> <code class="bash hljs"><span class="hljs-built_in"><span class="hljs-built_in">echo</span></span> -n | sudo tee file</code> </pre> <br>  or <br><pre> <code class="bash hljs">sudo truncate -s 0 file</code> </pre> <br>  Keyboard shortcut for searching through the history of previously entered commands: <br><pre> <code class="bash hljs">Ctrl-R</code> </pre> <br>  Copy file with progress output: <br><pre> <code class="bash hljs">pv sourcefile &gt; destfile</code> </pre> <br>  Search for running processes without displaying the search process itself: <br><pre> <code class="bash hljs">ps aux | grep [p]rocess</code> </pre> <br>  Create a directory and all subdirectories if they are missing: <br><pre> <code class="bash hljs">mkdir -p /path/to/directory</code> </pre> <br>  Displaying pop-up messages on Gnome and Debian-based systems: <br><pre> <code class="bash hljs">notify-send <span class="hljs-string"><span class="hljs-string">"message!"</span></span></code> </pre> <br>  It works similar to the cat command, with the difference that zcat is intended for packed files. <br><pre> <code class="bash hljs">zcat file</code> </pre> <br>  Recursive search for files containing the search string: <br><pre> <code class="bash hljs">grep -lr string /directory</code> </pre> <br>  Displays a list of libraries required for the program: <br><pre> <code class="bash hljs">ldd file</code> </pre> </div><p>Source: <a href="https://habr.com/ru/post/325708/">https://habr.com/ru/post/325708/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../325694/index.html">How IT professionals work. Fedor Bykov, Director of Research and Development at PROMT</a></li>
+<li><a href="../325696/index.html">Introduction to the magical world of payment mediation</a></li>
+<li><a href="../325700/index.html">Practical experience using this HotSwap</a></li>
+<li><a href="../325704/index.html">Autopilot on your own. Part 1 - we collect the training data</a></li>
+<li><a href="../325706/index.html">5 Tips for Creating Impressive Motion Graphics</a></li>
+<li><a href="../325710/index.html">How to set up the next generation extended protection in the corporate network</a></li>
+<li><a href="../325714/index.html">Cross a hedgehog (Marathon) with a snake (Spring Cloud). Episode 1</a></li>
+<li><a href="../325716/index.html">Life without SDL. Winter 2017</a></li>
+<li><a href="../325718/index.html">Big Data for car dealers and automakers: from idea to monetization</a></li>
+<li><a href="../325720/index.html">Intel Media SDK has become an open source project.</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

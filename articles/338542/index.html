@@ -59,10 +59,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>How does Microsoft try to send mobile mail to itself?</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/web/a03/704/874/a037048743be4c03836f30b35d89269c.jpg"><br><br><blockquote>  <i>Does Outlook-iOS-Android keep a mailbox copy on a microsoft server?</i> </blockquote><br>  Many corporate users who have recently upgraded to iOS 11 have found themselves in limbo. The fact is that after the upgrade, the standard client (Mail.app) stops working with resources on Exchange Server 2016, Office 365 or Outlook.com <br><br>  Sending a message ends with the error “Cannot Send Mail.  The message was rejected by the server. ” <br><br>  The problem is that Exchange 2016 uses HTTPS / 2 TLS connections for its clients.  When an iOS email application tries to connect to Exchange using ActiveSync, it incorrectly negotiates the connection. <br><a name="habracut"></a><br>  Microsoft confirmed the <a href="https://support.microsoft.com/en-us/help/4043473/you-can-t-send-or-reply-from-outlook-com-office-365-or-exchange-2016-i">problem</a> and as a solution offers to install the <a href="https://itunes.apple.com/app/id951937596">Outlook for iOS</a> client. <br><br>  This decision is very controversial, because  Outlook does not connect directly to the mail server, and with the accounts entered, the Microsoft server located in the USA connects to your server and most likely downloads a copy of your mailbox to it. <br><br>  Below is a fragment of the analysis of connection logs from <a href="http://skypetime.ru/administrator/otchety/vneshnie-sessii-tablica/">SkypeTime</a> . <br><br><img src="https://habrastorage.org/web/5e5/201/56c/5e520156cb7f462da45705f8bcff178a.png"><br><br>  In the Russian segment, this issue has not been given sufficient attention, therefore, we provide references to foreign sources. <br><br>  <a href="https://news.ok.ubc.ca/it/2015/02/03/outlook-app-for-ios-and-android-devices-blocked/">Time</a> <br>  <a href="https://blog.winkelmeyer.com/2015/01/warning-microsofts-outlook-app-for-ios-breaks-your-company-security/">Two</a> <br>  <a href="https://blog.winkelmeyer.com/2015/02/updates-on-the-latest-outlook-ios-app-issues/">Three</a> <br><br>  We will not judge whether this is legally correct and good, but to increase the level of confidentiality, you can block the connection from these servers to Exchange 2016. <br><br> <code><i>New-ActiveSyncDeviceAccessRule -QueryString "Outlook for iOS and Android" -Characteristic DeviceModel -AccessLevel Block</i></code> <br> <br>  I hope this information will be useful to someone. </div><p>Source: <a href="https://habr.com/ru/post/338542/">https://habr.com/ru/post/338542/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../338528/index.html">What conferences work and how to go there</a></li>
+<li><a href="../338532/index.html">CIS Benchmarks: best practices, guidelines and recommendations for information security</a></li>
+<li><a href="../338536/index.html">Automation to collect data on the growth of tables and files of all MS SQL Server databases</a></li>
+<li><a href="../338538/index.html">MikroTik - several addresses and several different MAC on one interface</a></li>
+<li><a href="../338540/index.html">CGLayout - new automatic layout system in iOS</a></li>
+<li><a href="../338544/index.html">Creating a sound effects synthesizer from retro games</a></li>
+<li><a href="../338548/index.html">How to distinguish birds from flowers. Or flowers from birds</a></li>
+<li><a href="../338550/index.html">MVP recommendation system for GitHub weekly</a></li>
+<li><a href="../338554/index.html">Visualization of election results in Moscow on a map in Jupyter Notebook</a></li>
+<li><a href="../338556/index.html">Go: 10 years and grow further</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

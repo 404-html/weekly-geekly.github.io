@@ -58,10 +58,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Palette generator for mobile games</h1><div class="post__text post__text-html js-mediator-article">  After reading the article on choosing the color of <a href="https://habrahabr.ru/post/312826/">233 nuts for Cinderella: we select colors for the “perfect” palette</a> , there was a desire to implement this in the form of a small application. <br><br><div style="text-align:center;"><img src="https://habrastorage.org/files/900/5fd/010/9005fd010dc9478db9f53d7dd224c23d.jpg" alt="image"></div><a name="habracut"></a><br>  Previously, the model HSB (it HSV) is not much watched, more focused on RGB.  But after more detailed consideration I found many advantages in it. <br><br>  In order to be able to visually evaluate the result, I decided to implement a simple application in which you can select the desired palette.  The palette can be saved and loaded for adjustment.  Data is stored as a shade value in an xml file.  To use the palette in your projects there is an export in json format, to RGB values.  There is a horizontal slider for tone correction, with this slider you can select a hue from 360 degrees.  I did not make a correction for the S and B components, I did not find a big plus in this.  The export file will have 255 color values.  The last 15 are generated automatically - it is white, black and shades of gray. <br><br><div style="text-align:center;"><img src="https://habrastorage.org/files/4e4/106/43a/4e410643a8e546b88442bc2575c35907.gif" alt="image"></div><br>  Thanks to the author for the article about the palette and color scheme, she helped me group the colors into a palette. <br><br>  For my tools, I use wxWidgets.  But then I decided to use Qt.  This is my first application on Qt, so in some moments everything can be done better. <br><br>  Repository link: <a href="https://github.com/antondevs/ColorMap">GitHub</a> <br><br>  Release \ OSX <a href="https://yadi.sk/d/f32v0sSz344Dez">build</a> : <a href="https://yadi.sk/d/f32v0sSz344Dez">yadi.sk/d/f32v0sSz344Dez</a> </div><p>Source: <a href="https://habr.com/ru/post/317824/">https://habr.com/ru/post/317824/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../317814/index.html">Fire-Monkey help and tips</a></li>
+<li><a href="../317816/index.html">CallSharp Project: I / O Call Instrumentation on .NET</a></li>
+<li><a href="../317818/index.html">Information Security Exam Task</a></li>
+<li><a href="../317820/index.html">Automation of business processes. Part 2. Adaptive BPM</a></li>
+<li><a href="../317822/index.html">VulnHub Parsing HackDay: Albania</a></li>
+<li><a href="../317828/index.html">Multilanguage widget in YII2 without using a database</a></li>
+<li><a href="../317834/index.html">History of one bot</a></li>
+<li><a href="../317836/index.html">10 reasons why your data project will fail</a></li>
+<li><a href="../317840/index.html">Not a single temperature: humidity in the data center</a></li>
+<li><a href="../317844/index.html">We put new trends in the IT infrastructure on the shelves: what is scale-out, web-scale, hyperconvergence</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

@@ -147,10 +147,22 @@
  + - + - + - + - + - + - + - + - + - + - + - + - + - + - + - + - +
  |  1 1 |  OFFSET |
  + - + - + - + - + - + - + - + - + - + - + - + - + - + - + - + - + </pre><br>  The first two bits are set to 1, and the next 14 contain an unsigned integer that corresponds to the byte offset from the beginning of the message to the first mention of that name. <br><br>  In this case, the offset is c0 0c or binary format: <br><br><pre>  1100 0000 0000 1100 </pre><br>  That is, the byte offset is 12. If we count the bytes in the message, we can find that it indicates the value 07 at the beginning of the name example.com. </li><li>  <code>TYPE</code> and <code>CLASS</code> : The same name scheme is used here as in the <code>QTYPE</code> and <code>QCLASS</code> above, and the same values. </li><li>  <code>TTL</code> : A 32-bit unsigned integer that specifies the lifetime of this packet with an answer, in seconds.  Before the expiration of this interval, the result can be cached.  After the expiration of it should be rejected. </li><li>  <code>RDLENGTH</code> : The length in bytes of the subsequent <code>RDDATA</code> section.  In this case, its length is 4. </li><li>  <code>RDDATA</code> : The data we were looking for!  These four bytes contain four segments of our IP address: 93.184.216.34. </li></ul><br><h1>  Extensions </h1><br>  We saw how to create a DNS query.  Now you can try the following: <br><br><ul><li>  Make a request for an arbitrary domain name </li><li>  Request for a different <a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">record type</a> </li><li>  Send request with recursion disabled </li><li>  Send a request with a domain name that is not registered </li></ul><br><hr><br><a name="1"></a>  1. <a href="https://en.wikipedia.org/wiki/Hexadecimal">Hexadecimal</a> numbers (base 16) are often used as a convenient shortcut for 4 bits of binary data.  You can convert data between these formats according to the following table: <br><br><table><thead><tr><th>  Decimal </th><th>  Hex </th><th>  Binary </th><th>  Decimal </th><th>  Hex </th><th>  Binary </th></tr></thead><tbody><tr><td>  0 </td><td>  0 </td><td>  0000 </td><td>  eight </td><td>  eight </td><td>  1000 </td></tr><tr><td>  one </td><td>  one </td><td>  0001 </td><td>  9 </td><td>  9 </td><td>  1001 </td></tr><tr><td>  2 </td><td>  2 </td><td>  0010 </td><td>  ten </td><td>  A </td><td>  1010 </td></tr><tr><td>  3 </td><td>  3 </td><td>  0011 </td><td>  eleven </td><td>  B </td><td>  1011 </td></tr><tr><td>  four </td><td>  four </td><td>  0100 </td><td>  12 </td><td>  C </td><td>  1100 </td></tr><tr><td>  five </td><td>  five </td><td>  0101 </td><td>  13 </td><td>  D </td><td>  1101 </td></tr><tr><td>  6 </td><td>  6 </td><td>  0110 </td><td>  14 </td><td>  E </td><td>  1110 </td></tr><tr><td>  7 </td><td>  7 </td><td>  0111 </td><td>  15 </td><td>  F </td><td>  1111 </td></tr></tbody></table><br>  As you can see, you can represent any byte (8 bits) with two hexadecimal characters.  <a href="https://habr.com/ru/post/346098/">↑</a> </div><p>Source: <a href="https://habr.com/ru/post/346098/">https://habr.com/ru/post/346098/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../346074/index.html">Technical details. Meltdown Vulnerability - CVE-2017-5754</a></li>
+<li><a href="../346078/index.html">How exactly does Meltdown work?</a></li>
+<li><a href="../346080/index.html">Alan Kay: How are things for all mankind, the view "from space"</a></li>
+<li><a href="../346086/index.html">Docker-compose: the perfect working environment</a></li>
+<li><a href="../346090/index.html">11 libraries (sets of components) for React, which are worth knowing in 2018</a></li>
+<li><a href="../346102/index.html">Fresh utilities, plugins and productivity tools for the designer. Issue number 4</a></li>
+<li><a href="../346106/index.html">Release Rust 1.23</a></li>
+<li><a href="../346108/index.html">Weapon system through components in Unreal Engine 4</a></li>
+<li><a href="../346110/index.html">How to build a geographic dashboard with real-time data</a></li>
+<li><a href="../346112/index.html">Telegram-bot as a gift</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

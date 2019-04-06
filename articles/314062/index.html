@@ -90,10 +90,22 @@
  test :: = and_test 'if' or_test 'else' test
  test :: = and_test 'if' and_test 'else' test
 </pre></blockquote><br>  During the initialization of the <code>parser</code> module, the <code>Init_ValidationGrammar</code> function bypasses the auto-generated spacecraft in <code>_PyParser_Grammar</code> , creates “transitively closed” spacecraft on the basis of them, and stores them in the <code>ValidationGrammar</code> structure.  <code>ValidationGrammar</code> used to check the correctness of the CFC. </li></ol><br>  The compressed QDC for our sample code contains a total of 21 nodes: <br><br><pre> <code class="xml hljs">$ python Python 3.7.0a0 (default:98c078fca8e0+, Oct 31 2016, 09:00:27) [GCC 4.7.3] on linux Type "help", "copyright", "credits" or "license" for more information. &gt;&gt;&gt; import parser &gt;&gt;&gt; parser.suite('if 42: print("Hello world")').tolist() [257, [295, [297, [1, 'if'], [324, [2, '42']], [11, ':'], [270, [271, [272, [323, [324, [1, 'print']], [326, [7, '('], [334, [335, [324, [3, '"Hello world"']]]], [8, ')']]]]], [4, '']]]], [4, ''], [0, '']] &gt;&gt;&gt;</code> </pre><br><a name="plea"></a>  With my patch, a <a href="https://hg.python.org/benchmarks">standard set of benchmarks</a> shows a <b>reduction in memory consumption by the <code>python</code> process up to 30%</b> , with unchanged operating time.  In degenerate examples, the reduction in memory consumption reaches <b>threefold</b> ! <br><br><div style="text-align:center;"><img src="https://habrastorage.org/files/afe/6bb/b37/afe6bbb37aaa4ab2a9233d788c167feb.png"></div><br>  But alas, for half a year since I offered my patch, none of the main maintainers have ever dared to revisit it - it’s so big and scary.  In September, <a href="https://ru.wikipedia.org/wiki/%25D0%2592%25D0%25B0%25D0%25BD_%25D0%25A0%25D0%25BE%25D1%2581%25D1%2581%25D1%2583%25D0%25BC,_%25D0%2593%25D0%25B2%25D0%25B8%25D0%25B4%25D0%25BE">Guido van Rossum</a> himself <a href="https://mail.python.org/pipermail/python-dev/2016-September/146503.html">answered me</a> : <i>“Once in all this time, no one showed interest in the patch,” which means that no one else cares about the memory used by the parser.</i>  <i>So it makes no sense to waste the time on the reviewers. ”</i> <br><br>  I hope this article explains why my big and scary patch is really necessary and useful;  and hopefully, after this explanation, the Python community will reach into his hands. </div><p>Source: <a href="https://habr.com/ru/post/314062/">https://habr.com/ru/post/314062/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../314050/index.html">As I wrote the application on Elm</a></li>
+<li><a href="../314054/index.html">Editing a hopeless support letter</a></li>
+<li><a href="../314056/index.html">Optimization by example. Ant algorithm (ACS) vs Annealing Method. Part 2</a></li>
+<li><a href="../314058/index.html">Grouping Sednit uses bootkit in cyber attacks</a></li>
+<li><a href="../314060/index.html">TextBlock with backlit text (WPF)</a></li>
+<li><a href="../314068/index.html">ASO optimization. Compiling a semantic core for app stores</a></li>
+<li><a href="../314072/index.html">Simple and convenient notifications</a></li>
+<li><a href="../314074/index.html">3CX Phone System V15 SP3 released and integrated with Insightly CRM</a></li>
+<li><a href="../314076/index.html">Checking an open source partner</a></li>
+<li><a href="../314078/index.html">How Windows NT Became the “Killer” of Novell NetWare OS</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

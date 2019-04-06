@@ -70,10 +70,22 @@
  v IN A 174.37.243.85
  * IN CNAME @
 </pre><br><h4>  Look traffic </h4><br>  Next, edit mitm.php - you need to substitute your phone number in the username field and the contents of the cck.dat file (located in the application directory) in the password field. <br>  Run php mitm.php.  Run the WhatsApp application and see the following image: <br><br><img src="https://habrastorage.org/webt/59/d7/b6/59d7b68eb92fd968235109.png"><br><br>  The screenshot shows two packages from the server - a message about successful authorization and some settings.  Thus, all the traffic of the application looks absolutely all readable and, in most cases, the application is not required to disassemble the application. <br><br>  The algorithm for turning FunXMPP into readable text is in all WhatsApp libraries.  Inside the simplest state machine, I’ll not additionally paint it here. <br><br><h2>  findings </h2><br>  The application is made qualitatively, uses modern encryption protocols, but deep inside lies the XMPP left over from the originally used ejabberd.  Using protobuf, judging by the current vector of application development, would be more logical, but the historical legacy is too expensive. <br><br>  Service for a long time suffered greatly from mass mailings, - the code of open projects widely contributed to this.  At the moment, no mailings have come in a long time, - the developers have introduced a limit on the number of messages sent to unauthorized contacts.  It is this addition (technically fully implemented on the server side), in my opinion, resolutely put an end to the opposition of mailing fans and employees of the anti-mailing department (if they have one). <br><br>  Technically, there is nothing difficult in this algorithm, for developers of other instant messengers (hello, Viber, - I receive spam at least once a month), - it is worth taking note of this technique. <br><br>  Thanks for reading, I hope to read about it was just as fun and interesting as it was to do research. </div><p>Source: <a href="https://habr.com/ru/post/339224/">https://habr.com/ru/post/339224/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../339214/index.html">Linux containers for Windows</a></li>
+<li><a href="../339216/index.html">Who of IT people in Russia live well (and who will be even better)</a></li>
+<li><a href="../339218/index.html">Results of the second hackathon on ReactOS: we are switching to GitHub</a></li>
+<li><a href="../339220/index.html">Video Game Development Magic id Software</a></li>
+<li><a href="../339222/index.html">Savings on the exchange, ownership history and arbitration: 5 useful services for Bitcoin users</a></li>
+<li><a href="../339226/index.html">The participants of the RAIF championship now have access to M.Video business data.</a></li>
+<li><a href="../339228/index.html">From web developer to machine learning specialist</a></li>
+<li><a href="../339230/index.html">.NET Performance: The Real Jedi Tricks</a></li>
+<li><a href="../339232/index.html">Rapid application development on Angular + Ag-Grid</a></li>
+<li><a href="../339234/index.html">Announcement RamblerElixir # 4</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

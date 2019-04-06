@@ -94,10 +94,22 @@ ZEND_VM_ENTER()<font></font>
 ZEND_VM_LEAVE()<font></font>
 ZEND_VM_RETURN()<font></font>
 </pre><br> CONTINUE     ,     ENTER  LEAVE   /    .      ,      (,    ,   ,  ).   ,        ,   . RETURN        VM. <br><br> ZEND_VM_CONTINUE () ,  opline   . ,   ,   : <br><table><tbody><tr><th></th><th> Continue? </th><th> Check exception? </th><th> Check interrupt? </th></tr><tr><td> ZEND_VM_NEXT_OPCODE() </td><td>  yes <br></td><td>  no <br></td><td>  no <br></td></tr><tr><td> ZEND_VM_NEXT_OPCODE_CHECK_EXCEPTION() </td><td>  yes <br></td><td>  yes <br></td><td>  no <br></td></tr><tr><td> ZEND_VM_SET_NEXT_OPCODE(op) </td><td>  no <br></td><td>  no <br></td><td>  no <br></td></tr><tr><td> ZEND_VM_SET_OPCODE(op) </td><td>  no <br></td><td>  no <br></td><td>  yes <br></td></tr><tr><td> ZEND_VM_SET_RELATIVE_OPCODE(op, offset) </td><td>  no <br></td><td>  no <br></td><td>  yes <br></td></tr><tr><td> ZEND_VM_JMP(op) </td><td>  yes <br></td><td>  yes <br></td><td>  yes <br></td></tr></tbody></table><br><br>   ,     ZEND_VM_CONTINUE(),         VM. <br><br>      <b>SAVE_OPLINE()</b> , <b>LOAD_OPLINE()</b>  <b>HANDLE_EXCEPTION()</b> .        , SAVE_OPLINE()          .      opline,  VM (    ),  execute data. LOAD_OPLINE() —   ,       ,       ZEND_VM_NEXT_OPCODE_CHECK_EXCEPTION()  ZEND_VM_JMP(). HANDLE_EXCEPTION()        ,    ,    .    LOAD_OPLINE  CONTINUE. <br><br> ,    (  ...),         . </div><p>Source: <a href="https://habr.com/ru/post/327068/">https://habr.com/ru/post/327068/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../327058/index.html">Difficult lessons: five years with Node.js</a></li>
+<li><a href="../327060/index.html">Clarive 6.8 has been released.</a></li>
+<li><a href="../327062/index.html">Typography: font selection process</a></li>
+<li><a href="../327064/index.html">Native American software designer tricks. Release 1</a></li>
+<li><a href="../327066/index.html">Results of the second round of the Russian Code Cup 2017</a></li>
+<li><a href="../327070/index.html">“Why don't you just rewrite it in X?”</a></li>
+<li><a href="../327072/index.html">Predict the popularity of articles on TJ</a></li>
+<li><a href="../327074/index.html">Experience migrating applications from Unity3D to iOS sdk and SceneKit</a></li>
+<li><a href="../327076/index.html">We increase the potential of the network storage abandoned by the manufacturer</a></li>
+<li><a href="../327078/index.html">Investigation of the position of the eyes in more than 1,000,000 persons: the rule of the golden section or the rule of thirds?</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

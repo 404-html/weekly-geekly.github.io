@@ -5573,10 +5573,22 @@
     </div>
 </div>
 </div><br></div></div><br>  By default, the script does not detect the names of sensors that have <b>#</b> .  For what it is needed, see below. <br><br>  Also reserved is one sensor name - Vbat.  This is the voltage of the BIOS battery.  Its value is rendered into a separate element for a trigger (triggered if less than 2.9V). <br><br>  The temperatures and revolutions of the coolers at the output are integer, the voltages are transmitted as is. <br><br>  Theoretically, it is possible to detect other indicators (loads, frequencies, ..).  Use the corresponding second parameter in the key for this.  For example: <i>ZScript [hard, discovery, load]</i> . <br><br><h3>  Zabbix agent preparation </h3><br>  For maximum unification, I use the following and only parameter for my scripts: <br><br><pre><code class="hljs perl">UserParameter=ZScript[*],powershell C:\System\Zabbix\Scripts\windows.$1.ps1 <span class="hljs-string"><span class="hljs-string">"$2"</span></span> <span class="hljs-string"><span class="hljs-string">"$3"</span></span></code> </pre> <br>  This gives maximum flexibility and uniformity.  If you need to add more parameters for any scripts, you can simply add variables in quotes.  This will not affect current running scripts.  I use the <i>windows</i> prefix just in case, it's so convenient for me to store templates for guaranteed identification. <br><br><h3>  smartmontools </h3><br>  To monitor the status of disks, smartmontools is used (version 6.5 at the time of this writing).  When installing the software, the smartctl-nc utility is installed by default - it is used in the script to facilitate the life of your server.  You also need to set the <b>bin</b> folder in variable environments. <br><br><img src="https://habrastorage.org/files/8bd/a10/649/8bda10649b8743b4b81f178633579c2e.jpg"><br><br>  We simply add the path to the end of the Path variable separated by a semicolon.  Default is <i>C: \ Program Files \ smartmontools \ bin</i> <br><br><img src="https://habrastorage.org/files/a8f/b3b/fb0/a8fb3bfb0f4d41bf80241a8091579ee8.jpg"><br><br><h3>  Openhardwaremonitor </h3><br>  For sensors, OHM is used.  Software is free with open source.  Installation is trivial, but to complete the work you need to run the program as a service.  For such things there is NSSM, I would still advise downloading the <a href="http://nssm.cc/builds">latest build</a> .  And <a href="http://nssm.cc/commands">here</a> you can see the syntax. <br>  The promised choice of sensors is ensured by the fact that the names of the sensors <b>can be changed</b> !  Change the names to readable (they will be used in the names of the elements), and comment on unnecessary sensors. <br><br>  Do not forget to restart the program / service to use the rename. <br><br><img src="https://habrastorage.org/files/5c9/0e1/578/5c90e15785c149c5a922c8d50343ec6c.jpg"><br><br><h3>  Total </h3><br>  The result was a good monitoring tool.  Those interested can hang their triggers on the desired prototype elements.  Or completely rework the template. <br><a name="Changelog"></a><br>  <b>2017/07/05 UPDATE</b> : Fixed a bug in windows.hdd.ps1 - now a comma does not appear in JSON at the beginning. </div><p>Source: <a href="https://habr.com/ru/post/322668/">https://habr.com/ru/post/322668/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../322658/index.html">Foreign GPS monitoring services (part 2)</a></li>
+<li><a href="../322660/index.html">Review of materials on machine learning № 2 (February 21 - 27, 2017)</a></li>
+<li><a href="../322662/index.html">Top 10 errors in C # projects for 2016</a></li>
+<li><a href="../322664/index.html">Doom launch on Samsung Gear S2</a></li>
+<li><a href="../322666/index.html">Who is who in the market of patent services</a></li>
+<li><a href="../322670/index.html">Big Data: great opportunity or big deception</a></li>
+<li><a href="../322672/index.html">Seminar “Web projects in the cloud: main risks and how to avoid them”, March 1, OST data center, Moscow</a></li>
+<li><a href="../322674/index.html">Impostor Syndrome: a battle with front end fatigue</a></li>
+<li><a href="../322676/index.html">Animated Easter eggs, or a tribute to the studio upon dismissal from it</a></li>
+<li><a href="../322678/index.html">How IT professionals work. Andrei Volosyuk, CTO Digital Society Laboratory at SocialKey Ads</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

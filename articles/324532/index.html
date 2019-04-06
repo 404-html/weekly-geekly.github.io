@@ -58,10 +58,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Unpredictable effects of Chrome performance optimization</h1><div class="post__text post__text-html js-mediator-article"><p>  Hello!  In the latest release, Chrome discovered a very unusual browser behavior.  This behavior caused new unusual errors in my web script.  And I decided to share how to optimize the performance of Chrome, and about what unusual consequences can be encountered. </p><br><img src="https://habrastorage.org/files/a40/1e9/cc5/a401e9cc52624be39a1d40d66c6330c7.jpeg"><br><p>  Go. </p><a name="habracut"></a><br><p>  The anomaly we are facing looks like this: </p><br><ol><li>  The user is using the web application. </li><li>  Then the user presses the button in the application.  This button saves information on the page and opens a new tab (with saved information). </li><li>  In reality, the new tab information is not saved.  This is our bug. </li><li>  There is also an anomaly: if after that you switch to the first tab (for a second), and then again to a new tab, then the information becomes immediately available on the new tab (after refreshing the page). </li></ol><br><h3 id="prichina-anomalii">  Reason for the anomaly </h3><br><p>  It looks very strange.  It seems that Chrome completely blocks the old tab when switching to a new one. <br>  It turned out that recently (release 57, March 14, 2017) Chromium released a release with significant performance optimization.  One of the optimizations is the reduction of resources allocated for the work of background tabs.  Proof: <a href="https://blog.chromium.org/2017/03/reducing-power-consumption-for.html">https://blog.chromium.org/2017/03/reducing-power-consumption-for.html</a> <br>  This optimization blocks the background tab immediately (!) After opening a new one.  Moreover, the decrease in performance concerns not only the work of javascript, but also other APIs.  For example, in our case, operations on IndexedDB in the browser began to work fantastically slowly. </p><br><h3 id="kak-ispravit">  How to fix </h3><br><p>  To get around these “behavioral patterns”, we had to call our own asynchronous callbacks synchronously and reduce our dependence on system asynchronous APIs. </p></div><p>Source: <a href="https://habr.com/ru/post/324532/">https://habr.com/ru/post/324532/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../324518/index.html">Functional programming and c ++ in practice</a></li>
+<li><a href="../324522/index.html">Guess the filter by impulse response</a></li>
+<li><a href="../324524/index.html">Spring aggravation: design school in Innopolis, methodological intensive and informational information meeting</a></li>
+<li><a href="../324528/index.html">Yandex.Money staged a vote for the abolition of the commission for transfers between wallets</a></li>
+<li><a href="../324530/index.html">A little bit about the privacy of real Git repositories.</a></li>
+<li><a href="../324534/index.html">Why 90% of landings do not sell? How to close customer objections 2 times more effective than competitors</a></li>
+<li><a href="../324538/index.html">DIY mail cluster</a></li>
+<li><a href="../324540/index.html">Clustering text documents according to semantic features (part one: algorithm description)</a></li>
+<li><a href="../324544/index.html">Columnstore Index - selection from SQL Server Product Team</a></li>
+<li><a href="../324546/index.html">How we created a hosting provider with our own data center (continued)</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

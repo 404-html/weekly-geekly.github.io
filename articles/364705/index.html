@@ -58,10 +58,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Two cherished rules blocking torrents for mikrotik</h1><div class="post__text post__text-html js-mediator-article">  This note is a rethinking of the reviewed material on <a href="http://habrahabr.ru/sandbox/65236/">how to</a> block torrent traffic and is an addition.  Most of the methods I have reviewed allow you to block traffic, provided that the client does not include encryption, and most recently it has not been found.  Often, clients when installing out of the box is already specified to use encryption.  And the most popular client is uTorrent, which uses the uTP protocol. <br><a name="habracut"></a><br>  Since it is not yet possible to track encrypted packets, it was decided to use UDP source address information of the packets with blacklisting of these sources for blocking. <br><br>  To do this, create a rule that places the addresses of the sources of UDP packets of a certain length into the “torrentlist” list: <br><br><pre><code class="bash hljs">/ ip firewall filter add chain=forward action=add-src-to-address-list protocol=udp address-list=torrentlist address-list-timeout=0s packet-size=90-190 <span class="hljs-built_in"><span class="hljs-built_in">log</span></span>=no <span class="hljs-built_in"><span class="hljs-built_in">log</span></span>-prefix=<span class="hljs-string"><span class="hljs-string">""</span></span></code> </pre> <br>  The following rule will block the passage of packets from sources indicated in the list: <br><br><pre> <code class="bash hljs">/ ip firewall filter add chain=forward action=drop protocol=udp src-address-list=torrentlist dst-port=!80,443,53 packet-size=90-190 <span class="hljs-built_in"><span class="hljs-built_in">log</span></span>=no <span class="hljs-built_in"><span class="hljs-built_in">log</span></span>-prefix=<span class="hljs-string"><span class="hljs-string">""</span></span></code> </pre><br><br>  What happens on the user side: <br>  After starting the torrent client, the client begins to create peer connections over the UDP protocol.  The first rule the router creates a list of "torrentlist" and adds to it the addresses, outgoing packets from which correspond to the specified packet length.  The user gets traffic of 5-10 kbits / s and drops to zero within 2 minutes, as the list is filled, all packets from the ban list are cut. <br><br>  These rules should be used in conjunction with the rules that were discussed in previous <a href="http://habrahabr.ru/post/227913/">articles</a> . <br><br>  Perhaps over time, the principle of operation of p2p networks will change and we will have to look for new solutions. </div><p>Source: <a href="https://habr.com/ru/post/364705/">https://habr.com/ru/post/364705/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../364695/index.html">Megascans: an online library of textures and objects as 4-16K from Quixel</a></li>
+<li><a href="../364697/index.html">Catalog of quests in reality in Moscow</a></li>
+<li><a href="../364699/index.html">Lecture "Space Bikes"</a></li>
+<li><a href="../364701/index.html">A district judge has allowed police officers to create fake Instagram accounts if necessary for investigation.</a></li>
+<li><a href="../364703/index.html">Mars Express will work until 2018</a></li>
+<li><a href="../364707/index.html">Cars will be one of the platforms for the next version of Android</a></li>
+<li><a href="../364709/index.html">Roskomnadzor is trying to block pages, groups and events in VC related to Navalny</a></li>
+<li><a href="../364711/index.html">Hyperloop project is going according to plan</a></li>
+<li><a href="../364713/index.html">Facebook and Twitter refuse to block supporters of Navalny even under the threat of a total ban in the Russian Federation</a></li>
+<li><a href="../364715/index.html">Matrix clock</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

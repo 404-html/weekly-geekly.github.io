@@ -361,10 +361,22 @@
  .sbss
  .bss
  .comment </pre></div></div><br>  Well, here it’s enough to have eyes to see the login / password pair “admin / .admin.” Tightly wired in the code.  I will not torture - the authorization in the serial console with this data was successful. <br><br>  After a more detailed study of the file system, it turned out that it was possible to run the command without any authorization at all, for example telnetd: <br><br><pre> <code class="bash hljs">$ wget --post-data <span class="hljs-string"><span class="hljs-string">"cmd_key=%24telnetd%3b"</span></span> <span class="hljs-string"><span class="hljs-string">"http://192.168.200.1/goform/ping_showpopup"</span></span></code> </pre> <br>  It will start, start accepting connections ... but, unfortunately, will not be able to authorize us.  But that's another story. <br><br>  Thank uv.  <a href="https://habrahabr.ru/users/nomad1/" class="user_link">Nomad1</a> for <a href="https://habrahabr.ru/users/nomad1/" class="user_link">kicking</a> under my lazy ass, kind people who provided a half-dead sample for inhuman experiments, my wife and daughters for patience, and my five-year-old son for helping to reboot the router and run commands on the computer when my dad ran out of limbs. </div><p>Source: <a href="https://habr.com/ru/post/336942/">https://habr.com/ru/post/336942/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../336932/index.html">Spectroscope-kaleidoscope</a></li>
+<li><a href="../336934/index.html">Immersion in pricing Magento 2, we remove pennies after discounts</a></li>
+<li><a href="../336936/index.html">IoT and 5G</a></li>
+<li><a href="../336938/index.html">As a star of Brazilian TV shows, she accidentally helped open an IT company in Russia</a></li>
+<li><a href="../336940/index.html">Transition to date-oriented design</a></li>
+<li><a href="../336944/index.html">Overview of one Russian RTOS, part 3. Structure of the simplest program</a></li>
+<li><a href="../336946/index.html">Simple models of economic dynamics in Python</a></li>
+<li><a href="../336948/index.html">Deploy a .NET Core project to the Azure Web App for Linux</a></li>
+<li><a href="../336950/index.html">The practice of forming requirements in IT projects from A to Z. Part 3. System Functions and Project Boundaries</a></li>
+<li><a href="../336952/index.html">Lecture of Vitaly Kharisov "10k"</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

@@ -208,10 +208,22 @@
     + 0x118 spwndClipboardListenerNext: 0xfffff900`c1a50080 tagWND </pre><br>  When reaching the last process in the tagWND buffer listening list, the value of its spwndClipboardListenerNext field will be zero: <br><br><pre>  kd&gt; dt 0xfffff900`c1a50080 tagWND spwndClipboardListenerNext
  win32k! tagWND
     + 0x118 spwndClipboardListenerNext: (null) </pre><br>  Using the window address, we can get to the process name using the same method.  As mentioned earlier, because the tagWND is a kernel structure, the OS itself stores the spwndClipboardListener / spwndClipboardListenerNext pointers, so that they cannot lead to buffer tracking problems such as browsing chains. <br><br>  This ends our review of the Windows clipboard.  I hope for you he became informative.  Want to know more about clipboard monitoring?  <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms649016(v%3Dvs.85).aspx">Here is a good MSDN article</a> about it. </div><p>Source: <a href="https://habr.com/ru/post/339442/">https://habr.com/ru/post/339442/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../339432/index.html">Hash steganography in dataset. This time fast</a></li>
+<li><a href="../339434/index.html">How uneducated youth becomes educated. University response</a></li>
+<li><a href="../339436/index.html">Semantic markup: LaTeX, DocBook or ???</a></li>
+<li><a href="../339438/index.html">Uneducated youth. How to get out the student</a></li>
+<li><a href="../339440/index.html">Misconceptions about JavaScript Engine Switcher 2.X</a></li>
+<li><a href="../339444/index.html">“Colleagues, I like everything, but ...” or how to build work with the customer</a></li>
+<li><a href="../339446/index.html">Trading robot for web designers</a></li>
+<li><a href="../339448/index.html">Design for iPhone X</a></li>
+<li><a href="../339450/index.html">Parse BGP NOTIFICATION by RFC</a></li>
+<li><a href="../339454/index.html">How the brain hits a tree, or how we made a recommendation system using a neural network.</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

@@ -60,10 +60,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Lighting control and voice weather alerts on the Raspbery Pi</h1><div class="post__text post__text-html js-mediator-article">  Lighting control and voice weather alerts.  Sample code and electrical connection diagram of the relay to the Raspberry Pi. <br><a name="habracut"></a><br>  Pre-install <b>mplayer</b> and <b>alsa</b> : <br><pre><code class="bash hljs">sudo apt-get install alsa-utils sudo apt-get install mplayer</code> </pre> <br>  Also install <b>pip</b> for Python for easy installation of packages.  And then install it with <b>feedparser</b> .  I will not tell, it is easier to find information on the query “install pip python” in a search engine. <br><br>  <b>The code for the WebIOPi script itself:</b> <br><pre> <code class="python hljs"><span class="hljs-comment"><span class="hljs-comment">#     utf8,     # -*- coding: utf-8 -*- #   import webiopi import subprocess import feedparser #  GPIO GPIO = webiopi.GPIO #     GPIO LIGHT = 23 BUTTON1 = 17 BUTTON2 = 22 def setup(): #   GPIO GPIO.setFunction(LIGHT, GPIO.OUT) GPIO.setFunction(BUTTON1, GPIO.IN) GPIO.setFunction(BUTTON2, GPIO.IN) def loop(): #    1 if (GPIO.digitalRead(BUTTON1) == GPIO.HIGH): #     ( ) GPIO.digitalWrite(LIGHT, not GPIO.digitalRead(LIGHT)) #    2 if (GPIO.digitalRead(BUTTON2) == GPIO.HIGH): #    subprocess.call(["mplayer", "http://translate.google.com/translate_tts?tl=ru&amp;ie=UTF-8&amp;q=, ,  ."]) #   d = feedparser.parse('http://rp5.kz/rss/76334/ru') #   subprocess.call(["mplayer", "http://translate.google.com/translate_tts?tl=ru&amp;ie=UTF-8&amp;q="+d.entries[0].title]) def destroy(): #  ,   ) GPIO.digitalWrite(LIGHT, GPIO.LOW)</span></span></code> </pre><br><br>  <b>Scheme:</b> <br><img src="https://habrastorage.org/files/4f0/271/9ec/4f02719ecfd34a43bf50d2cfa0078b1f.png"><br><br>  Transistor of any <i>NPN</i> structure, I used the Soviet <i>KT961B</i> , any one will work for switching mode operation.  Pick resistance for the required opening current of the transistor.  I took the <i>SRI-05VDC-SD-C</i> relay with a voltage of 5 volts and a maximum current for contacts 10A.  Diode <i>1N4001</i> seems to be necessary to remove the self-induction effect of the relay coil, otherwise we hit the transistor and the raspberry leg.  The earth on the transistor is common with the power relay and raspberry. <br>  <b>Do not power the relay from GPIO!</b>  Burn "raspberries".  Before powering, you can turn on the relay.  And so preferably a separate power source for such pieces.  The relay can be at 12 volts.  Please do not blame me for burnt raspberries, do everything at your own peril and risk.  You must be able to hold a soldering iron and know the basics of working with electrical circuits.  Be careful about 220 volts!  This is deadly. </div><p>Source: <a href="https://habr.com/ru/post/362075/">https://habr.com/ru/post/362075/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../362061/index.html">WEB-service that saves electricity</a></li>
+<li><a href="../362063/index.html">Japanese planted for 2 years for printing a gun on a 3D printer</a></li>
+<li><a href="../362065/index.html">Tesla Motors is expanding its network of charging stations: by 2016, electric gas stations will appear in Russia, Ukraine, Moldova</a></li>
+<li><a href="../362067/index.html">Means and methods of training astronauts</a></li>
+<li><a href="../362069/index.html">How to make your first 3D model?</a></li>
+<li><a href="../362077/index.html">In space via the Internet</a></li>
+<li><a href="../362079/index.html">Robots and human psychology</a></li>
+<li><a href="../362081/index.html">How do Apple shares behave after the release of new devices</a></li>
+<li><a href="../362083/index.html">The cult of multitasking: about gadgets, productivity and happiness</a></li>
+<li><a href="../362085/index.html">Analog Skype from Rostelecom for 73 million rubles with blackjack and bookmarks</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

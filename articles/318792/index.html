@@ -58,10 +58,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>FBI, CIA and Obama against PHP script</h1><div class="post__text post__text-html js-mediator-article">  A <a href="https://www.us-cert.gov/sites/default/files/publications/JAR_16-20296.pdf">report</a> was published on the virus with which the “Russian hackers,” according to the US intelligence, hacked the American elections.  The virus (more precisely, its unique signature) looks like this: <br><br><pre><code class="hljs php">rule PAS_TOOL_PHP_WEB_KIT { meta: description = <span class="hljs-string"><span class="hljs-string">"PAS TOOL PHP WEB KIT FOUND"</span></span> strings: $php = <span class="hljs-string"><span class="hljs-string">"&lt;?php"</span></span> $base64decode = /\=<span class="hljs-string"><span class="hljs-string">'base'</span></span>\.\(\d+\*\d+\)\.<span class="hljs-string"><span class="hljs-string">'_de'</span></span>\.<span class="hljs-string"><span class="hljs-string">'code'</span></span>/ $strreplace = <span class="hljs-string"><span class="hljs-string">"(str_replace("</span></span> $md5 = <span class="hljs-string"><span class="hljs-string">".substr(md5(strrev("</span></span> $gzinflate = <span class="hljs-string"><span class="hljs-string">"gzinflate"</span></span> $cookie = <span class="hljs-string"><span class="hljs-string">"_COOKIE"</span></span> $isset = <span class="hljs-string"><span class="hljs-string">"isset"</span></span> condition: (filesize &gt; <span class="hljs-number"><span class="hljs-number">20</span></span>KB <span class="hljs-keyword"><span class="hljs-keyword">and</span></span> filesize &lt; <span class="hljs-number"><span class="hljs-number">22</span></span>KB) <span class="hljs-keyword"><span class="hljs-keyword">and</span></span> <span class="hljs-comment"><span class="hljs-comment">#cookie == 2 and #isset == 3 and all of them }</span></span></code> </pre> <br>  I do not even know how to comment on this, of course, unique and uniquely identifiable as a Russian code. </div><p>Source: <a href="https://habr.com/ru/post/318792/">https://habr.com/ru/post/318792/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../318782/index.html">Java socket framework</a></li>
+<li><a href="../318784/index.html">Can your code reason?</a></li>
+<li><a href="../318786/index.html">Competitiveness: Cooperativeness</a></li>
+<li><a href="../318788/index.html">42% of people who do not buy your product</a></li>
+<li><a href="../318790/index.html">Creating a blog engine with Phoenix and Elixir / Part 7. Add comments / New Year's announcement in the conclusion</a></li>
+<li><a href="../318796/index.html">Sending a GPS track via SMS</a></li>
+<li><a href="../318798/index.html">We want to give you a New Year's gift, but we need your help.</a></li>
+<li><a href="../318800/index.html">Creating music interfaces</a></li>
+<li><a href="../318802/index.html">20 harmful tips on developing games on Unity</a></li>
+<li><a href="../318804/index.html">How IT professionals work. Dmitry Kravchuk - CTO and co-founder of LinguaTrip</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

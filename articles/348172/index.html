@@ -83,10 +83,22 @@ XLOG 4 ( 0.00) 291 ( 0.00) 64 ( 0.84)<font></font>
 Heap2 0 ( 0.00) 0 ( 0.00) 0 ( 0.00)<font></font>
 Heap 107778 ( 49.88) 7654268 ( 46.08) 0 ( 0.00)<font></font>
 Btree 108260 ( 50.11) 8956097 ( 53.91) 7556 ( 99.16) </pre><br>  ,  <code>gen_random_uuid</code>     WAL -   (full-page images, FPI),      . ,          .   FPW   ,      ,            .  <a href="https://blog.2ndquadrant.com/pg-phriday-postgres-zfs/"> </a> ,  ZFS      FPW,     . <br><br>       <code>uuid_generate_v1()</code> –        .  uuid-ossp        ,  RDS  Citus Cloud,      . <br><br>      uuid_generate_v1: <br><br><blockquote>    MAC-    . ,  UUID      ,   ,    ,    ,    . </blockquote><br><br>    ,   ,      .    -   ,    <code>uuid_generate_v1mc()</code> ,  mac- . <br><a name="sum"></a><br><h3>    </h3><br> ,           ,            . <br><br>   : <br><br><ol><li>      . </li><li>    <code>&lt;table_name&gt;_id</code>  <code>uuid</code>      <code>uuid_generate_v1()</code> .       .       ,   JOIN, ..  <code>JOIN foo USING (bar_id)</code>  <code>JOIN foo ON (foo.bar_id = bar.id)</code> .             . </li><li>   ,    JOIN,          . </li><li>     ,     URL      .     pg_hashids,    . </li><li>    <code>ON UPDATE RESTRICT</code> ,   UUID    ,      – <code>ON UPDATE CASCADE</code> .   ,    . </li></ol><br><br>      ,          .   ,       - .    ,      « »      . <br><br><hr><br>         .         -, ,    ,    -  ,      <a href="http://ritfest.ru/">++</a>     , 8        ,   DevOps  .      <a href="http://speakers.ritfest.ru/"></a> . </div><p>Source: <a href="https://habr.com/ru/post/348172/">https://habr.com/ru/post/348172/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../348160/index.html">Zimbra vs. Microsoft Office 365</a></li>
+<li><a href="../348162/index.html">Anonymous cryptocurrencies: why Edward Snowden supports the concept of proof with zero disclosure</a></li>
+<li><a href="../348164/index.html">Great developer, true engineer and real leader - RIP Shawn O. Pearce</a></li>
+<li><a href="../348168/index.html">Basics of programming on the SAS Base. Lesson 1</a></li>
+<li><a href="../348170/index.html">JS Transducers - Are They Necessary?</a></li>
+<li><a href="../348174/index.html">Implementing a simple pixel game in the Ethereum blockchain</a></li>
+<li><a href="../348176/index.html">Automate when you can, program when necessary</a></li>
+<li><a href="../348182/index.html">Testing the performance of hyperconvergent systems and SDS do it yourself</a></li>
+<li><a href="../348184/index.html">Wine 3.0 and many goodies</a></li>
+<li><a href="../348188/index.html">Introduction to Data Vault</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

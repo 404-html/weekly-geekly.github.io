@@ -62,10 +62,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Azure Kubernetes Service (AKS) and PowerShell</h1><div class="post__text post__text-html js-mediator-article"><div style="text-align:center;"><img src="https://habrastorage.org/webt/qw/oi/me/qwoimeecdwuscex70cxwjakczsi.jpeg" alt="image"></div><br>  I needed to somehow automate the deployment and management of Kubernetes clusters in Azure. <br><br>  Documentation Microsoft offers for this 2.5 way: <br><a name="habracut"></a><br>  1) Basic one CLI or PowerShell + main configuration template in JSON format.  For this option, there is a <a href="https://docs.microsoft.com/en-us/azure/templates/microsoft.containerservice/managedclusters">template in the documentation</a> and a working version in <a href="https://azure.microsoft.com/ru-ru/resources/templates/101-aks/">Azure Quickstart Templates</a> .  It is not bad to deploy in this way, but I have not tried to roll up the changes yet, so I put it off until later; <br><br>  2) Clean CLI.  There are many teams, convenient.  There is quite a convenient <a href="https://docs.microsoft.com/en-us/cli/azure/aks%3Fview%3Dazure-cli-latest">description in the documentation</a> .  The only problem is that the rest of the automation already written in PowerShell does not want to use different approaches to running scripts; <br><br>  3) Pure Powershell.  And here he stumbled out of the blue.  The description <a href="https://docs.microsoft.com/ru-ru/powershell/module/AzureRM.Aks/%3Fview%3Dazurermps-6.5.0">is in the documentation</a> , but the AzureRM.Aks module is not installed directly in PowerShell.  Now it's July 2016 in the courtyard, the Azure Kubernetes Service has been for two months now, not in the preliminary version, but the Powershell module for this service is still in preview. <br><br>  I report on the installation method of this module so that you do not have to spend your time on it: <br><br><pre><code class="plaintext hljs">Get-Module PowerShellGet Install-Module PowerShellGet -Force</code> </pre> <br>  <b>Now the main thing - we overload Powershell.</b>  Without this, you can even kill a few more hours of life and look for reasons why nothing else happens and look for crutches for repair.  Next, calmly install the module AzureRM.Aks <br><br><pre> <code class="plaintext hljs">Install-Module -AllowPreRelease AzureRM.AKS</code> </pre><br>  Everything, now it is possible to work with AKS from Powershell. <br><cut></cut></div><p>Source: <a href="https://habr.com/ru/post/418349/">https://habr.com/ru/post/418349/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../418337/index.html">Hot, summer DataGrip 2018.2</a></li>
+<li><a href="../418339/index.html">"Manual" manipulator</a></li>
+<li><a href="../418341/index.html">Happy sys admin! Postcard with meaning</a></li>
+<li><a href="../418345/index.html">Documenting information exchange formats is easy and simple.</a></li>
+<li><a href="../418347/index.html">As I wrote the standard C ++ 11 library or why the boost is so scary. Chapter 4.3</a></li>
+<li><a href="../418353/index.html">Mind map instead of test case, or How visualization allows you to test the application faster</a></li>
+<li><a href="../418355/index.html">Sorting ... with a hash table (also counting with a tree and a HashMap)</a></li>
+<li><a href="../418357/index.html">DEFCON 23. “Confessions of a Professional Cyberstalker”. Ken westin</a></li>
+<li><a href="../418359/index.html">Fintech Digest: identification of citizens of “Finsupermarket”, ex-employee of QIWI, naynil 2.4% of bitcoins, BRICS and blockchain</a></li>
+<li><a href="../418361/index.html">Why E in the abbreviation EHD is about business processes</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

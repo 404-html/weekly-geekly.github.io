@@ -58,10 +58,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Mass Attack on Cisco Equipment</h1><div class="post__text post__text-html js-mediator-article">  Colleagues, a powerful botnet attack began yesterday and continues to this day.  All IP addresses are scanned for a fresh vulnerability in Cisco IOS software (CVE-2018-0171, CVSS = 9.8) that allows you to remotely execute commands on Cisco devices.  The bot enters the device and deletes the configuration, writing its files instead.  We record attempts to exploit vulnerabilities from more than a hundred different addresses from different countries, and their pool continues to expand. <br><br>  Cisco developers have already released <a href="https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20180328-smi2">patches for the detected vulnerability</a> . <br><br>  We recommend installing patches as soon as possible.  Under the cut is a notification that Solar JSOC sends to customers, with details of the vulnerability and recommendations for counteraction. <br><a name="habracut"></a><br>  The problem is related to incorrect validation of packages in the Cisco Smart Install (SMI) client.  Taking advantage of the vulnerability, an attacker can modify the TFTP server settings and extract configuration files via TFTP, change the general configuration file of the switch, replace the IOS image, create local accounts and allow attackers to authenticate on the device and execute any commands. <blockquote>  Cisco devices that are vulnerable to this attack: <br><br>  Catalyst 4500 Supervisor Engines <br>  Catalyst 3850 Series <br>  Catalyst 3750 Series <br>  Catalyst 3650 Series <br>  Catalyst 3560 Series <br>  Catalyst 2960 Series <br>  Catalyst 2975 Series <br>  IE 2000 <br>  IE 3000 <br>  IE 3010 <br>  IE 4000 <br>  IE 4010 <br>  IE 5000 <br>  SM-ES2 SKUs <br>  SM-ES3 SKUs <br>  NME-16ES-1G-P <br>  SM-X-ES3 SKUs <br></blockquote>  Most often, the attack is fixed on the equipment of the providers. <br><br>  Recommendations: <br><br><ol><li>  Disable SMI protocol on network devices ( <a href="http://blog.talosintelligence.com/2018/04/critical-infrastructure-at-risk.html">instructions here</a> ). </li><li>  Put the latest updates on vulnerable network devices. </li></ol></div><p>Source: <a href="https://habr.com/ru/post/353002/">https://habr.com/ru/post/353002/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../352990/index.html">Massive attack on cisco</a></li>
+<li><a href="../352992/index.html">Thymeleaf Tutorial: Chapter 20. Appendix C: Markup Selector Syntax</a></li>
+<li><a href="../352994/index.html">Better way To Code</a></li>
+<li><a href="../352996/index.html">Why put up a management interface or attack on a Cisco Smart Install on the Internet</a></li>
+<li><a href="../352998/index.html">The path of the IT-manager (part # 2)</a></li>
+<li><a href="../353006/index.html">Parsing tasks from Odnoklassniki on JPoint 2018</a></li>
+<li><a href="../353008/index.html">Overview of cases of interesting Big Data implementations in financial sector companies</a></li>
+<li><a href="../353010/index.html">N + 6 useful books</a></li>
+<li><a href="../353012/index.html">Do I need to collect NAS?</a></li>
+<li><a href="../353014/index.html">Introducing the new dialog item</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

@@ -58,10 +58,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Generation of documents. Problems and Solutions</h1><div class="post__text post__text-html js-mediator-article">  To generate documents from templates, an important task is to reduce the number of templates.  The smaller the templates, the easier it is to maintain them, to make changes to them.  This can be achieved if the patterns are polymorphic, i.e.  will contain redundancy.  Depending on the generation parameters, the extra parts during the generation of the document will be deleted and as a result only those parts that are required will remain.  Mark, for example, the template text as follows: <a name="habracut"></a><br><br>  <b>&lt;part: 1&gt; Text of part 1. &lt;/ part: 1&gt;</b> <b><br></b>  <b>Permanently present text.</b>  <b>&lt;part: 2&gt; Text of part 2. &lt;/ part: 2&gt;</b> <br><br>  Let's transfer to the generator in parameters that it is necessary to delete &lt;part: 1&gt; (or leave &lt;part: 2&gt;).  As a result, we get: <br><br>  <b>Permanently present text.</b>  <b>The text of part 2.</b> <br><br>  For the logical AND operation (do not delete if &lt;part: 1&gt; and &lt;part: 3&gt; are selected), the markup may be as follows: <br><br>  <b>&lt;part: 1&gt; &lt;part: 3&gt; Text of part 1. &lt;/ part: 3&gt; &lt;/ part: 1&gt;</b> <b><br></b>  <b>Permanently present text.</b>  <b>&lt;part: 2&gt; Text of part 2. &lt;/ part: 2&gt;</b> <br><br>  For a logical OR operation (delete if &lt;part: 1&gt; or &lt;part: 3&gt; is selected), the markup may be as follows: <br><br>  <b>&lt;part: 1&gt; || &lt;part: 3&gt; Text of Part 1. &lt;/ part: 3&gt; &lt;/ part: 1&gt;</b> <b><br></b>  <b>Permanently present text.</b>  <b>&lt;part: 2&gt; Text of part 2. &lt;/ part: 2&gt;</b> <br><br>  We list the advantages and disadvantages of this method of marking patterns. <br><br>  <u>Advantages:</u> <br><br>  - in one template can contain many thematically related documents. <br>  - The markup is simple enough and can be done by non-IT staff.  If there is a good tool for developing templates, an employee competent in the subject area will be able to perform such markup, and he will not need to work with an incompetent intermediary from IT. <br>  - It is possible to get from the entire list of fields to fill in the information contained in the template, a list of fields that will remain after removing unnecessary fragments from the template. <br><br>  <u>Disadvantages:</u> <br><br>  - markup without a special developer tool is not readable. <br>  - the sizes of the templates become very large, which can lead to a decrease in the generation rate if no special measures are taken. <br><br>  To combat the large size of the templates, you can apply the method of breaking the template into parts, where parts are stored separately from the template and inserted into it only with the parameters passed to the generator.  This significantly reduces the size of the template, and hence the generation time.  The template is divided into parts automatically by the template development environment if there is a special markup in the template, which indicates when the part should be inserted into the main template. </div><p>Source: <a href="https://habr.com/ru/post/334666/">https://habr.com/ru/post/334666/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../334656/index.html">5 fresh examples of parsing and improving the design in simple ways</a></li>
+<li><a href="../334658/index.html">How to try to make the user comfortable and bungle something in the process.</a></li>
+<li><a href="../334660/index.html">Test documentation. Turn tables into trees</a></li>
+<li><a href="../334662/index.html">Zimbra - we build communications in the company</a></li>
+<li><a href="../334664/index.html">About supporting C # language features in Visual Studio and CodeRush for Roslyn</a></li>
+<li><a href="../334668/index.html">Thematic modeling with BigARTM</a></li>
+<li><a href="../334670/index.html">Math pack for Android - "Micro-Math" - now open source</a></li>
+<li><a href="../334672/index.html">JetBrains MPS for those interested # 3</a></li>
+<li><a href="../334674/index.html">How not to distract yourself from work. Tips and slak bot</a></li>
+<li><a href="../334676/index.html">Leaflet 1.xx vs Openlayers 4.xx Part 2. How maps are drawn</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

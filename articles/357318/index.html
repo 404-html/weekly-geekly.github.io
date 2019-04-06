@@ -58,10 +58,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>DoS attack on the MikroTik line of equipment and virtual RouterOS</h1><div class="post__text post__text-html js-mediator-article">  In MikroTik, they did not have time to patch the vulnerability voiced in the <a href="https://geektimes.ru/post/286702/">article</a> from the CIA hack tools, as the possibility of performing Denial Of Service on remote equipment running on RouterOS was discovered (all versions of OS are pre-attack). <br><a name="habracut"></a><br>  The vulnerability allows you to load the RouterOS CPU 100% by sending a heap of TCP RST packets to port 8291 which is used by default by Winbox.  By default, access to this port is closed by the firewall, but if you opened it to control your tics via the Internet, you should at least change the default port, and at best, register permission to access the winbox only for certain ip (although not the fact that it will save): <br><br><pre><code class="hljs pgsql">ip firewall <span class="hljs-keyword"><span class="hljs-keyword">filter</span></span> <span class="hljs-keyword"><span class="hljs-keyword">add</span></span> chain=<span class="hljs-keyword"><span class="hljs-keyword">input</span></span> action=accept protocol=tcp src-address=ADMIN_IP dst-port=<span class="hljs-number"><span class="hljs-number">8291</span></span> <span class="hljs-keyword"><span class="hljs-keyword">comment</span></span>=Allow_Winbox</code> </pre> <br>  According to the discussion on the <a href="https://forum.mikrotik.com/viewtopic.php%3Ff%3D1%26t%3D120270">off.</a>  <a href="https://forum.mikrotik.com/viewtopic.php%3Ff%3D1%26t%3D120270">Site</a> vulnerabilities are subject to both hardware devices (tested on: RB751, hEX lite, RB951, RB2011, CCR1036 and even RB3011) and virtual CHR (tested for 8x Xeon). <br><br>  An example of a working exploit is in the <a href="https://cxsecurity.com/issue/WLB-2017030242">public domain</a> . <br><br><img src="https://habrastorage.org/files/5ab/68b/9f2/5ab68b9f2d1440b891e4c8ec961a4b0d.png"><br><br>  The official representative of MikroTik <a href="https://forum.mikrotik.com/viewtopic.php%3Ff%3D1%26t%3D120270">advises to</a> disable all services in the Ip service menu (be careful), change the standard ports, use a router, restrict access to these services only from the internal network via vpn on a third-party device, or buy a more productive router.  And in general it is from his words “normal situation” that the CPU performance is not enough to handle such a number of packets ... </div><p>Source: <a href="https://habr.com/ru/post/357318/">https://habr.com/ru/post/357318/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../357308/index.html">Let's Encrypt issued 14,766 certificates for phishing PayPal</a></li>
+<li><a href="../357310/index.html">WikiLeaks uncovered the method used by the CIA to conceal the country of origin of spyware malware</a></li>
+<li><a href="../357312/index.html">The Shadow Brokers Group has published new NSA exploits</a></li>
+<li><a href="../357314/index.html">In Dallas, an hour and a half could not turn off 156 sirens of civil defense</a></li>
+<li><a href="../357316/index.html">Arrested tor exit-node operator in Russia</a></li>
+<li><a href="../357320/index.html">Mass mailing of documents using 0day vulnerability in Word has begun</a></li>
+<li><a href="../357322/index.html">Chrome 58 will patch protection against homographic attacks</a></li>
+<li><a href="../357324/index.html">The raid on Russian hackers began</a></li>
+<li><a href="../357326/index.html">Evgeny Kaspersky can go on the settlement agreement with Microsoft</a></li>
+<li><a href="../357328/index.html">Titanium's young load server operator got two years in prison</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

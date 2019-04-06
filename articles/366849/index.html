@@ -234,10 +234,22 @@
  halt
  resume 0xbfc00400
  shutdown </pre></blockquote><br><blockquote>  Note: the <code>run-u-boot_mod.cfg</code> will not work immediately after powering up the board, since u-boot_mod to deal with mysterious errors AR9331 performs an additional reset.  In order for the script to work, you must give a reset signal before launching it on the board.  Another option: run the script <code>run-u-boot_mod.cfg</code> twice. <br></blockquote><br><br>  To permanently restore the original firmware, it is enough to follow the procedure described above for modifying the first branch instruction of the u-boot_mod bootloader with the only difference that instead of replacing <code>0x100000ff</code> with <code>0x1000ffff</code> , you need to replace <code>0x1000ffff</code> back with <code>0x100000ff</code> . <br><br><h4>  Results </h4><br>  As demonstrated above, working on an EJTAG with Black Swift is quite possible.  The 400 KB / s bandwidth allows you to comfortably load not only the barebox, but also the linux kernel;  this is all the more relevant because when using a standard unpretentious adapter, the Ethernet interface is not derived. <br><br><h4>  Thanks </h4><br>  The author is grateful to the people, without whose participation this publication would hardly have been possible: <br><ul><li>  Pavel Fertser for valuable comments and suggestions; </li><li>  Alexey Rempel for adding <a href="http://openocd.zylin.com/">support for the TP-Link MR3020 board in openocd</a> ; </li><li>  Dmitry Zherebkov for Black Swift Pro. </li></ul></div><p>Source: <a href="https://habr.com/ru/post/366849/">https://habr.com/ru/post/366849/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../366837/index.html">Scientists connected the brain of a paralyzed patient to the Nexus tablet</a></li>
+<li><a href="../366841/index.html">The MESSENGER interplanetary station will be smashed on the surface of Mercury at a speed of more than 14 thousand km / h</a></li>
+<li><a href="../366843/index.html">46 years ago the first message was sent on the ARPANET network</a></li>
+<li><a href="../366845/index.html">Breezer TION O2: operating experience</a></li>
+<li><a href="../366847/index.html">NVIDIA GTX 970 - the practice of inferiority, part 2</a></li>
+<li><a href="../366851/index.html">Painless blood sampling - new reality sponsored by DARPA</a></li>
+<li><a href="../366853/index.html">Racing quadcopter with FPV for non-rubber budget - Robocat 270</a></li>
+<li><a href="../366855/index.html">Homemade computer from 1967</a></li>
+<li><a href="../366859/index.html">Norway will refuse FM broadcast until 2017</a></li>
+<li><a href="../366861/index.html">There is no exceptional evidence of a Dyson Sphere in orbit KIC 8462852</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

@@ -77,10 +77,22 @@
  disp / tp / analyzers / cq / __ so5_au ..._ 94 __ / demands.count -&gt; 0
  disp / ot / req_initiator / agent.count -&gt; 1
  disp / ot / req_initiator / wt-0 / demands.count -&gt; 0 </pre><br>  This exhaust monitoring information allows you to understand that there is a dispatcher with a thread pool called analyzers, which has 4 workflows.  It is on this dispatcher in the example that the agents email_analyzer work.  16 agents are tied to the dispatcher, each of which constitutes a separate cooperation.  And these agents have no applications.  That is, there are agents, but there is no work for them.  And this is a reason to understand why this happened. <br><br>  Obviously, not always the low-level information that the SObjectizer Environment has will be useful to the application programmer.  For example, in the example in question, a developer’s counter could be given by the number of agents for email_analyzer and the size of the list of requests in the analyzer_manager agent.  But this is the application data, SObjectizer has no idea about them.  Therefore, when developing an application on agents, the programmer will need to ensure that information outside the application is available that is most useful for assessing the health and viability of the application.  Although this is already a big topic for another conversation. <br><br>  Perhaps this is another article you can finish.  In the next article we will try to show what can be done if we try to parallelize email analysis operations even more.  For example, if you perform parallel operations analysis of the headers, body of the letter and attachments.  And then what will become the agent code email_analyzer. <br><br>  Source codes for the examples shown in the article can be found <a href="https://bitbucket.org/sobjectizerteam/habrhabr_article_2">in this repository</a> . </div><p>Source: <a href="https://habr.com/ru/post/307306/">https://habr.com/ru/post/307306/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../307288/index.html">Such different asynchrony</a></li>
+<li><a href="../307294/index.html">SQL and XPath vs RosRestra</a></li>
+<li><a href="../307296/index.html">The digest of fresh materials from the world of the frontend for the last week №222 (August 1 - 7, 2016)</a></li>
+<li><a href="../307298/index.html">Is Saas a service or license?</a></li>
+<li><a href="../307300/index.html">Cambium cnPilot - inexpensive WiFi, which surprised us</a></li>
+<li><a href="../307308/index.html">Designing identical forms in WPF using abstract classes</a></li>
+<li><a href="../307310/index.html">How to quickly raise the management accounting system in an advertising agency from scratch and without a budget</a></li>
+<li><a href="../307312/index.html">Mathematics for artificial neural networks for beginners, part 2 - gradient descent</a></li>
+<li><a href="../307314/index.html">The relationship between the monetization of games and the behavior of gamers</a></li>
+<li><a href="../307316/index.html">Storing the ssh config in an ansible project and solving the tunnel problem when using the relative path</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

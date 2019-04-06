@@ -58,10 +58,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Eliminate errors in the Building resources when building android-applications using Apktool</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/getpro/habr/post_images/e29/f32/928/e29f32928913236deedda3c0105741b8.jpg" alt="image"><br><br>  Hello.  My name is Alexey and I am engaged in reverse adnroid-applications.  Many who did reverse the android-applications, faced with the fact that when rebuilding using apktool, the application was not collected and wrote about errors during the Building resources.  As a rule, these errors can be corrected manually in the places of their occurrence.  But what to do when there are a lot of them?  Corrections will take more than one hour.  Today I will tell how to deal with these for a couple of minutes. <br><a name="habracut"></a><br>  <b>1.</b> Install on the device \ emulator where we will use the lucky patcher application and the patch device. <br><br>  Toolbox → Patch to Android → and patch the first 2 points as in the picture. <br><br><img src="https://habrastorage.org/getpro/habr/post_images/782/634/e31/782634e31503cfbf71d2b0a91d68cac5.jpg" alt="image"><br><br>  <b>2.</b> Build the application using apktool.  Apk will not be created, but if you do not have errors in the smali files, then we will have the collected .dex file at the application_folder → build → apk <br><br><img src="https://habrastorage.org/getpro/habr/post_images/cc8/f52/13d/cc8f5213df3a99070b0df1570a65d853.jpg" alt="image"><br><br>  <b>3.</b> Open the original apk with winrar and put our modified dex-file there. <br><br><img src="https://habrastorage.org/getpro/habr/post_images/4cd/1a6/2dc/4cd1a62dc6bde11bb7ae69e484a56ff4.jpg" alt="image"><br><br>  <b>4.</b> Install on patched device \ emulator.  Profit. <br><br>  <b>PS</b> Once I came across an application that generated a token based on the signature apk.  And it is this way that helped me figure it out and successfully start generating tokens in my bot) </div><p>Source: <a href="https://habr.com/ru/post/324776/">https://habr.com/ru/post/324776/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../324764/index.html">“Small yes remote”: scientists have developed a flow battery that cools the chips</a></li>
+<li><a href="../324766/index.html">Automate mobile apps with SeeTest Automation</a></li>
+<li><a href="../324770/index.html">OpenVPN, easy reissue of root certificate</a></li>
+<li><a href="../324772/index.html">Selection of a random record from a table with 700 * 10 ^ 6 rows</a></li>
+<li><a href="../324774/index.html">Create a design system</a></li>
+<li><a href="../324780/index.html">New Era of the Web: ITMO University begins training IT specialists in the field of neurotechnology</a></li>
+<li><a href="../324782/index.html">Communication for everyone: Grandstream Networks news</a></li>
+<li><a href="../324784/index.html">Creating a button for a LISP application in nanoCAD</a></li>
+<li><a href="../324788/index.html">Eureka! Moments of insight when studying React</a></li>
+<li><a href="../324790/index.html">5 lifehacks of inbound marketing in the b2b market that you are missing</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

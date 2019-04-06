@@ -60,10 +60,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>The pipeline will save you from doubles in the tape</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/getpro/geektimes/post_images/b58/263/f4f/b58263f4fc3a1bb2b0463d9da7831a6d.jpg" alt="Super Mario, the great pipeliner"><br><br>  Hey. <br><br>  Recently <a href="http://geektimes.ru/users/andorro/" class="user_link">andorro</a> <a href="http://geektimes.ru/post/240156/">wrote</a> about nasty duplicate posts, which with some probability appear in the tape if you subscribe to Habr and GT.  There is a great way to solve this problem, using rss and yahoo, and for one - to subscribe to intersecting hubs. <br><a name="habracut"></a><br><h4>  Yahoo Pipes </h4><br><blockquote>  Pipes are a composition tool to aggregate, manipulate, and mashup content from around the web. </blockquote><br>  Pipes is a service that gets something at the entrance, does something with it within itself and gives back what happened.  You can use csv, rss xml or even dsdjl of another pipe as input.  On the way out you can get rss, json, email or widget. <br><br>  For example, you can get the rss fly channel in Tumblr, regularly replace in all img a link to a small picture with a link to a larger one and return the resulting rss. <br><br><h4>  We are building a pipeline </h4><br>  Register on Yahoo (if needed), go to <a href="http://pipes.yahoo.com/">http://pipes.yahoo.com/</a> and open the constructor. <br><br><img src="https://habrastorage.org/getpro/geektimes/post_images/866/d19/f53/866d19f53ecdbdb5d2a589bfb8b094d6.png" alt="Screenshot 1 Constructor"><br><br>  On the left is a list of blocks, in the center is the constructor itself, at the bottom is a debugger.  For each block there is a description and an example of use.  There are many options, but we need Fetch Feed. <br><br>  Let's add it and, for an example, we will add in it hubs of <a href="http://geektimes.ru/hub/windows/">Windows</a> and <a href="http://geektimes.ru/hub/notebooks/">Laptops</a> with GT and still <a href="http://habrahabr.ru/hub/development/">Development</a> from Habr. <br><br><img src="https://habrastorage.org/getpro/geektimes/post_images/0e7/bde/b59/0e7bdeb599acb09cbeed9d99d4acca9e.png" alt="Screenshot 2 Fetch Feed"><br><br>  The log shows that the data is received.  Now you can sort them by date (Sort block). <br><br><img src="https://habrastorage.org/getpro/geektimes/post_images/9be/02f/27e/9be02f27e0c140118576681c72243f09.png" alt="Screenshot 3 Sort"><br><br>  After sorting, it became clear that the posts from the <a href="http://geektimes.ru/hub/windows/">Windows</a> and <a href="http://geektimes.ru/hub/notebooks/">Laptops</a> hubs quite repeat themselves.  This is easily solved by filtering by headers (the Unique block). <br><br><img src="https://habrastorage.org/getpro/geektimes/post_images/b02/48b/6be/b0248b6be7fe6ff973e1928f9f6eb53c.png" alt="Screenshot 4 Unique"><br><br>  We connect the output of the Unique block, save and <a href="">run it</a> . <br><br><img src="https://habrastorage.org/getpro/geektimes/post_images/f38/74c/e78/f3874ce785afc370a916fec2eeb6383f.png" alt="Screenshot 5 Finish"><br><br>  I hope this recipe will be useful to you. <br><br>  <a href="http://pipes.yahoo.com/">Yahoo Pipes</a> <br>  <a href="">Sample demo</a> </div><p>Source: <a href="https://habr.com/ru/post/361825/">https://habr.com/ru/post/361825/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../361809/index.html">T-shirt for ECG from Russia</a></li>
+<li><a href="../361811/index.html">Exhibition 3D PrintShow in London. Industry - a gold mine or a ghost hunt?</a></li>
+<li><a href="../361813/index.html">Production of 3D printers in Europe. What the blonde birches are silent about ...</a></li>
+<li><a href="../361815/index.html">Turn the TV into a Windows PC</a></li>
+<li><a href="../361817/index.html">Print outsourcing: how to save on printing with active paper workflow</a></li>
+<li><a href="../361827/index.html">G + is closed for the old Opera Presto</a></li>
+<li><a href="../361829/index.html">Open, login! Or security audit nepadzecky</a></li>
+<li><a href="../361831/index.html">Open IoT standards: great solution or new problem?</a></li>
+<li><a href="../361833/index.html">Only mountains can be better than mountains</a></li>
+<li><a href="../361835/index.html">From the experience of restoring access to a Steam account</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

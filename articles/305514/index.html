@@ -124,10 +124,22 @@
  Log in and authorize rclone for access
 </pre><br><br>  Open this link in the browser and give rclone permission to access the files. <br><br>  After this, the Google Drive API will return the code to be inserted in response to the question: <br><br><pre> Enter verification code&gt;
 </pre><br>  That's all.  Connection to Google Drive is configured, and you can start copying: <br><br><pre> <code class="bash hljs">$ rclone copy [ ]:[ ] [selectel]:[ ]</code> </pre><br><br>  The task of copying files rclone copes quite quickly: we copied a folder with photos of 1.8 GB in 1 minute 55 seconds. <br><br>  During the experiments, we also found out that rclone also copies GoogleDocs text documents without any problems, converting them into the docx format. <br><br><h2>  Loading large objects </h2><br><br>  Let's check the speed of rclone in one more test: we will try to load a large object into the storage - more than 20 GB.  Files up to 20 GB are uploaded to the storage using standard commands.  The procedure for downloading larger files is different: the file is divided into segments, which are loaded into a separate container. <br><br>  Rclone by default divides such files into segments of 5GB each.  If necessary, the segment size can be changed using the option -swift-chunk-size.  We tried to load a 25 GB file into the storage.  Rclone handled this task in 11 minutes 14 seconds.  The result, as we see, is quite good. <br><br><h2>  Conclusion </h2><br><br>  Rclone is quite an interesting and promising tool that can be recommended for use.  If it seems to you that we have forgotten to tell something, let us know about it, and we will definitely expand our review. <br><br>  And if you are already familiar with rclone - share your experience in the comments. <br>  If for some reason you can not leave comments here - welcome to <a href="https://blog.selectel.ru/rclone-rsync-dlya-oblakov/">our blog</a> . </div><p>Source: <a href="https://habr.com/ru/post/305514/">https://habr.com/ru/post/305514/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../305504/index.html">Applications in the electronic document management system. Part 5: Tasks and document routing in the ERMS applications</a></li>
+<li><a href="../305506/index.html">Mail.Ru Group and Intel IoT Hackath July 30–31: now with 6LoWPAN and LoRa networks</a></li>
+<li><a href="../305508/index.html">FIDO U2F - Universal Two-Factor Authentication. Introduction</a></li>
+<li><a href="../305510/index.html">Start of development for Sailfish OS</a></li>
+<li><a href="../305512/index.html">Pass a technical interview (level 3)</a></li>
+<li><a href="../305516/index.html">The thorny path of ITSM in Russia</a></li>
+<li><a href="../305520/index.html">How artificial restrictions help in work</a></li>
+<li><a href="../305524/index.html">Organization of an international gambling company in Curacao</a></li>
+<li><a href="../305526/index.html">City AD: schoolchildren and students</a></li>
+<li><a href="../305528/index.html">Android development using qt and android studio part two</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

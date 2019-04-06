@@ -68,10 +68,22 @@
  git config filter.openssl.smudge "openssl enc -d -base64 -aes-256-ecb -k $ 1"
  git config diff.openssl.textconv "openssl enc -d -base64 -aes-256-ecb -k $ 1 2 &amp;&gt; / dev / null || cat"
  git checkout master &lt;/ code&gt; </pre><br>  After making sure that git and openssl are accessible in the paths, we run the file as shown in the comment (If you are in Windows, this must be run from git-bash). <br><br> <code>. init.txt my_repo_pass</code> <br> <br>  Or just use your hands to launch 3 git config commands from this file, replacing $ 1 in the line with the password for the repository. <br><br>  Now add this to the repository: <br><br> <code>git add . <br> git commit -m "protection initialization" <br> git push <br> git tag init <br> git push --tags</code> <br> <br>  Voila, everything is ready for work.  Now we can add new files and they will be automatically encrypted. <br><br><h4>  Intelij Integration </h4><br>  Now the fun part.  If you create a java-encrypted project on github and start working with it, you will notice very soon that the IDE plugin in the IDE doesn’t want to compare files with previous versions.  This is due to the fact that intelij pulls up previous versions of a file from the repository using the <b>git show</b> command.  And now attention: the <b>git show</b> and <b>git format-patch</b> commands do not use filters by default.  To do this, they need to specify the option --textconv.  I could not force this to do the Gitovsky plugin myself, so I did a little wrapper for git and specified it in the settings.  It automatically adds this option to the show command. <br><br><h4>  git4idea.bat </h4><br> <code>@echo off <br> set ARGS=%* <br> "C:\Program Files\Git\bin\git.exe" %ARGS: show = show --textconv % <br></code> <br><br>  Option for Linux (unfortunately not verified): <br><br> <code>#!/bin/bash <br> export ARGS="$*" <br> git "${ARGS/ show / show --textconv }" <br></code> <br><br>  Now, I hope, the topic is revealed. </div><p>Source: <a href="https://habr.com/ru/post/340076/">https://habr.com/ru/post/340076/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../340066/index.html">How to hack more than 17,000 sites in one night</a></li>
+<li><a href="../340068/index.html">Microsoft has demonstrated a working fuel-powered data center</a></li>
+<li><a href="../340070/index.html">Golden ratio (Phi number) and time, your opinion?</a></li>
+<li><a href="../340072/index.html">Moments in the development and sale of modules Bitrix</a></li>
+<li><a href="../340074/index.html">Amazon EFS is faster when there is a lot of data.</a></li>
+<li><a href="../340086/index.html">When to be kind is beneficial</a></li>
+<li><a href="../340088/index.html">Caution! Angry dog! Or how to tame the registration form</a></li>
+<li><a href="../340090/index.html">Simple loading animation in Material Design (CSS3)</a></li>
+<li><a href="../340092/index.html">Microsoft Bot Framework + IBM Watson = ... bi-linguistic bot</a></li>
+<li><a href="../340096/index.html">Another post "why Agile does not work" (with pictures)</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

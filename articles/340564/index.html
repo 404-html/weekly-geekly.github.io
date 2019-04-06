@@ -101,10 +101,22 @@
          &lt;/ file_item&gt;
      &lt;/ all_files&gt;
  &lt;/ file&gt; </pre><br>  The above XML fragment shows that two unique files have been found in the archive named <em>b_cm1</em> .  These manifest files allowed us to narrow the search space when studying frame dependencies. <br><br><h2>  Sort dependencies </h2><br>  Even finding all these dependencies in the archives, we could not determine which particular dependencies were used in the finished FMV.  We could make assumptions and use some fuzzy logic, but in the end we decided to create a special tool with which people can interact and sort all necessary resources visually.  This tool, called <em>SanWrangler</em> , allowed us to load the original sequence of frames, and then view all the archived data in search of the intermediate components used to create this frame. <br><br>  Looking at the SanWrangler example below, you can see on the left in paged form a bank of 36 separate streams of image sequences that the user can learn.  This array of sequences represents all the frames found in archives, with the exception of binary duplicates.  To the right of the archive array, at the very top, the original sequence is shown, extracted from the .SAN process described above.  The user can press Shift + Click on streams from the archive array on the left to move them to the right array.  This right-hand array of selected frame sequences is all the threads that contain the parts used to generate the finished frame sequence. <br><br><div style="text-align:center;"><img alt="An example of SanWrangler being used to scrub linear frames" src="https://habrastorage.org/getpro/habr/post_images/948/305/c98/948305c98db5649cd7ce8839f906bc9d.gif"></div><br><br>  SanWrangler allows you to search in the following files from an archive array: <br><br><ul><li>  .ANM - animation files created in LucasArts own tool.  These files contain hand-drawn animation cells.  Later, if necessary, they were connected to other files. </li><li>  .FLC / .FLI - Autodesk Animator and Autodesk Animator Pro files </li><li>  .NUT - they contain sequences of uncompressed linear frames transmitted to SMUSHFT.EXE and later encoded into a compressed format written to the .SAN file </li><li>  .MAX is a 3D mesh source file created in 3D Studio 2.0.  We were able to run the batch process to render the sequences used in SanWrangler so that we can know what is contained in the binary .MAX files.  These frames were critical to understanding which .MAX file was used in a particular FMV sequence. </li></ul><br>  So, we have reached the point where the direct remastering of old files begins.  SanWrangler can save a list of selected file dependencies in a cleaner format.  From this point on, the remastering workflow is divided into three branches: remastering of hand-drawn frames, remastering of 3D models and remastering of sound. <br><br>  Wait for the second part of the article!  In the next part, I will talk about the ways of automation and transformation that we used to reassemble all the content. </div><p>Source: <a href="https://habr.com/ru/post/340564/">https://habr.com/ru/post/340564/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../340552/index.html">How we updated the search tips in Yandex and found the correct metric for them</a></li>
+<li><a href="../340554/index.html">Determination of the stability of automatic control systems for industrial robots</a></li>
+<li><a href="../340556/index.html">First TypeScript Demo</a></li>
+<li><a href="../340558/index.html">Why do you need to stop using git rebase</a></li>
+<li><a href="../340562/index.html">We need to go deeper: bypass the script that bypasses the adblock</a></li>
+<li><a href="../340566/index.html">Useful scripts when migrating from Oracle to PostgreSQL</a></li>
+<li><a href="../340568/index.html">Creating a sky for 3D games</a></li>
+<li><a href="../340574/index.html">NLTK parse</a></li>
+<li><a href="../340576/index.html">Why IT and Business Network Factory and Cisco SD-Access</a></li>
+<li><a href="../340578/index.html">Release DBMS InterSystems Caché 2017.2</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

@@ -75,10 +75,22 @@
 </pre><br><br>  Now let's get everything back, using the restore function for a given point in time.  As before, stop the replication script and restore the data on both machines.  But first stop the mysqld service: <br><br><pre> [root @ co-master mysql] # service mysqld stop
  Stopping mysqld: [OK]
 </pre><br><br>  Choose a point in time when the base has not yet been corrupted: <br><br><img src="https://habrastorage.org/files/242/0f7/f1c/2420f7f1cf8441e48abe428e1377b488.png"><br><br>  After that, we will start the MySQL service on the master machine and make sure that the data is restored. <br><br>  <b>And now - a surprise!</b>  Let's start the MySQL service on the co-replica machine and get a working base on the backup machine.  We came close to the enhanced functionality of the Arcserve RHA when, instead of a lost system, a backup system comes in with actual data. <br><br>  Today we have raised the MySQL backup service manually.  But the Arcserve RHA product is able to independently start a backup system so that it looks like it has failed.  For example, run the necessary services, change the DNS records, IP address, even the NetBIOS name of the machine.  This can be done in scenarios like “High Availfbility”, but this is a topic for a separate article. <br><br><a name="p4"></a><br><h2>  4. Conclusion and advertising </h2><br>  In this article, we looked only at the basic capabilities of the Arcserve RHA product, aimed at recovering data at a given point in time in the past.  That is, only half of the name “Replication and High Availability” was decoded.  In the next article, you will see how the second part of the name is implemented - High Availability.  We will see how a failed machine (physical or virtual) will be replaced by a backup machine containing an up-to-date copy of the data. <br><br>  [Advertising] Currently, until the end of September 2016, you can get an Arcserve RHA product for free by purchasing an Arcserve UDP Premium Plus product at a price of Arcserve UDP Premium. <br>  You can learn more from Arcserve <a href="http://arcserve.su/gde.html">partners</a> . </div><p>Source: <a href="https://habr.com/ru/post/306194/">https://habr.com/ru/post/306194/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../306182/index.html">Safety of railways from open sources</a></li>
+<li><a href="../306184/index.html">Top Machine Learning Packages in R, Part 2</a></li>
+<li><a href="../306186/index.html">How to represent your own company</a></li>
+<li><a href="../306188/index.html">Development for SailfishOS: Basics</a></li>
+<li><a href="../306190/index.html">Security Week 29: Ubuntu forum leak, proxy vulnerability in PHP, Go and Python, 276 Oracle patches</a></li>
+<li><a href="../306196/index.html">Asyncpg released - PostgreSQL client library for Python / asyncio</a></li>
+<li><a href="../306198/index.html">MLBootCamp "Performance Evaluation". Very simple and quick solution.</a></li>
+<li><a href="../306200/index.html">Novice Investor's FAQ: How money is actually protected on the exchange</a></li>
+<li><a href="../306202/index.html">Industrial Management Systems - 2016: Vulnerability and Availability</a></li>
+<li><a href="../306204/index.html">Compare the implementation of the languages ​​of Python and Ruby by the density of errors</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

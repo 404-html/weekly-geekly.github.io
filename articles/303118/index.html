@@ -80,10 +80,22 @@
      nginx.rollback rollback [: migrate_back = yes] - migrate_back -&gt; revert
      nginx.update update [: force = no, tag = None] - recreate Docker container
 </pre><br></div></div><br>  New prepare and push commands prepare an image from the main Registry and download it to the local one, from where the image gets to the combat infrastructure (through the pull command) through the <a href="http://docs.fabfile.org/en/1.11/api/core/context_managers.html">tunnel</a> .  You can start the private Registry locally by running the following line of code in the terminal: <br><pre> <code class="bash hljs">docker run --name registry --publish 5000:5000 --detach --restart always registry:2</code> </pre><br>  The example with the assembly of the image differs from the first two, similarly, only by the type of task - in this case it is <strong>BuildDockerTasks</strong> .  The list of commands for tasks with an assembly is the same as in the previous example, except that the prepare command instead of downloading an image from the main Registry builds it from local sources. <br><br>  To use PullDockerTasks and BuildDockerTasks, you need a Docker client installed on the administrator's computer.  After the announcement of Docker public beta versions for MacOS and Windows platforms, this is not such a headache for users. <br><br>  Fabricio is a completely open project, any <a href="https://github.com/renskiy/fabricio/issues">improvements are</a> welcome.  At the same time, we ourselves are actively continuing to supplement it with new features, correct bugs and eliminate inaccuracies, constantly improving the tools we need.  Currently, the main features of Fabricio are: <br><ul><li>  Docker image build </li><li>  launch containers from images with arbitrary tags </li><li>  compatibility with parallel execution of tasks on different hosts </li><li>  the ability to roll back to the previous state (rollback) </li><li>  working with public and private Docker Registry </li><li>  grouping of typical tasks into separate classes </li><li>  automatic application and rollback of Django application migrations </li></ul><br>  Fabricio can be installed and tried via standard Python package manager: <br><pre> <code class="bash hljs">pip install --upgrade fabricio</code> </pre><br>  Support for now is limited to Python 2.5-2.7.  This limitation is a direct consequence of the support of the corresponding versions of the Fabric module.  We hope that in the near future, Fabric will acquire the ability to run on Python 3. Although there is no need for this special one - in most Linux distributions, as well as MacOS, version 2 is the default version of Python. <br><br>  I would be happy to answer in the comments on any questions, as well as listen to constructive criticism. </div><p>Source: <a href="https://habr.com/ru/post/303118/">https://habr.com/ru/post/303118/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../303104/index.html">RDS, how does it work? We get down to the lowest level of the OSI model</a></li>
+<li><a href="../303108/index.html">PHPixie Social - easy integration with social networks</a></li>
+<li><a href="../303110/index.html">[Letter to young] Dream. Dreams Come True. And I do not know why</a></li>
+<li><a href="../303114/index.html">Creating a blog on symfony 2.8 lts [Part 5]</a></li>
+<li><a href="../303116/index.html">Preparing for PHP interviews using tests (phpt) from PHP source</a></li>
+<li><a href="../303120/index.html">At Startup Village 2016 in the Skolkovo Technopark distributed to startups 13.8 million rubles</a></li>
+<li><a href="../303124/index.html">World Automated Technocommunism System</a></li>
+<li><a href="../303130/index.html">PHP Digest number 87 - interesting news, materials and tools (May 29 - June 12, 2016)</a></li>
+<li><a href="../303134/index.html">The value of multi-font design</a></li>
+<li><a href="../303136/index.html">The digest of fresh materials from the world of the frontend for the last week No. 215 (June 6 - 12, 2016)</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

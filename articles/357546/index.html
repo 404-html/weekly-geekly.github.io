@@ -59,10 +59,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Chrome turned off navigation back on the backspace button</h1><div class="post__text post__text-html js-mediator-article"><h3>  “For many years we received so many complaints that we decided to finally make the right choice.” </h3><br><img src="https://habrastorage.org/files/e45/d68/bc9/e45d68bc9dd546778ea831242b9734dd.jpg" align="left">  Those Chrome / Chromium users who are used to pressing <i>Backspace</i> to return to the previous page will have to change their habits.  This became clear from the discussion in the Chromium bug tracker ( <a href="https://bugs.chromium.org/p/chromium/issues/detail%3Fid%3D608016">Issue 608016</a> ). <br><br>  The discussion began with an innocent bug-report: after updating to the latest version of Chrome 52.0.2720.0 (Canary), the user’s <i>Backspace</i> button for navigation has stopped working.  As it turned out, this is not a bug at all.  Now Chrome by default does not return to the previous page on <i>Backspace</i> .  The developers warned about the change back in April: see <a href="https://codereview.chromium.org/1854963002">Issue 1854963002</a> , the <a href="https://chromium.googlesource.com/chromium/src/%2B/a9fc5462ba084936191d51a9391ec5255e79a930">commit of April 11</a> . <br><a name="habracut"></a><br>  According to the statistics collected (UseCounters), the developers write, the <i>Backspace</i> button is used on only 0.04% of web pages when navigating, that is, in 99.96% of cases, users prefer to press <i>Alt</i> + <i>Left</i> or move the mouse pointer and click on the graphic button left arrow. <br><br>  Obviously, the hot key option is much more convenient.  But, as often happens, very few people know about “hot” keys and very few people use them. <br><br>  In the case of <i>Backspace</i> , the developers write, there is a problem: users use this key to delete the previous character, and not to navigate to the previous page.  This is evidenced by another indicator of statistics UseCounters: when filling out web forms with text, the percentage of navigation to the previous page using <i>Backspace</i> drops to insignificant 0.005%.  Obviously, people are afraid of losing their input.  If the text form is out of focus, pressing <i>Backspace</i> will not delete the previous character, but will load the previous page with the loss of the data entered into the form. <br><br>  “For many years, we have received so many user complaints that we decided to finally make the right choice and change it, given the suffering that users experience, losing [the data entered in the forms], and because each platform has a different keyboard shortcut for navigating back, ” <a href="https://codereview.chromium.org/1854963002">explained</a> one of the developers in the bug tracker. <br><br>  For those who still want to leave the navigation on <i>Backspace</i> , they wanted to implement a special flag in the settings, but then <a href="https://bugs.chromium.org/p/chromium/issues/detail%3Fid%3D608016">they abandoned this idea</a> . <br><br>  PS In the main version of Chrome 50, the <i>Backspace</i> button still works, but it will stop with the update to Chrome 52. </div><p>Source: <a href="https://habr.com/ru/post/357546/">https://habr.com/ru/post/357546/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../357536/index.html">Oracle explains to Russian customers the disadvantages of a free PostgreSQL database.</a></li>
+<li><a href="../357538/index.html">BMW complied with the GPL license requirement</a></li>
+<li><a href="../357540/index.html">Open source mail service Lavabit</a></li>
+<li><a href="../357542/index.html">DuckDuckGo donated $ 225,000 to various OpenSource projects</a></li>
+<li><a href="../357544/index.html">Lawyers comment on the requirement of the court to remove Russian Linux from torrents</a></li>
+<li><a href="../357548/index.html">ZeroNet instead of DNS: Perspective counteraction to legal vandalism</a></li>
+<li><a href="../357550/index.html">Bulgaria adopted a law on the forced publication of source codes of state software</a></li>
+<li><a href="../357552/index.html">Found a programmer who hacked kernel.org in 2011</a></li>
+<li><a href="../357554/index.html">The US government has opened 20% of the source of state software</a></li>
+<li><a href="../357556/index.html">Fedora 25 release</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

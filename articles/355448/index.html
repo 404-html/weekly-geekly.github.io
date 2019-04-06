@@ -58,10 +58,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Are you a goat, user?</h1><div class="post__text post__text-html js-mediator-article">  In Android 4.2 (Jelly Bean), a new method i <b>sUserAGoat () has appeared</b> .  The purpose of this method is rather vague, the documentation says “Used to determine whether to make this call is subject to teleportations” - is the user who called this method an object for teleportation.  The method should return <b>true</b> if the user is a goat.  But if you look at the source of the method, you can find out that the method always returned <b>false</b> . <br><a name="habracut"></a><br>  More precisely, it was until recently.  With the advent of Android 5 Lollipop, the documentation has been amended - As of LOLLIPOP, you can now automatically identify goats recognition technology.  - Starting with LOLLIPOP, this method can now automatically detect goats using advanced goat recognition technology.  <a href="http://developer.android.com/reference/android/os/UserManager.html">Link to the documentation</a> . <br>  Curious programmers again got into the source and found the code <br><br><pre><code class="java hljs"><span class="hljs-function"><span class="hljs-keyword"><span class="hljs-function"><span class="hljs-keyword">public</span></span></span><span class="hljs-function"> </span><span class="hljs-keyword"><span class="hljs-function"><span class="hljs-keyword">boolean</span></span></span><span class="hljs-function"> </span><span class="hljs-title"><span class="hljs-function"><span class="hljs-title">isUserAGoat</span></span></span><span class="hljs-params"><span class="hljs-function"><span class="hljs-params">()</span></span></span><span class="hljs-function"> </span></span>{ <span class="hljs-keyword"><span class="hljs-keyword">return</span></span> mContext.getPackageManager() .isPackageAvailable(<span class="hljs-string"><span class="hljs-string">"com.coffeestainstudios.goatsimulator"</span></span>); }</code> </pre> <br><br>  In other words, the method now checks if the goat simulator application is installed on the user.  By the name of the package, an application was found on Google Play - <a href="https://play.google.com/store/apps/details%3Fid%3Dcom.coffeestainstudios.goatsimulator">Goat Simulator</a> .  The application is paid.  Something I do not want to check whether I am a goat, so I did not buy. </div><p>Source: <a href="https://habr.com/ru/post/355448/">https://habr.com/ru/post/355448/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../355170/index.html">The Great Suspender - sleep mode for background tabs + unload RAM</a></li>
+<li><a href="../355172/index.html">In Google Images, the ability to view images in full resolution is disabled.</a></li>
+<li><a href="../355174/index.html">3D tours of the Olympic Palaces</a></li>
+<li><a href="../355230/index.html">New Android 5.1</a></li>
+<li><a href="../355446/index.html">Book Review for Android</a></li>
+<li><a href="../355450/index.html">Android release for Lollipop Nexus 5, Nexus 7 and Nexus 10</a></li>
+<li><a href="../355452/index.html">Amazon Music Innovative Localization Approach</a></li>
+<li><a href="../355454/index.html">PhotoMath app came out on Android</a></li>
+<li><a href="../355456/index.html">The maximum cost of applications in the Play Store increased from 6,000 to 42,000 rubles</a></li>
+<li><a href="../355458/index.html">Memo for novice translators of Android applications or how to start translating applications</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

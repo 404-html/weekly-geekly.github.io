@@ -58,10 +58,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>We attack DHCP part 4. DHCP + ARP + Apple = MiTM</h1><div class="post__text post__text-html js-mediator-article"><p><img src="https://habrastorage.org/webt/59/db/4c/59db4c197d751365107735.png" alt="LOGO"></p><br><p>  In this article, I will talk about how to implement <strong>MiTM of</strong> any Apple device in a wired or wireless network.  Before reading this article, I strongly recommend that you read the <a href="https://habrahabr.ru/company/dsec/blog/333978/">first</a> , <a href="https://habrahabr.ru/post/338860/">second</a> and <a href="https://habrahabr.ru/post/338864/">third</a> parts. </p><a name="habracut"></a><br><p>  There is only one limitation: we must have the ability to listen to broadcast traffic on the network in order to intercept broadcast DHCP requests. </p><br><p>  If this is a wireless network, then we must be connected to it. </p><br><p>  I have already talked about <a href="https://tools.ietf.org/html/rfc5227">identifying a conflict of IPv4 addresses on a local network</a> .  For this, the ARP protocol is used and it happens immediately after the host has received an IP address. </p><br><p>  To detect an IP address conflict, the host sends several ARP request requests immediately after receiving the IP address: </p><br><p>  <strong>1.</strong> Host with MAC address <strong>98: 01: a7: e2: 9a: a9</strong> obtains IP address <strong>192.168.0.4</strong> via <strong>DHCP</strong> : </p><br><p><img src="https://habrastorage.org/webt/59/db/63/59db63e2df1f0986445368.png" alt="DHCP"></p><br><p>  <strong>2. The</strong> host sends broadcast ARP requests to detect a conflict of IP addresses, while in the <strong>Sender MAC address it</strong> sets its MAC address: <strong>98: 01: a7: e2: 9a: a9</strong> , in the <strong>Target IP address</strong> field - the received IP address is <strong>192.168 .0.4</strong> : </p><br><p><img src="https://habrastorage.org/webt/59/db/74/59db74d86d855077170393.png" alt="Address conflict detection"></p><br><p>  If there are no hosts on the network with the IP address <strong>192.168.0.4,</strong> the answer will not come, but if there is, the answer will come: </p><br><p><img src="https://habrastorage.org/webt/59/db/5d/59db5d6e3cef5361095944.png" alt="Duplicate IP detected"></p><br><p>  As you can see after this response, the host sends a DHCP rejection broadcast message - <strong>DHCPDECLINE</strong> , after which the procedure for obtaining the IP address is repeated from the beginning. </p><br><p>  Most operating systems do not respond to such ARP responses after having already received an IP address, but not <strong>MacOS</strong> and <strong>iOS</strong> ! </p><br><p>  Therefore, in order to initiate obtaining an IP address on <strong>MacOS</strong> and <strong>iOS</strong> operating systems, it is enough to send a couple of such ARP responses.  And while receiving an IP address, we can interfere in this process and replace the IP addresses of the gateway and DNS server with our own IP! </p><br><p>  Video of the attack on the example of MacOS: </p><br><iframe width="560" height="315" src="https://www.youtube.com/embed/-vg2gNiQ53s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div><p>Source: <a href="https://habr.com/ru/post/339666/">https://habr.com/ru/post/339666/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../339656/index.html">About choosing data structures for beginners</a></li>
+<li><a href="../339658/index.html">From the garage on the courage: success stories of the largest IT-businesses, starting from scratch</a></li>
+<li><a href="../339660/index.html">Creating a Tinkoff Design System. UI Kit, versioning and showcase components</a></li>
+<li><a href="../339662/index.html">How to dismiss an employee and stay with this person</a></li>
+<li><a href="../339664/index.html">Kakao - how to make UI testing great again</a></li>
+<li><a href="../339668/index.html">MBLTdev online quest: prizes and answers</a></li>
+<li><a href="../339670/index.html">From a useless hobby to a featured feature on Google Play</a></li>
+<li><a href="../339672/index.html">Data geometry 4. Graph space</a></li>
+<li><a href="../339674/index.html">Sharing Scrum and DevOps - Translation of the article The Convergence of Scrum and DevOps</a></li>
+<li><a href="../339676/index.html">Proxmox 4. Day Two. Thin-LVM</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

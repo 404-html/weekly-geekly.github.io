@@ -58,10 +58,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>The security breach of Lenovo computers - and this, unfortunately, is not new</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/getpro/geektimes/post_images/07e/aa7/c7b/07eaa7c7b59febf5d7efa69f23c1d757.jpg" alt="image"><br><br>  Do not have time for the owners of Lenovo laptops to disappear frustration from the <a href="http://geektimes.ru/post/246192/">previous puncture in the security of computers</a> , as they suffered a new attack.  IOActive, a computer security company, <a href="http://www.ioactive.com/pdfs/Lenovo_System_Update_Multiple_Privilege_Escalations.pdf">reports a flaw</a> in its proprietary software update system.  The hole allows hackers to install their programs on the victim’s computer instead of being updated, and to remotely execute commands on behalf of the system. <br><br>  The first defect is found in the update program that downloads executable files from the Internet and launches them.  For security reasons, files are electronically signed, but the update program incorrectly verifies its authenticity, not fully processing the trust chain of certification authorities.  A hacker, acting as MitM somewhere in a cafe, where the user decided to update his software (there is even the term "coffee shop attack"), is able to replace the executable files with his programs, and the update will accept them as relatives, because he does not recognize a fake. <br><a name="habracut"></a><br>  The second drawback of the update program is to check the files for a signature while they are in a directory that has write access for any user.  Theoretically, a locally malicious program that is running can replace the executable files between the end of the authentication check and the launch of the executable file. <br><br>  The third problem relates to the actual system update process.  These actions require system privileges, so the process running from the user SYSTEM is responsible for updating.  It accepts commands for updates from the user without privileges.  And although for security reasons the update process requires authentication from the user, in fact, the identification tag is easily forged, which allows the user to execute commands on behalf of the system without privileges. <br><br>  Vulnerabilities are present both in the version of the Lenovo System Update 5.6.0.27 update, and in earlier versions. </div><p>Source: <a href="https://habr.com/ru/post/356738/">https://habr.com/ru/post/356738/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../356726/index.html">PayPal offers users to store usernames and passwords inside the body.</a></li>
+<li><a href="../356728/index.html">At the Defcon conference, you can crack Tesla electric car</a></li>
+<li><a href="../356730/index.html">People who support the Tor network despite the threat of imprisonment</a></li>
+<li><a href="../356734/index.html">The Constitutional Court of the Slovak Republic declared the mass surveillance of citizens unconstitutional</a></li>
+<li><a href="../356736/index.html">Is it possible to provide children with access to the Internet? Or what threatens those who want to help schools</a></li>
+<li><a href="../356740/index.html">The program will protect your computer from physical abuse.</a></li>
+<li><a href="../356742/index.html">On github appeared source codes of keyloggers working on the GPU</a></li>
+<li><a href="../356744/index.html">SkyNet does exist, but it's too early for the terminators</a></li>
+<li><a href="../356746/index.html">Starbucks can't handle scammers stealing their customers' money</a></li>
+<li><a href="../356748/index.html">Snowden told how he feels, revealing the secrets of the NSA, and how he lives in Russia</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

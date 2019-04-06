@@ -58,10 +58,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Disable any items from our DOM tree using MutationObserver</h1><div class="post__text post__text-html js-mediator-article">  Recently sitting on the couch, I decided to play around with <a href="https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver">MutationObserver</a> .  This is a fairly notable feature, with which you can listen to the DOM tree.  Now quite common. <br><br>  Also, with the help of MutationObserver, you can not only listen but also in fact prevent changes to the DOM tree.  Thinking about it, I made a library that can block unnecessary tags and attributes that you still did not use. <br><a name="habracut"></a><br>  It looks like <a href="https://wasiher.github.io/strict_dom/">this</a> : <br><br><pre><code class="hljs json">{ <span class="hljs-attr"><span class="hljs-attr">"tagsType"</span></span>: <span class="hljs-string"><span class="hljs-string">"blacklist"</span></span>, <span class="hljs-attr"><span class="hljs-attr">"tags"</span></span>: [ <span class="hljs-string"><span class="hljs-string">"script"</span></span> ], <span class="hljs-attr"><span class="hljs-attr">"attributesType"</span></span>: <span class="hljs-string"><span class="hljs-string">"blacklist"</span></span>, <span class="hljs-attr"><span class="hljs-attr">"attributes"</span></span>: { <span class="hljs-attr"><span class="hljs-attr">"*"</span></span>: [<span class="hljs-string"><span class="hljs-string">"onerror"</span></span>] } }</code> </pre> <br><div style="text-align:center;"><img src="https://habrastorage.org/getpro/habr/post_images/eb1/6a1/c70/eb16a1c709da8cc850e23a75f3ad081e.jpg" alt="quack"></div><br>  Using the manifest, for example, we cut off all script tags and all onerror attributes that should not be added after running strict_dom.  Those.  in fact, it is possible to cut out many potential XSS vulnerabilities on the site (in this variant, not really), or to wean yourself and your team from using any obsolete HTML tags and attributes. <br><br>  The manifest can have the following parameters: <br><br><ul><li>  outdatedUrl - the link to which will be redirected if the browser is old (disabled by default) </li><li>  tagsType - choose the principle of blacklist or whitelist to remove tags </li><li>  tags - list of unnecessary tags </li><li>  attributesType - choose the principle of blacklist or whitelist to remove attributes to tags </li><li>  attributes - list of unnecessary attributes </li></ul><br>  Actually, all this works through MutationObserver, and the code can peep <a href="https://github.com/wasiher/strict_dom.js/">here</a> </div><p>Source: <a href="https://habr.com/ru/post/333564/">https://habr.com/ru/post/333564/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../333554/index.html">QML: how easy it is to get T-shirts in machine learning competitions for mail.ru</a></li>
+<li><a href="../333556/index.html">Hybrid Memory Cube (HMC): what it is and how to connect it to FPGA</a></li>
+<li><a href="../333558/index.html">Features of the national SMS authorization</a></li>
+<li><a href="../333560/index.html">Cisco Meeting Server - now all video conferencing from one place</a></li>
+<li><a href="../333562/index.html">Cash gap: the main reason for closing stores with beginners</a></li>
+<li><a href="../333566/index.html">Telephone technical support - as we began to greet the customer by name</a></li>
+<li><a href="../333568/index.html">Selenium: simpler than steamed turnip ...</a></li>
+<li><a href="../333572/index.html">MEGA is looking for ideas: a new season</a></li>
+<li><a href="../333576/index.html">Blockchain: a revolution for which we are not ready</a></li>
+<li><a href="../333578/index.html">When the trees were big: how a small data center experienced a hurricane</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

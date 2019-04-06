@@ -58,10 +58,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Found a way to use BitTorrent users as DDOS attack agents</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/getpro/geektimes/post_images/6e0/0f5/ccb/6e00f5ccb296671d1ea4c759b35d8595.jpg" alt="image"><br><br>  <a href="https://torrentfreak.com/bittorrent-can-be-exploited-for-dos-attacks-research-warns/">Computer security specialists</a> from the City University of London <a href="https://www.usenix.org/system/files/conference/woot15/woot15-paper-adamsky.pdf">published a work</a> under the dramatic title "Peer File Sharing from Hell: Using BitTorrent Vulnerabilities to Launch Distributed Reflected Denial of Service Attacks."  In this paper, they explain how they managed to get popular BitTorrent clients to participate in DRDOS attacks on the Internet server. <br><br>  The DRDOS attack (not to be confused with the DR-DOS operating system) is to send to various servers a lot of such requests that these servers must respond to.  In this case, the ip-address of the sender is faked and replaced with the address of the victim.  As a result, all the answers fall on the victim server.  If the number of requests to make is too large, the server will have difficulty processing them. <br><a name="habracut"></a><br>  The researchers found a flaw in the BitTorrent protocol, which affects uTP, DHT, Message Stream Encryption and BitTorrent Sync.  It allows not only to throw the victim server with unnecessary requests, but also to increase traffic by 50 times in relation to the spent (and in the case of BTSync - and all 120 times).  Their method searches for the computers of the distributors, sends them a welcome request, and instead of the return address, slips the address of the server to be attacked. <br><br>  Researchers have already reported vulnerabilities to BitTorrent developers, and they are working on patches for various products.  But, of course, it is not immediately possible to replace all clients working with this protocol.  Users of old customers may become accomplices of the attack, unaware of it themselves - their outgoing traffic will simply increase. <br><br>  Classical DDoS attacks are usually organized through a botnet - a network of computers that have become under the control of an attacker through the work of Trojan viruses.  Such networks are used both for <a href="http://geektimes.ru/post/259032/">mass distribution of spam messages</a> and for <a href="http://geektimes.ru/post/242903/">disabling Internet servers</a> by sending an excessive number of requests. </div><p>Source: <a href="https://habr.com/ru/post/356830/">https://habr.com/ru/post/356830/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../356820/index.html">Kaspersky monitors you for your money</a></li>
+<li><a href="../356822/index.html">Chinese VPN-provider increases the network of its servers by hacking others</a></li>
+<li><a href="../356824/index.html">The hacker told how to crack the electronic bracelet home arrest</a></li>
+<li><a href="../356826/index.html">The limitation period of a part of the charges of Julian Assange is about to expire</a></li>
+<li><a href="../356828/index.html">Lenovo distinguished itself again: bloatware turned out to be embedded in the BIOS of the company's notebook</a></li>
+<li><a href="../356832/index.html">World powers agree on non-aggression in cyberspace</a></li>
+<li><a href="../356834/index.html">NSA begins planning encryption to postquantum cryptography</a></li>
+<li><a href="../356836/index.html">Where is Sberbank looking</a></li>
+<li><a href="../356838/index.html">VTsIOM: every tenth Russian user stores PIN codes from bank cards in a computer</a></li>
+<li><a href="../356840/index.html">What men pay for: continuation of the story Ashley Madison about burglary</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

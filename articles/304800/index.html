@@ -73,10 +73,22 @@
  $ curl http: // localhost: 8889 / checkthenadd? e = unexistent
  PRESENT
 </pre><br><br><h4>  Alternative solutions </h4><br><br>  There are libraries that run on the application side and contain common data in Redis.  They manipulate the bits in the Redis bitmaps with the <code>SETBIT</code> and <code>GETBIT</code> . <br><br>  In comparison, their advantages: <br><ul><li>  <s>Hash counting occurs on the web application side, and it does not load the server with computational work.</s>  Once at a time it’s not necessary, in some cases they consider a hash stored procedure on Lua. </li><li>  They use Redis, which is well known to many, has a rich set of functions, the possibility of scripting and clustering. </li></ul><br>  Minuses: <br><ul><li>  Redis limits the length of the bit field to 512 megabytes.  All implementations that I could find ( <a href="">1</a> , <a href="">2</a> ) are designed to use only one Redis key.  This limits the size of the filter. </li><li>  At the moment, these libraries are not for all languages ​​and development platforms. </li><li>  These solutions are not suitable for multilanguage projects: each implementation hashes in its own way and such filters are incompatible with each other. </li><li>  Performance.  Such solutions use two strategies for working with radish: either they set bits for each key through a pipeline, or they call a stored procedure on Lua in a radish, which counts the hash and gives commands.  In the first case, even at a Redis speed of 200,000 operations per second, such solutions are already starting to lose on filters with six or more keys, since each bit is a separate operation.  In the second case, everything is the same, but in addition, time will be spent on running the script and when checking and adding the hash will be counted twice.  However, the situation may improve with the introduction of the <code>BITFIELD</code> team in Redis 3.2.0, which was released in May 2016.  This command allows you to perform several operations on bits in one command. </li></ul></div><p>Source: <a href="https://habr.com/ru/post/304800/">https://habr.com/ru/post/304800/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../304786/index.html">Malicious software is used for cyber espionage over users in Central and Eastern Europe.</a></li>
+<li><a href="../304788/index.html">A call from the browser: a tool for business?</a></li>
+<li><a href="../304790/index.html">Error in PM error message is ineffective</a></li>
+<li><a href="../304794/index.html">First look at the new Cisco Firepower Threat Defense software (UPD 02.09.16)</a></li>
+<li><a href="../304798/index.html">Everything you wanted to know about RAID controllers, but it was too lazy to look</a></li>
+<li><a href="../304804/index.html">Comparison of online name resolution services</a></li>
+<li><a href="../304806/index.html">Beginning the translation of the “legacy” of the Angular JS project to the Angular 1.5 Components / ES6 and TypeScript</a></li>
+<li><a href="../304810/index.html">Mobile VR-game on the Unreal Engine: pitfalls</a></li>
+<li><a href="../304812/index.html">Oracle has stopped developing Java EE?</a></li>
+<li><a href="../304814/index.html">Ansible: testing playbooks (part 2)</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

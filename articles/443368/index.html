@@ -142,10 +142,22 @@
 </pre></div></div><br><p>  If you can’t do without join when searching, then RUM is clearly suitable for you. </p><br><h3 id="mesto-na-diske">  Disk space </h3><br><p>  On a test database of ~ 500 thousand documents and 3.6 GB, the indices occupied <em>very</em> different volumes. </p><br><pre>  idx_rum_document |  1950 MB
   idx_gin_document |  418 MB
 </pre><br><p>  Yes, the disk is cheap.  But 2 GB instead of 400 MB can not be happy.  Half the size of the base - a bit too much for the index.  Here GIN wins unconditionally. </p><br><h2 id="vyvody">  findings </h2><br><p>  You need RUM if: </p><br><ul><li>  You have a lot of documents, but you give out search results page by page </li><li>  You need advanced filtering of search results. </li><li>  You do not mind the disk space </li></ul><br><p>  You are completely satisfied with the GIN, if: </p><br><ul><li>  You have a small base </li><li>  You have a large base, but you need to produce results immediately and that's it </li><li>  You do not need filtering with join </li><li>  You are interested in the minimum size of the index on the disk </li></ul><br><p>  I hope this article will remove a lot of WTF?!, Arising from the work and setting up a search in Postgres.  I will be glad to listen to advice from those who know how to set everything up even better!) </p><br><p>  In the next parts, I plan to talk more about RUM in my project: about using additional RUM options, working with Django + PostgreSQL. </p></div><p>Source: <a href="https://habr.com/ru/post/443368/">https://habr.com/ru/post/443368/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../443350/index.html">How to make a mobile game a team of 2 people with a zero budget and get fichering on Google Play</a></li>
+<li><a href="../443352/index.html">What do business analysts in IT</a></li>
+<li><a href="../443358/index.html">F5 buys NGINX</a></li>
+<li><a href="../443360/index.html">View from the inside. Postgraduate Studies in EPFL. Part 3: from receipt to protection</a></li>
+<li><a href="../443364/index.html">How a media holding to launch 12 successful startups per year</a></li>
+<li><a href="../443370/index.html">Connecting Google reCAPTCHA to Vue and validating the response on the server</a></li>
+<li><a href="../443372/index.html">Backend on CodeFest. Are the guts ordered?</a></li>
+<li><a href="../443374/index.html">Twitter launches twttr - a prototype of the new application</a></li>
+<li><a href="../443376/index.html">We have discovered dozens of Box.com corporate repositories that reveal data from Apple, Herbalife, etc.</a></li>
+<li><a href="../443378/index.html">We write a high-performance http client using the example of fasthttp. Alexander Valyalkin (VertaMedia)</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

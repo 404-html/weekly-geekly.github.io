@@ -60,10 +60,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>How to run Wake-On-LAN (WOL) remotely?</h1><div class="post__text post__text-html js-mediator-article">  Wak on LAN (WOL) (Remote Wake On Technology) is a method to restart a computer when it is in sleep mode. <br><br>  The computer will restart automatically through a special “wake up” technique from the Ethernet interface.  This is useful if you are away from home, but you need to access your computer to get some files stored on your PC remotely. <a name="habracut"></a><br><br>  A special WOL packet can be sent over your local network, or sent to your network via the Internet via a <a href="http://draytek-russia.ru/">Vigor router</a> .  When a router receives a WOL packet, it can forward it to the desired PC (please pay attention to a PC NIC that supports WOL).  Keep in mind that since the computer is sleeping, it is impossible to detect the IP address.  The first necessary step is to identify the computer with the hardware MAC address.  Each computer has its own unique MAC address.  You can find the MAC address in the MS-DOS command line with "ipconfig / all". <br><br><img src="https://habrastorage.org/getpro/geektimes/post_images/0aa/76e/404/0aa76e404642c68efb305d001471eb66.png" alt="image"><br><br>  Second, you must tell the router the IP address of the computer that is supposed to wake up.  (Note: If Wake on LAN (Wake on LAN) is integrated with the Bind IP to MAC function, only connected PCs can be woken up via IP.) <br><br>  I. Link IP to MAC <br>  1. Log into the WUI Vigor 2920. <br>  2. Open LAN &gt;&gt; Bind IP to MAC (LAN &gt;&gt; Link IP to MAC). <br><br><img src="https://habrastorage.org/getpro/geektimes/post_images/4a7/468/702/4a74687020fdfd5c62e951395756ed8a.png" alt="image"><br><br>  Associate IP with MAC presets DHCP distributions.  Enter the required MAC address (for example, 00-90-CC-9C-BC-47) of the PC and click the Add button to add it to the IP Bind List field.  You must associate a specific IP with a MAC address.  Otherwise, when the PC boots up, the IP address will be changed by highlighting DHCP. <br><br>  Ii.  Enable WOL <br>  1. Log into the WUI Vigor 2920. <br>  2. Open Application &gt;&gt; Wake on LAN (Application &gt;&gt; Wake LAN). <br><br><img src="https://habrastorage.org/getpro/geektimes/post_images/96a/1ff/90f/96a1ff90f54152f738945ab5d3192f24.png" alt="image"><br><br>  Enter the MAC address on the PC you want to wake up and click Wake UP! .. </div><p>Source: <a href="https://habr.com/ru/post/395751/">https://habr.com/ru/post/395751/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../395741/index.html">The good and the moderator</a></li>
+<li><a href="../395743/index.html">VKfest with Habrahabra taste</a></li>
+<li><a href="../395745/index.html">Low tech: how to record a TV show if the tape has not yet been invented</a></li>
+<li><a href="../395747/index.html">In amber found perfectly preserved feathers of birdlike dinosaurs</a></li>
+<li><a href="../395749/index.html">Russian scientists have proposed to recharge orbital communication satellites using a free-electron laser</a></li>
+<li><a href="../395753/index.html">Tandy TRS-80 model 200 laptop</a></li>
+<li><a href="../395755/index.html">We measure the concentration of CO2 in the apartment with the help of MH-Z19</a></li>
+<li><a href="../395757/index.html">Vinton Cerf - Columbus, who opened the Internet</a></li>
+<li><a href="../395759/index.html">Hair, feathers and scales have a common ancestor.</a></li>
+<li><a href="../395761/index.html">Other chess</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

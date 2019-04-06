@@ -60,10 +60,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>FreePBX and CallBack: see caller numbers</h1><div class="post__text post__text-html js-mediator-article"> Good day! <br>  This is a very small note, but the question is simple.  Simple, but not so simple, sorry for X. <br>  FreePBX has an excellent <b>Callback</b> module.  The system resets the call and calls back, connecting with the specified number.  But at the same time CallerID is lost, and in the softphones a wonderful “Unknown” is highlighted. <br><br>  Now I will tell you how to fix it from the webmord in a minute. <a name="habracut"></a><br>  We will need a module <b>Set Caller ID</b> .  Install it if it is missing. <br><br>  The chain looks like this: <br>  Inbound Routes -&gt; Callback.  The call arrives at the created callback, a terminate call occurs, and the callback calls back to the client. <br>  Further: <br>  Callback Destination -&gt; Set Caller ID -&gt; Our destination.  That is, in the Destination of our Callback, we indicate not the end point where to receive the call, but the element of the Set Caller ID module, which already has our destination.  The module becomes a layer between the Callback and the destination. <br><br><img src="https://habrastorage.org/getpro/habr/post_images/d9a/37e/31d/d9a37e31db45b592efdfffedcbb82187.jpg" alt="image"><br><img src="https://habrastorage.org/getpro/habr/post_images/caf/e51/c7a/cafe51c7a510b086d3abbd75bbac7a13.jpg" alt="image"><br><br>  Well, now the most important thing: setting the fields of the Set Caller ID module: <br> <code>Caller id name: CALLBACK ${CUT(CUT(CHANNEL,@,1),/,2)} <br> Caller id num: ${CUT(CUT(CHANNEL,@,1),/,2)} <br></code> <br><br>  Result: normal display of the caller's number in CDR and softphones. <br>  Good luck! </div><p>Source: <a href="https://habr.com/ru/post/301756/">https://habr.com/ru/post/301756/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../301744/index.html">Welcome to Symfony Moscow Meetup June 2</a></li>
+<li><a href="../301746/index.html">VKS equipment for meeting rooms</a></li>
+<li><a href="../301750/index.html">Developer .NET developer workstation or the difficulty of choosing the perfect configuration</a></li>
+<li><a href="../301752/index.html">Work with SignalR from Android</a></li>
+<li><a href="../301754/index.html">“We try to ensure that User Experience does not differ in different operating systems” - Interview with Rider developers from JetBrains</a></li>
+<li><a href="../301760/index.html">Creating a blog on symfony 2.8 lts</a></li>
+<li><a href="../301764/index.html">Learning from mistakes in the organization of quality control</a></li>
+<li><a href="../301766/index.html">JPoint Student Day: why conference "student day"?</a></li>
+<li><a href="../301768/index.html">Add dependencies to CDI. Part 2</a></li>
+<li><a href="../301772/index.html">How to stop being afraid and fall in love with end-to-end encryption</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

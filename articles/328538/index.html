@@ -58,10 +58,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Ransomware day: Wana Decrypt0r mass infection</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/web/170/ba3/229/170ba3229ffb4c1a90f59ceef1050bf8.png"><br><p><br>  Over 60,000 computers have been attacked and infected by the extortion virus Wana Decrypt0r.  The authors of Wana Decrypt0r use the ETERNALBLUE exploit created by NSA experts for the SMBv1 vulnerability (MS17-010) to deliver malicious code on Windows systems.  The virus encrypts all files on the computer and requires a ransom - $ 300 in bitcoins.  The payment is given for three days, then the amount is doubled. </p><a name="habracut"></a><br><p>  MalwareHunterTeam, a cybersecurity expert team, claims that servers in Russia and Taiwan suffered the most as a result of the attack.  Other countries were also hit: Great Britain, Spain, Italy, Germany, Portugal, Turkey, Ukraine, Kazakhstan, Indonesia, Vietnam, Japan and the Philippines. </p><br><img src="https://habrastorage.org/web/65b/10b/d4b/65b10bd4b40449cda8f636b3a0ca8942.png"><br><p>  Microsoft closed the vulnerability in March.  But, apparently, not everyone managed to update their systems.  A real-time map of infections can be seen here: <a href="https://intel.malwaretech.com/botnet/wcrypt">https://intel.malwaretech.com/botnet/wcrypt</a> </p><br><h2>  Protective measures </h2><br><p>  As a means of protection, it is recommended to urgently update Windows systems (if you have not done this for some reason), use a means of detecting and blocking attacks — a firewall, etc. </p><br><p>  For example, this can be done using the following commands: </p><br><pre><code class="hljs pgsql">netsh advfirewall firewall <span class="hljs-keyword"><span class="hljs-keyword">add</span></span> <span class="hljs-keyword"><span class="hljs-keyword">rule</span></span> dir=<span class="hljs-keyword"><span class="hljs-keyword">in</span></span> action=block protocol=TCP localport=<span class="hljs-number"><span class="hljs-number">135</span></span> <span class="hljs-type"><span class="hljs-type">name</span></span>="Block_TCP-135"</code> </pre> <br><pre> <code class="hljs pgsql">netsh advfirewall firewall <span class="hljs-keyword"><span class="hljs-keyword">add</span></span> <span class="hljs-keyword"><span class="hljs-keyword">rule</span></span> dir=<span class="hljs-keyword"><span class="hljs-keyword">in</span></span> action=block protocol=TCP localport=<span class="hljs-number"><span class="hljs-number">445</span></span> <span class="hljs-type"><span class="hljs-type">name</span></span>="Block_TCP-445"</code> </pre> <br><hr><br><p>  <strong><a href="https://habrahabr.ru/company/pentestit/blog/328606/">UPD: Wana Decrypt0r 2.0 Encoder Analysis</a></strong> </p></div><p>Source: <a href="https://habr.com/ru/post/328538/">https://habr.com/ru/post/328538/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../328528/index.html">How protocols are arranged in Elixir</a></li>
+<li><a href="../328530/index.html">Why don't you answer my question?</a></li>
+<li><a href="../328532/index.html">Heisenbag 2017 Piter: Call for Testing</a></li>
+<li><a href="../328534/index.html">Video shooting training with a mentor</a></li>
+<li><a href="../328536/index.html">Voting started for YiiConf reports</a></li>
+<li><a href="../328540/index.html">Security Week 19: Windows Defender launches someone else's code, a Trojan was in HandBrake, phishers attacked Gmail users</a></li>
+<li><a href="../328542/index.html">About memory, tags and coherence</a></li>
+<li><a href="../328544/index.html">Introducing 3CX V15.5 Beta</a></li>
+<li><a href="../328546/index.html">Telegram of your business</a></li>
+<li><a href="../328548/index.html">Get to know WannaCry</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

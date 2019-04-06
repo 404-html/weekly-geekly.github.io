@@ -58,10 +58,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Microsoft fixed a bug fifteen years ago</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/getpro/geektimes/post_images/c95/097/3d2/c950973d2325fa66862b32383c35ec90.jpg" alt="image"><br><br>  Among the set of patches that Microsoft released today, there is one interesting fix under the number MS15-011.  This patch closes a vulnerability in the Active Directory algorithm that was discovered back in January 2014 by employees of JAS Global Advisors.  All this time, the existence of a bug called JASBUG was kept secret.  Interestingly, this vulnerability was in the very first version of Active Directory, which appeared already in 2000. <br><a name="habracut"></a><br>  Active Directory is a system that allows administrators to configure users' computers on their network.  Computers receive commands from the server and execute them.  The vulnerability was in the DNS processing algorithm.  Theoretically, a user's computer could be deceived by man-in-the-middle attacks in such a way that instead of a corporate server, it would accept commands from a false server raised by a hacker. <br><br>  In <a href="http://blogs.technet.com/b/srd/archive/2015/02/10/ms15-011-amp-ms15-014-hardening-group-policy.aspx">writing on her blog,</a> Microsoft described in detail the possible attack technology: <br><br><blockquote>  1. A hacker, examining traffic passing through a switch, detects that a certain computer is trying to download a file located at the UNC address \\ 10.0.0.100 \ Share \ Login.bat <br>  2. A shared resource with the same name is made on the hacker's computer: \\ * \ Share \ Login.bat.  Naturally, the file Login.bat contains the commands needed by the hacker. <br>  3. The hacker changes the APR table of the switch, and the traffic sent to the server 10.0.0.100 now goes to his computer <br>  4. The victim computer, when requesting a file, receives it not from the server, but from the computer of the hacker </blockquote><br>  Microsoft explains that since the vulnerability was in the Active Directory technology itself, administrators need to be familiar with the <a href="https://support.microsoft.com/kb/3000483">instructions for this patch</a> to ensure further security.  Also announced that for Windows Server 2003, which the company will support until this summer, the patch will not be released. </div><p>Source: <a href="https://habr.com/ru/post/376435/">https://habr.com/ru/post/376435/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../376423/index.html">Checklist image optimization</a></li>
+<li><a href="../376425/index.html">Ministry of Education awarded REN TV with an anti-prize for spreading pseudoscience, and named Postnauka the best Internet project</a></li>
+<li><a href="../376429/index.html">Fighting Facebook: how to use the social network without fear of privacy</a></li>
+<li><a href="../376431/index.html">Google and Microsoft have teamed up to solve the problem of antivirus false positives.</a></li>
+<li><a href="../376433/index.html">YouTube has marked the video with the cat Murmanie as a violation of musical copyright</a></li>
+<li><a href="../376437/index.html">Russia and China will cooperate in the field of satellite navigation</a></li>
+<li><a href="../376439/index.html">80lvl mail crutch or life hack for 21 rubles</a></li>
+<li><a href="../376441/index.html">Xperia E4 Announcement</a></li>
+<li><a href="../376443/index.html">Freshon: get rid of unpleasant odors in an enclosed space</a></li>
+<li><a href="../376445/index.html">The music service offers free tracks for video creators, and then it requires money.</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

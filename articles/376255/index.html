@@ -58,10 +58,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Copying books from Android (Amazon Kindle, Google Books)</h1><div class="post__text post__text-html js-mediator-article">  I bought an e-book in the Amazon Store, the son wanted a copy.  I didn’t really want to mess with DRM, so I had an idea to take a screenshot of each page.  At first I thought about turning over and making a copy of the screen - as a result, a small shell script appeared: <br><a name="habracut"></a><br><pre><code class="bash hljs"><span class="hljs-keyword"><span class="hljs-keyword">for</span></span> i <span class="hljs-keyword"><span class="hljs-keyword">in</span></span> `seq 1 10` <span class="hljs-keyword"><span class="hljs-keyword">do</span></span> fn=$(<span class="hljs-built_in"><span class="hljs-built_in">printf</span></span> <span class="hljs-string"><span class="hljs-string">'%03d.png'</span></span> <span class="hljs-variable"><span class="hljs-variable">$i</span></span>) screencap -p <span class="hljs-variable"><span class="hljs-variable">$fn</span></span> input touchscreen swipe 1000 1000 0 1000 sleep 1 <span class="hljs-keyword"><span class="hljs-keyword">done</span></span></code> </pre> <br>  If there is no seq, then you can: <br><br><pre> <code class="bash hljs">i=0; <span class="hljs-keyword"><span class="hljs-keyword">while</span></span> [ $((<span class="hljs-variable"><span class="hljs-variable">$i</span></span>)) -le 10 ]; <span class="hljs-keyword"><span class="hljs-keyword">do</span></span> i=$((<span class="hljs-variable"><span class="hljs-variable">$i</span></span> + 1)); <span class="hljs-built_in"><span class="hljs-built_in">echo</span></span> <span class="hljs-variable"><span class="hljs-variable">$i</span></span>; screencap -p <span class="hljs-variable"><span class="hljs-variable">$i</span></span>.png input touchscreen swipe 1000 1000 0 1000 sleep 1 <span class="hljs-keyword"><span class="hljs-keyword">done</span></span></code> </pre><br>  10 change the number of pages in the book. <br><br>  1. Run the Kindle application or Google Books (or any other application from which to copy) <br>  2. Go to the shell on the android (adb / ssh) <br>  3. Run the script <br>  4. Waiting <br><br>  We get all the pages in png format.  Imagemagick process (if necessary) and glue to PDF.  You can also skip through tesseract-ocr. <br><br>  Thanks for attention. </div><p>Source: <a href="https://habr.com/ru/post/376255/">https://habr.com/ru/post/376255/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../376245/index.html">Electronic cigarettes undermine the immune system</a></li>
+<li><a href="../376247/index.html">DARPA proposes to use jet aircraft for low-cost launch of mini-satellites into orbit</a></li>
+<li><a href="../376249/index.html">How not to lose money on the first purchase of a book in the EPUB format and what is wrong with the book trade</a></li>
+<li><a href="../376251/index.html">Span "Cassini" near Saturn: animated video in 4K</a></li>
+<li><a href="../376253/index.html">Chrome OS now allows you to block stolen or lost Hromobuk</a></li>
+<li><a href="../376257/index.html">The new game series Assassin's Creed will support eye management</a></li>
+<li><a href="../376259/index.html">Guests in the new Japanese hotel will be met and served by robots</a></li>
+<li><a href="../376263/index.html">Add AUX-input to the head unit Nexia Clarion</a></li>
+<li><a href="../376265/index.html">Will science help improve music theory?</a></li>
+<li><a href="../376267/index.html">How does a bitcoin Chinese farm with a turnover of $ 1.5 million per month?</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

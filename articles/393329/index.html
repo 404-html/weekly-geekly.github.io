@@ -58,10 +58,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>2 ports 4 buttons</h1><div class="post__text post__text-html js-mediator-article">  Hi <a href="http://geektimes.ru/">geektimes</a> .  One priblu came to me from China, which I found on the network, and when I looked, I found a very interesting part for myself, here it is: <br><br><img src="https://habrastorage.org/files/99e/099/d57/99e099d575744d0eb1fd51169d10ff42.PNG" alt="image"><br><a name="habracut"></a><br>  Since almost all the ports of the microcontroller are occupied, the Chinese have acted very slyly to save ports, you can evaluate the level of tricks yourself. <br><br>  How it works? <br>  For the first port we <a href="https://habrahabr.ru/post/253213/">turn on the pull-up resistor (pull-up)</a> and check the status on the port, if the " <b>DOWN</b> " button is pressed, we get a low logic level.  Exactly the same picture with the " <b>SET</b> " button, only pull-up is done already for the second port. <br><br>  To read the " <b>OK</b> " button, we translate the second port into a pull-up, and the first one is set as an output, and we make a low logic level.  In this case, when the " <b>OK</b> " button is pressed, the current will flow from the second port to the first diode, thus, when reading the state of the second port, we will have a low logic level.  The same situation with the definition of pressing the " <b>UP</b> " button - pull-up on the first port, the second set on the output and set a low logic level.  When you press the " <b>UP</b> " button, the current will flow through the diode to the second port, and accordingly, the first port will have a low logic level. <br><br>  <a href="https://geektimes.ru/users/hwman/topics/">All my publications are on geektimes.</a> </div><p>Source: <a href="https://habr.com/ru/post/393329/">https://habr.com/ru/post/393329/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../393319/index.html">Lithuanian DC Teo Group and its cooling system KyotoWheel</a></li>
+<li><a href="../393321/index.html">Scientists explain the loss of the second sock in terms of the mathematics and psychology of the owner</a></li>
+<li><a href="../393323/index.html">How did world currencies get their names?</a></li>
+<li><a href="../393325/index.html">Published photos of the newest Russian robots "Lynx-BP" and "Avatar"</a></li>
+<li><a href="../393327/index.html">The Chinese have released a mini PC in the form of a folding Bluetooth keyboard</a></li>
+<li><a href="../393331/index.html">Personal electric transport: what to give boom in the summer of 2016?</a></li>
+<li><a href="../393333/index.html">Yandex.Taxi fell in price to 99 rubles</a></li>
+<li><a href="../393335/index.html">Rosfinmonitoring proposes to prohibit anonymous Internet wallets, but allow cryptocurrency</a></li>
+<li><a href="../393337/index.html">US National Intelligence Director says Snowden accelerates cryptography distribution by 7 years</a></li>
+<li><a href="../393339/index.html">The proposal of deputies to store subscriber data for 3 years can be costly for subscribers themselves.</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

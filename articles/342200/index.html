@@ -66,10 +66,22 @@
              switch retval case 0 {revert (0, 0)} default {return (0, returnsize)}
          }
 </pre></li></ol><br>  Consider the use of gas.  Testing shows that all 3 of the above methods increase the use of gas by a value from 1000 to 1500. Is this a lot or a little?  This is about 2% of the more or less average cost of the transaction that will change storage. <br><br><h4>  Difficulty in using </h4><br>  Unfortunately, the use of these techniques is limited.  First of all, in order for such renewal of contracts to work, the structure of data storage in the contract cannot be changed (fields cannot be rearranged, fields must be deleted).  You can add fields to new contract versions. <br><br>  It is also necessary to very carefully distinguish between access to a function that changes the address of the active contract. <br><br>  An important fact is that users' trust in the contract will be less than in the same unchangeable.  On the other hand, you can provide a test period of time during which the new version of the contract can be rolled back, and after which the version of the contract will be fixed and will no longer be able to change. <br><br><h4>  Examples of the implementation of updates </h4><br>  Several contracts that will help make the upgrade easier and safer. <br>  <a href="">Upgradeable</a> - this contract implements a check that the target field (the address of the active version of the contract) is stored in the same slot as in the current version. <br><br>  Similarly, you can implement checks on other storage fields (an example can be found in <a href="">Target.sol</a> ) <br>  If you are planning to implement Upgradeable contracts, then be sure to look at the <a href="">tests</a> for the Upgradeable contract. <br><br>  Before deploying such contracts to the network, it is necessary to test all the options.  Otherwise, after the next update, you can be left without a functioning contract and without the possibility of renewal. </div><p>Source: <a href="https://habr.com/ru/post/342200/">https://habr.com/ru/post/342200/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../342190/index.html">Convenient solution for the gaming database based on EditorWindow</a></li>
+<li><a href="../342192/index.html">Sir Markdown. Yandex lecture</a></li>
+<li><a href="../342194/index.html">How to programmatically manage the TP-Link WiFi router using Python requests</a></li>
+<li><a href="../342196/index.html">How we set up the CI / CD process for our SOA projects</a></li>
+<li><a href="../342198/index.html">The digest of interesting materials for the mobile developer # 229 (November 6 - November 12)</a></li>
+<li><a href="../342202/index.html">Compressing the incompressible - how to reduce the distribution of a mobile application</a></li>
+<li><a href="../342206/index.html">Skyrim, rendered in text</a></li>
+<li><a href="../342208/index.html">How to create a blockchain project on Exonum: a quick guide</a></li>
+<li><a href="../342210/index.html">Product Design Digest October 2017</a></li>
+<li><a href="../342212/index.html">Director of common sense: how to stop everything in control and start working in a team</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

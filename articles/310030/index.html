@@ -58,10 +58,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Community Messages and Webweek from Yandex</h1><div class="post__text post__text-html js-mediator-article">  Good afternoon, dear user!  Not so long ago, VKontakte announced the <a href="https://vk.com/blog/community-widget">Community Messages</a> service.  And the first rakes and crutches to work with him, or rather, how to look at your site through the eyes of a visitor, have already appeared.  You run Yandex.Webviewer.  And there: <br><br><div style="text-align:center;"><img src="https://habrastorage.org/files/9eb/cb4/37f/9ebcb437fba943d4a8bec2699a3429f7.jpg" alt="image"></div><br>  A simple solution to the problem under the cut. <br><a name="habracut"></a><br>  Yandex found the solution in the help of the WebVizor - <a href="">Record the contents of the pages</a> : <br><br><pre><code class="javascript hljs"><span class="hljs-keyword"><span class="hljs-keyword">if</span></span> (<span class="hljs-regexp"><span class="hljs-regexp">/^(.*\.)?mtproxy\.yandex\.net$/</span></span>.test(<span class="hljs-built_in"><span class="hljs-built_in">document</span></span>.domain)) { <span class="hljs-comment"><span class="hljs-comment">/*   */</span></span> } <span class="hljs-keyword"><span class="hljs-keyword">else</span></span> { VK.Widgets.CommunityMessages(<span class="hljs-string"><span class="hljs-string">"vk_community_messages"</span></span>, <span class="hljs-comment"><span class="hljs-comment">/* ID- */</span></span>, {}); };</code> </pre> <br>  <b>Posted at 9:30 PM:</b> Why not just hide this widget and everything?  Why such a stub in the middle of the screen? <br><br>  <strong>PS</strong> I hope dear companies will solve a mutual bug. <br><br>  <strong>PPS</strong> Obviously for users' questions, tried to check the VC on the insertion of the allowed domain in the settings <b>* .yandex.net</b> - does not help. <br><br>  <strong>PPPS</strong> This bug was found by chance on one of the developed sites - the customer who likes to watch WebVizor.  I had to massively register this decision on several sites. </div><p>Source: <a href="https://habr.com/ru/post/310030/">https://habr.com/ru/post/310030/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../310016/index.html">Analytical calculation of derivatives on C ++ templates</a></li>
+<li><a href="../310022/index.html">PaaS, DBaaS, SaaS ... What does all this mean?</a></li>
+<li><a href="../310024/index.html">The story of one programmer</a></li>
+<li><a href="../310026/index.html">One day programmers will destroy this world</a></li>
+<li><a href="../310028/index.html">My way is a programmer. From QA student to remote Java developer</a></li>
+<li><a href="../310032/index.html">The dark side of protobuf</a></li>
+<li><a href="../310038/index.html">Why it is not necessary to blame the inaccuracy of O-ratings for their problems</a></li>
+<li><a href="../310040/index.html">You do not like triggers?</a></li>
+<li><a href="../310042/index.html">We build our full stack on JavaScript: Server</a></li>
+<li><a href="../310044/index.html">Fonts on the web, a review from 2016</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

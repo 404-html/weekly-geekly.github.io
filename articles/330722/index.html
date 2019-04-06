@@ -61,10 +61,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Preparing git reset correctly</h1><div class="post__text post__text-html js-mediator-article">  A very short note from the series “Hostess on a note”. <br><br><h2>  Foreword </h2><br>  A poorly organized developer, like me, it often happens that everyone, and then it turns out that the wrong thing is not there, but git remembers everything and this whole raging anarchy remains in history. <br>  It always seemed to me that this could be fixed, but how many times I didn’t start looking for an answer to this question - how to remove Kamites from git - so many times I did not succeed. <br>  And all because my searches led me to a rebase, but I had to look for a reset. <br>  For my taste, the question is not sufficiently illuminated and my note is intended to close this gap. <br><a name="habracut"></a><br><h2>  Algorithm </h2><br><ol><li>  git status // check that we have the current version </li><li>  git log // look for the kamit to which we want to roll back </li><li>  sudo git reset --hard 7bcdf46b14b2dacc286b0ad469d5f9022d797f68 // specify the Kamit beginning with which we need to forget our changes, while from the local branch all of the Kamites from the specified will be forgotten - deleted </li><li>  git push --force origin feature / draft // fill in the local branch to the original (server branch) - from the original branch all “extra” CAMITs will be deleted </li><li>  Victory ! </li></ol><br>  If there is a more correct way, then please voice in comments. <br><br>  PS <br>  In fact, Kamites are not removed from the repository, the connection of these Kamites with the tree of changes is removed, so these Kamites disappear from the branch, but git remembers everything. <br><br>  PS2 <br>  There was no more correct way (variations with rebase are no more than variations). <br>  But comrades who believe that everything in life always takes place in the same way, and therefore it is always necessary to act in the only correct way, the roof was torn off from such a volgo handling of the repository. <br><br>  Comrades! <br>  For each task, its tools and its methods, sometimes git reset is a suitable method, especially when you are on the project as a developer and you want to roll back the Camites in the last two hours of work in your feature branch. </div><p>Source: <a href="https://habr.com/ru/post/330722/">https://habr.com/ru/post/330722/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../330710/index.html">Copier RFID tags standard EM-Marin</a></li>
+<li><a href="../330712/index.html">NNCP: online treatment and censorship of the store-and-forward method</a></li>
+<li><a href="../330714/index.html">“Closer to the people”: how to make IaaS more accessible</a></li>
+<li><a href="../330716/index.html">“The biggest competitor is those who do everything themselves” - Petr Zaitsev about the creation and development of the Percona company</a></li>
+<li><a href="../330720/index.html">Reform SQL-based approach in DAO</a></li>
+<li><a href="../330724/index.html">Turing Completeness Generic Java Types</a></li>
+<li><a href="../330726/index.html">How to scale bitcoin blockchain</a></li>
+<li><a href="../330728/index.html">The digest of interesting materials for the mobile developer # 207 (June 05-12)</a></li>
+<li><a href="../330730/index.html">Win32 / Industroyer: A New Threat to Industrial Control Systems</a></li>
+<li><a href="../330732/index.html">A very rude approach to determining a person’s language (or how to understand a person’s language from a normal corporate base)</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

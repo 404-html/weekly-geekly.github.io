@@ -58,10 +58,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>On github appeared source codes of keyloggers working on the GPU</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/getpro/geektimes/post_images/78d/e38/a46/78de38a467c8015db4dfd510955512bf.jpg" alt="image" align="left">  Two projects appeared on the github server using an unexpected vulnerability - the ability to execute programs spying on a computer using a video processor.  The vulnerability was first described in a 2013 research paper entitled “You <a href="http://www.cs.columbia.edu/~mikepo/papers/gpukeylogger.eurosec13.pdf">can type, you can't hide: a GPU-based keylogger</a> .” <br><br>  In this paper, the researchers described the fundamental possibility of making a program that tracks and records keystrokes using the GPU.  The program does not use typical rootkit techniques for embedding into the kernel of the system.  Instead, with the help of a video card, information about clicks is collected directly through DMA (direct memory access). <br><br>  And here, please - the <a href="https://github.com/x0r1/jellyfish">Jellyfish rootkit</a> and <a href="https://github.com/x0r1/Demon">Demon keylogger</a> projects prove in practice the possibility of such an approach.  Without modifying the core of the system, they work at the expense of the video card.  Here is what the creator of the project writes under the nickname x0r1: <br><a name="habracut"></a><br><blockquote>  Jellyfish is a Linux-based rootkit in the “proof of concept” stage (proof of performance) using the LD_PRELOAD technique from Jynx (CPU), as well as the OpenCL API developed by Khronos group (GPU).  Currently, the code works with AMD and NVIDIA video cards.  In addition, AMDAPPSDK also supports Intel. </blockquote><br>  Prior to that, malware using GPUs came across perhaps among programs that secretly minted Bitcoins on a computer’s video card.  And of course, they did not work entirely on the GPU, but used it only for direct calculations. </div><p>Source: <a href="https://habr.com/ru/post/356742/">https://habr.com/ru/post/356742/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../356730/index.html">People who support the Tor network despite the threat of imprisonment</a></li>
+<li><a href="../356734/index.html">The Constitutional Court of the Slovak Republic declared the mass surveillance of citizens unconstitutional</a></li>
+<li><a href="../356736/index.html">Is it possible to provide children with access to the Internet? Or what threatens those who want to help schools</a></li>
+<li><a href="../356738/index.html">The security breach of Lenovo computers - and this, unfortunately, is not new</a></li>
+<li><a href="../356740/index.html">The program will protect your computer from physical abuse.</a></li>
+<li><a href="../356744/index.html">SkyNet does exist, but it's too early for the terminators</a></li>
+<li><a href="../356746/index.html">Starbucks can't handle scammers stealing their customers' money</a></li>
+<li><a href="../356748/index.html">Snowden told how he feels, revealing the secrets of the NSA, and how he lives in Russia</a></li>
+<li><a href="../356750/index.html">Beltelecom buys equipment to block websites and spy on users</a></li>
+<li><a href="../356752/index.html">Drug dealer who was determined by IP by checking the package from China</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

@@ -4339,10 +4339,22 @@
     </div>
 </div>
 </div><br></div></div><br><div class="spoiler">  <b class="spoiler_title">Learn more about how things work.</b> <div class="spoiler_text">  Below I will try to describe in detail what happens at each stage. <br>  The first step: detecting available sd * drives using external smartctl.sh with {HOST.CONN} and discovery keys.  In response, the server receives JSON with disks on which the SMART function is activated.  Disks without SMART or not sd * are not output. <br><br>  Stage two: getting for each of the disks found two items - Info and Attr.  Info - information about the disk, Attr - attributes SMART.  “Why not ask for smartctl -a / dev / sd *?” You ask.  Such a conclusion is not complete for some discs, attributes are lost, and so on.  I had to invent on the go. <br><br>  The third stage: Info and Attr are broken down into dependent elements using preprocessing by regular expressions.  This is the easiest part.  Actually, you will only have to adjust the regular season for you. <br></div></div><br><h3>  Total </h3><br>  That's all.  No need to keep in mind what and where to put, whether to disable the PS script execution policy, to track the same version of PS.  And if necessary, all changes are made on Zabbix itself in the web interface. <br><br>  In the end, I would just like to say thanks to Alexey <a href="https://habrahabr.ru/users/alexvl/" class="user_link">alexvl</a> and his team for the quality product, which never ceases to please new functionality.  Especially for preprocessing.  Living with her administrator will be much easier. </div><p>Source: <a href="https://habr.com/ru/post/344548/">https://habr.com/ru/post/344548/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../344536/index.html">Designing a site that is protected from blocking</a></li>
+<li><a href="../344538/index.html">How I realized what distributed systems are</a></li>
+<li><a href="../344540/index.html">Are you still Java code? It's time to change</a></li>
+<li><a href="../344542/index.html">The human factor in information security</a></li>
+<li><a href="../344546/index.html">What hurts a business?</a></li>
+<li><a href="../344550/index.html">The history of victory in the international competition for the recognition of documents of the SmartEngines company</a></li>
+<li><a href="../344552/index.html">OSU! Relax (basics)</a></li>
+<li><a href="../344556/index.html">[DotNetBook] Type Instance Structure and VMT</a></li>
+<li><a href="../344558/index.html">Garland generation algorithm for the New Year puzzle</a></li>
+<li><a href="../344560/index.html">IQ correlation with our life (Feature ranking)</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

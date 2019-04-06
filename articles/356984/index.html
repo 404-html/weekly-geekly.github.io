@@ -58,10 +58,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>A new attack on HTTPS allows you to receive information about the passwords</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/getpro/geektimes/post_images/f2f/53f/bcf/f2f53fbcfb13f0421daf2c65376a94b0.png" alt="image"><br><br>  A computer security researcher from the Netherlands, Guido Vranken, <a href="https-bicycle-attack-reveals-details-about-passwords-gps-coordinates-498488.shtml">discovered a new method of attacking</a> TLS / SSL encrypted traffic.  In theory, it allows you to retrieve certain information about the data transmitted via the HTTPS protocol.  This information can then be used to increase the effectiveness of hacking. <br><br>  The attack, named by the researcher " <a href="https-bicycle-attack.pdf">HTTPS Bicycle Attack</a> " (bicycle attack), allows you to determine the length of some data transmitted in encrypted form: the length of the cookie header, the length of the passwords transmitted by the POST method, GPS coordinates, IPv4 addresses, etc.  At the same time, the traffic remaining in the logs can be analyzed. <br><br>  However, to extract information about the length of the fields, you must know in advance the length of some of the transmitted data.  In addition, the attack only works when using a <a href="https://ru.wikipedia.org/wiki/%25D0%259F%25D0%25BE%25D1%2582%25D0%25BE%25D0%25BA%25D0%25BE%25D0%25B2%25D1%258B%25D0%25B9_%25D1%2588%25D0%25B8%25D1%2584%25D1%2580">stream cipher</a> . <br><br>  By subtracting from the length of the authentication header the length of the login, the URL where the client is authorized, and other supporting information, the attacker can get the length of the password, after which the picking attack will be slightly more efficient. <br><a name="habracut"></a><br>  As a recommendation for resource administrators, Vranken recommends disabling streaming encryption, always use the latest version of TLS (for now it is 1.2) and mask the true length of the most sensitive data, complementing them with symbols that will be discarded later. <br><br>  The theoretical possibility of such an attack is not a reason for panic - for its success requires the fulfillment of many conditions.  And, of course, users who use non-standard random and fairly long passwords, and different on different resources, still can feel safe. </div><p>Source: <a href="https://habr.com/ru/post/356984/">https://habr.com/ru/post/356984/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../356974/index.html">China's law obliges providers to provide access to encrypted user accounts</a></li>
+<li><a href="../356976/index.html">German security experts have discovered a vulnerability in the protocol of payment terminals</a></li>
+<li><a href="../356978/index.html">Tor Project will launch the bug bounty program soon.</a></li>
+<li><a href="../356980/index.html">British authorities impose criminal penalties on companies for noticing government surveillance</a></li>
+<li><a href="../356982/index.html">For finding a vulnerability in Adobe Flash Player, a reward of $ 100,000 has been announced</a></li>
+<li><a href="../356986/index.html">General Motors launched its own Bug Bounty program, but without rewards</a></li>
+<li><a href="../356988/index.html">Hillary Clinton's mail server has become an instrument of political struggle</a></li>
+<li><a href="../356990/index.html">Hit parade of the most popular bad passwords of 2015</a></li>
+<li><a href="../356992/index.html">The FBI seized the largest child pornography site in the world and distributed porn for 13 days</a></li>
+<li><a href="../356994/index.html">The malicious user gets admin rights to a smartphone by fraud and threatens to send out your browser history</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

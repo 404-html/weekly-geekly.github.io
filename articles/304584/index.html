@@ -58,10 +58,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>The official HTTP client for Yii 2 has been released</h1><div class="post__text post__text-html js-mediator-article"><p>  The Yii team has released the official HTTP client extension.  Written almost entirely by Pavel Klimov.  Until recently, it was not tagged as a release due to incompatibility with PSR-7, although it has already been used a lot.  After much discussion, it was decided to release without PSR-7.  It may be returned to 2.1.x. </p><br><p>  Performing an HTTP request looks like this: </p><br><pre><code class="php hljs"><span class="hljs-keyword"><span class="hljs-keyword">use</span></span> <span class="hljs-title"><span class="hljs-title">yii</span></span>\<span class="hljs-title"><span class="hljs-title">httpclient</span></span>\<span class="hljs-title"><span class="hljs-title">Client</span></span>; $client = <span class="hljs-keyword"><span class="hljs-keyword">new</span></span> Client(); $response = $client-&gt;createRequest() -&gt;setMethod(<span class="hljs-string"><span class="hljs-string">'post'</span></span>) -&gt;setUrl(<span class="hljs-string"><span class="hljs-string">'http://example.com/api/1.0/users'</span></span>) -&gt;setData([<span class="hljs-string"><span class="hljs-string">'name'</span></span> =&gt; <span class="hljs-string"><span class="hljs-string">'John Doe'</span></span>, <span class="hljs-string"><span class="hljs-string">'email'</span></span> =&gt; <span class="hljs-string"><span class="hljs-string">'johndoe@domain.com'</span></span>]) -&gt;send(); <span class="hljs-keyword"><span class="hljs-keyword">if</span></span> ($response-&gt;isOk) { $newUserId = $response-&gt;data[<span class="hljs-string"><span class="hljs-string">'id'</span></span>]; }</code> </pre> <br><p>  <a href="httpclient">https://github.com/yiisoft/yii2-httpclient</a> </p></div><p>Source: <a href="https://habr.com/ru/post/304584/">https://habr.com/ru/post/304584/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../304574/index.html">NW.js or Electron?</a></li>
+<li><a href="../304576/index.html">Standardization of records</a></li>
+<li><a href="../304578/index.html">Automation in JunOS: writing scripts</a></li>
+<li><a href="../304580/index.html">Security Week 26: Dumping data through a fan, iOS core decrypted, crypto-password on password archives</a></li>
+<li><a href="../304582/index.html">The optimal solution for the organization of corporate cloud "turnkey"</a></li>
+<li><a href="../304586/index.html">Core Data + Swift for the smallest: minimum necessary (part 3)</a></li>
+<li><a href="../304590/index.html">Optimization of the web service tips for postal addresses and name</a></li>
+<li><a href="../304594/index.html">systemd: getty-like service for htop</a></li>
+<li><a href="../304596/index.html">Introducing 3CX v15 Release Candidate</a></li>
+<li><a href="../304598/index.html">Design stages, mistakes and advantages</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

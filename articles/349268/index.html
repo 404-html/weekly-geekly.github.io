@@ -76,10 +76,22 @@
  12. (700) B ---- (300) (1000) AC
  13. ---- (300) (1000) (700) ABC
 </pre><br></div></div><br></li><li><div class="spoiler">  <b class="spoiler_title">Question 2</b> <div class="spoiler_text">  The volume of water will go down.  The correct answer was found in the comments, an explanation can be found for example in <a href="https://habrahabr.ru/company/spice/blog/349268/">this comment</a> . <br></div></div><br></li><li><div class="spoiler">  <b class="spoiler_title">Task 1</b> <div class="spoiler_text">  Summing digits of numbers and checking divisibility by 3 is not the most effective approach. <br>  The <a href="https://habrahabr.ru/company/spice/blog/349268/">commentary</a> suggested the correct pattern: if the difference between the sum of even and odd bits is divided into three.  We consider the sum approximately as in a classical example about the counting of bits. <br><br>  Initial solution: <br><br><pre> <code class="cpp hljs"><span class="hljs-comment"><span class="hljs-comment">// CPP program to check if n is a multiple of 3 #include&lt;bits/stdc++.h&gt; using namespace std; /* Function to check if n is a multiple of 3*/ int isMultipleOf3(int n) { int odd_count = 0; int even_count = 0; /* Make no positive if +n is multiple of 3 then is -n. We are doing this to avoid stack overflow in recursion*/ if(n &lt; 0) n = -n; if(n == 0) return 1; if(n == 1) return 0; while(n) { /* If odd bit is set then increment odd counter */ if(n &amp; 1) odd_count++; n = n&gt;&gt;1; /* If even bit is set then increment even counter */ if(n &amp; 1) even_count++; n = n&gt;&gt;1; } return isMultipleOf3(abs(odd_count - even_count)); } /* Program to test function isMultipleOf3 */ int main() { int num = 24; if (isMultipleOf3(num)) printf("%d is multiple of 3", num); else printf("%d is not a multiple of 3", num); return 0; }</span></span></code> </pre><br></div></div><br></li><li><div class="spoiler">  <b class="spoiler_title">Task 2</b> <div class="spoiler_text">  In the comments were proposed solutions. <br><br>  The original version of C ++: <br><pre> <code class="cpp hljs">main(a){<span class="hljs-built_in"><span class="hljs-built_in">printf</span></span>(a=<span class="hljs-string"><span class="hljs-string">"main(a){printf(a=%c%s%c,34,a,34);}"</span></span>,<span class="hljs-number"><span class="hljs-number">34</span></span>,a,<span class="hljs-number"><span class="hljs-number">34</span></span>);}</code> </pre> <br></div></div><br></li><li><div class="spoiler">  <b class="spoiler_title">Task 3</b> <div class="spoiler_text">  The comments suggested several correct solutions.  Original: <br><pre> <code class="cpp hljs">y ^ ((x ^ y) &amp; -(x &lt; y))</code> </pre> <br></div></div><br></li></ol></div><p>Source: <a href="https://habr.com/ru/post/349268/">https://habr.com/ru/post/349268/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../349256/index.html">Journal of the work with the network. Part 2</a></li>
+<li><a href="../349260/index.html">Is it a bird? This is a plane? No, this is your user's token flying to a new phone.</a></li>
+<li><a href="../349262/index.html">Simulation of dynamic systems: the problem of external ballistics</a></li>
+<li><a href="../349264/index.html">Ready site template with registration, users and admins on Flask with SQL or MongoDB databases</a></li>
+<li><a href="../349266/index.html">PaEndpointBundle - an alternative to symfony controllers</a></li>
+<li><a href="../349270/index.html">Student Insider: Keyhole News</a></li>
+<li><a href="../349272/index.html">Basic security practices for iOS applications</a></li>
+<li><a href="../349274/index.html">"Calendar tester" for February. Know your customer</a></li>
+<li><a href="../349276/index.html">Creating a game on Lua and LÖVE - 1</a></li>
+<li><a href="../349280/index.html">Room: One to many</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

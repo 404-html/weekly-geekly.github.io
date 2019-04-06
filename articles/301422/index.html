@@ -135,10 +135,22 @@
  4ZwwJuMP 1xNyfGJSYvDRX7MgId9AgmwygqVFiOJDet2ofLVJkOOUKUfBt3IIn2pksXFTyiN2
  t9D9S59q euDKjEM73eONU8hmbPGm3mtnyz3h66AY3tHWo5WJOBTm7PULc1TlVXeoGwOIUapm
 </pre><br></div></div><br><h6>  Linux setup </h6><br><br>  - You must enable routing: <b>sysctl net.ipv4.ip_forward = 1</b> <br>  - It is necessary to allow the ESP protocol and incoming connections to ports 500 / udp and 4500 / udp: <b>iptables -t filter -I INPUT -p esp -j ACCEPT;</b>  <b>iptables -t filter -I INPUT -p udp --dport 500 -j ACCEPT;</b>  <b>iptables -t filter -I INPUT -p udp --dport 4500 -j ACCEPT</b> <br>  - It is necessary to enable NAT for our network: <b>iptables -t nat -A POSTROUTING -s 192.168.100.0/24 -j MASQUERADE</b> <br>  - It is necessary to create a group and create / add users there: <b>groupadd vpn</b> and <b>useradd -G vpn vpn_user</b> <br>  - You must run racoon: <b>racoon -vF</b> <br><br><h5>  OS X Setup </h5><br><div class="spoiler">  <b class="spoiler_title">OS X in pictures</b> <div class="spoiler_text">  Settings → Network <br><img src="https://habrastorage.org/files/3ea/d68/816/3ead6881611945449589622f36b87319.png"><br><br>  Select (+) → VPN → Cisco IPSec → Make a Name <br><img src="https://habrastorage.org/files/3d4/12d/ea8/3d412dea82054ce4becc2139d6cd77e9.png"><br><br>  Select connection → enter server address, username and password <br><img src="https://habrastorage.org/files/330/675/461/33067546187d466784eab7e130f29c8c.png"><br><br>  Select “Authentication Settings” → enter the group name and key (in that order) <br><img src="https://habrastorage.org/files/94e/949/27e/94e94927e45845adbcdde7fc43ee8373.png"><br><br>  Connect <br></div></div><br><br><h5>  IOS setup </h5><br><div class="spoiler">  <b class="spoiler_title">iOS in pictures</b> <div class="spoiler_text">  Settings → Basic → VPN → Add VPN configuration. <br><br>  Fill out the form by analogy, connect. <br><img src="https://habrastorage.org/files/da6/4f3/264/da64f326477641cd8dc134fbe2b70907.jpg"><br></div></div><br><br>  <i>&lt;&lt;&lt; EOF</i> <i><br></i>  <i>Thank you for your attention, encrypt your traffic!</i> <i><br></i>  <i>EOF;</i> </div><p>Source: <a href="https://habr.com/ru/post/301422/">https://habr.com/ru/post/301422/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../301406/index.html">Hopfield neural network on fingers</a></li>
+<li><a href="../301408/index.html">The digest of fresh materials from the world of frontend for the last week №212 (May 16 - 22, 2016)</a></li>
+<li><a href="../301416/index.html">FlexboxLayout - part 2</a></li>
+<li><a href="../301418/index.html">Creating a VoIP Provider Template in 3CX Phone System</a></li>
+<li><a href="../301420/index.html">Office 365 updates</a></li>
+<li><a href="../301424/index.html">SpamFireWall - prohibit access to the site for spam bots</a></li>
+<li><a href="../301426/index.html">Web scraping with Node.js</a></li>
+<li><a href="../301428/index.html">We clean the bow (but not crying): optimization techniques</a></li>
+<li><a href="../301432/index.html">Warren Buffett and Dan Gilbert fight for Yahoo assets</a></li>
+<li><a href="../301434/index.html">June 4, 2016 is a cloudy day 2.0. Artificial intelligence in the cloud</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

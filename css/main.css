@@ -86,6 +86,8 @@ a[href*="http"]:not(.tools-bar a) {
 }
 
 .tools-bar {
+  display: none;
+
 	position: fixed;
 	top: 170px;
 	right: 5px;
@@ -119,7 +121,8 @@ a[href*="http"]:not(.tools-bar a) {
 	}
 }
 
-.all-articles-navigation-panel {
+.all-articles-navigation-panel,
+.more-articles-navigation-panel {
 	text-align: left;
 }
 

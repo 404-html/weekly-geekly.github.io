@@ -58,10 +58,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>A vulnerability was found in Symantec Antivirus that allows you to gain complete control over the system.</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/getpro/geektimes/post_images/4c7/cb0/883/4c7cb0883d7d74f1987785cc6b2167e6.jpg" alt="image" align="left">  <a href="https://en.wikipedia.org/wiki/Project_Zero_(Google)">Zero</a> security researchers (created by Google to prevent attacks made using previously unknown vulnerabilities) revealed critical vulnerability information ( <a href="https://bugs.chromium.org/p/project-zero/issues/detail%3Fid%3D820">CVE-2016-2208</a> ) in Symantec antivirus software.  When checking specially designed files in the “PE” format, you can initiate a buffer overflow and organize the execution of the code in the system. <br><br>  When parsing executable files compressed with an earlier version of <a href="http://www.aspack.com/aspack.html">aspack</a> , a buffer overflow may <a href="http://www.aspack.com/aspack.html">occur</a> in the Symantec Antivirus Engine module used in most anti-virus products released under the Symantec and Norton brands.  This situation becomes possible if the data section is truncated, i.e.  if the value of SizeOfRawData exceeds the value of SizeOfImage. <br><br><a name="habracut"></a>  And now about the most interesting.  Since Symantec software uses a driver filter to intercept all I / O operations in the system, an attack can be made by sending an exploit to the victim system in almost any way — say, as an e-mail message or a link to a file. <br><br>  On Linux, Mac, and other UNIX platforms, you can thus achieve remote heap overflow generated with superuser permissions in Symantec or Norton processes.  On Windows, the result will be damage to the kernel's memory, since the scanning module is loaded into the kernel there, which can allow executing code with kernel permissions at the protection level ring0. <br><br>  Products under the brands of Symantec and Norton are also interesting because they are often included in the supply of PCs and laptops.  This, of course, also influenced their prevalence, especially from the point of view of Western users. <br><br>  The manufacturing company promptly <a href="https://www.symantec.com/security_response/securityupdates/detail.jsp%3Ffid%3Dsecurity_advisory%26pvid%3Dsecurity_advisory%26year%3D%26suid%3D20160516_00">published an</a> update fixing this vulnerability.  Thus, it is important to install it, incl.  and on Unix servers (installation will require rebooting the server). </div><p>Source: <a href="https://habr.com/ru/post/357092/">https://habr.com/ru/post/357092/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../357082/index.html">Fans of the hacker series "Mr. Robot" break the official site</a></li>
+<li><a href="../357084/index.html">Pornhub: nobody hacked us, it's a hoax</a></li>
+<li><a href="../357086/index.html">The Intercept has released a fresh batch of Snowden leaks</a></li>
+<li><a href="../357088/index.html">Research on the use of personal data and protection against cyber-terrorism in the EMEA region</a></li>
+<li><a href="../357090/index.html">In Ukraine, the new bill requires site owners to publish their names and addresses of residence</a></li>
+<li><a href="../357094/index.html">Hacker put up for sale 167 million LinkedIn network accounts</a></li>
+<li><a href="../357096/index.html">With evidence against Megaupload problems: hard drives with service files are gradually becoming unreadable</a></li>
+<li><a href="../357098/index.html">The data flowed car owners of Russia</a></li>
+<li><a href="../357100/index.html">How to open sites blocked by the provider and hidden onion-services in the main browser (Firefox)</a></li>
+<li><a href="../357102/index.html">A student reported a vulnerability in a police communications protocol. Received 15 months conditionally</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

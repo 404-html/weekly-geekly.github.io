@@ -1184,10 +1184,22 @@
     </div>
 </div>
 </div><br></div></div><br><h3>  Chrome vs Firefox vs Edge vs Safari </h3><br>  When it comes to beta versions of web technologies, their implementation in browsers sometimes varies greatly and may be behind the current version of the standard for years.  It happened with WebRTC.  Many years ago, Google Chrome made support for several media tracks in Plan B format and has not yet changed the implementation to Unified Plan.  The corresponding <a href="https://bugs.chromium.org/p/chromium/issues/detail%3Fid%3D465349">ticket was</a> opened a couple of years ago, the developers discuss how important this is and reassign the ticket to each other, but things are still there.  In Firefox, which is typical, only Unified Plan is implemented, so without problems you can only communicate with one media track: voice or video without sound.  Need more?  Welcome to the world of <a href="https://github.com/jitsi/sdp-interop">adapters</a> and polifilov! <br><br>  Microsoft Edge, which initially supports only its own implementation of the “oRTC” API, has added support for the WebRTC API and Unified Plan in recent versions.  In Safari, WebRTC support will only be in the next version, the beta of which is already <a href="https://webkit.org/blog/7763/a-closer-look-into-webrtc/">available to developers</a> .  And, sadly, Plan B. Because it was made on the basis of Chromium. <br><br><h3>  How to make cross-browser calls? </h3><br>  As we can see, Chrome, the most popular browser, has remained with the outdated Plan B format.  Safari is also there, the mobile version of which lives in the iPhone.  Firefox and the new Microsoft Edge with the new "Unified Plan". <br><br>  For voice or video without audio, this does not play any role, but in the case of several media tracks, you will have to manually modify the SDP or use the <a href="https://github.com/jitsi/sdp-interop">adapter</a> .  I really hope that sooner or later all browsers will switch to Unified Plan.  But for now, the harsh reality is that most of the Desktop and the vast majority of Mobile browsers support Plan B, and for compatibility with Firefox and Edge you will have to add code.  And a lot of debugging. <br><br>  <font color="lightgray">Picture to Kata taken <a href="">from here.</a></font> </div><p>Source: <a href="https://habr.com/ru/post/334498/">https://habr.com/ru/post/334498/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../334484/index.html">High-Availability Postgres Clustering</a></li>
+<li><a href="../334486/index.html">We have long hands: 7 foreign sites where you can find remote work</a></li>
+<li><a href="../334488/index.html">Build AngularJs Bundle Apps With Gulp</a></li>
+<li><a href="../334490/index.html">Hackathon during working hours</a></li>
+<li><a href="../334492/index.html">iRobot will sell data from IoT devices manufactured by the company</a></li>
+<li><a href="../334500/index.html">Why Node.js as a frontend base is cool [updated]</a></li>
+<li><a href="../334502/index.html">“I work on projects that integrate a book and an interactive”: Kay Horstmann about books and not only</a></li>
+<li><a href="../334506/index.html">Do you want to encrypt any TCP connection at all? You now have a NoiseSocket</a></li>
+<li><a href="../334510/index.html">In a section: the news aggregator on Android with backend. Introduction, idea, technology</a></li>
+<li><a href="../334512/index.html">Nontrivial problems with generics and possible solutions.</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

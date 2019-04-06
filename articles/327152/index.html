@@ -58,10 +58,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Mikrotik L2TP / IPSec for NAT: ipsec, error failed to pre-process ph2 packet</h1><div class="post__text post__text-html js-mediator-article">  When using Mikrotik for NAT (in particular, for all sorts of USB GSM modems) in L2TP / IPSec client mode, for some operators in certain modes, I got a problem with the ipsec error, error failed to pre-process ph2 packet. <br>  But with the advent of RoS 6.38, it became possible to cope with an error. <br><a name="habracut"></a><br>  So, the error appears in the usual L2TP client configuration as in the picture: <br><img src="https://habrastorage.org/files/646/d62/302/646d62302b354bb7a5c8ab64ad885cc6.PNG"><br><br>  The main problem is that the IPSec policy used in this configuration is nailed and uses ike1.  Ike1, in turn, in the implementation of RoS, has a problem when passing NAT without port forwarding, and as an aggravating circumstance: multiple tunnels with l2tp also do not work out of a single NAT (and the number of clients on the modem is huge). <br>  You can solve the problem when using IKE2 (and for a heap of clients with one NAT, you need to abandon PSK authorization in favor of RSA Signature), which cannot be configured from the menu above, but you can do the trick: go to IP -&gt; IPSec <br><img src="https://habrastorage.org/files/c4f/0d7/ddf/c4f0d7ddf55c485da7d127ab36f4ffe9.PNG"><br><br>  Copy the dynamically created peer, and change the settings in it as shown below: <br><img src="https://habrastorage.org/files/f13/dff/4a0/f13dff4a024f4fe38758e440f6b49a0c.PNG"><br><br>  Namely, we change Exchange Mode to IKE2, in the Encryption tab, configure the necessary encryption settings. <br><br>  It remains to disable the use of IPSec in the L2TP / IPSec settings. <br><br>  That's all, the connection rises, encryption works. </div><p>Source: <a href="https://habr.com/ru/post/327152/">https://habr.com/ru/post/327152/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../327142/index.html">Scilab in free fall</a></li>
+<li><a href="../327144/index.html">ZX Spectrum: 35th Anniversary</a></li>
+<li><a href="../327146/index.html">YiiConf 2017, Moscow, June 16</a></li>
+<li><a href="../327148/index.html">A simple reminder in Telegram</a></li>
+<li><a href="../327150/index.html">Setting up Zabbix 3.2 on Ubuntu Server 16.04 LTS</a></li>
+<li><a href="../327158/index.html">7 Barriers to Implementing Flexible Methodologies in Large Organizations</a></li>
+<li><a href="../327160/index.html">SQL query for PHP (Version 0.2)</a></li>
+<li><a href="../327162/index.html">Detect and track multiple objects in a video stream on an FPGA</a></li>
+<li><a href="../327164/index.html">Genres and settings of mobile games - statistics for April 2017</a></li>
+<li><a href="../327166/index.html">Fast roaming (802.11r) on a Lede-based WiFi network (aka OpenWRT)</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->

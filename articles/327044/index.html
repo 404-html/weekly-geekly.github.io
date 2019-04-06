@@ -58,10 +58,22 @@
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
   <section class="page js-page"><h1>Critical vulnerabilities are discovered in 25 Linksys Smart Wi-Fi devices.</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/getpro/habr/post_images/b82/b17/152/b82b17152b1cdca1eec4185abc1bfc2b.jpg" alt="image"><br><br>  <b>The list of Linksys Smart Wi-Fi devices with detected vulnerabilities:</b> WRT1200AC, WRT1900AC, WRT1900ACS, WRT3200ACM, EA2700, EA2750, EA3500, EA4500 v3, EA6100, EA6200, EA6300, EA6350 v2, EA6350 v3, EA6400, EA6500, EA, EA, EA, 5000, EA6300, EA6300, EA6350, EA6350 v2, EA6350 v3, EA6350 v3, EA6350 v3, EA6300, EA6300, EA6300, EA6350 v3, EA6350 v3 EAA0000 EA7400, EA7500, EA8300, EA8500, EA9200, EA9400, EA9500. <br><br>  Researchers at IOActive, a company specializing in security firmware, discovered 10 vulnerabilities, including critical ones, in 25 of the popular Linksys Smart Wi-Fi series routers. <a name="habracut"></a>  Among the vulnerabilities: <br><br><ul><li>  Vulnerabilities that allow an attacker to make a DDoS attack.  By sending several requests to a specific API of the router, it stops responding or restarts.  The administrator does not have access to the web interface, and users will not be able to connect to the router until the attack stops; <br><br></li><li>  Vulnerabilities related to CGI script authentication bypass, allowing to collect confidential information, such as: firmware version and Linux kernel, list of running processes and connected USB devices, WPS pins, list of connected devices and their OS, access to firewall rules, FTP settings and SMB services; <br><br></li><li>  Vulnerability to allow an authenticated user to execute <b>arbitrary code with root privileges</b> .  As one of the attack options, the user can create a backdoor account to obtain permanent hidden access to the device, since  such an account will not be displayed in the list of users in the web interface of the router, and cannot be deleted under the administrator account. </li></ul><br>  It is worth noting that the researchers from IOActive could not find a way to bypass the authentication protection of the vulnerable API: <br><blockquote>  It should not be noted;  this is different than the authentication of the CGI scripts. </blockquote><br>  Researchers reported the detected vulnerabilities to the vendor and do not yet disclose the details.  Linksys has published information on the <a href="http://www.linksys.com/us/support-article%3FarticleNum%3D246427">site</a> and as a temporary measure offers: <br><br><ol><li>  Enable automatic update: <a href="http://www.linksys.com/us/support-article%3FarticleNum%3D140124">www.linksys.com/us/support-article?articleNum=140124#b</a> </li><li>  Disable guest network if not in use: <a href="http://www.linksys.com/us/support-article%3FarticleNum%3D140861">www.linksys.com/us/support-article?articleNum=140861</a> </li><li>  Change the default administrator password: <a href="http://www.linksys.com/us/support-article%3FarticleNum%3D142491">www.linksys.com/us/support-article?articleNum=142491</a> </li></ol><br>  Materials on the security of wireless networks: <a href="https://defcon.ru/category/wireless-security/">attack and protection of Wi-Fi</a> . </div><p>Source: <a href="https://habr.com/ru/post/327044/">https://habr.com/ru/post/327044/</a></p>
-<section class="all-articles-navigation-panel js-all-articles-navigation-panel">
+<section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
-<nav class="list-of-articles-container js-list-of-articles-container"><p>Waiting for the list form <a href="../../index.html">here</a>...</p></nav>
-</section>
+<nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
+<li><a href="../327024/index.html">List of IT companies that regularly conduct internships for students of southern Russia</a></li>
+<li><a href="../327026/index.html">What programming languages ​​are popular late at night</a></li>
+<li><a href="../327030/index.html">Monad transformers for practicing programmers</a></li>
+<li><a href="../327038/index.html">Gorilla: fast, scalable in-memory time-series database</a></li>
+<li><a href="../327042/index.html">Videos: Moscow Zabbix Meetup in the office of Badoo</a></li>
+<li><a href="../327046/index.html">Performance comparison of the iron server and the Amazon cloud</a></li>
+<li><a href="../327048/index.html">Analysis of communication from the Tor network to the infrastructure using the ELK stack</a></li>
+<li><a href="../327050/index.html">Internal mechanisms of TCP, affecting the download speed: part 2</a></li>
+<li><a href="../327052/index.html">Virtuality and overhead projector</a></li>
+<li><a href="../327054/index.html">7Ps Framework: we structure meetings to make effective</a></li>
+</ul></nav>
+</section><br />
+<a href="../../allArticles.html"><strong>All Articles</strong></a>
 <script src="../../js/main.js"></script>
 
 <!-- Yandex.Metrika counter -->
