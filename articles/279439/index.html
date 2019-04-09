@@ -22,14 +22,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -58,7 +50,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>A simple and not very obvious way to hang chrome, firefox and nodejs inside a native function</h1><div class="post__text post__text-html js-mediator-article"><h4>  Here is all the code: <code>var x = []; x[0x7fffffff]=1; JSON.stringify(x);</code> <code>var x = []; x[0x7fffffff]=1; JSON.stringify(x);</code> </h4><br><h4>  For those who want to try: <a href="https://jsfiddle.net/kLbf880o/6/">jsfiddle</a> </h4><br>  In this straightforward way, you can hang firefox tightly, bring the chrome tab to fall and hang the main nodejs thread. <br><br>  The most remarkable thing about this is that the hang occurs at the level of the native code of the <code>JSON.stringify</code> function, which does not allow interrupting the execution in the same firefox, as it usually happens with a simple <code>while(true);</code>  . <br><br>  When running inside the WebWorker in chrome, the page continues to respond, but terminate cannot terminate the stream. <br><br>  Also for obvious reasons, such code is not detected by jslint. <br><br><a name="habracut"></a><br><h4>  How it works </h4><br><pre> <code class="hljs go"><span class="hljs-keyword"><span class="hljs-keyword">var</span></span> x = []; x[<span class="hljs-number"><span class="hljs-number">0x7fffffff</span></span>]=<span class="hljs-number"><span class="hljs-number">1</span></span>; <span class="hljs-comment"><span class="hljs-comment">//    32   JSON.stringify(x); //  x ,    null...</span></span></code> </pre> <br><h4>  As the author has come to such a life </h4><br>  It was more than 2 o'clock in the morning, I slept a long time ago and little, but I had to work.  It was necessary to implement a collection of objects in <code>localStorage</code> .  The brain was already thinking tight, and at the beginning a simple array was stored for storage with saving as JSON.  After realizing that it would be more convenient to work with ID in this case, the array was replaced with an object, and to generate a random ID, the following code <code>Math.random() * 0x7fffffff &gt;&gt; 0</code> , then the data was serialized and recorded in the repository.  After that, random page hangs began, and during debugging it was discovered that the collection was still initialized as an array. <br><br><h4>  Summarizing, to myself ... </h4><br>  In fact, the note is not about the fact that <code>JSON.stringify</code> bad, but about the fact that you need to be more attentive to what you send to it. <br><br><ol><li>  Need to sleep more </li><li>  Need to sleep more </li><li>  You should not make numeric id if they are random (it is easier to find an error in which case). </li><li>  Unstable typing is sometimes evil. </li></ol><br>  I decided to write a note when it turned out that several familiar programmers did not understand the code that had been dropped in ICQ. <br></div><p>Source: <a href="https://habr.com/ru/post/279439/">https://habr.com/ru/post/279439/</a></p>
+  <section class="page js-page"><h1>A simple and not very obvious way to hang chrome, firefox and nodejs inside a native function</h1><div class="post__text post__text-html js-mediator-article"><h4>  Here is all the code: <code>var x = []; x[0x7fffffff]=1; JSON.stringify(x);</code> <code>var x = []; x[0x7fffffff]=1; JSON.stringify(x);</code> </h4><br><h4>  For those who want to try: <a href="https://jsfiddle.net/kLbf880o/6/">jsfiddle</a> </h4><br>  In this straightforward way, you can hang firefox tightly, bring the chrome tab to fall and hang the main nodejs thread. <br><br>  The most remarkable thing about this is that the hang occurs at the level of the native code of the <code>JSON.stringify</code> function, which does not allow interrupting the execution in the same firefox, as it usually happens with a simple <code>while(true);</code>  . <br><br>  When running inside the WebWorker in chrome, the page continues to respond, but terminate cannot terminate the stream. 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+      Also for obvious reasons, such code is not detected by jslint. <br><br><a name="habracut"></a><br><h4>  How it works </h4><br><pre> <code class="hljs go"><span class="hljs-keyword"><span class="hljs-keyword">var</span></span> x = []; x[<span class="hljs-number"><span class="hljs-number">0x7fffffff</span></span>]=<span class="hljs-number"><span class="hljs-number">1</span></span>; <span class="hljs-comment"><span class="hljs-comment">//    32   JSON.stringify(x); //  x ,    null...</span></span></code> </pre> <br><h4>  As the author has come to such a life </h4><br>  It was more than 2 o'clock in the morning, I slept a long time ago and little, but I had to work.  It was necessary to implement a collection of objects in <code>localStorage</code> .  The brain was already thinking tight, and at the beginning a simple array was stored for storage with saving as JSON.  After realizing that it would be more convenient to work with ID in this case, the array was replaced with an object, and to generate a random ID, the following code <code>Math.random() * 0x7fffffff &gt;&gt; 0</code> , then the data was serialized and recorded in the repository.  After that, random page hangs began, and during debugging it was discovered that the collection was still initialized as an array. <br><br><h4>  Summarizing, to myself ... </h4><br>  In fact, the note is not about the fact that <code>JSON.stringify</code> bad, but about the fact that you need to be more attentive to what you send to it. <br><br><ol><li>  Need to sleep more </li><li>  Need to sleep more </li><li>  You should not make numeric id if they are random (it is easier to find an error in which case). </li><li>  Unstable typing is sometimes evil. </li></ol><br>  I decided to write a note when it turned out that several familiar programmers did not understand the code that had been dropped in ICQ. <br></div><p>Source: <a href="https://habr.com/ru/post/279439/">https://habr.com/ru/post/279439/</a></p>
 <section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">

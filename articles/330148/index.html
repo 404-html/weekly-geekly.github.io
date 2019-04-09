@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -103,7 +95,20 @@
       </div>
     </div>
 </div>
-</div><br>  The JavaScript developer community has been aware of this problem for a long time, and except for “let's throw out all the spaces and rename it not scary to single letter variants” (uglify before dead code elimination) is actively developing “Tree Shaking”.  Ideally, “Tree Shaking” should remove all unused code: imports, method calls, global variables.  And for our code, we need to get a few lodash functions, our code, and that's it.  Instead, we get the whole lodash.  WTF? <br><br><h2>  Webpack, Rollup and Uglify </h2><br>  Tree shaking support is considered a strength of rollup, announced in recent webpack versions, and has been present in UglifyJS for a long time as “dead code elimination”.  Two years ago, the author of Rollup <a href="https://medium.com/%40Rich_Harris/tree-shaking-versus-dead-code-elimination-d3765df85c80">wrote</a> very well about the difference between dead code elimination: if the dead code elimination receives a compiled bandle as an input and tries to throw out unused code from it, then tree shaking works with AST code during compilation and tries to include only that code which is used.  By the way, Webpack is designed for a combined approach: first tree shaking during the build of the bundle, and then the dead code elimination using the UglifyJS plugin. <br><br>  <b>Only in the real world Tree Shaking does not work.</b> <br><br>  According to the authors themselves, to determine the code used in a weakly typed language is not a trivial task.  And in order to not break anything, in incomprehensible situations the code is always included.  Unfortunately, examples of such “incomprehensible” situations are the most popular general purpose libraries: lodash, underscore — all of these guys. <br><br><h2>  What to do? </h2><br>  You can, of course, wait a couple more years.  Type inference is getting better, <a href="https://alexjoverm.github.io/2017/03/06/Tree-shaking-with-Webpack-2-TypeScript-and-Babel/">work</a> is <a href="https://alexjoverm.github.io/2017/03/06/Tree-shaking-with-Webpack-2-TypeScript-and-Babel/">underway</a> to support tree shaking for typed dialects like TypeScript.  But I want to write ES2017 code with libraries now.  Without multi-megabyte bundles. <br><br>  The community knows about this problem, so a temporary solution is being actively used: large monsters like lodash are broken into a huge pile of small modules that can be imported separately.  And here already tree shaking failures does not: <br><br><div class="oembed"><script type="text/javascript" src="https://gist.github.com/491a32c085e9190c6c6db28a059806c7.js"></script><link rel="stylesheet" href="https://github.githubassets.com/assets/gist-embed-6a0c0e7fc2e433191d469ef5051df9f8.css"><div id="gist48464906" class="gist">
+</div><br>  The JavaScript developer community has been aware of this problem for a long time, and except for “let's throw out all the spaces and rename it not scary to single letter variants” (uglify before dead code elimination) is actively developing “Tree Shaking”.  Ideally, “Tree Shaking” should remove all unused code: imports, method calls, global variables.  And for our code, we need to get a few lodash functions, our code, and that's it.  Instead, we get the whole lodash.  WTF? <br><br><h2>  Webpack, Rollup and Uglify </h2><br>  Tree shaking support is considered a strength of rollup, announced in recent webpack versions, and has been present in UglifyJS for a long time as “dead code elimination”.  Two years ago, the author of Rollup <a href="https://medium.com/%40Rich_Harris/tree-shaking-versus-dead-code-elimination-d3765df85c80">wrote</a> very well about the difference between dead code elimination: if the dead code elimination receives a compiled bandle as an input and tries to throw out unused code from it, then tree shaking works with AST code during compilation and tries to include only that code which is used.  By the way, Webpack is designed for a combined approach: first tree shaking during the build of the bundle, and then the dead code elimination using the UglifyJS plugin. 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+      <b>Only in the real world Tree Shaking does not work.</b> <br><br>  According to the authors themselves, to determine the code used in a weakly typed language is not a trivial task.  And in order to not break anything, in incomprehensible situations the code is always included.  Unfortunately, examples of such “incomprehensible” situations are the most popular general purpose libraries: lodash, underscore — all of these guys. <br><br><h2>  What to do? </h2><br>  You can, of course, wait a couple more years.  Type inference is getting better, <a href="https://alexjoverm.github.io/2017/03/06/Tree-shaking-with-Webpack-2-TypeScript-and-Babel/">work</a> is <a href="https://alexjoverm.github.io/2017/03/06/Tree-shaking-with-Webpack-2-TypeScript-and-Babel/">underway</a> to support tree shaking for typed dialects like TypeScript.  But I want to write ES2017 code with libraries now.  Without multi-megabyte bundles. <br><br>  The community knows about this problem, so a temporary solution is being actively used: large monsters like lodash are broken into a huge pile of small modules that can be imported separately.  And here already tree shaking failures does not: <br><br><div class="oembed"><script type="text/javascript" src="https://gist.github.com/491a32c085e9190c6c6db28a059806c7.js"></script><link rel="stylesheet" href="https://github.githubassets.com/assets/gist-embed-6a0c0e7fc2e433191d469ef5051df9f8.css"><div id="gist48464906" class="gist">
     <div class="gist-file">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">

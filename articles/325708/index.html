@@ -25,14 +25,6 @@ wget -c http://link/file
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -61,7 +53,20 @@ wget -c http://link/file
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Some useful commands for working in terminal Linux</h1><div class="post__text post__text-html js-mediator-article">  Downloading a file using a link with the ability to continue downloading, for example, when the connection is broken: <br><pre><code class="bash hljs">wget -c http://link/file</code> </pre> <br>  View recording in a text file in real time: <br><pre> <code class="bash hljs">tailf file</code> </pre> <br>  Find out the command execution time: <br><pre> <code class="bash hljs">time <span class="hljs-built_in"><span class="hljs-built_in">command</span></span></code> </pre> <br>  Tracking changes in the output of the command: <br><pre> <code class="bash hljs">watch <span class="hljs-built_in"><span class="hljs-built_in">command</span></span></code> </pre> <br>  The key combination to close the current session in bash and various utilities, for example, the MySQL client: <br><pre> <code class="bash hljs">Ctrl-D</code> </pre> <br>  Quick file backup: <br><pre> <code class="bash hljs">cp file{,.copy}</code> </pre> <a name="habracut"></a><br>  File cleanup: <br><pre> <code class="bash hljs">&gt; file</code> </pre> <br>  Cleaning a file if you do not have rights to the file: <br><pre> <code class="bash hljs"><span class="hljs-built_in"><span class="hljs-built_in">echo</span></span> -n | sudo tee file</code> </pre> <br>  or <br><pre> <code class="bash hljs">sudo truncate -s 0 file</code> </pre> <br>  Keyboard shortcut for searching through the history of previously entered commands: <br><pre> <code class="bash hljs">Ctrl-R</code> </pre> <br>  Copy file with progress output: <br><pre> <code class="bash hljs">pv sourcefile &gt; destfile</code> </pre> <br>  Search for running processes without displaying the search process itself: <br><pre> <code class="bash hljs">ps aux | grep [p]rocess</code> </pre> <br>  Create a directory and all subdirectories if they are missing: <br><pre> <code class="bash hljs">mkdir -p /path/to/directory</code> </pre> <br>  Displaying pop-up messages on Gnome and Debian-based systems: <br><pre> <code class="bash hljs">notify-send <span class="hljs-string"><span class="hljs-string">"message!"</span></span></code> </pre> <br>  It works similar to the cat command, with the difference that zcat is intended for packed files. <br><pre> <code class="bash hljs">zcat file</code> </pre> <br>  Recursive search for files containing the search string: <br><pre> <code class="bash hljs">grep -lr string /directory</code> </pre> <br>  Displays a list of libraries required for the program: <br><pre> <code class="bash hljs">ldd file</code> </pre> </div><p>Source: <a href="https://habr.com/ru/post/325708/">https://habr.com/ru/post/325708/</a></p>
+  <section class="page js-page"><h1>Some useful commands for working in terminal Linux</h1><div class="post__text post__text-html js-mediator-article">  Downloading a file using a link with the ability to continue downloading, for example, when the connection is broken: <br><pre><code class="bash hljs">wget -c http://link/file</code> </pre> <br>  View recording in a text file in real time: <br><pre> <code class="bash hljs">tailf file</code> </pre> <br>  Find out the command execution time: <br><pre> <code class="bash hljs">time <span class="hljs-built_in"><span class="hljs-built_in">command</span></span></code> </pre> <br>  Tracking changes in the output of the command: <br><pre> <code class="bash hljs">watch <span class="hljs-built_in"><span class="hljs-built_in">command</span></span></code> </pre> <br>  The key combination to close the current session in bash and various utilities, for example, the MySQL client: <br><pre> <code class="bash hljs">Ctrl-D</code> </pre> <br>  Quick file backup: <br><pre> <code class="bash hljs">cp file{,.copy}</code> </pre> <a name="habracut"></a><br>  File cleanup: <br><pre> <code class="bash hljs">&gt; file</code> </pre> <br>  Cleaning a file if you do not have rights to the file: <br><pre> <code class="bash hljs"><span class="hljs-built_in"><span class="hljs-built_in">echo</span></span> -n | sudo tee file</code> </pre> <br>  or <br><pre> <code class="bash hljs">sudo truncate -s 0 file</code> </pre> <br>  Keyboard shortcut for searching through the history of previously entered commands: <br><pre> <code class="bash hljs">Ctrl-R</code> </pre> <br>  Copy file with progress output: <br><pre> <code class="bash hljs">pv sourcefile &gt; destfile</code> </pre> <br>  Search for running processes without displaying the search process itself: <br><pre> <code class="bash hljs">ps aux | grep [p]rocess</code> </pre> <br>  Create a directory and all subdirectories if they are missing: <br><pre> <code class="bash hljs">mkdir -p /path/to/directory</code> </pre> <br>  Displaying pop-up messages on Gnome and Debian-based systems: <br><pre> <code class="bash hljs">notify-send <span class="hljs-string"><span class="hljs-string">"message!"</span></span></code> </pre> <br>  It works similar to the cat command, with the difference that zcat is intended for packed files. <br><pre> <code class="bash hljs">zcat file</code> </pre> <br>  Recursive search for files containing the search string: <br><pre> <code class="bash hljs">grep -lr string /directory</code> </pre> <br>  Displays a list of libraries required for the program: <br><pre> <code class="bash hljs">ldd file</code> </pre> </div>
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+    <p>Source: <a href="https://habr.com/ru/post/325708/">https://habr.com/ru/post/325708/</a></p>
 <section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">

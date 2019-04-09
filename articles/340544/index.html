@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>A dozen Linux tricks that really save a lot of time</h1><div class="post__text post__text-html js-mediator-article"><div style="text-align:center;"><img width="90%" src="https://habrastorage.org/webt/59/eb/8e/59eb8efd1c86a717826230.png" alt="image"></div><br>  One evening, re-reading <a href="https://scanlibs.com/regulyarnyie-vyirazheniya-3-e-izdanie/">Jeffrey Fridle</a> , I realized that even with all the available documentation, there are many tricks tailored for themselves.  All people are too different.  And the techniques that are obvious to some may not be obvious to others and look like some kind of magic to others.  By the way, I already described several similar moments <a href="https://habrahabr.ru/post/339246/">here</a> . <br><br>  The command line for the administrator or user is not only a tool with which you can do everything, but also a tool that is customized for your beloved person indefinitely.  Recently I ran a translation on the topic of convenient receptions in the CLI.  But I got the impression that the translator himself did not use much advice, which is why important nuances could be missed. <br><br>  Under the cut - a dozen command line techniques - from personal experience. <br><a name="habracut"></a><br>  A small digression - in real life, I use a variety of techniques in which the names of real servers or users may accidentally meet, which may fall under the NDA, so I couldn’t save and paste and specially rewrote and simplified all the examples in the article as much as possible - and if you think that some method in this context is completely useless - perhaps this is precisely the reason.  But in any case, share your ideas in the comments! <br><br><h4>  1. Splitting a string with variable expansions </h4><br>  Often use cut or even awk to simply get the value of a single column. <br>  If you want to take the first characters in the string, use $ {VARIABLE: 0: 5}. <br><br>  But there is a very powerful tool that allows you to manipulate strings with #, ##,% and %% (bash variable expansions) - with their help, you can cut off the unnecessary by the pattern from any side. <br>  The example below shows how from the string “username: homedir: shell” you can get only the third column (shell) using cut or using variable expansions (we use the <u>*:</u> mask and the ## command, which means cutting all characters to the last found colon): <br><br><pre><code class="bash hljs">$ STRING=<span class="hljs-string"><span class="hljs-string">"username:homedir:shell"</span></span>
+  <section class="page js-page"><h1>A dozen Linux tricks that really save a lot of time</h1><div class="post__text post__text-html js-mediator-article"><div style="text-align:center;"><img width="90%" src="https://habrastorage.org/webt/59/eb/8e/59eb8efd1c86a717826230.png" alt="image"></div><br>  One evening, re-reading <a href="https://scanlibs.com/regulyarnyie-vyirazheniya-3-e-izdanie/">Jeffrey Fridle</a> , I realized that even with all the available documentation, there are many tricks tailored for themselves.  All people are too different.  And the techniques that are obvious to some may not be obvious to others and look like some kind of magic to others.  By the way, I already described several similar moments <a href="https://habrahabr.ru/post/339246/">here</a> . <br><br>  The command line for the administrator or user is not only a tool with which you can do everything, but also a tool that is customized for your beloved person indefinitely.  Recently I ran a translation on the topic of convenient receptions in the CLI.  But I got the impression that the translator himself did not use much advice, which is why important nuances could be missed. <br><br>  Under the cut - a dozen command line techniques - from personal experience. <br><a name="habracut"></a><br>  A small digression - in real life, I use a variety of techniques in which the names of real servers or users may accidentally meet, which may fall under the NDA, so I couldn’t save and paste and specially rewrote and simplified all the examples in the article as much as possible - and if you think that some method in this context is completely useless - perhaps this is precisely the reason.  But in any case, share your ideas in the comments! 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+    <h4>  1. Splitting a string with variable expansions </h4><br>  Often use cut or even awk to simply get the value of a single column. <br>  If you want to take the first characters in the string, use $ {VARIABLE: 0: 5}. <br><br>  But there is a very powerful tool that allows you to manipulate strings with #, ##,% and %% (bash variable expansions) - with their help, you can cut off the unnecessary by the pattern from any side. <br>  The example below shows how from the string “username: homedir: shell” you can get only the third column (shell) using cut or using variable expansions (we use the <u>*:</u> mask and the ## command, which means cutting all characters to the last found colon): <br><br><pre><code class="bash hljs">$ STRING=<span class="hljs-string"><span class="hljs-string">"username:homedir:shell"</span></span>
 
 $ <span class="hljs-built_in"><span class="hljs-built_in">echo</span></span> <span class="hljs-string"><span class="hljs-string">"</span><span class="hljs-variable"><span class="hljs-string"><span class="hljs-variable">$STRING</span></span></span><span class="hljs-string">"</span></span>|cut -d <span class="hljs-string"><span class="hljs-string">":"</span></span> -f 3
 shell

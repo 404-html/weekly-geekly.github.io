@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Vostok-1 spacecraft in 3D - render in Blender</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/files/c02/0ca/069/c020ca0697ca4167a069cb7e78115f3a.jpg"><br><br>  Robotics is interesting because it is a synthesis of many areas - programming, construction, mathematics, physics, and there is also modeling.  In that year, on the Day of Astronautics, we made a <a href="https://habrahabr.ru/company/makeitlab/blog/255451/">small post</a> about modeling the Vostok-1 spacecraft using OpenSCAD, this time - we will continue the tradition and try it out in practice - Blender.  Skill modeling - will not be superfluous. <br><br>  <a href="https://www.blender.org/">Blender</a> is a cross-platform, free system for 3D modeling (+ animation), and it is also possible to “render” models in it. <br><br>  Creating 3D models, especially spaceships, is not an easy task, and it can take months.  But we will use ready-made 3D models of the Vostok-1 spacecraft (we will tell where they are), and create a simple 3D scene. <br><a name="habracut"></a><br><h5>  <b>Vostok-1 ship models</b> </h5><br>  First, let us tell you about the source of the models - they are posted on <a href="https://github.com/gagarin-vostok/FlightGearVostok-1">github</a> - their author, Slavutinsky Victor - created them for FlightGear flight simulator, many thanks for his work. <br><br><h5>  <b>Install Blender</b> </h5><br>  With the installation of Blender, there should be no problems, the distribution kit for your OS is downloaded from the <a href="https://www.blender.org/download/">official page</a> - it is unpacked and launched. <br><br><h5>  <b>Import AC3D to Blender</b> </h5><br>  Model FlightGear model files in AC3D format (* .ac) - we need to import them into Blender.  For this, there is the <a href="https://github.com/majic79/Blender-AC3D">Blender-AC3D plugin</a> . <br><br>  Installing plugins is to copy the folder to the folder with plugins, I needed to copy the folder “io_scene_ac3d” to the folder of my distribution “blender-2.76b-linux-glibc211-x86_64 / 2.76 / scripts / addons /”.  After that, you need to activate the plugin. To do this (after restarting Blender), select the “File” menu - “User Preferences ...” - on the “Addons” tab, type ac3d in the search field - and our plugin is displayed, put the “little stick” opposite it From this point on, the plug-in becomes available (if we want it to always be connected, click on the “Save User Setting” button). <br><br>  Now we can import models in the * .ac format - select “File - Import - AC3D”. <br><br><h5>  <b>East-1 models</b> </h5><br>  Models are located in the <a href="https://github.com/gagarin-vostok/FlightGearVostok-1/tree/master/Models">Models</a> folder, in the appropriate (speaking) sub-folders: <br><pre> Controlhandle
+  <section class="page js-page"><h1>Vostok-1 spacecraft in 3D - render in Blender</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/files/c02/0ca/069/c020ca0697ca4167a069cb7e78115f3a.jpg"><br><br>  Robotics is interesting because it is a synthesis of many areas - programming, construction, mathematics, physics, and there is also modeling.  In that year, on the Day of Astronautics, we made a <a href="https://habrahabr.ru/company/makeitlab/blog/255451/">small post</a> about modeling the Vostok-1 spacecraft using OpenSCAD, this time - we will continue the tradition and try it out in practice - Blender.  Skill modeling - will not be superfluous. <br><br>  <a href="https://www.blender.org/">Blender</a> is a cross-platform, free system for 3D modeling (+ animation), and it is also possible to “render” models in it. 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+      Creating 3D models, especially spaceships, is not an easy task, and it can take months.  But we will use ready-made 3D models of the Vostok-1 spacecraft (we will tell where they are), and create a simple 3D scene. <br><a name="habracut"></a><br><h5>  <b>Vostok-1 ship models</b> </h5><br>  First, let us tell you about the source of the models - they are posted on <a href="https://github.com/gagarin-vostok/FlightGearVostok-1">github</a> - their author, Slavutinsky Victor - created them for FlightGear flight simulator, many thanks for his work. <br><br><h5>  <b>Install Blender</b> </h5><br>  With the installation of Blender, there should be no problems, the distribution kit for your OS is downloaded from the <a href="https://www.blender.org/download/">official page</a> - it is unpacked and launched. <br><br><h5>  <b>Import AC3D to Blender</b> </h5><br>  Model FlightGear model files in AC3D format (* .ac) - we need to import them into Blender.  For this, there is the <a href="https://github.com/majic79/Blender-AC3D">Blender-AC3D plugin</a> . <br><br>  Installing plugins is to copy the folder to the folder with plugins, I needed to copy the folder “io_scene_ac3d” to the folder of my distribution “blender-2.76b-linux-glibc211-x86_64 / 2.76 / scripts / addons /”.  After that, you need to activate the plugin. To do this (after restarting Blender), select the “File” menu - “User Preferences ...” - on the “Addons” tab, type ac3d in the search field - and our plugin is displayed, put the “little stick” opposite it From this point on, the plug-in becomes available (if we want it to always be connected, click on the “Save User Setting” button). <br><br>  Now we can import models in the * .ac format - select “File - Import - AC3D”. <br><br><h5>  <b>East-1 models</b> </h5><br>  Models are located in the <a href="https://github.com/gagarin-vostok/FlightGearVostok-1/tree/master/Models">Models</a> folder, in the appropriate (speaking) sub-folders: <br><pre> Controlhandle
  Effects
  Exhausts
  Gashandle

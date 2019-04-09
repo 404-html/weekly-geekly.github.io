@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Comodo Internet Security Local Update Server</h1><div class="post__text post__text-html js-mediator-article">  This manual will detail the process of raising your local Comodo update server on Windows without using any paid components.  Unlike <a href="https://forums.comodo.com/empty-t54363.0.html">Comodo Offline Updater</a> and analogs, there is no need to configure a proxy on the client side. <br><br>  Requirements: <br><br><ul><li>  OS: Windows 7 SP1 and above or Windows Server 2008 and above (for 7 and 2008 you need <a href="https://www.microsoft.com/en-us/download/details.aspx%253Fid%253D34595">WMF 3.0</a> or <a href="https://www.microsoft.com/ru-ru/download/details.aspx%253Fid%253D40855">WMF 4.0</a> ) </li><li>  <a href="https://www.iis.net/downloads/microsoft/url-rewrite">URL Rewrite 2.1</a> module </li><li>  Script download updates on PowerShell </li><li>  <a href="http://www.7-zip.org/">7-zip</a> </li></ul><a name="habracut"></a><br>  Windows 7 SP1 Pro x64 (IIS 6.7) will be used as a server.  For newer OS installation and configuration is similar. <br><br><h3>  1) Installing IIS </h3><br>  "Enable or disable Windows components" in the "Add or Remove Programs" section, check "IIS" for installation.  Automatically marked components are enough. <br><br><img src="https://habrastorage.org/web/293/11c/511/29311c51176b4883b35b6cd5c7126a29.png"><br><br><h3>  2) Script and logic for downloading updates </h3><br>  The script is written in PowerShell v4, so to work correctly on Windows 7 you need to update WMF4.0.  Reboot after installation is required.  7-Zip is also required for unpacking.  By itself, to run a script, you need to translate the PS Execution Policy to Unrestricted.  This is done with the <i>Set-ExecutionPolicy Unrestricted</i> command. <br><br>  Comodo updates are divided into 2 parts: the base and the update of the program itself.  Files of both parts can be packaged or not.  I recommend using packaged ones, since they occupy much less disk space - 290MB versus 635MB only in databases. <br><div class="spoiler">  <b class="spoiler_title">COU.ps1</b> <div class="spoiler_text"><div class="oembed"><script type="text/javascript" src="https://gist.github.com/999ddcd1b7f9546f8223bc1ff5d77625.js"></script><link rel="stylesheet" href="https://github.githubassets.com/assets/gist-embed-6a0c0e7fc2e433191d469ef5051df9f8.css"><div id="gist73480246" class="gist">
+  <section class="page js-page"><h1>Comodo Internet Security Local Update Server</h1><div class="post__text post__text-html js-mediator-article">  This manual will detail the process of raising your local Comodo update server on Windows without using any paid components.  Unlike <a href="https://forums.comodo.com/empty-t54363.0.html">Comodo Offline Updater</a> and analogs, there is no need to configure a proxy on the client side. <br><br>  Requirements: <br><br><ul><li>  OS: Windows 7 SP1 and above or Windows Server 2008 and above (for 7 and 2008 you need <a href="https://www.microsoft.com/en-us/download/details.aspx%253Fid%253D34595">WMF 3.0</a> or <a href="https://www.microsoft.com/ru-ru/download/details.aspx%253Fid%253D40855">WMF 4.0</a> ) </li><li>  <a href="https://www.iis.net/downloads/microsoft/url-rewrite">URL Rewrite 2.1</a> module </li><li>  Script download updates on PowerShell </li><li>  <a href="http://www.7-zip.org/">7-zip</a> </li></ul><a name="habracut"></a><br>  Windows 7 SP1 Pro x64 (IIS 6.7) will be used as a server.  For newer OS installation and configuration is similar. 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+    <h3>  1) Installing IIS </h3><br>  "Enable or disable Windows components" in the "Add or Remove Programs" section, check "IIS" for installation.  Automatically marked components are enough. <br><br><img src="https://habrastorage.org/web/293/11c/511/29311c51176b4883b35b6cd5c7126a29.png"><br><br><h3>  2) Script and logic for downloading updates </h3><br>  The script is written in PowerShell v4, so to work correctly on Windows 7 you need to update WMF4.0.  Reboot after installation is required.  7-Zip is also required for unpacking.  By itself, to run a script, you need to translate the PS Execution Policy to Unrestricted.  This is done with the <i>Set-ExecutionPolicy Unrestricted</i> command. <br><br>  Comodo updates are divided into 2 parts: the base and the update of the program itself.  Files of both parts can be packaged or not.  I recommend using packaged ones, since they occupy much less disk space - 290MB versus 635MB only in databases. <br><div class="spoiler">  <b class="spoiler_title">COU.ps1</b> <div class="spoiler_text"><div class="oembed"><script type="text/javascript" src="https://gist.github.com/999ddcd1b7f9546f8223bc1ff5d77625.js"></script><link rel="stylesheet" href="https://github.githubassets.com/assets/gist-embed-6a0c0e7fc2e433191d469ef5051df9f8.css"><div id="gist73480246" class="gist">
     <div class="gist-file">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">

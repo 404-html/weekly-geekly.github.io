@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Moving from Ubuntu to Windows 10, Hyper-V and getting rid of the iron router</h1><div class="post__text post__text-html js-mediator-article">  Having bought a new laptop, I regretfully noticed that my beloved Ubuntu no longer supports the work of the sensors and the fans are constantly buzzing, making the work not comfortable.  At the same time, if you download the pre-installed Windows 10 Pro from the original hard drive, then there is a pleasant silence for the ear.  While it was cool outside (and at home), it was tolerable.  But as the heat came, patience came to an end.  It was decided to migrate to Windows. <br><a name="habracut"></a><br>  In my work, I use numerous virtual machines to build, test, and debug the software being developed.  Windows 10 Pro includes Hyper-V virtualization - once the money is paid, you have to use it!  In Ubuntu, I used libvirt and virtual machines combined into one internal virtual network. <br><br>  Transferring Windows from the original disk to the SSD and transforming the virtual machine images into hyper-v format, with a pain in my heart, I began to master the new operating system. <br><br>  It turned out not so scary!  Virtual desktops were replaced with windows desktops (unfortunately only horizontal), the console replaced the WSL console (Windows Subsystem for Linux), X11 applications were installed and added to VcXsrv autorun, virtual machines started working in Hyper-V, and even OSX was launched. <br><br>  The native terminal was not entirely convenient and without tabs, so it was mercilessly replaced by the xfce4 terminal, which is launched via a shortcut with a hidden console linux window: <br><br><img src="https://habrastorage.org/webt/_b/zv/_m/_bzv_muthimp9okycb35xuvpfry.png" alt="image"><br><br>  An object: <br><br><pre><code>C:\Windows\System32\wscript.exe ./runhidden.vbs bash -c "export DISPLAY=:0.0; export GDK_DPI_SCALE=1.2; cd ~; exec xfce4-terminal"
+  <section class="page js-page"><h1>Moving from Ubuntu to Windows 10, Hyper-V and getting rid of the iron router</h1><div class="post__text post__text-html js-mediator-article">  Having bought a new laptop, I regretfully noticed that my beloved Ubuntu no longer supports the work of the sensors and the fans are constantly buzzing, making the work not comfortable.  At the same time, if you download the pre-installed Windows 10 Pro from the original hard drive, then there is a pleasant silence for the ear.  While it was cool outside (and at home), it was tolerable.  But as the heat came, patience came to an end.  It was decided to migrate to Windows. <br><a name="habracut"></a><br>  In my work, I use numerous virtual machines to build, test, and debug the software being developed.  Windows 10 Pro includes Hyper-V virtualization - once the money is paid, you have to use it!  In Ubuntu, I used libvirt and virtual machines combined into one internal virtual network. <br><br>  Transferring Windows from the original disk to the SSD and transforming the virtual machine images into hyper-v format, with a pain in my heart, I began to master the new operating system. <br><br>  It turned out not so scary!  Virtual desktops were replaced with windows desktops (unfortunately only horizontal), the console replaced the WSL console (Windows Subsystem for Linux), X11 applications were installed and added to VcXsrv autorun, virtual machines started working in Hyper-V, and even OSX was launched. 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+      The native terminal was not entirely convenient and without tabs, so it was mercilessly replaced by the xfce4 terminal, which is launched via a shortcut with a hidden console linux window: <br><br><img src="https://habrastorage.org/webt/_b/zv/_m/_bzv_muthimp9okycb35xuvpfry.png" alt="image"><br><br>  An object: <br><br><pre><code>C:\Windows\System32\wscript.exe ./runhidden.vbs bash -c "export DISPLAY=:0.0; export GDK_DPI_SCALE=1.2; cd ~; exec xfce4-terminal"
 </code></pre><br>
         (  ,     X11    ),    :<br>
 <br>

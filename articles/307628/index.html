@@ -23,14 +23,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -59,7 +51,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Tinkoff has compromised data on the balance of its clients' cards</h1><div class="post__text post__text-html js-mediator-article">  <b>UPD3:</b> Vulnerability closed, the balance is no longer checked. <br><br>  It all started with the fact that one evening he asked me a friend to throw him money on the card.  I have always solved such problems either through the Internet Bank or through a mobile application, but since they have recently turned the Internet Bank into a wild monster, this time I decided to use their <a href="https://www.tinkoff.ru/cardtocard/">card2card</a> service. <br><br>  I fill myself quietly field, and then the unexpected happens: <br><br><img src="https://habrastorage.org/getpro/habr/post_images/ee9/3d8/5f2/ee93d85f2afca8a0f8eea8ca64e5d230.jpg"><br><a name="habracut"></a><br>  Wait, because I did not press the send button!  Where does this come from?  Played with the amount, checks the actual amount on the card. <br><br>  At first, I thought a sinful thing that the Ajax sends to the server all the card data, including the CVC and the expiration date, with each edit.  This, of course, disgusting, but https - let them do what they want.  I go to browser requests: <br><br><img src="https://habrastorage.org/getpro/habr/post_images/de1/af1/272/de1af127219ef6ac2da88c11257c1e57.jpg"><br><br>  CVC is not transmitted, it is already interesting.  But then the validity period is transmitted, at least some kind of protection, I think, although still at a loss why to check the balance of the card by the Ajax on the fly. <br><br>  But nevertheless, the interest doesn’t end up completely and I edit the query: <br><br><img src="https://habrastorage.org/getpro/habr/post_images/b24/397/b94/b24397b9468200a03bb62a42f5943b05.jpg"><br><br>  Oops.  At the reverse end, nothing is checked except the sender’s card number. <br><br>  Obviously, using the simple brute force method, it is easy to choose the amount below which everything is ok, and the error is higher - this will be the balance of the card.  That is, knowing only the card number (which of course is not too public information, but not critical, many give card numbers to friends and even post them on the Internet to receive payments) you can find out how much money there is.  Moreover, as experiments have shown, no monthly limits do not affect this. <br><br>  The hole is not critical, but the availability of this information in real time allows you to keep track of all expenses / recharge - and this is more serious. <br><br>  Immediately unsubscribed Bezopasnik by publicly available mail, but the reaction, as usual, is zero. <br><br>  Quickly sketched proof of concept (do not hit hard, my programming experience is basic in school). <br><br><div class="spoiler">  <b class="spoiler_title">php inside</b> <div class="spoiler_text"><pre><code class="php">&lt;?php
+  <section class="page js-page"><h1>Tinkoff has compromised data on the balance of its clients' cards</h1><div class="post__text post__text-html js-mediator-article">  <b>UPD3:</b> Vulnerability closed, the balance is no longer checked. <br><br>  It all started with the fact that one evening he asked me a friend to throw him money on the card.  I have always solved such problems either through the Internet Bank or through a mobile application, but since they have recently turned the Internet Bank into a wild monster, this time I decided to use their <a href="https://www.tinkoff.ru/cardtocard/">card2card</a> service. <br><br>  I fill myself quietly field, and then the unexpected happens: 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+    <img src="https://habrastorage.org/getpro/habr/post_images/ee9/3d8/5f2/ee93d85f2afca8a0f8eea8ca64e5d230.jpg"><br><a name="habracut"></a><br>  Wait, because I did not press the send button!  Where does this come from?  Played with the amount, checks the actual amount on the card. <br><br>  At first, I thought a sinful thing that the Ajax sends to the server all the card data, including the CVC and the expiration date, with each edit.  This, of course, disgusting, but https - let them do what they want.  I go to browser requests: <br><br><img src="https://habrastorage.org/getpro/habr/post_images/de1/af1/272/de1af127219ef6ac2da88c11257c1e57.jpg"><br><br>  CVC is not transmitted, it is already interesting.  But then the validity period is transmitted, at least some kind of protection, I think, although still at a loss why to check the balance of the card by the Ajax on the fly. <br><br>  But nevertheless, the interest doesn’t end up completely and I edit the query: <br><br><img src="https://habrastorage.org/getpro/habr/post_images/b24/397/b94/b24397b9468200a03bb62a42f5943b05.jpg"><br><br>  Oops.  At the reverse end, nothing is checked except the sender’s card number. <br><br>  Obviously, using the simple brute force method, it is easy to choose the amount below which everything is ok, and the error is higher - this will be the balance of the card.  That is, knowing only the card number (which of course is not too public information, but not critical, many give card numbers to friends and even post them on the Internet to receive payments) you can find out how much money there is.  Moreover, as experiments have shown, no monthly limits do not affect this. <br><br>  The hole is not critical, but the availability of this information in real time allows you to keep track of all expenses / recharge - and this is more serious. <br><br>  Immediately unsubscribed Bezopasnik by publicly available mail, but the reaction, as usual, is zero. <br><br>  Quickly sketched proof of concept (do not hit hard, my programming experience is basic in school). <br><br><div class="spoiler">  <b class="spoiler_title">php inside</b> <div class="spoiler_text"><pre><code class="php">&lt;?php
 header( 'Content-type: text/html; charset=utf-8' );
 
 $card = $_GET['card'];

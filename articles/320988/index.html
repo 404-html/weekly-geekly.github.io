@@ -23,14 +23,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -59,7 +51,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Gitlab "lies", the base is destroyed (restored)</h1><div class="post__text post__text-html js-mediator-article"><img align="left" src="https://habrastorage.org/files/98e/3e6/b41/98e3e6b410fd441398ecbc6d65a8d1d9.jpg" alt="image">  Yesterday, January 31, the Gitlab service accidentally destroyed its production database (the git repositories themselves were not affected). <br><br>  It was like this. <br><a name="habracut"></a><br>  For some reason, the hot-standby base replica (PostgreSQL) began to lag (the replica was the only one).  The gitlab employee for some time tried to influence the situation with various settings, etc., then decided to erase everything and pour a replica again.  I tried to erase the folder with the data on the replica, but confused the server and erased it on the master (I made rm -rf on db1.cluster.gitlab.com instead of db2.cluster.gitlab.com). <br><br>  Interestingly, there were 5 different types of backups / replicas in the system, and none of this worked.  There was only a LVM snapshot made by chance 6 hours before the fall. <br><br>  Here, I give an abbreviated quote from their document.  Detected problems: <br><br><blockquote>  1) LVM snapshots are taken only after 24 hours. <br>  2) Regular backups where they are stored. <br>  3) Disk snapshots in Azure are enabled for the NFS server, but not for the DB servers. <br>  4) The synchronization process removes webhooks once it has synchronized data to staging.  24 hours a day they will be lost <br>  5) The replication procedure is a bit more fragile, prone to error, and it is badly documented. <br>  6) Our backups to S3 <br>  7) We don’t have solid alerting / paging for when backups fails, we’re seeing this. </blockquote><br>  Thus, gitlab concludes, out of 5 backups / replication techniques, nothing worked reliably and as it should = =&gt; therefore, recovery from a random 6-hour backup is underway <br><br>  → <a href="https://docs.google.com/document/d/1GCK53YDcBWQveod9kfzW-VCxIABGiryG7_z_6jHdVik/pub">Here is the full text of the document</a> </div><p>Source: <a href="https://habr.com/ru/post/320988/">https://habr.com/ru/post/320988/</a></p>
+  <section class="page js-page"><h1>Gitlab "lies", the base is destroyed (restored)</h1><div class="post__text post__text-html js-mediator-article"><img align="left" src="https://habrastorage.org/files/98e/3e6/b41/98e3e6b410fd441398ecbc6d65a8d1d9.jpg" alt="image">  Yesterday, January 31, the Gitlab service accidentally destroyed its production database (the git repositories themselves were not affected). <br><br>  It was like this. <br><a name="habracut"></a><br>  For some reason, the hot-standby base replica (PostgreSQL) began to lag (the replica was the only one).  The gitlab employee for some time tried to influence the situation with various settings, etc., then decided to erase everything and pour a replica again.  I tried to erase the folder with the data on the replica, but confused the server and erased it on the master (I made rm -rf on db1.cluster.gitlab.com instead of db2.cluster.gitlab.com). <br><br>  Interestingly, there were 5 different types of backups / replicas in the system, and none of this worked.  There was only a LVM snapshot made by chance 6 hours before the fall. 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+      Here, I give an abbreviated quote from their document.  Detected problems: <br><br><blockquote>  1) LVM snapshots are taken only after 24 hours. <br>  2) Regular backups where they are stored. <br>  3) Disk snapshots in Azure are enabled for the NFS server, but not for the DB servers. <br>  4) The synchronization process removes webhooks once it has synchronized data to staging.  24 hours a day they will be lost <br>  5) The replication procedure is a bit more fragile, prone to error, and it is badly documented. <br>  6) Our backups to S3 <br>  7) We don’t have solid alerting / paging for when backups fails, we’re seeing this. </blockquote><br>  Thus, gitlab concludes, out of 5 backups / replication techniques, nothing worked reliably and as it should = =&gt; therefore, recovery from a random 6-hour backup is underway <br><br>  → <a href="https://docs.google.com/document/d/1GCK53YDcBWQveod9kfzW-VCxIABGiryG7_z_6jHdVik/pub">Here is the full text of the document</a> </div><p>Source: <a href="https://habr.com/ru/post/320988/">https://habr.com/ru/post/320988/</a></p>
 <section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">

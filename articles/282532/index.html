@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>We are looking for free IPv4 in BGP full-view</h1><div class="post__text post__text-html js-mediator-article">  We all know that IPv4 addresses <a href="https://habrahabr.ru/post/113056/">have already ended</a> and <a href="https://habrahabr.ru/post/151518/">more than once</a> .  Most recently, this was quite a popular topic for discussion, including on <a href="https://habrahabr.ru/post/124749/">Habrahabr</a> : they made <a href="https://habrahabr.ru/post/8193/">plans</a> and <a href="https://habrahabr.ru/post/106488/">forecasts</a> , <a href="https://habrahabr.ru/post/189516/">counted losses</a> .  In the yard in 2016, but IPv4 is still in service. <br><br>  On April 21, the RIPE NCC published a <a href="https://www.ripe.net/publications/news/about-ripe-ncc-and-ripe/ipv4-chart-updated">brief technical news</a> about the very exhaustion of IPv4 addresses.  Actually, the meaning of the news is that the <a href="https://www.ripe.net/publications/ipv6-info-centre/about-ipv6/ipv4-exhaustion/ipv4-available-pool-graph">graph has been</a> updated showing the current position with free addresses from which RIPE is left at its disposal almost on the full block / 8.  <a href="https://www.apnic.net/community/ipv4-exhaustion/graphical-information">APNIC</a> only has half / 8.  Probably, the rigid address distribution policy is doing its job and this latest / 8 RIRs will drag on for a very long time. <br><br>  But all this refers to the "paper" addresses.  And how many real addresses are available for routing to the Internet?  More precisely, how many addresses possible for routing to the Internet is not used.  To calculate this, we will use a unique live witness - the BGP routing table. <br><br>  Further, some technical details on how to calculate the results of this calculation. <a name="habracut"></a><br><br>  BGP full-view contains all the addresses available for routing, currently about 600,000 prefixes.  The table with addresses looks like this: <br><br><blockquote><pre> * 1.1.8.0/24 216.221.157.162 0 0 0 40191 3257 4134 i
+  <section class="page js-page"><h1>We are looking for free IPv4 in BGP full-view</h1><div class="post__text post__text-html js-mediator-article">  We all know that IPv4 addresses <a href="https://habrahabr.ru/post/113056/">have already ended</a> and <a href="https://habrahabr.ru/post/151518/">more than once</a> .  Most recently, this was quite a popular topic for discussion, including on <a href="https://habrahabr.ru/post/124749/">Habrahabr</a> : they made <a href="https://habrahabr.ru/post/8193/">plans</a> and <a href="https://habrahabr.ru/post/106488/">forecasts</a> , <a href="https://habrahabr.ru/post/189516/">counted losses</a> .  In the yard in 2016, but IPv4 is still in service. <br><br>  On April 21, the RIPE NCC published a <a href="https://www.ripe.net/publications/news/about-ripe-ncc-and-ripe/ipv4-chart-updated">brief technical news</a> about the very exhaustion of IPv4 addresses.  Actually, the meaning of the news is that the <a href="https://www.ripe.net/publications/ipv6-info-centre/about-ipv6/ipv4-exhaustion/ipv4-available-pool-graph">graph has been</a> updated showing the current position with free addresses from which RIPE is left at its disposal almost on the full block / 8.  <a href="https://www.apnic.net/community/ipv4-exhaustion/graphical-information">APNIC</a> only has half / 8.  Probably, the rigid address distribution policy is doing its job and this latest / 8 RIRs will drag on for a very long time. <br><br>  But all this refers to the "paper" addresses.  And how many real addresses are available for routing to the Internet?  More precisely, how many addresses possible for routing to the Internet is not used.  To calculate this, we will use a unique live witness - the BGP routing table. 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+      Further, some technical details on how to calculate the results of this calculation. <a name="habracut"></a><br><br>  BGP full-view contains all the addresses available for routing, currently about 600,000 prefixes.  The table with addresses looks like this: <br><br><blockquote><pre> * 1.1.8.0/24 216.221.157.162 0 0 0 40191 3257 4134 i
  * 1.1.8.0/24 147.28.7.2 0 0 0 3130 1239 4134 i
  * 1.1.8.0/24 185.44.116.1 0 0 0 47872 3356 4134 i
  * 1.1.8.0/24 80.91.255.137 0 0 0 1299 4134 i

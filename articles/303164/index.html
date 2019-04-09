@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -61,7 +53,20 @@
      NSDescription = "No document at URL";
      NSFilePath = "/ private / var / mobile / Library / Mobile Documents / JZKSZCX743 ~ com ~ square-enix ~ tact / oks_savedata.bin";
      NSUnderlyingError = "&lt;NSError: 0x15df7b60 (NSPOSIXErrorDomain: 2) - {\ n NSDescription = \" No such file or directory \ "; \ n}&gt;";
- }&gt; </pre><br>  Op-pa, in the bull's eye.  iOS 9 broke the iCloud toy, for some reason the file with saving and settings was not created, and the launch went into an endless loop.  Let's try to create it: <br><pre>  touch "/ private / var / mobile / Library / Mobile Documents / JZKSZCX743 ~ com ~ square-enix ~ tact / oks_savedata.bin" </pre><br>  And here is the interface 0_o.  Pacified, I climbed into the Story, simultaneously putting on headphones.  I saw there: there is still nothing :( <br><br><img src="https://habrastorage.org/files/e16/c6d/8c2/e16c6d8c26b648a6ba4d7e4f8de94b07.PNG"><br><br>  It is quite understandable, there must be some kind of structure in the file, but I barbarously took it and shoved the stub.  Further search by file name leads to two locations: <br><pre>  find / private / var -name oks_savedata.bin
+ }&gt; </pre><br>  Op-pa, in the bull's eye.  iOS 9 broke the iCloud toy, for some reason the file with saving and settings was not created, and the launch went into an endless loop.  Let's try to create it: <br><pre>  touch "/ private / var / mobile / Library / Mobile Documents / JZKSZCX743 ~ com ~ square-enix ~ tact / oks_savedata.bin" </pre><br>  And here is the interface 0_o.  Pacified, I climbed into the Story, simultaneously putting on headphones.  I saw there: there is still nothing :( 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+    <img src="https://habrastorage.org/files/e16/c6d/8c2/e16c6d8c26b648a6ba4d7e4f8de94b07.PNG"><br><br>  It is quite understandable, there must be some kind of structure in the file, but I barbarously took it and shoved the stub.  Further search by file name leads to two locations: <br><pre>  find / private / var -name oks_savedata.bin
  /private/var/mobile/Containers/Data/Application/long-uuid/Documents/oks_savedata.bin
  / private / var / mobile / Library / Mobile Documents / JZKSZCX743 ~ com ~ square-enix ~ tact / oks_savedata.bin </pre><br>  But alas, the first file itself is not created without the second.  We need to go deeper. <br><br>  Let's dump the application, unpack the ipa (remember, this is a regular zip), look inside the application bundle: <br><ul><li>  Info.plist </li><li>  PkgInfo </li><li>  ResourceRules.plist </li><li>  Shader.fsh </li><li>  Shader.vsh </li><li>  _CodeSignature </li><li>  archived-expanded-entitlements.xcent </li><li>  en.lproj </li><li>  oks </li><li>  oks_icon_a.png </li><li>  oks_sqex copy-Info.plist </li><li>  oks_sqex.entitlements </li><li>  pre_build.sh </li><li>  and ~ 1500 more files with names like ffdf8df97e7c9bcb7f42d1cc8ad09b08. </li></ul><br>  The executable file, according to the <i>CFBundleExecutable</i> in Info.plist, is an oks, <a href="https://en.wikipedia.org/wiki/Fat_binary">FAT binary</a> with two architectures: <br><pre>  jtool -h oks
  Fat binary, big-endian, 2 architectures: armv7, armv7s

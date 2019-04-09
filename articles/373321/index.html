@@ -23,14 +23,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -59,7 +51,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Fire hazard of Lukey soldering stations</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/getpro/geektimes/post_images/0cc/c2f/cb6/0ccc2fcb69b85261abdd2051dd69f92d.jpg" alt="image"><br>  <i>(I apologize for the quality of the photo)</i> <br><br>  Today I was awakened by a distinct smell of smoke and the exclamations of my wife - “get up soon, you have something burning in the workshop there”.  After a couple of seconds, I saw the source of a fire that had just begun - a lukey 852d + soldering station plugged into a power outlet turned off the heat to a red glow, and a plastic handle burned with a vigorous flame. <br><a name="habracut"></a><br>  And so, what happened?  When all the consequences of the fire were removed, I opened the soldering station and was unpleasantly surprised.  The fact is that the heating of the hair dryer in almost all the hatches is controlled through a triac power regulator, which in this case received a PWM signal from Atmega's leg through the opto-triac pair. <br><br> <a href=""><img src="https://habrastorage.org/files/de2/a42/aae/de2a42aae9a04a9294691471f4164614.jpg" alt="image"></a> <br><br>  This circuit takes power directly from the 220-volt input terminal, only the snubber RC circuit and all that is protected.  When the triac BTA16 fails due to a surge in voltage, the hairdryer starts happily gambling at all its 700 kopecks of Chinese watts. <br><br>  What to do? <br><br>  1) Put a varistor with a cut-off of 275 volts parallel to this simistor - with short-term surges the excess will be dispersed in a spiral, and the triac will remain locked. <br>  2) Open the circuit using a 220 volt 10 A relay by hanging the control winding through a 1500 µkf condenser, a diode and a small transformer on the pump terminals.  The logic is simple - if the pump does not work, then the heating circuit of the heating coil is a priori open. <br><br>  Well, do not trust the Chinese, leaving unattended the technique of Uncle Liao in standby, even if for the last 5-6 years she has been working without jambs. </div><p>Source: <a href="https://habr.com/ru/post/373321/">https://habr.com/ru/post/373321/</a></p>
+  <section class="page js-page"><h1>Fire hazard of Lukey soldering stations</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/getpro/geektimes/post_images/0cc/c2f/cb6/0ccc2fcb69b85261abdd2051dd69f92d.jpg" alt="image"><br>  <i>(I apologize for the quality of the photo)</i> <br><br>  Today I was awakened by a distinct smell of smoke and the exclamations of my wife - “get up soon, you have something burning in the workshop there”.  After a couple of seconds, I saw the source of a fire that had just begun - a lukey 852d + soldering station plugged into a power outlet turned off the heat to a red glow, and a plastic handle burned with a vigorous flame. <br><a name="habracut"></a><br>  And so, what happened?  When all the consequences of the fire were removed, I opened the soldering station and was unpleasantly surprised.  The fact is that the heating of the hair dryer in almost all the hatches is controlled through a triac power regulator, which in this case received a PWM signal from Atmega's leg through the opto-triac pair. <br><br> <a href=""><img src="https://habrastorage.org/files/de2/a42/aae/de2a42aae9a04a9294691471f4164614.jpg" alt="image"></a> 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+      This circuit takes power directly from the 220-volt input terminal, only the snubber RC circuit and all that is protected.  When the triac BTA16 fails due to a surge in voltage, the hairdryer starts happily gambling at all its 700 kopecks of Chinese watts. <br><br>  What to do? <br><br>  1) Put a varistor with a cut-off of 275 volts parallel to this simistor - with short-term surges the excess will be dispersed in a spiral, and the triac will remain locked. <br>  2) Open the circuit using a 220 volt 10 A relay by hanging the control winding through a 1500 µkf condenser, a diode and a small transformer on the pump terminals.  The logic is simple - if the pump does not work, then the heating circuit of the heating coil is a priori open. <br><br>  Well, do not trust the Chinese, leaving unattended the technique of Uncle Liao in standby, even if for the last 5-6 years she has been working without jambs. </div><p>Source: <a href="https://habr.com/ru/post/373321/">https://habr.com/ru/post/373321/</a></p>
 <section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">

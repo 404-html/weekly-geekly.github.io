@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>The road to C ++ 20</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/getpro/habr/post_images/38c/898/a39/38c898a39e00745c71c8a3412feaae11.png" alt="image" align="right">  The summer meeting of the ISO WG21 C ++ committee, which took place in Toronto from July 10 to 15, ended today.  Soon we will certainly have a <a href="https://stdcpp.ru/blog/20-iyulya-vstrecha-rg21-s-v-sankt-peterburge">detailed report from the WG21</a> , and today a respected audience is offered a post- “warm-up” with a discussion of the most interesting. <br><br>  The results of the meeting are as follows: the C ++ 17 standard is completed and will be published at the next meeting in November of this year;  The C ++ 20 standard has already acquired the first serious features - <i>concepts</i> ( <i>concepts</i> ), <i>explicit generic lambdas</i> - and this is only the beginning. <br><br>  The possibilities of the new C ++ 17 standard have already been discussed more than once, innovations have been <a href="https://habrahabr.ru/company/yandex/blog/323972/">written on Habré</a> , <a href="https://www.youtube.com/watch%3Fv%3DpEzV32yRu4U">presentations at conferences</a> , so I’ll not bring them here again.  It is no secret that the key feature of this C ++ release was the <a href="https://habrahabr.ru/company/infopulse/blog/279927/">transfer of the most "tasty" features</a> to the uncertain future.  Well, now we can say with confidence that many long-awaited “features” moved in C ++ 20.  Taken on stdlib extension has not gone away, so you can expect a much larger and rich set of functions from C ++ 20. <br><a name="habracut"></a><br><br><h3>  Draft Standard C ++ 20 </h3><br><h4>  Concepts </h4><br>  The long-suffering <i>Concepts</i> , once not included in C ++ 11, then converted into a new sentence, <i>Concepts-Lite</i> , finally become part of the standard. <br><br>  For the brief syntax for concepts (terse syntax), the committee has not yet been able to agree;  however, the discussion will continue under C ++ 20. <br><br><h4>  ＿VA_OPT＿ </h4><br><pre><code class="cpp">#define LOG(msg, ...) printf(msg __VA_OPT__(,) __VA_ARGS__)
+  <section class="page js-page"><h1>The road to C ++ 20</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/getpro/habr/post_images/38c/898/a39/38c898a39e00745c71c8a3412feaae11.png" alt="image" align="right">  The summer meeting of the ISO WG21 C ++ committee, which took place in Toronto from July 10 to 15, ended today.  Soon we will certainly have a <a href="https://stdcpp.ru/blog/20-iyulya-vstrecha-rg21-s-v-sankt-peterburge">detailed report from the WG21</a> , and today a respected audience is offered a post- “warm-up” with a discussion of the most interesting. <br><br>  The results of the meeting are as follows: the C ++ 17 standard is completed and will be published at the next meeting in November of this year;  The C ++ 20 standard has already acquired the first serious features - <i>concepts</i> ( <i>concepts</i> ), <i>explicit generic lambdas</i> - and this is only the beginning. <br><br>  The possibilities of the new C ++ 17 standard have already been discussed more than once, innovations have been <a href="https://habrahabr.ru/company/yandex/blog/323972/">written on Habré</a> , <a href="https://www.youtube.com/watch%3Fv%3DpEzV32yRu4U">presentations at conferences</a> , so I’ll not bring them here again.  It is no secret that the key feature of this C ++ release was the <a href="https://habrahabr.ru/company/infopulse/blog/279927/">transfer of the most "tasty" features</a> to the uncertain future.  Well, now we can say with confidence that many long-awaited “features” moved in C ++ 20.  Taken on stdlib extension has not gone away, so you can expect a much larger and rich set of functions from C ++ 20. <br><a name="habracut"></a>
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+    <h3>  Draft Standard C ++ 20 </h3><br><h4>  Concepts </h4><br>  The long-suffering <i>Concepts</i> , once not included in C ++ 11, then converted into a new sentence, <i>Concepts-Lite</i> , finally become part of the standard. <br><br>  For the brief syntax for concepts (terse syntax), the committee has not yet been able to agree;  however, the discussion will continue under C ++ 20. <br><br><h4>  ＿VA_OPT＿ </h4><br><pre><code class="cpp">#define LOG(msg, ...) printf(msg __VA_OPT__(,) __VA_ARGS__)
 
 LOG("hello world")   // =&gt; printf("hello world")
 LOG("hello world", ) // =&gt; printf("hello world")

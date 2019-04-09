@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Configuring Authentication in OpenVPN via Active Directory on CentOS 7</h1><div class="post__text post__text-html js-mediator-article"> Imagine that we already have a configured OpenVPN, and we decided to do two-factor authentication, which includes checking the login, password and user membership in the AD group. <br><br>  The traditional openvpn-auth-ldap.so does not exist on CentOS 7, so consider the option using PAM (openvpn-plugin-auth-pam.so). <br><a name="habracut"></a><br>  1. Add a line to the client's config so that the client requests a login and password when connecting: <br><br> <code>auth-user-pass <br></code> <br>  2. Add a line to the server config, which includes authentication in OpenVPN via PAM: <br><br> <code>plugin /usr/lib64/openvpn/plugins/openvpn-plugin-auth-pam.so openvpn <br></code> <br>  3. Add the OpenVPN policy to PAM: <br><br><pre> <code class="bash hljs"><span class="hljs-built_in"><span class="hljs-built_in">echo</span></span> <span class="hljs-string"><span class="hljs-string">'account required pam_ldap.so auth required pam_ldap.so'</span></span> &gt;&gt; /etc/pam.d/openvpn</code> </pre><br>  3. Install and enable nslcd - this module will receive requests from PAM and address them to AD. <br><br><pre> <code class="bash hljs">yum install nss-pam-ldapd -y systemctl <span class="hljs-built_in"><span class="hljs-built_in">enable</span></span> nslcd</code> </pre><br>  5. Now edit the parameters in /etc/nslcd.conf to match the example: <br><br> <code>uri ldap://dc1.contoso.com <br> base dc=contoso,dc=com <br> binddn CN=ldapquery,OU=ServiceAccounts,OU=DomainUsers,DC=contoso,DC=com <br> bindpw P@ssw0rd <br> <br> pagesize 1000 <br> referrals off <br> <br> filter passwd (&amp;(objectClass=user)(!(UserAccountControl:1.2.840.113556.1.4.803:=2))(!(objectClass=computer))(memberOf=CN=VPNUsers,OU=Groups,DC=contoso,DC=com)) <br> <br> map passwd uid sAMAccountName <br></code> <br>  binddn - the path to the account that will connect to AD.  The filter checks whether the user is disconnected and is in the specified group.  In general, <a href="https://technet.microsoft.com/en-us/sysinternals/adexplorer.aspx">AD Explorer</a> will be very helpful at this stage of configuration. <br><br>  6. Run nslcd in console debug mode <br><br><pre> <code class="bash hljs">nslcd -d</code> </pre><br>  and trying to connect via OpenVPN.  If errors occur, they will be immediately visible.  If everything is in order, run the nslcd daemon: <br><br><pre> <code class="bash hljs">systemctl start nslcd</code> </pre><br>  7. Done! </div><p>Source: <a href="https://habr.com/ru/post/276653/">https://habr.com/ru/post/276653/</a></p>
+  <section class="page js-page"><h1>Configuring Authentication in OpenVPN via Active Directory on CentOS 7</h1><div class="post__text post__text-html js-mediator-article"> Imagine that we already have a configured OpenVPN, and we decided to do two-factor authentication, which includes checking the login, password and user membership in the AD group. <br><br>  The traditional openvpn-auth-ldap.so does not exist on CentOS 7, so consider the option using PAM (openvpn-plugin-auth-pam.so). <br><a name="habracut"></a><br>  1. Add a line to the client's config so that the client requests a login and password when connecting: <br><br> <code>auth-user-pass <br></code> <br>  2. Add a line to the server config, which includes authentication in OpenVPN via PAM: 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+     <code>plugin /usr/lib64/openvpn/plugins/openvpn-plugin-auth-pam.so openvpn <br></code> <br>  3. Add the OpenVPN policy to PAM: <br><br><pre> <code class="bash hljs"><span class="hljs-built_in"><span class="hljs-built_in">echo</span></span> <span class="hljs-string"><span class="hljs-string">'account required pam_ldap.so auth required pam_ldap.so'</span></span> &gt;&gt; /etc/pam.d/openvpn</code> </pre><br>  3. Install and enable nslcd - this module will receive requests from PAM and address them to AD. <br><br><pre> <code class="bash hljs">yum install nss-pam-ldapd -y systemctl <span class="hljs-built_in"><span class="hljs-built_in">enable</span></span> nslcd</code> </pre><br>  5. Now edit the parameters in /etc/nslcd.conf to match the example: <br><br> <code>uri ldap://dc1.contoso.com <br> base dc=contoso,dc=com <br> binddn CN=ldapquery,OU=ServiceAccounts,OU=DomainUsers,DC=contoso,DC=com <br> bindpw P@ssw0rd <br> <br> pagesize 1000 <br> referrals off <br> <br> filter passwd (&amp;(objectClass=user)(!(UserAccountControl:1.2.840.113556.1.4.803:=2))(!(objectClass=computer))(memberOf=CN=VPNUsers,OU=Groups,DC=contoso,DC=com)) <br> <br> map passwd uid sAMAccountName <br></code> <br>  binddn - the path to the account that will connect to AD.  The filter checks whether the user is disconnected and is in the specified group.  In general, <a href="https://technet.microsoft.com/en-us/sysinternals/adexplorer.aspx">AD Explorer</a> will be very helpful at this stage of configuration. <br><br>  6. Run nslcd in console debug mode <br><br><pre> <code class="bash hljs">nslcd -d</code> </pre><br>  and trying to connect via OpenVPN.  If errors occur, they will be immediately visible.  If everything is in order, run the nslcd daemon: <br><br><pre> <code class="bash hljs">systemctl start nslcd</code> </pre><br>  7. Done! </div><p>Source: <a href="https://habr.com/ru/post/276653/">https://habr.com/ru/post/276653/</a></p>
 <section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">

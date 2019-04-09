@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>The battlefield is augmented reality. Part III: engine capabilities, animation and POI</h1><div class="post__text post__text-html js-mediator-article">  In the last two articles, we became acquainted with the basics of the process and began to sort out the case for working with AR.  Read to stay up to date. <br><br>  <a href="https://habrahabr.ru/post/342950/">Part I: The Basics of Object Recognition</a> <br>  <a href="https://habrahabr.ru/post/343648/">Part II: how to recognize the object and show the 3D model</a> <br><br>  We are pleased to present the final third part (yukh!), In which we will discuss the engine's capabilities in more detail and find out: <br><br><ul><li>  How to animate a 3D object for AR.  Display the text by clicking on the object. </li><li>  How to show a 3D object at given coordinates as a POI (point of interest). </li><li>  How to show a 3D object in relation to you. </li></ul><br><a name="habracut"></a><h3>  A few words about 3D models and animation </h3><br>  We have already seen an application for downloading images for recognition.  So, Wikitude has an editor for loading models and animations.  The tool is called the Wikitude 3D encoder. <br>  With it, you can download content from files of the type * .fbx or * .dae, and subsequently export it in a format friendly for Wikitude * .wt3. <br><br><img src="https://habrastorage.org/getpro/habr/post_images/1d4/69c/bc4/1d469cbc4f52ccff81094e9cb92dbefc.png" alt="image"><br>  <i>3D model in the Wikitude 3D encoder editor</i> <br><br>  We have already disassembled the example with the 3D model, let's talk about animation.  Animation can be exported from special software, or programmed independently.  In the first case, the Autodesk maya program was used for this. <br><br><img src="https://habrastorage.org/getpro/habr/post_images/ac1/55e/35f/ac155e35f96bf8e9cc6f8153a7ed9101.png" alt="image"><br>  <i>An example of animation right in the editor.</i>  <i>Notice that all the available animations appeared on the right side.</i> <br><br><cut></cut>  A bit of code never hurts: <br><br><div class="oembed"><script type="text/javascript" src="https://gist.github.com/d60f9b28613b72675395201c5bb19dac.js"></script><link rel="stylesheet" href="https://github.githubassets.com/assets/gist-embed-b3b573358bfc66d89e1e95dbf8319c09.css"><div id="gist84287944" class="gist">
+  <section class="page js-page"><h1>The battlefield is augmented reality. Part III: engine capabilities, animation and POI</h1><div class="post__text post__text-html js-mediator-article">  In the last two articles, we became acquainted with the basics of the process and began to sort out the case for working with AR.  Read to stay up to date. <br><br>  <a href="https://habrahabr.ru/post/342950/">Part I: The Basics of Object Recognition</a> <br>  <a href="https://habrahabr.ru/post/343648/">Part II: how to recognize the object and show the 3D model</a> <br><br>  We are pleased to present the final third part (yukh!), In which we will discuss the engine's capabilities in more detail and find out: 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+    <ul><li>  How to animate a 3D object for AR.  Display the text by clicking on the object. </li><li>  How to show a 3D object at given coordinates as a POI (point of interest). </li><li>  How to show a 3D object in relation to you. </li></ul><br><a name="habracut"></a><h3>  A few words about 3D models and animation </h3><br>  We have already seen an application for downloading images for recognition.  So, Wikitude has an editor for loading models and animations.  The tool is called the Wikitude 3D encoder. <br>  With it, you can download content from files of the type * .fbx or * .dae, and subsequently export it in a format friendly for Wikitude * .wt3. <br><br><img src="https://habrastorage.org/getpro/habr/post_images/1d4/69c/bc4/1d469cbc4f52ccff81094e9cb92dbefc.png" alt="image"><br>  <i>3D model in the Wikitude 3D encoder editor</i> <br><br>  We have already disassembled the example with the 3D model, let's talk about animation.  Animation can be exported from special software, or programmed independently.  In the first case, the Autodesk maya program was used for this. <br><br><img src="https://habrastorage.org/getpro/habr/post_images/ac1/55e/35f/ac155e35f96bf8e9cc6f8153a7ed9101.png" alt="image"><br>  <i>An example of animation right in the editor.</i>  <i>Notice that all the available animations appeared on the right side.</i> <br><br><cut></cut>  A bit of code never hurts: <br><br><div class="oembed"><script type="text/javascript" src="https://gist.github.com/d60f9b28613b72675395201c5bb19dac.js"></script><link rel="stylesheet" href="https://github.githubassets.com/assets/gist-embed-b3b573358bfc66d89e1e95dbf8319c09.css"><div id="gist84287944" class="gist">
     <div class="gist-file">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">

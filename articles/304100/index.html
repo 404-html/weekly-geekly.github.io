@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Installing Emercoin blockchain with a web wallet on RedHat / CentOS 7 and Ubuntu 16.04</h1><div class="post__text post__text-html js-mediator-article">  One of the modern technical mainstream is blockchain.  In this article I will tell you how you can quickly deploy Emercoin blockchain on RedHat / CentOS 7 and Ubuntu 16.04 LTS. <br><a name="habracut"></a><br><h2>  1. Introduction </h2><br>  In this material we will proceed from the following: <br><ul><li>  You already have a clean pre-installed RHEL / CentOS 7 or Ubuntu 16.04 LTS, with a standard set of packages, without specific settings </li><li>  Software versions considered: emercoin (0.3.7), emcssh (0.0.3), emcweb (1.0) </li><li>  Apache will be used as a web server. </li><li>  All commands below must be executed by either the root user or sudo </li><li>  Operation with SElinux in Enforcing mode is not guaranteed. </li></ul><br><h2>  2. Installing Emercoin packages </h2><br>  To begin, we need to connect the official Emercoin repository for use by your server, download and install the required packages, start the blockchain client and mark it for execution during the OS boot.  For this, you need to run: <br><br>  In RHEL / CentOS: <br><pre><code class="bash hljs">rpm -ivh http://download.emercoin.com/rhel/el7/RPMS/emercoin-release-1.0-1.el7.centos.noarch.rpm yum -y install emercoin emcssh emcweb systemctl restart emercoind httpd systemctl <span class="hljs-built_in"><span class="hljs-built_in">enable</span></span> emercoind httpd</code> </pre> <br>  In Ubuntu: <br><pre> <code class="bash hljs">apt-key adv --keyserver keyserver.ubuntu.com --recv B58C58F4 add-apt-repository <span class="hljs-string"><span class="hljs-string">'deb [arch=amd64] http://download.emercoin.com/ubuntu xenial emercoin'</span></span> apt update &amp;&amp; apt install emercoin emcssh emcweb</code> </pre><br><h2>  3. Download and manage blockchain </h2><br>  Immediately after the first launch of emercoind, the blockchain will begin downloading.  This may take some time. <br>  To view the current state of the blockchain, run the command: <br><br><pre> <code class="bash hljs">emc getinfo</code> </pre><br>  I draw your attention to the fact that the <u>emc</u> command can be executed by any user of the system who has the right to execute commands through sudo.  Also, I want to note that the emercoind service may take up to 30 seconds to start.  Accordingly, if you hurry to execute the <u>emc</u> command before emercoind is fully started, then you may have an error connecting to the service. <br><br>  The result of the <u>emc getinfo execution</u> is the output of something like this: <br><pre> {
+  <section class="page js-page"><h1>Installing Emercoin blockchain with a web wallet on RedHat / CentOS 7 and Ubuntu 16.04</h1><div class="post__text post__text-html js-mediator-article">  One of the modern technical mainstream is blockchain.  In this article I will tell you how you can quickly deploy Emercoin blockchain on RedHat / CentOS 7 and Ubuntu 16.04 LTS. <br><a name="habracut"></a><br><h2>  1. Introduction </h2><br>  In this material we will proceed from the following: <br><ul><li>  You already have a clean pre-installed RHEL / CentOS 7 or Ubuntu 16.04 LTS, with a standard set of packages, without specific settings </li><li>  Software versions considered: emercoin (0.3.7), emcssh (0.0.3), emcweb (1.0) </li><li>  Apache will be used as a web server. </li><li>  All commands below must be executed by either the root user or sudo </li><li>  Operation with SElinux in Enforcing mode is not guaranteed. </li></ul><br><h2>  2. Installing Emercoin packages </h2><br>  To begin, we need to connect the official Emercoin repository for use by your server, download and install the required packages, start the blockchain client and mark it for execution during the OS boot.  For this, you need to run: <br><br>  In RHEL / CentOS: <br><pre><code class="bash hljs">rpm -ivh http://download.emercoin.com/rhel/el7/RPMS/emercoin-release-1.0-1.el7.centos.noarch.rpm yum -y install emercoin emcssh emcweb systemctl restart emercoind httpd systemctl <span class="hljs-built_in"><span class="hljs-built_in">enable</span></span> emercoind httpd</code> </pre> <br>  In Ubuntu: <br><pre> <code class="bash hljs">apt-key adv --keyserver keyserver.ubuntu.com --recv B58C58F4 add-apt-repository <span class="hljs-string"><span class="hljs-string">'deb [arch=amd64] http://download.emercoin.com/ubuntu xenial emercoin'</span></span> apt update &amp;&amp; apt install emercoin emcssh emcweb</code> </pre><br><h2>  3. Download and manage blockchain </h2><br>  Immediately after the first launch of emercoind, the blockchain will begin downloading.  This may take some time. <br>  To view the current state of the blockchain, run the command: <br><br><pre> <code class="bash hljs">emc getinfo</code> </pre><br>  I draw your attention to the fact that the <u>emc</u> command can be executed by any user of the system who has the right to execute commands through sudo.  Also, I want to note that the emercoind service may take up to 30 seconds to start.  Accordingly, if you hurry to execute the <u>emc</u> command before emercoind is fully started, then you may have an error connecting to the service. 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+      The result of the <u>emc getinfo execution</u> is the output of something like this: <br><pre> {
      "version": "v0.3.7.0-unk-beta",
      "protocolversion": 60005,
      "walletversion": 60000,

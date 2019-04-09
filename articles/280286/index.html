@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>MSLibrary. Creating and compiling cross-platform (universal) libraries in Xcode</h1><div class="post__text post__text-html js-mediator-article">  The next article from the development team of the <a href="https://habrahabr.ru/users/mslibrary/" class="user_link">MSLibrary</a> for iOS library is devoted to a fairly popular topic of creating and compiling cross-platform libraries. <br><br>  Libraries are good because they allow you to use the previously developed program code in various programs.  Thus, programmers can significantly simplify their work and reduce its execution time, using ready-made solutions that are part of libraries for a part of the standard functionality.  The article discusses only static libraries, the code of which when compiled is fully included in the executable file, which makes the program easily portable. <br><br>  We tried to shed light on the issue as thoroughly and systematically as possible, having considered the creation of a library from scratch and the packaging of a part of the functionality of a ready-made project into the library.  By cross-platform or versatility, we meant library compatibility with simulators running on a processor with i386 or x86_64 architecture, and with real devices, the processor of which most likely has an armv7 or armv64 architecture. <br><br><h4>  <b>1. Create a library project</b> </h4><br>  When developing a library, there can be two ways for a developer, the first is a library created from scratch and the second is in your project there is some functionality on the basis of which you want to create a library.  Consider both. <br><a name="habracut"></a><br>  LIBRARY CREATED "WITH ZERO" <br><br>  The sequence of actions is the same as when creating a new project: <br><br><pre>	 File&gt; New&gt; Project ...
+  <section class="page js-page"><h1>MSLibrary. Creating and compiling cross-platform (universal) libraries in Xcode</h1><div class="post__text post__text-html js-mediator-article">  The next article from the development team of the <a href="https://habrahabr.ru/users/mslibrary/" class="user_link">MSLibrary</a> for iOS library is devoted to a fairly popular topic of creating and compiling cross-platform libraries. <br><br>  Libraries are good because they allow you to use the previously developed program code in various programs.  Thus, programmers can significantly simplify their work and reduce its execution time, using ready-made solutions that are part of libraries for a part of the standard functionality.  The article discusses only static libraries, the code of which when compiled is fully included in the executable file, which makes the program easily portable. <br><br>  We tried to shed light on the issue as thoroughly and systematically as possible, having considered the creation of a library from scratch and the packaging of a part of the functionality of a ready-made project into the library.  By cross-platform or versatility, we meant library compatibility with simulators running on a processor with i386 or x86_64 architecture, and with real devices, the processor of which most likely has an armv7 or armv64 architecture. 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+    <h4>  <b>1. Create a library project</b> </h4><br>  When developing a library, there can be two ways for a developer, the first is a library created from scratch and the second is in your project there is some functionality on the basis of which you want to create a library.  Consider both. <br><a name="habracut"></a><br>  LIBRARY CREATED "WITH ZERO" <br><br>  The sequence of actions is the same as when creating a new project: <br><br><pre>	 File&gt; New&gt; Project ...
 	 iOS&gt; Framework &amp; Library&gt; Cocoa Touch Static Library
 	 We set a name (for example - MySecretLibrary)
 </pre><br><div class="spoiler">  <b class="spoiler_title">In more detail how this is done you can see here ↓</b> <div class="spoiler_text"><pre> Step 1.  File&gt; New&gt; Project ...

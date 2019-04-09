@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>VoIP + Cisco Packet Tracer</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/files/162/966/433/16296643376b4ced9150f5f9c663964f.PNG"><br><br>  When working with Cisco Packet Tracer, I often noticed various telephone devices in it, as well as software on client devices, with the help of which one can organize telephone calls.  In this connection, the idea arose of sketching a network consisting of all the devices of this simulator (cisco packet tracer 6.2) that can make and receive calls.  When writing this article, the question arose: "Is it possible to prepare for the CCNA Voice exam using this program?".  And this question, I will try to answer in this article. <br><a name="habracut"></a><br>  Used devices: <br><br>  1) Router 2811 (it will be a DHCP server, a VoIP gateway and a TFTP server) <br>  2) Switch 2960 (all devices will be connected to it) <br>  3) Analog phone (which will be connected to the switch through the gateway) <br>  4) IP phone 7960 <br>  5) Client computer (which will work using Cisco IP Communicator software) <br>  6) Wi-Fi point (it is needed to connect to the network of wireless devices) <br>  7) Laptop, tablet computer and smartphone (these devices will connect to a Wi-Fi point and work through CIPC) <br><br>  Next, you need the MAC address of all devices.  For computers and other devices (not phones), there are several ways to find the MAC address.  For example, enter the device command line and type ipconfig / all or go to the config tab and copy the corresponding interface address to the buffer. <br><br><img src="https://habrastorage.org/files/b6b/b70/09b/b6bb7009bf3047c3b8569b527154908e.png"><br><br><img src="https://habrastorage.org/files/fbc/44e/f77/fbc44ef77f55494583ecff908f86b75a.PNG"><br><br>  For phones, I found only one way - to hover the device on the device and remember its poppy (if anyone knows another way, I will be glad to know). <br><br><img src="https://habrastorage.org/files/fdb/b79/924/fdbb7992444944c7a436d5cfa14c3a8f.PNG"><br><br>  <b>Configure the router:</b> <br><br><h5>  1) Hang up the ip address on the interface (it will be the gateway) </h5><br><pre>  interface FastEthernet0 / 0
+  <section class="page js-page"><h1>VoIP + Cisco Packet Tracer</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/files/162/966/433/16296643376b4ced9150f5f9c663964f.PNG"><br><br>  When working with Cisco Packet Tracer, I often noticed various telephone devices in it, as well as software on client devices, with the help of which one can organize telephone calls.  In this connection, the idea arose of sketching a network consisting of all the devices of this simulator (cisco packet tracer 6.2) that can make and receive calls.  When writing this article, the question arose: "Is it possible to prepare for the CCNA Voice exam using this program?".  And this question, I will try to answer in this article. <br><a name="habracut"></a><br>  Used devices: <br><br>  1) Router 2811 (it will be a DHCP server, a VoIP gateway and a TFTP server) <br>  2) Switch 2960 (all devices will be connected to it) <br>  3) Analog phone (which will be connected to the switch through the gateway) <br>  4) IP phone 7960 <br>  5) Client computer (which will work using Cisco IP Communicator software) <br>  6) Wi-Fi point (it is needed to connect to the network of wireless devices) <br>  7) Laptop, tablet computer and smartphone (these devices will connect to a Wi-Fi point and work through CIPC) 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+      Next, you need the MAC address of all devices.  For computers and other devices (not phones), there are several ways to find the MAC address.  For example, enter the device command line and type ipconfig / all or go to the config tab and copy the corresponding interface address to the buffer. <br><br><img src="https://habrastorage.org/files/b6b/b70/09b/b6bb7009bf3047c3b8569b527154908e.png"><br><br><img src="https://habrastorage.org/files/fbc/44e/f77/fbc44ef77f55494583ecff908f86b75a.PNG"><br><br>  For phones, I found only one way - to hover the device on the device and remember its poppy (if anyone knows another way, I will be glad to know). <br><br><img src="https://habrastorage.org/files/fdb/b79/924/fdbb7992444944c7a436d5cfa14c3a8f.PNG"><br><br>  <b>Configure the router:</b> <br><br><h5>  1) Hang up the ip address on the interface (it will be the gateway) </h5><br><pre>  interface FastEthernet0 / 0
 
  ip address 10.3.0.1 255.255.255.0
 

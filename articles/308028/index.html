@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>0day vulnerabilities in lshell</h1><div class="post__text post__text-html js-mediator-article">  lshell is a shell that restricts the commands and file system paths available to the user.  It is tipped as an alternative to a complex chroot setting: <br><ul><li>  <a href="https://habrahabr.ru/company/centosadmin/blog/212833/">Habr, centos-admin company blog</a> </li><li>  <a href="http://aboutubuntu.ru/content/chroot-vs-lshell-and-mysecureshell.html">aboutubuntu.ru</a> </li><li>  <a href="http://tecadmin.net/how-to-limit-user-access-with-lshell-limited-shell/">techadmin.net</a> </li></ul><br>  and so on, there are many sources offering it for use. <br><br>  The application is available in the repositories of Ubuntu, Debian and EPEL. <br><a name="habracut"></a><br><h5>  Problems in the code </h5><br>  A quick look at the notes on lshell in the configuration files can be noticed that some of the restrictions imposed by lshell serve to simplify the parsing of commands, and not to increase security.  For example, prohibiting the use of semicolons and sabshells.  It makes sense to look at how this parsing is implemented. <br><br>  When examining the source code, it becomes clear that the <a href="https://hg.python.org/cpython/file/2.7/Lib/cmd.py">selection of the command to be launched and its arguments is made by the library</a> , which is designed for parsing commands from simple CLI and does not parse the correctly complex shell command syntax.  At the same time, regardless of the <a href="https://docs.python.org/2/library/subprocess.html">warning in the documentation</a> , after simple validation, the <a href="https://github.com/ghantoos/lshell/blob/af8a24b8c009813b738248c8a7f7a2c85f7ffab1/lshell/utils.py">command is passed to the shell / bin / sh</a> .  Validation deserves special attention and is based on the assumptions that: <br><ul><li>  team is always single line </li><li>  <a href="https://github.com/ghantoos/lshell/blob/af8a24b8c009813b738248c8a7f7a2c85f7ffab1/lshell/sec.py">inside the quotes do not need to check</a> </li></ul><br>  There is no real syntax parsing anywhere, so these are not all the assumptions made in the verification. <br><br><h5>  Consequences </h5><br>  The following scenarios are available for escaping from such a limited shell. <br><div class="spoiler">  <b class="spoiler_title">Scenario 1: exploitation problems with quotes and command chains</b> <div class="spoiler_text"><pre> vladislav @ dt1: ~ $ getent passwd testuser
+  <section class="page js-page"><h1>0day vulnerabilities in lshell</h1><div class="post__text post__text-html js-mediator-article">  lshell is a shell that restricts the commands and file system paths available to the user.  It is tipped as an alternative to a complex chroot setting: <br><ul><li>  <a href="https://habrahabr.ru/company/centosadmin/blog/212833/">Habr, centos-admin company blog</a> </li><li>  <a href="http://aboutubuntu.ru/content/chroot-vs-lshell-and-mysecureshell.html">aboutubuntu.ru</a> </li><li>  <a href="http://tecadmin.net/how-to-limit-user-access-with-lshell-limited-shell/">techadmin.net</a> </li></ul><br>  and so on, there are many sources offering it for use. <br><br>  The application is available in the repositories of Ubuntu, Debian and EPEL. <br><a name="habracut"></a><br><h5>  Problems in the code </h5><br>  A quick look at the notes on lshell in the configuration files can be noticed that some of the restrictions imposed by lshell serve to simplify the parsing of commands, and not to increase security.  For example, prohibiting the use of semicolons and sabshells.  It makes sense to look at how this parsing is implemented. <br><br>  When examining the source code, it becomes clear that the <a href="https://hg.python.org/cpython/file/2.7/Lib/cmd.py">selection of the command to be launched and its arguments is made by the library</a> , which is designed for parsing commands from simple CLI and does not parse the correctly complex shell command syntax.  At the same time, regardless of the <a href="https://docs.python.org/2/library/subprocess.html">warning in the documentation</a> , after simple validation, the <a href="https://github.com/ghantoos/lshell/blob/af8a24b8c009813b738248c8a7f7a2c85f7ffab1/lshell/utils.py">command is passed to the shell / bin / sh</a> .  Validation deserves special attention and is based on the assumptions that: <br><ul><li>  team is always single line </li><li>  <a href="https://github.com/ghantoos/lshell/blob/af8a24b8c009813b738248c8a7f7a2c85f7ffab1/lshell/sec.py">inside the quotes do not need to check</a> </li></ul><br>  There is no real syntax parsing anywhere, so these are not all the assumptions made in the verification. 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+    <h5>  Consequences </h5><br>  The following scenarios are available for escaping from such a limited shell. <br><div class="spoiler">  <b class="spoiler_title">Scenario 1: exploitation problems with quotes and command chains</b> <div class="spoiler_text"><pre> vladislav @ dt1: ~ $ getent passwd testuser
  testuser: x: 1002: 1003: ,,,: / home / testuser: / usr / bin / lshell
  vladislav @ dt1: ~ $ su - testuser
  Password: 

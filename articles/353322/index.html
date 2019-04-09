@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Visualizing Process Connections in Linux</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/webt/-v/dc/k7/-vdck7buxp0at_w7s6i3vqnomwe.png"><br><br>  Did you have to track the dependencies of the system processes, “who's whose folder?”, Find the emperor and kill him, so that the slaves do not respawn?  You can ps'at and grep'at, you can drive lsof, because it is so fascinating;) But any connections, it seems to me, it is always easier to analyze in visual form, console utilities draw good tablets, but it’s not always possible to quickly understand that what it is connected with and in what sequence, and for diagnostics it is very important. <br><a name="habracut"></a><br>  lsof (abbr. LiSt Open Files) with a certain skill allows you to build graphs of relationships between running systems, who uses which files, who communicates with whom by what protocol.  On Habré, there was already an article about how <a href="https://habrahabr.ru/company/ruvds/blog/337934/">useful the lsof tool was</a> , but it did not say anything about the -F switch, which allows you to display information not in a table, but as a sequence of individual lines that can be redirected to the input of another program for further processing. <br><br>  <a href="https://github.com/zevv/lsofgraph">lsofgraph</a> was written, just under this -F, parsing this output is much more convenient than tabular output.  Unfortunately, lsofgraph was written in Lua, but it is not everywhere, so it was rewritten in python: <a href="https://github.com/akme/lsofgraph-python">lsofgraph-python</a> <br><br>  The format is simple, and the code is quite understandable, so we will not dwell on it, but let’s go straight into battle.  For drawing we will use graphviz, namely, its members, dot and unflatten. <br><br>  If you want to get a complete picture of the system, then you will need to use sudo, if there is enough information on the current account, then you can do without sudo. <br><br>  To create a graph: <br><br><pre><code class="bash hljs">sudo lsof -n -F | python lsofgraph.py | dot -Tjpg &gt; /tmp/a.jpg</code> </pre> <br>  I prefer the launch c unflatten, then the schedule is somehow more compact and beautiful: <br><br><pre> <code class="bash hljs">sudo lsof -n -F | python lsofgraph.py | unflatten -l 1 -c 6 | dot -T jpg &gt; /tmp/a.jpg</code> </pre> <br>  <i>If you don’t like jpg, then you can choose svg there ...</i> <br>  An example of a graph on a fairly empty test virtual machine: <br><br><img src="https://habrastorage.org/webt/mk/pm/ct/mkpmcth31qtpps8e793rj74jl9u.jpeg"><br><br>  I hope that someone will still be useful;) </div><p>Source: <a href="https://habr.com/ru/post/353322/">https://habr.com/ru/post/353322/</a></p>
+  <section class="page js-page"><h1>Visualizing Process Connections in Linux</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/webt/-v/dc/k7/-vdck7buxp0at_w7s6i3vqnomwe.png"><br><br>  Did you have to track the dependencies of the system processes, “who's whose folder?”, Find the emperor and kill him, so that the slaves do not respawn?  You can ps'at and grep'at, you can drive lsof, because it is so fascinating;) But any connections, it seems to me, it is always easier to analyze in visual form, console utilities draw good tablets, but it’s not always possible to quickly understand that what it is connected with and in what sequence, and for diagnostics it is very important. <br><a name="habracut"></a><br>  lsof (abbr. LiSt Open Files) with a certain skill allows you to build graphs of relationships between running systems, who uses which files, who communicates with whom by what protocol.  On Habré, there was already an article about how <a href="https://habrahabr.ru/company/ruvds/blog/337934/">useful the lsof tool was</a> , but it did not say anything about the -F switch, which allows you to display information not in a table, but as a sequence of individual lines that can be redirected to the input of another program for further processing. <br><br>  <a href="https://github.com/zevv/lsofgraph">lsofgraph</a> was written, just under this -F, parsing this output is much more convenient than tabular output.  Unfortunately, lsofgraph was written in Lua, but it is not everywhere, so it was rewritten in python: <a href="https://github.com/akme/lsofgraph-python">lsofgraph-python</a> 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+      The format is simple, and the code is quite understandable, so we will not dwell on it, but let’s go straight into battle.  For drawing we will use graphviz, namely, its members, dot and unflatten. <br><br>  If you want to get a complete picture of the system, then you will need to use sudo, if there is enough information on the current account, then you can do without sudo. <br><br>  To create a graph: <br><br><pre><code class="bash hljs">sudo lsof -n -F | python lsofgraph.py | dot -Tjpg &gt; /tmp/a.jpg</code> </pre> <br>  I prefer the launch c unflatten, then the schedule is somehow more compact and beautiful: <br><br><pre> <code class="bash hljs">sudo lsof -n -F | python lsofgraph.py | unflatten -l 1 -c 6 | dot -T jpg &gt; /tmp/a.jpg</code> </pre> <br>  <i>If you don’t like jpg, then you can choose svg there ...</i> <br>  An example of a graph on a fairly empty test virtual machine: <br><br><img src="https://habrastorage.org/webt/mk/pm/ct/mkpmcth31qtpps8e793rj74jl9u.jpeg"><br><br>  I hope that someone will still be useful;) </div><p>Source: <a href="https://habr.com/ru/post/353322/">https://habr.com/ru/post/353322/</a></p>
 <section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">

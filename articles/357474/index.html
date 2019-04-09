@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Once again on privacy in Vkontakte</h1><div class="post__text post__text-html js-mediator-article">  A short post for those who have never thought about what permissions should be provided to third-party services when authenticating with credentials, for example, Vkontakte. <br><br>  What could be the catch? <br><a name="habracut"></a><br>  Suppose you use Findface to search for a person by a photo, you log in and the application requests access to the following information from you: <br><br><img src="https://habrastorage.org/webt/h4/mw/mf/h4mwmfjha7enjqetqvxogp_j4ze.jpeg"><br><br>  Everything is fine you think you probably need access to your photos to find another person.  Satisfied strange assumption. <br><br>  So, having received the access token, the owner of the service has some time to download all your photos, especially from those albums that are marked like this: <br><br><pre><code class="hljs objectivec"><span class="hljs-string"><span class="hljs-string">"privacy_view"</span></span>: [<span class="hljs-string"><span class="hljs-string">"only_me"</span></span>], <span class="hljs-string"><span class="hljs-string">"privacy_comment"</span></span>: [<span class="hljs-string"><span class="hljs-string">"only_me"</span></span>]</code> </pre> <br>  Those.  not only these: <br><br><pre> <code class="hljs objectivec"><span class="hljs-string"><span class="hljs-string">"privacy_view"</span></span>: [<span class="hljs-string"><span class="hljs-string">"all"</span></span>], <span class="hljs-string"><span class="hljs-string">"privacy_comment"</span></span>: [<span class="hljs-string"><span class="hljs-string">"all"</span></span>]</code> </pre> <br>  You can be convinced of this simply by completing 2 requests: <a href="https://vk.com/dev/photos.getAlbums"><b>this one</b></a> , and then substituting the required album identifier <a href=""><b>this one</b></a> - you successfully shared direct links to photos in closed albums. <br><br>  Findings: <br><br><ol><li>  Undefined persons get access to your most personalized personal data, and Vkontakte accentuates this in any way. </li><li>  #TheFappening is just around the corner if the owner of one of these applications does a similar </li><li>  Before granting permissions to an application that you are not the author of, think three times </li><li>  Periodically delete access granted to applications, especially to those that you have been granted access for an unlimited time, so that there will not be an incident in the future, even if you don’t store anything critical in the album now </li><li>  I will leave an example with similar access as homework </li></ol></div><p>Source: <a href="https://habr.com/ru/post/357474/">https://habr.com/ru/post/357474/</a></p>
+  <section class="page js-page"><h1>Once again on privacy in Vkontakte</h1><div class="post__text post__text-html js-mediator-article">  A short post for those who have never thought about what permissions should be provided to third-party services when authenticating with credentials, for example, Vkontakte. <br><br>  What could be the catch? <br><a name="habracut"></a><br>  Suppose you use Findface to search for a person by a photo, you log in and the application requests access to the following information from you: <br><br><img src="https://habrastorage.org/webt/h4/mw/mf/h4mwmfjha7enjqetqvxogp_j4ze.jpeg">
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+      Everything is fine you think you probably need access to your photos to find another person.  Satisfied strange assumption. <br><br>  So, having received the access token, the owner of the service has some time to download all your photos, especially from those albums that are marked like this: <br><br><pre><code class="hljs objectivec"><span class="hljs-string"><span class="hljs-string">"privacy_view"</span></span>: [<span class="hljs-string"><span class="hljs-string">"only_me"</span></span>], <span class="hljs-string"><span class="hljs-string">"privacy_comment"</span></span>: [<span class="hljs-string"><span class="hljs-string">"only_me"</span></span>]</code> </pre> <br>  Those.  not only these: <br><br><pre> <code class="hljs objectivec"><span class="hljs-string"><span class="hljs-string">"privacy_view"</span></span>: [<span class="hljs-string"><span class="hljs-string">"all"</span></span>], <span class="hljs-string"><span class="hljs-string">"privacy_comment"</span></span>: [<span class="hljs-string"><span class="hljs-string">"all"</span></span>]</code> </pre> <br>  You can be convinced of this simply by completing 2 requests: <a href="https://vk.com/dev/photos.getAlbums"><b>this one</b></a> , and then substituting the required album identifier <a href=""><b>this one</b></a> - you successfully shared direct links to photos in closed albums. <br><br>  Findings: <br><br><ol><li>  Undefined persons get access to your most personalized personal data, and Vkontakte accentuates this in any way. </li><li>  #TheFappening is just around the corner if the owner of one of these applications does a similar </li><li>  Before granting permissions to an application that you are not the author of, think three times </li><li>  Periodically delete access granted to applications, especially to those that you have been granted access for an unlimited time, so that there will not be an incident in the future, even if you don’t store anything critical in the album now </li><li>  I will leave an example with similar access as homework </li></ol></div><p>Source: <a href="https://habr.com/ru/post/357474/">https://habr.com/ru/post/357474/</a></p>
 <section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">

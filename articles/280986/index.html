@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Fast transit traffic analysis</h1><div class="post__text post__text-html js-mediator-article">  Before any system administrator, sooner or later there is a problem of quantitative analysis of the traffic (from / to, through which protocols / ports, in what volumes, etc.) passing through its network.  It is especially unpleasant when this task arises spontaneously, as a side effect of DDoS, and, as usual, there is no money for serious solutions from Cisco or Arbor.  And it's good if the gateway for the network is a server on which you can run tcpdump or wireshark, but what to do if: <br><br><ul><li>  the gateway is the provider's device, and the network has only a file server; </li><li>  traffic data is not always needed, but from time to time; </li><li>  the device does not support the ability to run third-party programs on it; </li><li>  there is so much traffic that the server after running tcpdump “glues flippers”; </li><li>  or, on the contrary, is it so small that its level is comparable to the share (albeit significant) of normal traffic? </li></ul><a name="habracut"></a><br>  An additional spoon of tar in this “barrel of honey” of the task is also added by the absence of both the tcpdump and tshark miraculous keys “group, sum up / average and sort”. <br><br>  So, with all the reluctance to reinvent the wheel, I had to roll up our sleeves and write a tool that meets the following requirements: <br><br><ul><li>  data source is a router or switch that supports sFlow protocol; </li><li>  collector (tcpdump, tshark or sflowtool) data in PCAP format either writes to a file or sends to STDOUT; </li><li>  accordingly, the source data can be read by the tool either from the file or from STDIN; </li><li>  The base unit for analysis is the packet, not the compound; </li><li>  the result should include information about the direction of traffic, the number of past packets, the amount of traffic and the average packet size; </li><li>  the possibility of basic grouping and sorting of the result should be provided; </li><li>  well, and various passing trivia; </li><li>  and with all this, this tool <b>should not</b> duplicate the functionality of existing well-known tools. </li></ul><br>  It was on this basis that PCAParse was written - as simple as possible tool for obtaining generalized information about traffic passing through the network.  To use it, in the simplest case, a D-Link DGS-3XXX switch or equivalent from other manufacturers is enough and running on the aforementioned sflowtool or tcpdump file server on the office gateway.  As practice shows, these devices have long ago lost their exotic status and can be found even in small offices. <br><br>  In order to make it clear what is at stake, I will give a small example: <br><br><div class="spoiler">  <b class="spoiler_title">Sample script output</b> <div class="spoiler_text"><pre> $ tshark -c 100 -w - |  pcaparse
+  <section class="page js-page"><h1>Fast transit traffic analysis</h1><div class="post__text post__text-html js-mediator-article">  Before any system administrator, sooner or later there is a problem of quantitative analysis of the traffic (from / to, through which protocols / ports, in what volumes, etc.) passing through its network.  It is especially unpleasant when this task arises spontaneously, as a side effect of DDoS, and, as usual, there is no money for serious solutions from Cisco or Arbor.  And it's good if the gateway for the network is a server on which you can run tcpdump or wireshark, but what to do if: <br><br><ul><li>  the gateway is the provider's device, and the network has only a file server; </li><li>  traffic data is not always needed, but from time to time; </li><li>  the device does not support the ability to run third-party programs on it; </li><li>  there is so much traffic that the server after running tcpdump “glues flippers”; </li><li>  or, on the contrary, is it so small that its level is comparable to the share (albeit significant) of normal traffic? </li></ul><a name="habracut"></a><br>  An additional spoon of tar in this “barrel of honey” of the task is also added by the absence of both the tcpdump and tshark miraculous keys “group, sum up / average and sort”. <br><br>  So, with all the reluctance to reinvent the wheel, I had to roll up our sleeves and write a tool that meets the following requirements: 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+    <ul><li>  data source is a router or switch that supports sFlow protocol; </li><li>  collector (tcpdump, tshark or sflowtool) data in PCAP format either writes to a file or sends to STDOUT; </li><li>  accordingly, the source data can be read by the tool either from the file or from STDIN; </li><li>  The base unit for analysis is the packet, not the compound; </li><li>  the result should include information about the direction of traffic, the number of past packets, the amount of traffic and the average packet size; </li><li>  the possibility of basic grouping and sorting of the result should be provided; </li><li>  well, and various passing trivia; </li><li>  and with all this, this tool <b>should not</b> duplicate the functionality of existing well-known tools. </li></ul><br>  It was on this basis that PCAParse was written - as simple as possible tool for obtaining generalized information about traffic passing through the network.  To use it, in the simplest case, a D-Link DGS-3XXX switch or equivalent from other manufacturers is enough and running on the aforementioned sflowtool or tcpdump file server on the office gateway.  As practice shows, these devices have long ago lost their exotic status and can be found even in small offices. <br><br>  In order to make it clear what is at stake, I will give a small example: <br><br><div class="spoiler">  <b class="spoiler_title">Sample script output</b> <div class="spoiler_text"><pre> $ tshark -c 100 -w - |  pcaparse
  Filename: -
  File size: -
  Parsed: 100 samples in 4.90 seconds

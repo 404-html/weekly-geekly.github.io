@@ -25,14 +25,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -61,7 +53,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>NLog extension for error monitoring</h1><div class="post__text post__text-html js-mediator-article">  Have you ever thought that using a log file is not very effective in correcting errors? <br><br>  Want to fix bugs faster and easier? <br><br>  Then read my article in which I will tell you how to monitor application errors using the NLog extension. <br><br><img src="https://habrastorage.org/webt/c0/ox/ra/c0oxrae8k8xx4afr0p52blwyovc.png"><br><a name="habracut"></a><br><h2>  How it works? </h2><br>  The error monitoring solution should be suitable for existing applications, where a huge amount of code is written, which no one will redo for the sake of monitoring. <br><br>  Error monitoring should be performed transparently, which means that there should be no code that monitors the error handlers. <br><br>  Let's take a closer look at the typical exception handling code: <br><br><img src="https://habrastorage.org/webt/bq/kt/6w/bqkt6wf4s9rb46zfshpebc9psjq.png"><br><br>  What can be used as an entry point for error monitoring? <br><br>  True, the logging system will help us. <br><br>  The logging system must have an extension that will collect, group and send errors to the monitoring system.  The monitoring system will send a notification to the developers, the developers will correct the error. <br><br>  Below is a diagram of how this works: <br><br><img src="https://habrastorage.org/webt/ht/3p/on/ht3pondfjsrtf2s7ojfejxmcgdi.png"><br><br>  This is the scheme of work that the NLog extension for the Zidium monitoring system implements.  What is Zidium?  This is a cloud application monitoring service that can be used for free. <br><br>  You can install the extension through the nuget-package - <b>NLog.Zidium</b> <br><br>  Learn more about the expansion in the <a href="http://zidium.net/wiki/api/dot-net/logger-extentions/nlog">documentation</a> . <br><br><h2>  Hello world </h2><br>  To show how everything works, we will create a simple console application and connect it to the monitoring system.  Let the application be an error, which is recorded in the NLog. <br><br>  <b>Application code</b> <br><br><pre><code class="cs">using NLog;
+  <section class="page js-page"><h1>NLog extension for error monitoring</h1><div class="post__text post__text-html js-mediator-article">  Have you ever thought that using a log file is not very effective in correcting errors? <br><br>  Want to fix bugs faster and easier? <br><br>  Then read my article in which I will tell you how to monitor application errors using the NLog extension. 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+    <img src="https://habrastorage.org/webt/c0/ox/ra/c0oxrae8k8xx4afr0p52blwyovc.png"><br><a name="habracut"></a><br><h2>  How it works? </h2><br>  The error monitoring solution should be suitable for existing applications, where a huge amount of code is written, which no one will redo for the sake of monitoring. <br><br>  Error monitoring should be performed transparently, which means that there should be no code that monitors the error handlers. <br><br>  Let's take a closer look at the typical exception handling code: <br><br><img src="https://habrastorage.org/webt/bq/kt/6w/bqkt6wf4s9rb46zfshpebc9psjq.png"><br><br>  What can be used as an entry point for error monitoring? <br><br>  True, the logging system will help us. <br><br>  The logging system must have an extension that will collect, group and send errors to the monitoring system.  The monitoring system will send a notification to the developers, the developers will correct the error. <br><br>  Below is a diagram of how this works: <br><br><img src="https://habrastorage.org/webt/ht/3p/on/ht3pondfjsrtf2s7ojfejxmcgdi.png"><br><br>  This is the scheme of work that the NLog extension for the Zidium monitoring system implements.  What is Zidium?  This is a cloud application monitoring service that can be used for free. <br><br>  You can install the extension through the nuget-package - <b>NLog.Zidium</b> <br><br>  Learn more about the expansion in the <a href="http://zidium.net/wiki/api/dot-net/logger-extentions/nlog">documentation</a> . <br><br><h2>  Hello world </h2><br>  To show how everything works, we will create a simple console application and connect it to the monitoring system.  Let the application be an error, which is recorded in the NLog. <br><br>  <b>Application code</b> <br><br><pre><code class="cs">using NLog;
 using System;
 
 namespace NLog2

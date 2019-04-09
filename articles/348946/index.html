@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Why you should not use a two-tier architecture in developing client-server applications</h1><div class="post__text post__text-html js-mediator-article">  Thank my friend for telling me about his new laboratory work, at the university, in the discipline related to databases.  Otherwise, the article simply would not have seen the light. <br><br>  The essence of this lab was to write the nth number of validations, stored procedures and triggers in MS SQL.  All triggers, validations and stored procedures are very simple, but this is only the first laboratory and it will be worse, there will be multi-storey sql queries and stored procedures of a very large amount. <br><br>  It seems to me to spend time studying such things in 2018 is not very practical, namely that no one uses just a bare database and immediately output to the client.  All applications have business logic and are constantly scaling and changing.  And tie everything to the database is not correct as there may be a number of problems that cannot be solved using only the DBMS as the server side. <br><a name="habracut"></a><br>  <b>Examples of such problems include:</b> <br><br><ul><li>  The need to use another database </li><li>  The need to output data in several forms for different client sides (JSON, HTML, XML, etc.) </li><li>  Adding and modifying tables, columns or changing their names, which will entail a change in the whole associated with each table or column </li><li>  The need to receive data in the same way from other databases installed on the server, or even to receive data from other services </li></ul><br><h3>  Consider a typical example of what we need to send an email </h3><br>  What it looks like if you send a message via MS SQL <br><br><pre><code class="sql hljs"><span class="hljs-keyword"><span class="hljs-keyword">DECLARE</span></span> @tableHTML  <span class="hljs-keyword"><span class="hljs-keyword">NVARCHAR</span></span>(<span class="hljs-keyword"><span class="hljs-keyword">MAX</span></span>) ;  
+  <section class="page js-page"><h1>Why you should not use a two-tier architecture in developing client-server applications</h1><div class="post__text post__text-html js-mediator-article">  Thank my friend for telling me about his new laboratory work, at the university, in the discipline related to databases.  Otherwise, the article simply would not have seen the light. <br><br>  The essence of this lab was to write the nth number of validations, stored procedures and triggers in MS SQL.  All triggers, validations and stored procedures are very simple, but this is only the first laboratory and it will be worse, there will be multi-storey sql queries and stored procedures of a very large amount. <br><br>  It seems to me to spend time studying such things in 2018 is not very practical, namely that no one uses just a bare database and immediately output to the client.  All applications have business logic and are constantly scaling and changing.  And tie everything to the database is not correct as there may be a number of problems that cannot be solved using only the DBMS as the server side. <br><a name="habracut"></a><br>  <b>Examples of such problems include:</b> 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+    <ul><li>  The need to use another database </li><li>  The need to output data in several forms for different client sides (JSON, HTML, XML, etc.) </li><li>  Adding and modifying tables, columns or changing their names, which will entail a change in the whole associated with each table or column </li><li>  The need to receive data in the same way from other databases installed on the server, or even to receive data from other services </li></ul><br><h3>  Consider a typical example of what we need to send an email </h3><br>  What it looks like if you send a message via MS SQL <br><br><pre><code class="sql hljs"><span class="hljs-keyword"><span class="hljs-keyword">DECLARE</span></span> @tableHTML  <span class="hljs-keyword"><span class="hljs-keyword">NVARCHAR</span></span>(<span class="hljs-keyword"><span class="hljs-keyword">MAX</span></span>) ;  
 
 <span class="hljs-keyword"><span class="hljs-keyword">SET</span></span> @tableHTML =  
     N<span class="hljs-string"><span class="hljs-string">'&lt;H1&gt;Work Order Report&lt;/H1&gt;'</span></span> +  

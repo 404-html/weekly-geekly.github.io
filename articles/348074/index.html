@@ -25,14 +25,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -61,7 +53,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Why is an early return from a function so important?</h1><div class="post__text post__text-html js-mediator-article">  Hi, Habr!  I present to you the translation of the article <a href="https://szymonkrajewski.pl/why-should-you-return-early/">“Why should you return early?”</a> By Szymon Krajewski <br><br><img src="https://habrastorage.org/webt/it/fn/e4/itfne4ffljtuwuhtcf5eralkiie.png" alt="image"><br><br>  At the beginning of my adventure as a programmer, my code often resembled vermicelli.  In any conditional expression, all I did was that I immediately turned to the description of the correct outcome, leaving the rest to the end.  “It works, that's all,” I told myself, and the code continued to grow by leaps and bounds.  Thousands of written methods in the end made me think about whether it was not worth changing their internal logic, returning negative results as early as possible.  Thus, I came to what is now called the rule of “immediate failure”. <br><br>  Obviously, there are several approaches to writing the same function.  For example, as you can start the execution of the main part immediately after the positive outcome of the conditional operator, you can first run through all the negative outcomes, returning errors from the function, and only then go to the main logic.  In other words, I discovered different styles of writing conditional constructions. <br><a name="habracut"></a><br><h2>  Two approaches to checking requirements </h2><br>
+  <section class="page js-page"><h1>Why is an early return from a function so important?</h1><div class="post__text post__text-html js-mediator-article">  Hi, Habr!  I present to you the translation of the article <a href="https://szymonkrajewski.pl/why-should-you-return-early/">“Why should you return early?”</a> By Szymon Krajewski <br><br><img src="https://habrastorage.org/webt/it/fn/e4/itfne4ffljtuwuhtcf5eralkiie.png" alt="image"><br><br>  At the beginning of my adventure as a programmer, my code often resembled vermicelli.  In any conditional expression, all I did was that I immediately turned to the description of the correct outcome, leaving the rest to the end.  “It works, that's all,” I told myself, and the code continued to grow by leaps and bounds.  Thousands of written methods in the end made me think about whether it was not worth changing their internal logic, returning negative results as early as possible.  Thus, I came to what is now called the rule of “immediate failure”. 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+      Obviously, there are several approaches to writing the same function.  For example, as you can start the execution of the main part immediately after the positive outcome of the conditional operator, you can first run through all the negative outcomes, returning errors from the function, and only then go to the main logic.  In other words, I discovered different styles of writing conditional constructions. <br><a name="habracut"></a><br><h2>  Two approaches to checking requirements </h2><br>
      ,     - ,         . ,       ,   <code>$email</code>   ,  <code>$message</code>    .      .<br>
 <br>
 <pre><code class="php">function sendEmail(string $email, string $message)

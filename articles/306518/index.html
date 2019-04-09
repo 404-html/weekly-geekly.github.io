@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Windows and SSH. Continuation</h1><div class="post__text post__text-html js-mediator-article">  Recently I decided to dig into Insider Preview Windows 10 (10.0.14393.3) on how the Bash subsystem works there and remembered the publication of <a href="https://habrahabr.ru/users/kekekeks/" class="user_link">kekekeks</a> <a href="https://habrahabr.ru/post/259449/">“</a> <a href="https://habrahabr.ru/users/kekekeks/" class="user_link">Microsoft</a> <a href="https://habrahabr.ru/post/259449/">’s SSH support in Windows”</a> .  And out of pure curiosity I drove into the bash console "ssh localhost" and was slightly surprised that he offered to save the key. <br><br><img src="https://habrastorage.org/files/31c/0f5/834/31c0f583425745bbbb0668947d41733e.png"><br><a name="habracut"></a><br>  At first, I thought that the Linux subsystem brought with it something new, but no - the components appeared in the latest OS update: <br><br><img src="https://habrastorage.org/files/063/19c/2db/06319c2db3734fdfba3b041dffb335f8.png"><br><br>  Now in order to connect via SSH to a Windows 10 computer, you will need to add a user to the <b>“SSH Users”</b> group through <b>“Computer Management”</b> - <b>“User Groups</b> <b>”</b> .  Only users in English are supported (at least I could not log in with the user in Russian). <br><br>  When connected, a standard Windows command line interface opens (very strange that it is not PowerShell, it would be much better). <br><br><img src="https://habrastorage.org/files/ab4/39c/1d8/ab439c1d878c4e3da04c5b40abfe1033.png"><br><br><h4>  Of the bugs seen so far </h4><br>  1. <b>Whoami</b> and some others output is not shown; <br>  2. Command execution is not interrupted by <b>CTRL + C</b> ; <br>  3. PowerShell does not work. <br><br>  * SCP did not check the operation.  If it's not difficult for anyone ... And suddenly you will find where and how the keys are stored. <br><br>  If you find something else - inform, I will add. </div><p>Source: <a href="https://habr.com/ru/post/306518/">https://habr.com/ru/post/306518/</a></p>
+  <section class="page js-page"><h1>Windows and SSH. Continuation</h1><div class="post__text post__text-html js-mediator-article">  Recently I decided to dig into Insider Preview Windows 10 (10.0.14393.3) on how the Bash subsystem works there and remembered the publication of <a href="https://habrahabr.ru/users/kekekeks/" class="user_link">kekekeks</a> <a href="https://habrahabr.ru/post/259449/">“</a> <a href="https://habrahabr.ru/users/kekekeks/" class="user_link">Microsoft</a> <a href="https://habrahabr.ru/post/259449/">’s SSH support in Windows”</a> .  And out of pure curiosity I drove into the bash console "ssh localhost" and was slightly surprised that he offered to save the key. <br><br><img src="https://habrastorage.org/files/31c/0f5/834/31c0f583425745bbbb0668947d41733e.png"><br><a name="habracut"></a><br>  At first, I thought that the Linux subsystem brought with it something new, but no - the components appeared in the latest OS update: <br><br><img src="https://habrastorage.org/files/063/19c/2db/06319c2db3734fdfba3b041dffb335f8.png">
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+      Now in order to connect via SSH to a Windows 10 computer, you will need to add a user to the <b>“SSH Users”</b> group through <b>“Computer Management”</b> - <b>“User Groups</b> <b>”</b> .  Only users in English are supported (at least I could not log in with the user in Russian). <br><br>  When connected, a standard Windows command line interface opens (very strange that it is not PowerShell, it would be much better). <br><br><img src="https://habrastorage.org/files/ab4/39c/1d8/ab439c1d878c4e3da04c5b40abfe1033.png"><br><br><h4>  Of the bugs seen so far </h4><br>  1. <b>Whoami</b> and some others output is not shown; <br>  2. Command execution is not interrupted by <b>CTRL + C</b> ; <br>  3. PowerShell does not work. <br><br>  * SCP did not check the operation.  If it's not difficult for anyone ... And suddenly you will find where and how the keys are stored. <br><br>  If you find something else - inform, I will add. </div><p>Source: <a href="https://habr.com/ru/post/306518/">https://habr.com/ru/post/306518/</a></p>
 <section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">

@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Bypassing the DPI provider on the OpenWrt router using only busybox</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/getpro/habr/post_images/3f1/52b/2aa/3f152b2aa66cefe21b2808703c6e3d73.png" alt="image"><br>  Hello everyone, in the light of the latest news from RosKomNadzor, I decided to take a look at how my ISP is blocking.  It turned out that the Google DNS does not save, and the blocking works by allocating an HTTP request to a banned site and then dropping packets found by a TCP session.  However, after a little tinkering, it turned out that a single busybox is enough to bypass it.  To whom it is interesting - well under the cat. <br><br><a name="habracut"></a><br><br>  At once I will make a reservation that the implementation of the lock depends on the provider and my method may not work for you.  So, we will consider the example of the well-known site rutracker.ogr (the domain and IP address in the post is changed to avoid). <br>  I started with a simple query to see how the provider responds in general. <br><br><div class="spoiler">  <b class="spoiler_title">Homepage Request</b> <div class="spoiler_text"><pre> wget -O / dev / null "rutracker.ogr"
+  <section class="page js-page"><h1>Bypassing the DPI provider on the OpenWrt router using only busybox</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/getpro/habr/post_images/3f1/52b/2aa/3f152b2aa66cefe21b2808703c6e3d73.png" alt="image"><br>  Hello everyone, in the light of the latest news from RosKomNadzor, I decided to take a look at how my ISP is blocking.  It turned out that the Google DNS does not save, and the blocking works by allocating an HTTP request to a banned site and then dropping packets found by a TCP session.  However, after a little tinkering, it turned out that a single busybox is enough to bypass it.  To whom it is interesting - well under the cat. <br><br><a name="habracut"></a><br><br>  At once I will make a reservation that the implementation of the lock depends on the provider and my method may not work for you.  So, we will consider the example of the well-known site rutracker.ogr (the domain and IP address in the post is changed to avoid). <br>  I started with a simple query to see how the provider responds in general. 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+    <div class="spoiler">  <b class="spoiler_title">Homepage Request</b> <div class="spoiler_text"><pre> wget -O / dev / null "rutracker.ogr"
  --2016-02-10 01: 21: 18-- http: //rutracker.ogr/
  Rutracker.ogr (rutracker.ogr) is recognized ... 195.82.147.214
  Connection to rutracker.ogr (rutracker.ogr) | 195.82.147.214 |: 80 ... connection established.

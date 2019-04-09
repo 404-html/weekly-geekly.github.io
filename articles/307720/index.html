@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Elixir: What does OOP look like in a functional language?</h1><div class="post__text post__text-html js-mediator-article">  Recently, articles and discussions on the topic of parting with the PLO and the search for meaning, which Alan Kay originally put into this concept, have become more frequent. <br><br><div class="spoiler">  <b class="spoiler_title">Kay's few sayings for those who missed</b> <div class="spoiler_text"><blockquote>  I made up the term “object-oriented”, and I can tell you </blockquote><br><blockquote>  OOP is a means of communication, a state of the process, an extreme late binding of all things. </blockquote><br><blockquote>  I’m sorry that I’ve been coined the term “objects”.  The big idea is “messaging”. </blockquote><br><blockquote>  It would be much more important to develop how it should be implemented. </blockquote><br><blockquote>  It was less effort than traditional early binding systems (C, C ++, Java, etc.) </blockquote><br><blockquote>  I still like dynamic typing. </blockquote></div></div><br>  In connection with these discussions, it often pops up the idea that Erlang / Elixir very well meets the criteria that Kay presented to the concept of "object-oriented".  But not everyone is familiar with these languages, so there is a misunderstanding of how functional languages ​​can be more object-oriented than popular C ++, Java, C #. <br><br>  In this article I want to show how <a href="http://exercism.io/exercises/ruby/grade-school/readme">EO</a> looks like on Elixir using a simple example with <a href="http://exercism.io/exercises/ruby/grade-school/readme">exercism.io</a> . <br><br><div class="spoiler">  <b class="spoiler_title">Task Description</b> <div class="spoiler_text">  Write a small program that stores the names of the students, grouped by the number of the class in which they are studying. <br><br>  In the end, you should be able to: <br><br><ul><li>  Add student name to class </li><li>  Get a list of all students in class </li><li>  Get a sorted list of all students in all classes.  Classes should be sorted in ascending order (1, 2, 3, etc.), and students' names should be alphabetically listed. </li></ul><br></div></div><a name="habracut"></a><br>  Let's start with the tests to see what the code that calls our functions will look like.  Take a look at the <a href="http://exercism.io/exercises/ruby/grade-school">tests that Exercism prepared for Ruby</a> , in which OOP has come to the point that even operators are someone's methods. <br><br><div class="spoiler">  <b class="spoiler_title">And we will write similar tests for the Elixir version of this program:</b> <div class="spoiler_text"><pre><code>Code.load_file("school.exs")
+  <section class="page js-page"><h1>Elixir: What does OOP look like in a functional language?</h1><div class="post__text post__text-html js-mediator-article">  Recently, articles and discussions on the topic of parting with the PLO and the search for meaning, which Alan Kay originally put into this concept, have become more frequent. <br><br><div class="spoiler">  <b class="spoiler_title">Kay's few sayings for those who missed</b> <div class="spoiler_text"><blockquote>  I made up the term “object-oriented”, and I can tell you </blockquote><br><blockquote>  OOP is a means of communication, a state of the process, an extreme late binding of all things. </blockquote><br><blockquote>  I’m sorry that I’ve been coined the term “objects”.  The big idea is “messaging”. </blockquote><br><blockquote>  It would be much more important to develop how it should be implemented. </blockquote><br><blockquote>  It was less effort than traditional early binding systems (C, C ++, Java, etc.) </blockquote><br><blockquote>  I still like dynamic typing. </blockquote></div></div><br>  In connection with these discussions, it often pops up the idea that Erlang / Elixir very well meets the criteria that Kay presented to the concept of "object-oriented".  But not everyone is familiar with these languages, so there is a misunderstanding of how functional languages ​​can be more object-oriented than popular C ++, Java, C #. <br><br>  In this article I want to show how <a href="http://exercism.io/exercises/ruby/grade-school/readme">EO</a> looks like on Elixir using a simple example with <a href="http://exercism.io/exercises/ruby/grade-school/readme">exercism.io</a> . 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+    <div class="spoiler">  <b class="spoiler_title">Task Description</b> <div class="spoiler_text">  Write a small program that stores the names of the students, grouped by the number of the class in which they are studying. <br><br>  In the end, you should be able to: <br><br><ul><li>  Add student name to class </li><li>  Get a list of all students in class </li><li>  Get a sorted list of all students in all classes.  Classes should be sorted in ascending order (1, 2, 3, etc.), and students' names should be alphabetically listed. </li></ul><br></div></div><a name="habracut"></a><br>  Let's start with the tests to see what the code that calls our functions will look like.  Take a look at the <a href="http://exercism.io/exercises/ruby/grade-school">tests that Exercism prepared for Ruby</a> , in which OOP has come to the point that even operators are someone's methods. <br><br><div class="spoiler">  <b class="spoiler_title">And we will write similar tests for the Elixir version of this program:</b> <div class="spoiler_text"><pre><code>Code.load_file("school.exs")
 ExUnit.start
 
 defmodule SchoolTest do

@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Google DNS no longer supports Round Robin DNS</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/files/cdd/756/569/cdd7565692514a2ca15a2e6ea05d7e9d.jpg"><br>  Earlier, when it was necessary to distribute the load on several servers, we prescribed several A-records with the same name in the DNS zone, and everything worked.  Customer requests were distributed approximately equally.  This method of balancing was especially relevant for the distribution of static content. <br><br>  Recently our client addressed us with a problem: <br>  At CHNN, problems started loading different flash drives - the files were downloaded for several minutes. <br><a name="habracut"></a><br>  The investigation revealed the uneven loading of one of the servers for distributing statics - he gave many times more traffic to the network than all the others.  And periodically the load passed from one server to another. <br><br>  In the DNS zone was written something like: <br><br><pre> cdn.exampe.com IN A 192.168.10.1
+  <section class="page js-page"><h1>Google DNS no longer supports Round Robin DNS</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/files/cdd/756/569/cdd7565692514a2ca15a2e6ea05d7e9d.jpg"><br>  Earlier, when it was necessary to distribute the load on several servers, we prescribed several A-records with the same name in the DNS zone, and everything worked.  Customer requests were distributed approximately equally.  This method of balancing was especially relevant for the distribution of static content. <br><br>  Recently our client addressed us with a problem: <br>  At CHNN, problems started loading different flash drives - the files were downloaded for several minutes. <br><a name="habracut"></a><br>  The investigation revealed the uneven loading of one of the servers for distributing statics - he gave many times more traffic to the network than all the others.  And periodically the load passed from one server to another. <br><br>  In the DNS zone was written something like: 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+    <pre> cdn.exampe.com IN A 192.168.10.1
  cdn.exampe.com IN A 192.168.12.1
  cdn.exampe.com IN A 192.168.15.1
  cdn.exampe.com IN A 192.168.16.1

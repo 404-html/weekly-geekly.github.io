@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Latest C ++ Development News</h1><div class="post__text post__text-html js-mediator-article">  Recently, in the Finnish city of Oulu, the meeting of the <a href="http://www.open-std.org/jtc1/sc22/wg21/">WG21</a> international working group on C ++ standardization ended, in which <a href="https://habrahabr.ru/company/yandex/blog/301514/">Yandex employees officially participated</a> for the first time.  It approved a <b>draft</b> version of C ++ 17 with a variety of new classes, methods and useful innovations of the language. <br><br> <a href="https://habrahabr.ru/company/yandex/blog/304510/"><img src="https://habrastorage.org/files/6e7/1a3/802/6e71a380253b447ebb1da8925766caaf.png"></a> <br><br>  During the trip, we dined with <a href="https://en.wikipedia.org/wiki/Bjarne_Stroustrup">Bjarne Stroustrup</a> , rode in the elevator with the <a href="https://en.wikipedia.org/wiki/Herb_Sutter">Coat of Arms Sutter</a> , shook hands with <a href="http://www.boost.org/users/people/beman_dawes.html">Behman Daves</a> , went out for air <a href="http://www.boost.org/users/people/beman_dawes.html">and breathed</a> with <a href="https://cppnow2015.sched.org/speaker/vicente_j_botet_escriba.1rzy8qjh">Vincent Bothe</a> , discussed online games with <a href="https://www.linkedin.com/in/gor-nishanov-71aa2113">Gor Nishanov</a> , were at the reception at the Oulu city hall and talked to the mayor.  We also, together with everyone from 8:30 to 17:30, worked on the new C ++ standard, often gathering at 20:00 to work four more hours and have time to add a couple of good things. <br><br>  Now we are ready to share with you the "goodies" of the new standard.  Anyone wishing to have a look at the multi-threaded algorithms, new containers, unusual capabilities of old containers, “syntactic sugar” of the new wonderful C ++, please under the cat. <br><a name="habracut"></a><br><h1>  if constexpr ( <i>condition</i> ) </h1><br>  In C ++ 17, it was possible to perform if at the compilation stage: <br><br><pre><code class="cpp">template &lt;std::size_t I, class F, class S&gt;
+  <section class="page js-page"><h1>Latest C ++ Development News</h1><div class="post__text post__text-html js-mediator-article">  Recently, in the Finnish city of Oulu, the meeting of the <a href="http://www.open-std.org/jtc1/sc22/wg21/">WG21</a> international working group on C ++ standardization ended, in which <a href="https://habrahabr.ru/company/yandex/blog/301514/">Yandex employees officially participated</a> for the first time.  It approved a <b>draft</b> version of C ++ 17 with a variety of new classes, methods and useful innovations of the language. <br><br> <a href="https://habrahabr.ru/company/yandex/blog/304510/"><img src="https://habrastorage.org/files/6e7/1a3/802/6e71a380253b447ebb1da8925766caaf.png"></a> <br><br>  During the trip, we dined with <a href="https://en.wikipedia.org/wiki/Bjarne_Stroustrup">Bjarne Stroustrup</a> , rode in the elevator with the <a href="https://en.wikipedia.org/wiki/Herb_Sutter">Coat of Arms Sutter</a> , shook hands with <a href="http://www.boost.org/users/people/beman_dawes.html">Behman Daves</a> , went out for air <a href="http://www.boost.org/users/people/beman_dawes.html">and breathed</a> with <a href="https://cppnow2015.sched.org/speaker/vicente_j_botet_escriba.1rzy8qjh">Vincent Bothe</a> , discussed online games with <a href="https://www.linkedin.com/in/gor-nishanov-71aa2113">Gor Nishanov</a> , were at the reception at the Oulu city hall and talked to the mayor.  We also, together with everyone from 8:30 to 17:30, worked on the new C ++ standard, often gathering at 20:00 to work four more hours and have time to add a couple of good things. 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+      Now we are ready to share with you the "goodies" of the new standard.  Anyone wishing to have a look at the multi-threaded algorithms, new containers, unusual capabilities of old containers, “syntactic sugar” of the new wonderful C ++, please under the cat. <br><a name="habracut"></a><br><h1>  if constexpr ( <i>condition</i> ) </h1><br>  In C ++ 17, it was possible to perform if at the compilation stage: <br><br><pre><code class="cpp">template &lt;std::size_t I, class F, class S&gt;
 auto rget(const std::pair&lt;F, S&gt;&amp; p) {
     if constexpr (I == 0) {
         return p.second;

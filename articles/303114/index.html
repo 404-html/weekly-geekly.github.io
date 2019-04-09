@@ -23,14 +23,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -59,7 +51,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Creating a blog on symfony 2.8 lts [Part 5]</h1><div class="post__text post__text-html js-mediator-article"> <a href="https://habrahabr.ru/post/303114/"><img src="https://habrastorage.org/files/641/e2f/00c/641e2f00c3f347999dfe9779cedd63d7.jpg"></a> <br><a name="habracut"></a><br><br><div class="spoiler">  <b class="spoiler_title">Navigation in parts of the manual</b> <div class="spoiler_text"><blockquote>  <a href="https://habrahabr.ru/post/301760/">Part 1 - Configuring Symfony2 and Templates</a> <br>  <a href="https://habrahabr.ru/post/302032/">Part 2 - Contact page: validators, forms, and email</a> <br>  <a href="https://habrahabr.ru/post/302438/">Part 3 - Doctrine 2 and Data Fixtures</a> <br>  <a href="https://habrahabr.ru/post/302602/">Part 4 - Comment Model, Repository and Migrations of Doctrine 2</a> <br>  <a href="https://habrahabr.ru/post/303578/">Part 6 - Modular and Functional Testing</a> <br></blockquote><br></div></div><br><br>  Project on <a href="">Github</a> <br><blockquote>  You can find out how to install the part of the manual you need in the description of the repository by the <a href="https://github.com/AntoscencoVladimir/symfony-blog">link</a> .  (For example, if you want to start with this lesson without going through the previous one) <br></blockquote><br><br><h4>  Homepage.  Records and comments. </h4><br><br>  Now the main page displays a list of recent posts, but there is no information regarding the comments on these posts.  We have a Comment Entity due to which we can return to the main page to provide this information.  Since we established a connection between Blog and Comment entities, we know that Doctrine 2 will be able to receive comments on the post (remember, we added the <b>$ comments</b> object to the Blog entity).  Let's update the main page template <br><div class="spoiler">  <b class="spoiler_title">src / Blogger / BlogBundle / Resources / views / Page / index.html.twig</b> <div class="spoiler_text"><pre><code class="php hljs">{<span class="hljs-comment"><span class="hljs-comment"># src/Blogger/BlogBundle/Resources/views/Page/index.html.twig #}</span></span>
+  <section class="page js-page"><h1>Creating a blog on symfony 2.8 lts [Part 5]</h1><div class="post__text post__text-html js-mediator-article"> <a href="https://habrahabr.ru/post/303114/"><img src="https://habrastorage.org/files/641/e2f/00c/641e2f00c3f347999dfe9779cedd63d7.jpg"></a> <br><a name="habracut"></a><br><br><div class="spoiler">  <b class="spoiler_title">Navigation in parts of the manual</b> <div class="spoiler_text"><blockquote>  <a href="https://habrahabr.ru/post/301760/">Part 1 - Configuring Symfony2 and Templates</a> <br>  <a href="https://habrahabr.ru/post/302032/">Part 2 - Contact page: validators, forms, and email</a> <br>  <a href="https://habrahabr.ru/post/302438/">Part 3 - Doctrine 2 and Data Fixtures</a> <br>  <a href="https://habrahabr.ru/post/302602/">Part 4 - Comment Model, Repository and Migrations of Doctrine 2</a> <br>  <a href="https://habrahabr.ru/post/303578/">Part 6 - Modular and Functional Testing</a> <br></blockquote><br></div></div><br><br>  Project on <a href="">Github</a> <br><blockquote>  You can find out how to install the part of the manual you need in the description of the repository by the <a href="https://github.com/AntoscencoVladimir/symfony-blog">link</a> .  (For example, if you want to start with this lesson without going through the previous one) <br></blockquote>
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+    <h4>  Homepage.  Records and comments. </h4><br><br>  Now the main page displays a list of recent posts, but there is no information regarding the comments on these posts.  We have a Comment Entity due to which we can return to the main page to provide this information.  Since we established a connection between Blog and Comment entities, we know that Doctrine 2 will be able to receive comments on the post (remember, we added the <b>$ comments</b> object to the Blog entity).  Let's update the main page template <br><div class="spoiler">  <b class="spoiler_title">src / Blogger / BlogBundle / Resources / views / Page / index.html.twig</b> <div class="spoiler_text"><pre><code class="php hljs">{<span class="hljs-comment"><span class="hljs-comment"># src/Blogger/BlogBundle/Resources/views/Page/index.html.twig #}</span></span>
 
 {<span class="hljs-comment"><span class="hljs-comment"># .. #}</span></span>
 &lt;footer <span class="hljs-class"><span class="hljs-keyword"><span class="hljs-class"><span class="hljs-keyword">class</span></span></span><span class="hljs-class">="</span><span class="hljs-title"><span class="hljs-class"><span class="hljs-title">meta</span></span></span><span class="hljs-class">"&gt;

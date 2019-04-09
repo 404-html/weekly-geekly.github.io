@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Entity “framework” for PHP from one class</h1><div class="post__text post__text-html js-mediator-article">  Since the development of technology has led to the fact that every programmer now has his own computer, as a side effect, we have thousands of various libraries, frameworks, services, API, etc.  for all occasions.  But when this case of life comes, the problem arises - what to use and what to do if it is not quite suitable - to rewrite, write your own from scratch or fasten several solutions for different use cases. <br><br>  I think many have noticed that often creating a project is reduced not so much to programming as to writing the code for integrating several ready-made solutions.  Sometimes such combinations turn into new solutions that can be repeatedly used in subsequent tasks. <br><br>  Let us turn to a specific "running" task - the object layer for working with databases in PHP.  There are a lot of solutions, starting from PDO and ending with multi-level (and, in my opinion, not quite relevant in PHP) ORM engines. <br><a name="habracut"></a><br>  Most of these solutions migrated to PHP from other platforms.  But often the authors do not take into account the features of PHP, which would dramatically simplify both the writing and the use of portable constructs. <br>  One of the common architectures for this class of tasks is the Active Record pattern.  In particular, the so-called Entity (entities) are used in this pattern, in one form or another, used in a number of platforms, ranging from persistent bins in EJB3 to EF in .NET. <br><br>  So, let's build a similar construction for PHP.  Connect between two cool things - the finished <a href="http://adodb.org/dokuwiki/doku.php">ADODB</a> library and the weakly typed and dynamic properties of objects in the PHP language. <br>  One of the many features of ADODB is the so-called auto-generation of SQL queries for insertion (INSERT) and update (UPDATE) of records based on associative arrays with data. <br>  Actually there is nothing military to take an array, where the keys are the names of the fields and the values ​​are respectively the data and generate the SQL query string.  But ADODB does it more intelligently.  The query is based on the structure of the table, which is previously read from the database schema.  As a result, firstly, only existing fields are included in sql, and secondly, the field type is taken into account - quotation marks are added for strings, date formats can be formed based on the timestamp if ADODB sees it instead of a string in the transmitted value, etc. . <br><br>  Now we will come from PHP. <br>  Imagine such a class (simplified). <br><br><pre><code class="php">class Entity{
+  <section class="page js-page"><h1>Entity “framework” for PHP from one class</h1><div class="post__text post__text-html js-mediator-article">  Since the development of technology has led to the fact that every programmer now has his own computer, as a side effect, we have thousands of various libraries, frameworks, services, API, etc.  for all occasions.  But when this case of life comes, the problem arises - what to use and what to do if it is not quite suitable - to rewrite, write your own from scratch or fasten several solutions for different use cases. <br><br>  I think many have noticed that often creating a project is reduced not so much to programming as to writing the code for integrating several ready-made solutions.  Sometimes such combinations turn into new solutions that can be repeatedly used in subsequent tasks. <br><br>  Let us turn to a specific "running" task - the object layer for working with databases in PHP.  There are a lot of solutions, starting from PDO and ending with multi-level (and, in my opinion, not quite relevant in PHP) ORM engines. <br><a name="habracut"></a><br>  Most of these solutions migrated to PHP from other platforms.  But often the authors do not take into account the features of PHP, which would dramatically simplify both the writing and the use of portable constructs. <br>  One of the common architectures for this class of tasks is the Active Record pattern.  In particular, the so-called Entity (entities) are used in this pattern, in one form or another, used in a number of platforms, ranging from persistent bins in EJB3 to EF in .NET. 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+      So, let's build a similar construction for PHP.  Connect between two cool things - the finished <a href="http://adodb.org/dokuwiki/doku.php">ADODB</a> library and the weakly typed and dynamic properties of objects in the PHP language. <br>  One of the many features of ADODB is the so-called auto-generation of SQL queries for insertion (INSERT) and update (UPDATE) of records based on associative arrays with data. <br>  Actually there is nothing military to take an array, where the keys are the names of the fields and the values ​​are respectively the data and generate the SQL query string.  But ADODB does it more intelligently.  The query is based on the structure of the table, which is previously read from the database schema.  As a result, firstly, only existing fields are included in sql, and secondly, the field type is taken into account - quotation marks are added for strings, date formats can be formed based on the timestamp if ADODB sees it instead of a string in the transmitted value, etc. . <br><br>  Now we will come from PHP. <br>  Imagine such a class (simplified). <br><br><pre><code class="php">class Entity{
    protected $fields = array();
    public final function __set($name, $value) {
         $this-&gt;fields[$name] = $value;

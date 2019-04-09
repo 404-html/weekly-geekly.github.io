@@ -23,14 +23,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -59,7 +51,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Google Public DNS silently turned on support for DNS over TLS</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/webt/re/rt/iq/rertiqvfycgdfitrxn-uqn16oja.png"><br><br>  Suddenly, without prior announcement, at <b>8.8.8.8</b> DNS over TLS was earned.  Earlier, Google announced only support for <a href="https">DNS over HTTPS.</a> <br><br>  A public resolver from CloudFlare with an IP address <a href="http://1.1.1.1/">1.1.1.1</a> supports DNS over TLS since the project was launched. <br><br><h3>  Why do you need it </h3><br>  When using the classic DNS scheme, providers can crawl their dirty paws into your DNS packets, see which domains you request, and replace the answers as you like.  Fraudsters do the same, replacing resolvers on hacked routers in order to direct the user to a fake server. <br><br>  With DNS over TLS / HTTPS, requests are sent inside an encrypted tunnel so that the provider cannot replace or view the request. <br><br>  And with the advent of domain name encryption in X.509 certificates ( <a href="https://blog.cloudflare.com/esni/">ESNI</a> ), blocking via DPI over SNI (Server Name Indication, a special field in which the domain name is transmitted in the first TLS packet), which are now used by some large providers, will become impossible. <br><br><h3>  How it works </h3><br>  A TCP connection is made to TCP port 853, and a resolver certificate is checked using system root certificates, just like HTTPS in a browser.  This eliminates the need to add any keys manually.  A normal DNS query is performed inside the tunnel.  This creates less overhead than DNS over HTTPS, which adds HTTP headers to the request and response. <br><br>  Unfortunately, currently only in Android 9 (Pie) support for DNS over TLS is built into the system resolver.  <a href="https://blog.cloudflare.com/enable-private-dns-with-1-1-1-1-on-android-9-pie/">Setup Instructions for Android 9</a> . <br><br>  For other systems, it is proposed to use a third-party daemon, and direct the system resolver to localhost (127.0.0.1). <br><br><h3>  Setup on macOS </h3><br>  Let's analyze the DNS over TLS setting on the latest macOS version, using the <a href="https://www.knot-resolver.cz/">knot</a> resolver as an example. <br><a name="habracut"></a><br><h4>  Installation </h4><br><pre><code class="hljs sql">brew <span class="hljs-keyword"><span class="hljs-keyword">install</span></span> knot-resolver</code></pre><br>
+  <section class="page js-page"><h1>Google Public DNS silently turned on support for DNS over TLS</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/webt/re/rt/iq/rertiqvfycgdfitrxn-uqn16oja.png"><br><br>  Suddenly, without prior announcement, at <b>8.8.8.8</b> DNS over TLS was earned.  Earlier, Google announced only support for <a href="https">DNS over HTTPS.</a> <br><br>  A public resolver from CloudFlare with an IP address <a href="http://1.1.1.1/">1.1.1.1</a> supports DNS over TLS since the project was launched. 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+    <h3>  Why do you need it </h3><br>  When using the classic DNS scheme, providers can crawl their dirty paws into your DNS packets, see which domains you request, and replace the answers as you like.  Fraudsters do the same, replacing resolvers on hacked routers in order to direct the user to a fake server. <br><br>  With DNS over TLS / HTTPS, requests are sent inside an encrypted tunnel so that the provider cannot replace or view the request. <br><br>  And with the advent of domain name encryption in X.509 certificates ( <a href="https://blog.cloudflare.com/esni/">ESNI</a> ), blocking via DPI over SNI (Server Name Indication, a special field in which the domain name is transmitted in the first TLS packet), which are now used by some large providers, will become impossible. <br><br><h3>  How it works </h3><br>  A TCP connection is made to TCP port 853, and a resolver certificate is checked using system root certificates, just like HTTPS in a browser.  This eliminates the need to add any keys manually.  A normal DNS query is performed inside the tunnel.  This creates less overhead than DNS over HTTPS, which adds HTTP headers to the request and response. <br><br>  Unfortunately, currently only in Android 9 (Pie) support for DNS over TLS is built into the system resolver.  <a href="https://blog.cloudflare.com/enable-private-dns-with-1-1-1-1-on-android-9-pie/">Setup Instructions for Android 9</a> . <br><br>  For other systems, it is proposed to use a third-party daemon, and direct the system resolver to localhost (127.0.0.1). <br><br><h3>  Setup on macOS </h3><br>  Let's analyze the DNS over TLS setting on the latest macOS version, using the <a href="https://www.knot-resolver.cz/">knot</a> resolver as an example. <br><a name="habracut"></a><br><h4>  Installation </h4><br><pre><code class="hljs sql">brew <span class="hljs-keyword"><span class="hljs-keyword">install</span></span> knot-resolver</code></pre><br>
   knot      ,  dnsmasq. <br>
 <br>
 <h4> </h4><br>

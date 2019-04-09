@@ -22,14 +22,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -58,7 +50,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Testing C / C ++ Projects with Python</h1><div class="post__text post__text-html js-mediator-article"><h3>  Introduction </h3><br>  The ability to integrate Python and C / C ++ is well known.  Typically, this technique is used to accelerate programs in Python or to tune programs in C / C ++.  I would like to highlight the possibility of using python to test C / C ++ code in the IDE without the support of the test organization system in the IDE.  From my point of view, it is advisable to apply in the field of software development for microcontrollers. <br><br>  You can talk a lot about the need for tests in projects, I assume that tests help me develop the functionality of the program.  And after the completion of the project, after some time, help to understand it and save it from mistakes. <br><br>  When developing programs for microcontrollers, I came across a lack of standard input / output (of course, you can redefine the input and output functions in the simulator, output data via the UART - but often the UART is already involved, and the simulator does not always work correctly) hardware erroneous business logic.  At the development stage, I implemented separate projects, testing parts of the program, and then I was responsible for running all test applications after making changes.  Of course, all this can be automated.  So you can work, but I found a better way. <br><a name="habracut"></a><br><h3>  Method Description </h3><br>  It is possible to use python (namely ctypes) to cover the tests of individual modules of the project in C / C ++.  The essence of the technique is reduced to the creation of isolated parts that implement part of the functionality in the form of dynamically linked libraries (dll), data input and control of the result.  Python is used as a “strapping”.  This technique does not imply a change in the code of the application under test. <br><br>  To test individual pieces of code, you may need to create an additional c / c ++ file - “adapter”, to deal with the naming of overloaded functions (the naming of exported functions is covered in detail in <a href="https://habrahabr.ru/post/150327/">habrahabr.ru/post/150327</a> ) or with functionality having complex dependencies and hard to implement in the "ideology" dll. <br><br><h3>  Necessary software environment </h3><br>  This technique implies the ability to compile individual parts of the program from the command line.  So we need a c / c ++ compiler, and a python interpreter.  For example, I use GCC (for windows - MinGW (MinGw <a href="http://www.mingw.org/">www.mingw.org</a> ), python ( <a href="https://www.python.org/">www.python.org</a> ), well, as a rule, in linux distributions, as a rule, everything you need is set to default). <br><br><h3>  Usage example </h3><br>  To illustrate this technique, I will give the following example: <br>  initial project: <br><br>  file structure: <br><br><pre> + --- Project
+  <section class="page js-page"><h1>Testing C / C ++ Projects with Python</h1><div class="post__text post__text-html js-mediator-article"><h3>  Introduction </h3><br>  The ability to integrate Python and C / C ++ is well known.  Typically, this technique is used to accelerate programs in Python or to tune programs in C / C ++.  I would like to highlight the possibility of using python to test C / C ++ code in the IDE without the support of the test organization system in the IDE.  From my point of view, it is advisable to apply in the field of software development for microcontrollers. <br><br>  You can talk a lot about the need for tests in projects, I assume that tests help me develop the functionality of the program.  And after the completion of the project, after some time, help to understand it and save it from mistakes. <br><br>  When developing programs for microcontrollers, I came across a lack of standard input / output (of course, you can redefine the input and output functions in the simulator, output data via the UART - but often the UART is already involved, and the simulator does not always work correctly) hardware erroneous business logic.  At the development stage, I implemented separate projects, testing parts of the program, and then I was responsible for running all test applications after making changes.  Of course, all this can be automated.  So you can work, but I found a better way. <br><a name="habracut"></a><br><h3>  Method Description </h3><br>  It is possible to use python (namely ctypes) to cover the tests of individual modules of the project in C / C ++.  The essence of the technique is reduced to the creation of isolated parts that implement part of the functionality in the form of dynamically linked libraries (dll), data input and control of the result.  Python is used as a “strapping”.  This technique does not imply a change in the code of the application under test. 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+      To test individual pieces of code, you may need to create an additional c / c ++ file - “adapter”, to deal with the naming of overloaded functions (the naming of exported functions is covered in detail in <a href="https://habrahabr.ru/post/150327/">habrahabr.ru/post/150327</a> ) or with functionality having complex dependencies and hard to implement in the "ideology" dll. <br><br><h3>  Necessary software environment </h3><br>  This technique implies the ability to compile individual parts of the program from the command line.  So we need a c / c ++ compiler, and a python interpreter.  For example, I use GCC (for windows - MinGW (MinGw <a href="http://www.mingw.org/">www.mingw.org</a> ), python ( <a href="https://www.python.org/">www.python.org</a> ), well, as a rule, in linux distributions, as a rule, everything you need is set to default). <br><br><h3>  Usage example </h3><br>  To illustrate this technique, I will give the following example: <br>  initial project: <br><br>  file structure: <br><br><pre> + --- Project
      |  Makefile
      + --- src
          + --- api

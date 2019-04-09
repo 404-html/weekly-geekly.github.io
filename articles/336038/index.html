@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>We could not resist and also made an SDK for messengers: Web, Android and iOS</h1><div class="post__text post__text-html js-mediator-article"><div style="text-align:center;"><img src="https://habrastorage.org/web/406/1ad/d41/4061add41e8c4d968e01bb05c73e99f5.jpg"></div><br>  In general, we are engaged in voice automation in Voximplant.  Taking a call from a cell phone, launching a JavaScript client script — there are a couple of thousand lines of logic to do with this call, including outgoing to web browsers and mobile applications — this is the whole story.  Separate story - video.  Education, telemedicine, meetings.  The same SIP, the same codecs, only data is transmitted a hundred times more.  At the same time, browsers like to hang and fall, when they do not like the package received from the other side of WebRTC SDP, and we wean them off. <br><br>  But, as it turned out, there were few voices and videos for clients: “We don’t want to write the chat ourselves, we’ve already copied everything twice and three Pythonists quit.  Give us a stack of unified communications, so that everything is on one platform, and we are not steamed ”.  And last week we became this very “Unified Communications”.  Now we can put together “Skype for Web” entirely: not only voice and video calls, but also messaging.  Under the cut, I want to show how the messaging we have done works and, I hope, to get feedback from you - how good was the API and did everything possible with it? <br><a name="habracut"></a><br><h2>  How we organized the API </h2><br>  A good API should allow you to quickly build an analogue of Skype / Telegram, answer the question “What will happen if the device logged in a month and there are a million messages?” And have some mechanisms to hide this million messages somewhere when you close the application, and then quickly show.  Plus it would be great if the user could connect from different devices and somehow live with it. <br><br>  Our API is built around “Conversation” objects that collect users and messages in one place.  With the help of Conversation, you can send a message to the user, make a group chat or an analogue of the “channels” in Telegram.  Conversations are created using the <a href="https://voximplant.com/docs/references/websdk/classes/messaging.messenger.html">createConversation</a> method (by the time the SDK method is called, you need to connect to the Voximplant cloud and log in): <br><br><div class="oembed"><script type="text/javascript" src="https://gist.github.com/11a81ab04933be06618029c8731b43b0.js"></script><link rel="stylesheet" href="https://github.githubassets.com/assets/gist-embed-b3b573358bfc66d89e1e95dbf8319c09.css"><div id="gist89666530" class="gist">
+  <section class="page js-page"><h1>We could not resist and also made an SDK for messengers: Web, Android and iOS</h1><div class="post__text post__text-html js-mediator-article"><div style="text-align:center;"><img src="https://habrastorage.org/web/406/1ad/d41/4061add41e8c4d968e01bb05c73e99f5.jpg"></div><br>  In general, we are engaged in voice automation in Voximplant.  Taking a call from a cell phone, launching a JavaScript client script — there are a couple of thousand lines of logic to do with this call, including outgoing to web browsers and mobile applications — this is the whole story.  Separate story - video.  Education, telemedicine, meetings.  The same SIP, the same codecs, only data is transmitted a hundred times more.  At the same time, browsers like to hang and fall, when they do not like the package received from the other side of WebRTC SDP, and we wean them off. <br><br>  But, as it turned out, there were few voices and videos for clients: “We don’t want to write the chat ourselves, we’ve already copied everything twice and three Pythonists quit.  Give us a stack of unified communications, so that everything is on one platform, and we are not steamed ”.  And last week we became this very “Unified Communications”.  Now we can put together “Skype for Web” entirely: not only voice and video calls, but also messaging.  Under the cut, I want to show how the messaging we have done works and, I hope, to get feedback from you - how good was the API and did everything possible with it? <br><a name="habracut"></a><br><h2>  How we organized the API </h2><br>  A good API should allow you to quickly build an analogue of Skype / Telegram, answer the question “What will happen if the device logged in a month and there are a million messages?” And have some mechanisms to hide this million messages somewhere when you close the application, and then quickly show.  Plus it would be great if the user could connect from different devices and somehow live with it. <br><br>  Our API is built around “Conversation” objects that collect users and messages in one place.  With the help of Conversation, you can send a message to the user, make a group chat or an analogue of the “channels” in Telegram.  Conversations are created using the <a href="https://voximplant.com/docs/references/websdk/classes/messaging.messenger.html">createConversation</a> method (by the time the SDK method is called, you need to connect to the Voximplant cloud and log in): 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+    <div class="oembed"><script type="text/javascript" src="https://gist.github.com/11a81ab04933be06618029c8731b43b0.js"></script><link rel="stylesheet" href="https://github.githubassets.com/assets/gist-embed-b3b573358bfc66d89e1e95dbf8319c09.css"><div id="gist89666530" class="gist">
     <div class="gist-file">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">

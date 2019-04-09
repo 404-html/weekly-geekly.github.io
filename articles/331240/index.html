@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Automating file systems with systemd</h1><div class="post__text post__text-html js-mediator-article">  Among the many functions that systemd provides, there is one that is unfairly forgotten.  This is an automount feature.  When setting up an automount, the specified directory will be mounted only after the first access to it (more precisely, right on time). <br><br><h1>  NFS over VPN </h1><br>  A specific example: I have a remote server that has a directory of interest to me.  I want to have this directory locally on my machine.  The access protocol is nfs.  Since  it does not have encryption, then the reasonable solution is to use a vpn channel to the server. <br><br>  At the same time, I want to mount it on the go and unmount it after a while, so as not to experience strange difficulties due to the blunt nfs while the network is down.  The mount timeout is a much more humane error than the nfs timeout on ls. <br><br><h1>  How it works </h1><br>  Systemd has a special form of automount-units, which allow you to automatically mount the specified directory. <br><a name="habracut"></a><br>  Important: automount units are not “mount units with automount”, they cannot have mount options in themselves.  Instead, they (when accessing the directory) just call the mount-unit for the specified directory. <br><br>  Accordingly, with the configuration: <br><br><ul><li>  Mount options, device (or server in case of NFS) are specified in mount-unit </li><li>  Dependencies and install section are specified in automount unit </li><li>  Svzyak automount-unit and mount-unit occurs by the parameter where </li></ul><br>  The same can be seen in the structure of the units themselves.  A mount unit has a [Mount] section in which there can be many parameters.  An automount unit should not have such a section, and instead there is a [Automount] section, which can have only a few parameters: Where, DirectoryMode, and TimeoutIdleSec. <br><br><h1>  Practical example </h1><br>  <code>/etc/systemd/system/media-nfs.mount</code> : <br><pre> [Unit]
+  <section class="page js-page"><h1>Automating file systems with systemd</h1><div class="post__text post__text-html js-mediator-article">  Among the many functions that systemd provides, there is one that is unfairly forgotten.  This is an automount feature.  When setting up an automount, the specified directory will be mounted only after the first access to it (more precisely, right on time). <br><br><h1>  NFS over VPN </h1><br>  A specific example: I have a remote server that has a directory of interest to me.  I want to have this directory locally on my machine.  The access protocol is nfs.  Since  it does not have encryption, then the reasonable solution is to use a vpn channel to the server. <br><br>  At the same time, I want to mount it on the go and unmount it after a while, so as not to experience strange difficulties due to the blunt nfs while the network is down.  The mount timeout is a much more humane error than the nfs timeout on ls. 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+    <h1>  How it works </h1><br>  Systemd has a special form of automount-units, which allow you to automatically mount the specified directory. <br><a name="habracut"></a><br>  Important: automount units are not “mount units with automount”, they cannot have mount options in themselves.  Instead, they (when accessing the directory) just call the mount-unit for the specified directory. <br><br>  Accordingly, with the configuration: <br><br><ul><li>  Mount options, device (or server in case of NFS) are specified in mount-unit </li><li>  Dependencies and install section are specified in automount unit </li><li>  Svzyak automount-unit and mount-unit occurs by the parameter where </li></ul><br>  The same can be seen in the structure of the units themselves.  A mount unit has a [Mount] section in which there can be many parameters.  An automount unit should not have such a section, and instead there is a [Automount] section, which can have only a few parameters: Where, DirectoryMode, and TimeoutIdleSec. <br><br><h1>  Practical example </h1><br>  <code>/etc/systemd/system/media-nfs.mount</code> : <br><pre> [Unit]
  Description = NFS share
  [Mount]
  What = server.url.example.com: / srv / nfs_share

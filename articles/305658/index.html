@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Switching the input language in Windows using CapsLock</h1><div class="post__text post__text-html js-mediator-article">  The method proposed by me is not something unique and / or unknown.  In any of the two search engines, you can easily find a lot of notes on how to configure Windows to switch the input language using any keyboard button, just like in Linux, only slightly more complicated and rebooting.  However, I did not find <i>(here you can correct me and offer a link in the comments) a</i> ready-made instruction that includes such an important point as saving the letter <b>E</b> , as well as the reverse apostrophe with a tilde.  I offer you such instructions. <br><a name="habracut"></a><br><h3>  The essence of the problem </h3><br>  Windows 7 provides the user with the long-awaited ability to switch input languages ​​by the reverse apostrophe: <br><br><img src="https://habrastorage.org/getpro/habr/post_images/659/23a/094/65923a094f703a40dadbdb63fd23644c.png" width="446" height="194" title="Hot keys for input languages.png" alt="Hot keys for input languages.png"><br><br>  It would seem convenient, but no.  Personally, I see the following disadvantages: <br><br><ol><li>  small key </li><li>  on the home Linux machine, however, CapsLock is configured </li><li>  missing the letter E </li><li>  lost tilde and reverse apostrophe </li></ol><br>  For those who, like me, are doomed to go to the develop / production server using PuTTY, the loss of tilde and reverse apostrophe is very sensitive.  I could not stand a month, although it would seem, how easy it is to remember Alt + 126 and Alt + 96.  Need to do something! <br><br><h3>  Change scan codes </h3><br>  The solution for switching layouts by CapsLock is redefining scan codes through the registry.  There are many descriptions of how to do this.  I can offer to read one of them at the link: <a href="http://www.howtogeek.com/howto/windows-vista/disable-caps-lock-key-in-windows-vista/">www.howtogeek.com</a> . <br><br>  The finished result looks like this (file SwitchLangByCaps.reg): <br><br><pre> Windows Registry Editor Version 5.00<font></font>
+  <section class="page js-page"><h1>Switching the input language in Windows using CapsLock</h1><div class="post__text post__text-html js-mediator-article">  The method proposed by me is not something unique and / or unknown.  In any of the two search engines, you can easily find a lot of notes on how to configure Windows to switch the input language using any keyboard button, just like in Linux, only slightly more complicated and rebooting.  However, I did not find <i>(here you can correct me and offer a link in the comments) a</i> ready-made instruction that includes such an important point as saving the letter <b>E</b> , as well as the reverse apostrophe with a tilde.  I offer you such instructions. <br><a name="habracut"></a><br><h3>  The essence of the problem </h3><br>  Windows 7 provides the user with the long-awaited ability to switch input languages ​​by the reverse apostrophe: <br><br><img src="https://habrastorage.org/getpro/habr/post_images/659/23a/094/65923a094f703a40dadbdb63fd23644c.png" width="446" height="194" title="Hot keys for input languages.png" alt="Hot keys for input languages.png"><br><br>  It would seem convenient, but no.  Personally, I see the following disadvantages: 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+    <ol><li>  small key </li><li>  on the home Linux machine, however, CapsLock is configured </li><li>  missing the letter E </li><li>  lost tilde and reverse apostrophe </li></ol><br>  For those who, like me, are doomed to go to the develop / production server using PuTTY, the loss of tilde and reverse apostrophe is very sensitive.  I could not stand a month, although it would seem, how easy it is to remember Alt + 126 and Alt + 96.  Need to do something! <br><br><h3>  Change scan codes </h3><br>  The solution for switching layouts by CapsLock is redefining scan codes through the registry.  There are many descriptions of how to do this.  I can offer to read one of them at the link: <a href="http://www.howtogeek.com/howto/windows-vista/disable-caps-lock-key-in-windows-vista/">www.howtogeek.com</a> . <br><br>  The finished result looks like this (file SwitchLangByCaps.reg): <br><br><pre> Windows Registry Editor Version 5.00<font></font>
 <font></font>
  [HKEY_LOCAL_MACHINE \ SYSTEM \ CurrentControlSet \ Control \ Keyboard Layout]
  "Scancode Map" = hex: 00,00,00,00,00,00,00,00,00,0,00,00,00,29,00,3a, 00,3a, 00,46,00,56,00 , 29,00,00,00,00

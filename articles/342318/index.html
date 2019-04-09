@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>PouchDB or what to do when the “internet is stable”</h1><div class="post__text post__text-html js-mediator-article">  Nowadays, the speed of the WEB-application greatly affects the loyalty of users.  Often you have to transfer some business logic to client code running in the user's browser. <br><br>  In such a situation, it becomes necessary to quickly obtain data related to tasks.  But sometimes the time for their request from the server database is too large, and sometimes the connection to the network is completely unstable or absent.  In this situation, you can resort to storing data locally at the user and synchronize as needed. <br><br><h2>  Acquaintance </h2><br>  PouchDB is a database that works on the basis of existing solutions for storing information in the user's browser.  In fact, it acts as a facade and provides a universal API regardless of the conditions under which the application is launched. <br><br><img src="https://habrastorage.org/getpro/habr/post_images/10b/49b/9c9/10b49b9c96e1cf88d6767b8df397dff5.png" alt="image"><br><br>  Browser versions in which PouchDB works: <br><br><ul><li>  Firefox 29+ (including Firefox OS and Firefox for Android) </li><li>  Chrome 30+ </li><li>  Safari 5+ </li><li>  Internet Explorer 10+ </li><li>  Opera 21+ </li><li>  Android 4.0+ </li><li>  iOS 7.1+ </li><li>  Windows Phone 8+ </li></ul><br>  Since this is a NoSQL database, the terminology is slightly different from the usual relational solutions.  You can see the difference in the correspondence table: <br><br><img src="https://habrastorage.org/getpro/habr/post_images/31e/f51/a8c/31ef51a8cedae48c7b7a2a4694df2afa.png" alt="image"><br><br><a name="habracut"></a><h2>  Base API </h2><br>  To create a database, just run: <br><br><div class="oembed"><script type="text/javascript" src="https://gist.github.com/42d63f588c179bab273a0ee195b7b26e.js"></script><link rel="stylesheet" href="https://github.githubassets.com/assets/gist-embed-b3b573358bfc66d89e1e95dbf8319c09.css"><div id="gist83006136" class="gist">
+  <section class="page js-page"><h1>PouchDB or what to do when the “internet is stable”</h1><div class="post__text post__text-html js-mediator-article">  Nowadays, the speed of the WEB-application greatly affects the loyalty of users.  Often you have to transfer some business logic to client code running in the user's browser. <br><br>  In such a situation, it becomes necessary to quickly obtain data related to tasks.  But sometimes the time for their request from the server database is too large, and sometimes the connection to the network is completely unstable or absent.  In this situation, you can resort to storing data locally at the user and synchronize as needed. <br><br><h2>  Acquaintance </h2><br>  PouchDB is a database that works on the basis of existing solutions for storing information in the user's browser.  In fact, it acts as a facade and provides a universal API regardless of the conditions under which the application is launched. 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+    <img src="https://habrastorage.org/getpro/habr/post_images/10b/49b/9c9/10b49b9c96e1cf88d6767b8df397dff5.png" alt="image"><br><br>  Browser versions in which PouchDB works: <br><br><ul><li>  Firefox 29+ (including Firefox OS and Firefox for Android) </li><li>  Chrome 30+ </li><li>  Safari 5+ </li><li>  Internet Explorer 10+ </li><li>  Opera 21+ </li><li>  Android 4.0+ </li><li>  iOS 7.1+ </li><li>  Windows Phone 8+ </li></ul><br>  Since this is a NoSQL database, the terminology is slightly different from the usual relational solutions.  You can see the difference in the correspondence table: <br><br><img src="https://habrastorage.org/getpro/habr/post_images/31e/f51/a8c/31ef51a8cedae48c7b7a2a4694df2afa.png" alt="image"><br><br><a name="habracut"></a><h2>  Base API </h2><br>  To create a database, just run: <br><br><div class="oembed"><script type="text/javascript" src="https://gist.github.com/42d63f588c179bab273a0ee195b7b26e.js"></script><link rel="stylesheet" href="https://github.githubassets.com/assets/gist-embed-b3b573358bfc66d89e1e95dbf8319c09.css"><div id="gist83006136" class="gist">
     <div class="gist-file">
       <div class="gist-data">
         <div class="js-gist-file-update-container js-task-list-container file-box">

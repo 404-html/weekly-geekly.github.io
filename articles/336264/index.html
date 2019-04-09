@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>One step closer to C ++ 20. Results of the meeting in Toronto</h1><div class="post__text post__text-html js-mediator-article">  A few weeks ago, a meeting of the C ++ International Standardization Committee took place.  On it, people (mostly) have not been exchanged for trifles and have taken several big steps towards C ++ 20. <br><br><img src="https://habrastorage.org/getpro/habr/post_images/f2a/b87/fd5/f2ab87fd5168ea403a192e1bc18aafde.jpg" alt="image"><br><br>  Main news: <br><br><ul><li>  Concepts extension to be in C ++ 20! </li><li>  Ranges, Networking and Coroutines / Coroutines: released to the experiment in the form of TS. </li><li>  Modules: TS draft ready. </li></ul><br>  What does all this mean, how it will simplify writing code, and what else was there - read under the cut. <br><a name="habracut"></a><br><h3>  Concepts </h3><br>  A wonderful thing called Concepts is included in the draft of the future standard C ++ 20.  This is a great joy for developers of generic libraries using the SFINAE idiom. <br><br><div class="spoiler">  <b class="spoiler_title">A motivating example for SFINAE fans</b> <div class="spoiler_text">  Your library has functions `* _fast` and` * _slow`, which accept two template parameters `v` and` data` as input: <br><br><ol><li>  `* _fast` - very optimized, but require the following operations to return T &amp; and to be valid: <br><br><pre><code class="cpp">    v += data;
+  <section class="page js-page"><h1>One step closer to C ++ 20. Results of the meeting in Toronto</h1><div class="post__text post__text-html js-mediator-article">  A few weeks ago, a meeting of the C ++ International Standardization Committee took place.  On it, people (mostly) have not been exchanged for trifles and have taken several big steps towards C ++ 20. <br><br><img src="https://habrastorage.org/getpro/habr/post_images/f2a/b87/fd5/f2ab87fd5168ea403a192e1bc18aafde.jpg" alt="image"><br><br>  Main news: 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+    <ul><li>  Concepts extension to be in C ++ 20! </li><li>  Ranges, Networking and Coroutines / Coroutines: released to the experiment in the form of TS. </li><li>  Modules: TS draft ready. </li></ul><br>  What does all this mean, how it will simplify writing code, and what else was there - read under the cut. <br><a name="habracut"></a><br><h3>  Concepts </h3><br>  A wonderful thing called Concepts is included in the draft of the future standard C ++ 20.  This is a great joy for developers of generic libraries using the SFINAE idiom. <br><br><div class="spoiler">  <b class="spoiler_title">A motivating example for SFINAE fans</b> <div class="spoiler_text">  Your library has functions `* _fast` and` * _slow`, which accept two template parameters `v` and` data` as input: <br><br><ol><li>  `* _fast` - very optimized, but require the following operations to return T &amp; and to be valid: <br><br><pre><code class="cpp">    v += data;
     v -= data;
     v *= data;
     v /= data;

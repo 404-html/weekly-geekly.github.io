@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>One little problem downloading files on slow connections</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/files/f28/0ce/4a4/f280ce4a4a934009a1027f47b8e84a19.png"><br><br>  <i>Note: Once our colleagues in the workshop, specialists from another service to speed up and protect sites, were faced with the fact that some very slow file downloads by users were suddenly cut off.</i>  <i>Below we provide a translation of their story about the problem with our comments.</i> <br><br>  Problem: some users could not download a binary file of several megabytes.  The connection for some reason was broken, although the file was in the process of downloading.  Soon we were convinced that somewhere in our system there was a bug.  It was possible to reproduce the problem simply with a single curl command, but fixing it required an incredible amount of time and effort. <br><a name="habracut"></a><br><h2>  Problem downloads </h2><br>  Two things surprised us in this problem: first, only users of mobile devices were subject to the problem, and second, the file that caused the problems was still quite large - about 30 megabytes. <br><br>  After fruitful work with tcpdump, one of our engineers was able to reproduce the problem.  It turned out that it is enough to put a large file for download on the test domain, and use the <code>--limit rate</code> option in the <code>curl</code> command: <br><blockquote><pre>  $ curl -v http://example.com/large.bin --limit-rate 10k&gt; / dev / null
+  <section class="page js-page"><h1>One little problem downloading files on slow connections</h1><div class="post__text post__text-html js-mediator-article"><img src="https://habrastorage.org/files/f28/0ce/4a4/f280ce4a4a934009a1027f47b8e84a19.png"><br><br>  <i>Note: Once our colleagues in the workshop, specialists from another service to speed up and protect sites, were faced with the fact that some very slow file downloads by users were suddenly cut off.</i>  <i>Below we provide a translation of their story about the problem with our comments.</i> <br><br>  Problem: some users could not download a binary file of several megabytes.  The connection for some reason was broken, although the file was in the process of downloading.  Soon we were convinced that somewhere in our system there was a bug.  It was possible to reproduce the problem simply with a single curl command, but fixing it required an incredible amount of time and effort. <br><a name="habracut"></a><br><h2>  Problem downloads </h2><br>  Two things surprised us in this problem: first, only users of mobile devices were subject to the problem, and second, the file that caused the problems was still quite large - about 30 megabytes. 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+      After fruitful work with tcpdump, one of our engineers was able to reproduce the problem.  It turned out that it is enough to put a large file for download on the test domain, and use the <code>--limit rate</code> option in the <code>curl</code> command: <br><blockquote><pre>  $ curl -v http://example.com/large.bin --limit-rate 10k&gt; / dev / null
  * Closing connection # 0
  curl: (56) Recv failure: Connection reset by peer </pre></blockquote><br>  Picking at tcpdump showed that there was always an RST packet that flew in from our server exactly 60 seconds after the connection was established: <br><br><blockquote><pre>  $ tcpdump -tttttni eth0 port 80
  00:00:00 IP 192.168.1.10.50112&gt; 1.2.3.4.80: Flags [S], seq 3193165162, win 43690, options [mss 65495, sackOK, TS val 143660119 ecr 0, nop, wscale 7], length 0  

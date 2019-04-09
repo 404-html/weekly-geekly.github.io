@@ -23,14 +23,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -59,7 +51,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Centos 7.x USB Install Media (Add Centos to Multiboot)</h1><div class="post__text post__text-html js-mediator-article">  As it used to be cool, you take the CentOS 6.x image, pull pieces out of it, and shove it all onto a USB flash drive, next to other systems. <br><br>  But, starting with Centos 7, it became a bit more difficult to do this, and the only official way was to record the image directly on the media (with the loss of everything that already exists on it). <br>  But, having applied a little ingenuity, I could solve this problem, I ask under the cat: <br><a name="habracut"></a><br>  I think it will work for everyone to pick out the files from the image (mount the image on a loop or you can open it with 7-zip).  Next you need to drop the files on our flash drive (you need to put something in the root, you can cut out a section for this, as it is convenient to whom). <br><br>  Further, a little magic of the kernel command line parameters (look in /isolinux/isolinux.cfg): <br><pre><code class="bash hljs">label linux menu label ^Install CentOS 7 kernel vmlinuz append initrd=initrd.img inst.stage2=hd:LABEL=CentOS\x207\x20x86_64 quiet</code> </pre> <br>  The most interesting parameter for us is: inst.stage2 = hd: LABEL = CentOS \ x207 \ x20x86_64 <br>  It tells boot scripts and installers where to look for packages and other files that are needed for installation.  Here is a link to the section labeled "CentOS 7 x86_64". <br><br>  Then everything is simple, add to the boot menu of our CentOS flash drive, and prescribe the label of the section on which the files from the image were thrown. <br><br>  That's all, just consider the used FS on the flash drive, the installation image (its core), should be familiar with this FS. </div><p>Source: <a href="https://habr.com/ru/post/275751/">https://habr.com/ru/post/275751/</a></p>
+  <section class="page js-page"><h1>Centos 7.x USB Install Media (Add Centos to Multiboot)</h1><div class="post__text post__text-html js-mediator-article">  As it used to be cool, you take the CentOS 6.x image, pull pieces out of it, and shove it all onto a USB flash drive, next to other systems. <br><br>  But, starting with Centos 7, it became a bit more difficult to do this, and the only official way was to record the image directly on the media (with the loss of everything that already exists on it). <br>  But, having applied a little ingenuity, I could solve this problem, I ask under the cat: <br><a name="habracut"></a><br>  I think it will work for everyone to pick out the files from the image (mount the image on a loop or you can open it with 7-zip).  Next you need to drop the files on our flash drive (you need to put something in the root, you can cut out a section for this, as it is convenient to whom). <br><br>  Further, a little magic of the kernel command line parameters (look in /isolinux/isolinux.cfg): <br><pre><code class="bash hljs">label linux menu label ^Install CentOS 7 kernel vmlinuz append initrd=initrd.img inst.stage2=hd:LABEL=CentOS\x207\x20x86_64 quiet</code> </pre> <br>  The most interesting parameter for us is: inst.stage2 = hd: LABEL = CentOS \ x207 \ x20x86_64 <br>  It tells boot scripts and installers where to look for packages and other files that are needed for installation.  Here is a link to the section labeled "CentOS 7 x86_64". 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+      Then everything is simple, add to the boot menu of our CentOS flash drive, and prescribe the label of the section on which the files from the image were thrown. <br><br>  That's all, just consider the used FS on the flash drive, the installation image (its core), should be familiar with this FS. </div><p>Source: <a href="https://habr.com/ru/post/275751/">https://habr.com/ru/post/275751/</a></p>
 <section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">

@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Tasks with interviews (front-end)</h1><div class="post__text post__text-html js-mediator-article">  It so happened that during my career as a front-end developer, I visited many interviews.  The topic of the interview does not lose its relevance, and in the comments, when it comes to interviews, spears begin to break.  I also want to contribute and share the accumulated collection of questions.  I beg. <br><br><img src="https://habrastorage.org/getpro/habr/post_images/ce9/386/ca1/ce9386ca193aeb8d3fe1925ba163af28.jpg" alt="image"><br><a name="habracut"></a><br><h3>  Lyrical digression </h3><br>  I am invited to interviews willingly, I don’t know, the reason for this is a pretty photo in a resume or its content.  If a summary, then to describe the technology used in each current job, I spend two, three hours.  Sometimes I look at others, how they are decorated, and suddenly I will find something useful for myself ... <br><br><h3>  Tasks </h3><br>  To start something easier. <br><br>  1. There is some string (var str = 'fgfggg';), what happens if we take str [0]? <br><br><div class="spoiler">  <b class="spoiler_title">Answer</b> <div class="spoiler_text">  str [0] returns the character of the string, which is at the zero index.  The string in js is immutable, that is, a character can be read from it, but there is no writing. <br></div></div><br>  2. Implement the methods that in the process of executing the line (2) .plus (3) .minus (1) would give at the output 4. <br><br><div class="spoiler">  <b class="spoiler_title">Answer</b> <div class="spoiler_text">  Since we are working with numbers, we need to expand the Number prototype with new methods. <br><br><pre><code class="javascript">Number.prototype.plus = function (value) {
+  <section class="page js-page"><h1>Tasks with interviews (front-end)</h1><div class="post__text post__text-html js-mediator-article">  It so happened that during my career as a front-end developer, I visited many interviews.  The topic of the interview does not lose its relevance, and in the comments, when it comes to interviews, spears begin to break.  I also want to contribute and share the accumulated collection of questions.  I beg. <br><br><img src="https://habrastorage.org/getpro/habr/post_images/ce9/386/ca1/ce9386ca193aeb8d3fe1925ba163af28.jpg" alt="image"><br><a name="habracut"></a><br><h3>  Lyrical digression </h3><br>  I am invited to interviews willingly, I don’t know, the reason for this is a pretty photo in a resume or its content.  If a summary, then to describe the technology used in each current job, I spend two, three hours.  Sometimes I look at others, how they are decorated, and suddenly I will find something useful for myself ... <br><br><h3>  Tasks </h3><br>  To start something easier. 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+      1. There is some string (var str = 'fgfggg';), what happens if we take str [0]? <br><br><div class="spoiler">  <b class="spoiler_title">Answer</b> <div class="spoiler_text">  str [0] returns the character of the string, which is at the zero index.  The string in js is immutable, that is, a character can be read from it, but there is no writing. <br></div></div><br>  2. Implement the methods that in the process of executing the line (2) .plus (3) .minus (1) would give at the output 4. <br><br><div class="spoiler">  <b class="spoiler_title">Answer</b> <div class="spoiler_text">  Since we are working with numbers, we need to expand the Number prototype with new methods. <br><br><pre><code class="javascript">Number.prototype.plus = function (value) {
 	return this + value;
 }
 
