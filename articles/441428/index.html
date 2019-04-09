@@ -21,14 +21,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -57,7 +49,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>PowerShell Basics: Defining the End of a Line with a Specific Character</h1><div class="post__text post__text-html js-mediator-article"><p>  Did you know that you can determine if a string ends with a specific character or starts with it in PowerShell?  Thomas Rayner previously shared on CANITPRO.NET, as it is easy to do with regular expressions (or, more simply, Regex). </p><br><img src="https://habrastorage.org/webt/uf/ag/lv/ufaglvimkozy0ob77alqoq3hxko.png"><a name="habracut"></a><br><br>  Thanks for the translation to our MSP, <a href="https://habrahabr.ru/users/bulanov/">Lev Bulanov</a> . <br><br><p>  Consider the following examples: </p><br><pre><code class="cs hljs"><span class="hljs-string"><span class="hljs-string">'something\' -match '</span></span>\\$<span class="hljs-string"><span class="hljs-string">' #returns true '</span></span>something<span class="hljs-string"><span class="hljs-string">' -match '</span></span>\\$<span class="hljs-string"><span class="hljs-string">' #returns false '</span></span>\something<span class="hljs-string"><span class="hljs-string">' -match '</span></span>^\\<span class="hljs-string"><span class="hljs-string">' #returns true '</span></span>something<span class="hljs-string"><span class="hljs-string">' -match '</span></span>^\\<span class="hljs-string"><span class="hljs-string">' #returns false</span></span></code> </pre> <br>  In the first two examples, the script checks whether the string ends with a backslash.  In the last two examples, the script checks the string to determine if it begins with a slash. <br><br><p>  The regular expression pattern for the first two looks like this "\\ $".  What does it mean?  Well, the first part of \\ means "backslash" (because \ is an escape character, and we basically escape the escape character. The last part of $ is the end of line signal. In fact, we have "nothing at all where the last what stands on the line is backslash, ”and this is exactly what we are looking for. </p><br><p>  In the following two examples, I simply moved \\ to the beginning of the line and started with ^, not $, because ^ is the signal for the beginning of the line. </p><br><p>  Now you can do things like: </p><br><pre> <code class="cs hljs">$dir = <span class="hljs-string"><span class="hljs-string">'c:\temp'</span></span> <span class="hljs-keyword"><span class="hljs-keyword">if</span></span> ($dir -notmatch <span class="hljs-string"><span class="hljs-string">'\\$'</span></span>) { $dir += <span class="hljs-string"><span class="hljs-string">'\' } $dir #returns '</span></span>c:\temp\<span class="hljs-string"><span class="hljs-string">'</span></span></code> </pre> <br>  Here the script checks if the string 'bears' ends with a backslash, and if not, I will add it. </div><p>Source: <a href="https://habr.com/ru/post/441428/">https://habr.com/ru/post/441428/</a></p>
+  <section class="page js-page"><h1>PowerShell Basics: Defining the End of a Line with a Specific Character</h1><div class="post__text post__text-html js-mediator-article"><p>  Did you know that you can determine if a string ends with a specific character or starts with it in PowerShell?  Thomas Rayner previously shared on CANITPRO.NET, as it is easy to do with regular expressions (or, more simply, Regex). </p><br><img src="https://habrastorage.org/webt/uf/ag/lv/ufaglvimkozy0ob77alqoq3hxko.png"><a name="habracut"></a><br><br>  Thanks for the translation to our MSP, <a href="https://habrahabr.ru/users/bulanov/">Lev Bulanov</a> . <br><br><p>  Consider the following examples: </p><br><pre><code class="cs hljs"><span class="hljs-string"><span class="hljs-string">'something\' -match '</span></span>\\$<span class="hljs-string"><span class="hljs-string">' #returns true '</span></span>something<span class="hljs-string"><span class="hljs-string">' -match '</span></span>\\$<span class="hljs-string"><span class="hljs-string">' #returns false '</span></span>\something<span class="hljs-string"><span class="hljs-string">' -match '</span></span>^\\<span class="hljs-string"><span class="hljs-string">' #returns true '</span></span>something<span class="hljs-string"><span class="hljs-string">' -match '</span></span>^\\<span class="hljs-string"><span class="hljs-string">' #returns false</span></span></code> </pre> <br>  In the first two examples, the script checks whether the string ends with a backslash.  In the last two examples, the script checks the string to determine if it begins with a slash. 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+    <p>  The regular expression pattern for the first two looks like this "\\ $".  What does it mean?  Well, the first part of \\ means "backslash" (because \ is an escape character, and we basically escape the escape character. The last part of $ is the end of line signal. In fact, we have "nothing at all where the last what stands on the line is backslash, ”and this is exactly what we are looking for. </p><br><p>  In the following two examples, I simply moved \\ to the beginning of the line and started with ^, not $, because ^ is the signal for the beginning of the line. </p><br><p>  Now you can do things like: </p><br><pre> <code class="cs hljs">$dir = <span class="hljs-string"><span class="hljs-string">'c:\temp'</span></span> <span class="hljs-keyword"><span class="hljs-keyword">if</span></span> ($dir -notmatch <span class="hljs-string"><span class="hljs-string">'\\$'</span></span>) { $dir += <span class="hljs-string"><span class="hljs-string">'\' } $dir #returns '</span></span>c:\temp\<span class="hljs-string"><span class="hljs-string">'</span></span></code> </pre> <br>  Here the script checks if the string 'bears' ends with a backslash, and if not, I will add it. </div><p>Source: <a href="https://habr.com/ru/post/441428/">https://habr.com/ru/post/441428/</a></p>
 <section class="more-articles-navigation-panel js-more-articles-navigation-panel">
 <h4>More articles:</h4>
 <nav class="list-of-articles-container js-list-of-articles-container"><ul class="list-of-pages js-list-of-pages">
