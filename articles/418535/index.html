@@ -25,14 +25,6 @@
 
   <link rel="stylesheet" href="../../css/main.css">
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6974184241884155",
-      enable_page_level_ads: true
-    });
-  </script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendors/jquery-3.3.1.min.js"><\/script>')</script>
 
@@ -61,7 +53,20 @@
     <a class="js-go-to-bottom-button" href="#" title="Go to Bottom">⬇️</a>
   </div>
   <a href="http://bit.ly/donateToWeeklyGeekly" class="donate-btn">DONATE</a>
-  <section class="page js-page"><h1>Why Telegram Passport is No End to End</h1><div class="post__text post__text-html js-mediator-article">  Hi% username%! <br><br><img src="https://habrastorage.org/webt/vt/ea/zu/vteazuuffjtaqjm0o__gaoxl1mm.png"><br><br>  In the discussion of the <a href="https://habr.com/company/crossover/blog/418415/">news</a> about Passport, there were heated discussions on the topic of security of the latest crafts from Telegram authors. <br><br>  Let's see how he encrypts your personal data and talk about the real end-to-end. <br><a name="habracut"></a><br>  In a nutshell, how Passport works. <br><br><ul><li>  You locally use a password to encrypt your personal data (name, email, scan of passport, other documents). </li><li>  Encrypted data + meta information is uploaded to the Telegram cloud. </li><li>  When you need to log in to the service, the client downloads the data from the cloud, decrypts it with a password, re-encrypts the public key of the service that requested the information, and sends it. </li></ul><br>  We consider the first part, which concerns the encryption and storage of personal data. <br><br>  End to End, according to the developers, is that the Telegram cloud allegedly cannot decipher your personal data, but sees only “random noise”. <br><br>  Let's take a closer look at the code of the encryption algorithm for personal data from the desktop client, which is <a href="">here</a> and see if the result of its work satisfies the End-To-End criteria. <br><br>  It all starts with a password.  Here is the place where it turns into an intermediate encryption key. <br><br><pre><code class="cpp">bytes::vector CountPasswordHashForSecret(
+  <section class="page js-page"><h1>Why Telegram Passport is No End to End</h1><div class="post__text post__text-html js-mediator-article">  Hi% username%! <br><br><img src="https://habrastorage.org/webt/vt/ea/zu/vteazuuffjtaqjm0o__gaoxl1mm.png"><br><br>  In the discussion of the <a href="https://habr.com/company/crossover/blog/418415/">news</a> about Passport, there were heated discussions on the topic of security of the latest crafts from Telegram authors. 
+      <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-6974184241884155"
+          data-ad-slot="8945601208"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      <br>
+      Let's see how he encrypts your personal data and talk about the real end-to-end. <br><a name="habracut"></a><br>  In a nutshell, how Passport works. <br><br><ul><li>  You locally use a password to encrypt your personal data (name, email, scan of passport, other documents). </li><li>  Encrypted data + meta information is uploaded to the Telegram cloud. </li><li>  When you need to log in to the service, the client downloads the data from the cloud, decrypts it with a password, re-encrypts the public key of the service that requested the information, and sends it. </li></ul><br>  We consider the first part, which concerns the encryption and storage of personal data. <br><br>  End to End, according to the developers, is that the Telegram cloud allegedly cannot decipher your personal data, but sees only “random noise”. <br><br>  Let's take a closer look at the code of the encryption algorithm for personal data from the desktop client, which is <a href="">here</a> and see if the result of its work satisfies the End-To-End criteria. <br><br>  It all starts with a password.  Here is the place where it turns into an intermediate encryption key. <br><br><pre><code class="cpp">bytes::vector CountPasswordHashForSecret(
 		bytes::const_span salt,
 		bytes::const_span password) {
 	return openssl::Sha512(bytes::concatenate(
