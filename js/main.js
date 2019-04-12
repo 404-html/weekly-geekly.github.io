@@ -146,7 +146,7 @@ $(function() {
 		}
 	];
 
-	const donateButtonText = 'Need 1$';
+	const donateButtonText = 'Let me win!';
 	const donateButtonBgColor = '#2196f3';
 	const donateButtonTextColor = 'white';
 
